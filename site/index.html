@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Code World Model papers organized with World Models Taxonomy V2: one primary research area and multi-select auxiliary tags across eight dimensions.">
+  <meta name="description" content="Browse Code World Model papers using 22 flat topics, including General World Model, Memory, Real-Time, and Acceleration. Select several topics to find their intersection.">
   <meta name="theme-color" content="#f8f9fa">
   <title>Awesome Code World Model</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -17,7 +17,7 @@
   <main class="container">
     <header class="page-header">
       <h1><img src="icon.svg" width="42" height="42" alt="">Awesome Code World Model</h1>
-      <p>A curated collection of Code World Model papers, organized by research direction.</p>
+      <p>A curated collection of Code World Model papers. Select topics to explore their intersection.</p>
     </header>
     <aside class="month-timeline" aria-labelledby="month-heading">
       <h2 id="month-heading">Month</h2>
@@ -25,12 +25,10 @@
     </aside>
     <section class="toolbar" aria-label="Search and filter papers">
       <label class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search papers by title or author</span><input id="search" type="search" placeholder="Search papers by title or author…" autocomplete="off"></label>
-      <div class="badge-filters" role="group" aria-label="Paper badges"><span class="filter-label">Tags</span><button data-badge="all" aria-pressed="true">All</button><button data-badge="classic" aria-pressed="false">🌟 Classic</button><button data-badge="available" aria-pressed="false">✅ Public resources</button><button data-badge="not_found" aria-pressed="false">No resources found</button></div>
-      <div class="area-filters" role="radiogroup" aria-label="Primary research area" aria-describedby="filter-help"><span class="filter-label">Research area</span><div id="area-options"></div></div>
-      <div class="direction-filter"><label for="direction">Direction</label><select id="direction"><option value="all">All directions</option></select></div>
-      <details id="auxiliary-filters" class="auxiliary-filters"><summary>Auxiliary tags <span id="tag-selection-count">Optional · select one or more</span></summary><div id="auxiliary-options"></div><div class="auxiliary-footer"><span>Tags are combined with AND.</span><button id="clear-tags">Clear tags</button></div></details>
-      <div id="selected-tags" aria-label="Selected auxiliary tags"></div>
-      <p class="filter-help" id="filter-help">World Models Taxonomy V2 · Select one research area, then combine auxiliary tags.</p>
+      <div class="badge-filters" role="group" aria-label="Paper badges"><span class="filter-label">Resources</span><button data-badge="all" aria-pressed="true">All</button><button data-badge="classic" aria-pressed="false">🌟 Classic</button><button data-badge="available" aria-pressed="false">✅ Public resources</button><button data-badge="not_found" aria-pressed="false">No resources found</button></div>
+      <div class="topic-filters" role="group" aria-label="Research topics" aria-describedby="filter-help"><span class="filter-label">Topics</span><button id="all-topics" aria-pressed="true">All</button><div id="topic-options"></div></div>
+      <div id="selected-topics" aria-label="Selected topics"></div>
+      <p class="filter-help" id="filter-help">Select multiple topics to match all of them. Click again to deselect. Counts show all papers in each topic.</p>
     </section>
     <div class="list-status"><p id="result-count" role="status" aria-live="polite"></p><button id="clear">Clear filters</button></div>
     <section id="paper-list" class="paper-list" aria-label="Matching papers"><p class="loading">Loading papers…</p></section>

@@ -1,0 +1,1351 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Per-paper topic review — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>Per-paper Topic Review</h1>
+<p>Every record was individually checked against the primary sources linked below. README placement is an editorial choice based on the main contribution; website topics overlap. Reading scope is stated per source. No independent reproduction is claimed.</p>
+<p>The topic vocabulary is defined in <a href="taxonomy.html">the topic guide</a>. Reasons and source links are also available in <code>data/papers.json</code>.</p>
+<h2>SolarRenderer</h2>
+<ul>
+<li><strong>Record:</strong> <code>solarrenderer</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Acceleration</li>
+<li><strong>Website:</strong> Neural Rendering, Acceleration, Real-Time, Streaming, Post-Training, Dataset</li>
+<li><strong>Placement reason:</strong> The main contribution is efficient reference rendering; it does not supply the world&#x27;s transition dynamics.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Neural Rendering:</strong> Converts engine or simulator structure into realistic video through a structure-conditioned generative renderer.</li>
+<li><strong>Acceleration:</strong> Four-step structure-guided distribution matching reports a 12.3-fold speedup over fifty-step sampling.</li>
+<li><strong>Real-Time:</strong> Section 3.4 reports up to 28 FPS for the causal 768p renderer with a streaming decoder.</li>
+<li><strong>Streaming:</strong> Block-causal generation outputs each block immediately and updates a bounded history cache.</li>
+<li><strong>Post-Training:</strong> Separate control and acceleration LoRAs adapt and distill a pretrained frozen video backbone.</li>
+<li><strong>Dataset:</strong> Contributes a frame-aligned corpus of 136K clips and links its dataset release.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.28630">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.28630v1">Source 2</a> — <code>full_text</code>. Read sections 3.3–3.4, data construction, implementation and throughput evidence.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The 28 FPS claim concerns the causal renderer; it is not an end-to-end user-input latency measurement. Hardware was not specified beside that claim in the read section.</li>
+</ul>
+<h2>NeoWorld-3</h2>
+<ul>
+<li><strong>Record:</strong> <code>neoworld-3</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Reconstruction</li>
+<li><strong>Website:</strong> World Reconstruction, Physics, Interactive</li>
+<li><strong>Placement reason:</strong> The central task is recovering operational physical worlds from observations, with interaction readiness beyond visual resemblance.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Reconstruction:</strong> Recovers articulated objects and compositional 3D scenes from visual observations as tunable programs.</li>
+<li><strong>Physics:</strong> The reconstruction engine includes differentiable parameter refinement and physical validation for simulation-ready twins.</li>
+<li><strong>Interactive:</strong> The resulting worlds support physical manipulation, validated by zero-shot transfer of trajectories to a real dual-arm robot.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.27690">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>Matrix-Game 4.0</h2>
+<ul>
+<li><strong>Record:</strong> <code>matrix-game-4</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> General World Model</li>
+<li><strong>Website:</strong> General World Model, Interactive, Memory, Real-Time, Acceleration, Streaming, Action Control, World Generation, World Editing, Neural Rendering, Post-Training</li>
+<li><strong>Placement reason:</strong> README placement emphasizes the integrated playable-world system; website topics expose its substantive control, memory and rendering components.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Integrates a persistent game engine, a coding agent and a neural renderer into a complete playable-world framework.</li>
+<li><strong>Interactive:</strong> Player inputs change engine state and rules before updated observations are displayed.</li>
+<li><strong>Memory:</strong> Uses persistent engine state and retrieved spatial-memory reference frames to preserve revisited scenes.</li>
+<li><strong>Real-Time:</strong> Reports 480p 60 FPS gameplay and 112 ms key-to-display latency on one RTX 5090.</li>
+<li><strong>Acceleration:</strong> Few-step distillation, fused kernels and inference optimizations reduce rendering cost.</li>
+<li><strong>Streaming:</strong> A causal renderer emits four-frame chunks while retaining a bounded clean-history cache.</li>
+<li><strong>Action Control:</strong> Keyboard actions drive the demonstrated shooter and driving games.</li>
+<li><strong>World Generation:</strong> A coding agent creates scenes and gameplay from player requests.</li>
+<li><strong>World Editing:</strong> Natural-language requests modify existing scenes and game mechanics.</li>
+<li><strong>Neural Rendering:</strong> Renders engine low-poly proxies as detailed visual observations.</li>
+<li><strong>Post-Training:</strong> Fine-tunes a pretrained video model and performs staged causal consistency and distribution-matching distillation.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.27999">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.27999v1">Source 2</a> — <code>full_text</code>. Read roadmap, sections 4–5, memory conditioning and evaluation; training uses one model per game.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>General World Model denotes an integrated framework, not universal zero-shot gameplay: section 4.2 trains one renderer per game.</li>
+<li>No Long Video Generation tag: sustained gameplay is motivated, but a distinct long-duration video evaluation was not found in the read sections.</li>
+</ul>
+<h2>CEGame-Bench</h2>
+<ul>
+<li><strong>Record:</strong> <code>cegame-bench</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Generation, Interactive</li>
+<li><strong>Placement reason:</strong> This is a benchmark of executable playable-world creation, rather than a general world model or long-video method.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces complete-game creation tasks and hidden real-input evaluators across five production game engines.</li>
+<li><strong>World Generation:</strong> Agents must construct complete games from empty projects and design documents.</li>
+<li><strong>Interactive:</strong> The central acceptance criterion is actual playable behavior, completion and saved-world return under real player inputs.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.26098">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>Physical System Models in Modelica</h2>
+<ul>
+<li><strong>Record:</strong> <code>modelica-agents</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Evaluation</li>
+<li><strong>Website:</strong> Evaluation, Physics, World Reconstruction</li>
+<li><strong>Placement reason:</strong> The principal scientific contribution is the analysis of model acceptance, non-identifiability and interpretability, so README placement is Evaluation.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Evaluation:</strong> Studies what behavioral acceptance, physical invariants and expert inspection certify about agent-produced physical models.</li>
+<li><strong>Physics:</strong> Uses Modelica physical systems and an energy-balance check that rejects an energy-creating fitted model.</li>
+<li><strong>World Reconstruction:</strong> Agents identify and calibrate executable device models from descriptions and measured responses.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.25019">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.25019v1">Source 2</a> — <code>full_text</code>. Read introduction, task/protocol, discussion and section 7: fitting measurements does not certify structure, physics or adaptability.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>This is an empirical calibration and acceptance study, not a newly introduced standardized public benchmark.</li>
+</ul>
+<h2>Mallea</h2>
+<ul>
+<li><strong>Record:</strong> <code>mallea</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Memory</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, World Generation, World Editing, Neural Rendering, Action Control</li>
+<li><strong>Placement reason:</strong> Object-aware appearance memory is a distinctive research focus and provides the single README home; the website also records construction and editing.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Combines world construction, executable transitions, intervention and generative observations in one object-centered framework.</li>
+<li><strong>Memory:</strong> Introduces object texture memory indexed by persistent identities and validated against appearance-related state.</li>
+<li><strong>Interactive:</strong> Optional user actions steer the running world and text requests intervene during execution.</li>
+<li><strong>World Generation:</strong> A coding agent constructs object representations, attributes and behavior rules from text.</li>
+<li><strong>World Editing:</strong> Runtime edits extend fields and rules while preserving unrelated state and object identities.</li>
+<li><strong>Neural Rendering:</strong> A generative renderer combines current geometry with state-compatible remembered appearance.</li>
+<li><strong>Action Control:</strong> The transition formulation accepts user actions that change the executable world alongside textual edits.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.21283">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.21283v1">Source 2</a> — <code>full_text</code>. Read sections 3.1–3.4, qualitative results and conclusion; object texture validity and runtime revision checks are specified.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Only qualitative examples are currently presented; memory ablations and long-horizon revisit benchmarks are announced for later release.</li>
+<li>No Real-Time or Long Video Generation tag: the read paper does not establish measured real-time performance or a demonstrated long-duration video result.</li>
+</ul>
+<h2>3DCodeVerse</h2>
+<ul>
+<li><strong>Record:</strong> <code>3dcodeverse</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Dataset</li>
+<li><strong>Website:</strong> Dataset, World Generation, Post-Training</li>
+<li><strong>Placement reason:</strong> The large 3D-code corpus is the most useful unique README placement; harness generation and post-training are additional substantial contributions.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Dataset:</strong> Introduces a large packaged corpus of executable 3D programs with conditions, assets and verification records.</li>
+<li><strong>World Generation:</strong> Its harness creates and refines objects, articulated assets, scenes and graphics through 3D code.</li>
+<li><strong>Post-Training:</strong> Studies LoRA supervised fine-tuning and execution/geometry preference optimization on the curated corpus.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.22341">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.22341v1">Source 2</a> — <code>full_text</code>. Read dataset structure, section 5.2 and appendix post-training results, distinguishing programs from condition–code pair counts.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The harness uses several coding agents; that does not warrant Multi-Agent, which is reserved for agents interacting inside a simulated world.</li>
+<li>No separate Benchmark tag: 3DCodeBench is a held-out evaluation suite and a separate catalog paper, rather than the main contribution here.</li>
+</ul>
+<h2>BlenderWorld</h2>
+<ul>
+<li><strong>Record:</strong> <code>blenderworld</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Generation, World Reconstruction, World Editing</li>
+<li><strong>Placement reason:</strong> The contribution is a reference-driven 3D creation benchmark spanning creation, reconstruction and modification.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Provides 223 realistic 3D production briefs and 2,651 binary rubrics with a unified artifact evaluation protocol.</li>
+<li><strong>World Generation:</strong> Includes reference-based design of new 3D objects, layouts and scenes.</li>
+<li><strong>World Reconstruction:</strong> Tasks require structural reproduction of image, video and other real-world references.</li>
+<li><strong>World Editing:</strong> Explicitly covers modification of 3D content as well as reconstruction and reference-based design.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.23986">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.23986v1">Source 2</a> — <code>full_text</code>. Read task coverage and benchmark construction; section 2 explicitly lists reconstruction, modification and reference-based design.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Interactive and parametric evaluation is listed as future work; do not tag Interactive solely because the deliverables are editable Blender files.</li>
+</ul>
+<h2>RoboSimStudio</h2>
+<ul>
+<li><strong>Record:</strong> <code>robosimstudio</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Reconstruction</li>
+<li><strong>Website:</strong> World Reconstruction, Physics, Interactive, World Editing</li>
+<li><strong>Placement reason:</strong> The central workflow is interactive physical Real2Sim calibration, rather than general-purpose scene generation.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Reconstruction:</strong> Refines robot-manipulation simulations until their behavior matches observed real-world demonstrations.</li>
+<li><strong>Physics:</strong> Exposes and couples contact models, solver choices, stiffness, friction and deformable-body dynamics.</li>
+<li><strong>Interactive:</strong> Humans directly manipulate simulations and receive visual or force feedback within the Real2Sim loop.</li>
+<li><strong>World Editing:</strong> A shared scene representation allows humans and coding agents to change solvers, contacts, materials and layouts.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.18835">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.18835v2">Source 2</a> — <code>full_text</code>. Read sections 1, 3 and case studies: scene-level physics choices remain explicit and editable without rewriting the task.</li>
+</ul>
+<h2>Code2Worlds-2</h2>
+<ul>
+<li><strong>Record:</strong> <code>code2worlds-2</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics, Interactive, Benchmark</li>
+<li><strong>Placement reason:</strong> The main method creates simulation-ready worlds, so its unique README home remains World Generation; the new state-based SimCode4D protocol also warrants a website Benchmark topic.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Turns text-generated 4D scenes into MuJoCo-loadable embodied simulation environments.</li>
+<li><strong>Physics:</strong> Adds collision geometry, physical attributes, contact dynamics and simulator-driven refinement.</li>
+<li><strong>Interactive:</strong> Targets robot-interactable scenes and verifies reachability, contacts and articulated interaction readiness.</li>
+<li><strong>Benchmark:</strong> Introduces SimCode4D as a stated contribution: five task templates, a frozen 15-case suite, typed state predicates and evaluator-owned simulator probes (section IV).</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.17651">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.17651v1#S4">Source 2</a> — <code>full_text</code>. Read introduction contributions and section IV-A?IV-C: SimCode4D specifies frozen cases, input/output contracts, build gates, physical admissibility and task-completion checks.</li>
+</ul>
+<h2>PhysCodeGym</h2>
+<ul>
+<li><strong>Record:</strong> <code>physcodegym</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Reconstruction, Physics</li>
+<li><strong>Placement reason:</strong> The benchmark evaluates whether observation-matching reconstructed programs remain physically reliable under intervention.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces 156 video-to-simulation tasks and six visual and physical reconstruction metrics.</li>
+<li><strong>World Reconstruction:</strong> Agents recover dynamic scenes as executable Blender programs from observed videos.</li>
+<li><strong>Physics:</strong> Program inspection, measurements and counterfactual interventions test contact, support and other physical consistency.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.17288">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>PhySimCode</h2>
+<ul>
+<li><strong>Record:</strong> <code>physimcode</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, Dataset, World Reconstruction, Physics</li>
+<li><strong>Placement reason:</strong> This is a benchmark and paired physical-simulation data resource, not a new universal simulation model.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Defines physics-video-to-code evaluation covering laws, parameters, simulation equivalence and executability.</li>
+<li><strong>Dataset:</strong> Provides aligned simulation programs, physical parameters and videos; the public evaluation release has 2,430 videos.</li>
+<li><strong>World Reconstruction:</strong> Models infer governing dynamics and parameters from a raw video to reproduce it with runnable simulations.</li>
+<li><strong>Physics:</strong> Targets quantitative laws and parameters across 162 physical phenomena.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.15722">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The paper&#x27;s 160.6K generated samples and public 2,430-video evaluation release are different resource scopes; do not present the larger count as the linked public release.</li>
+</ul>
+<h2>ANTE</h2>
+<ul>
+<li><strong>Record:</strong> <code>ante</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Post-Training</li>
+<li><strong>Website:</strong> Post-Training, Code Execution, Planning, Agent Learning</li>
+<li><strong>Placement reason:</strong> The main methodological contribution is training a policy and its internal execution world model together.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Post-Training:</strong> Supervised belief training and belief-anchored reinforcement learning teach a coding policy to predict before acting.</li>
+<li><strong>Code Execution:</strong> Predicts tool and test outcomes before software actions and verifies those forecasts through real execution.</li>
+<li><strong>Planning:</strong> At inference, ANTE-TTO ranks alternative actions using their predicted outcomes and executes the selected candidate.</li>
+<li><strong>Agent Learning:</strong> Uses the learned world-model forecasts to supply per-step credit and improve the coding agent&#x27;s policy.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.15368">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.15368v1">Source 2</a> — <code>full_text</code>. Read sections 3.1–3.4 and 4.4: the foresight mechanism ranks candidates rather than executing all alternatives.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Planning here means forecast-based action selection, not a claim of multi-step tree search.</li>
+<li>No Memory tag: a belief state is used, but explicit long-term memory is not the studied mechanism.</li>
+</ul>
+<h2>ExeWorldBench</h2>
+<ul>
+<li><strong>Record:</strong> <code>exeworldbench</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, Physics, World Reconstruction, World Generation</li>
+<li><strong>Placement reason:</strong> The primary contribution is evaluating physically executable world construction across reconstruction and synthesis settings.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces mechanism, composition and intent-driven executable-world tasks with a unified evaluation.</li>
+<li><strong>Physics:</strong> Evaluates mechanical and causal realization through functioning physical interactions.</li>
+<li><strong>World Reconstruction:</strong> Mechanism and compositional tasks turn visually observed mechanisms into executable 3D systems.</li>
+<li><strong>World Generation:</strong> Intent-driven synthesis tasks construct new executable worlds from goals and physical requirements.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.15166">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>AgentGarten</h2>
+<ul>
+<li><strong>Record:</strong> <code>agentgarten</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Agent Learning</li>
+<li><strong>Website:</strong> Agent Learning, General World Model, Interactive, Real-Time, Acceleration, Streaming, Long Video Generation, Multi-Agent, Action Control, Neural Rendering, Post-Training</li>
+<li><strong>Placement reason:</strong> README placement follows the paper&#x27;s agent-learning objective while the website exposes its integrated rendering and interaction contributions.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Agent Learning:</strong> Agents improve through repeated interaction and inherited playbooks across diverse code worlds.</li>
+<li><strong>General World Model:</strong> A common framework integrates program-controlled simulator state, observation rendering and agent interaction across environments.</li>
+<li><strong>Interactive:</strong> Agents and users act on code worlds and observe the resulting neural-rendered state changes.</li>
+<li><strong>Real-Time:</strong> Reports over 35 FPS at 480×832 on one H100, including condition encoding, four-step generation, decoding and host transfer.</li>
+<li><strong>Acceleration:</strong> Uses few-step distillation, custom Triton kernels, CUDA graphs and a tiny decoder.</li>
+<li><strong>Streaming:</strong> Processes incoming blocks with a bounded KV cache and streams decoded observations.</li>
+<li><strong>Long Video Generation:</strong> Adversarial Forcing specifically limits visual degradation in long video rollouts; section 4.1 compares 30-second generations.</li>
+<li><strong>Multi-Agent:</strong> Evaluates hider–seeker, shared-state racing, bridge coordination and herding with multiple agents inside a world.</li>
+<li><strong>Action Control:</strong> Keyboard, mouse, gamepad or movement/action programs advance the simulated environment.</li>
+<li><strong>Neural Rendering:</strong> A shared geometry-conditioned renderer maps different simulation backends to visual observations.</li>
+<li><strong>Post-Training:</strong> Adapts a pretrained video model and introduces Adversarial Forcing distillation.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.12374">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2610.12374v2">Source 2</a> — <code>full_text</code>. Read sections 2–5, especially streaming, throughput, 30-second visual rollouts and world-internal multi-agent experiments.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The learning comparison uses pretrained agents and written playbooks; its rounds are not directly comparable to tabula-rasa RL episodes.</li>
+<li>The reported FPS is generation throughput, not a measured key-to-display latency.</li>
+</ul>
+<h2>WorldSolver</h2>
+<ul>
+<li><strong>Record:</strong> <code>worldsolver</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, Physics</li>
+<li><strong>Placement reason:</strong> The task is implementing simulation solvers inside fixed scaffolds, so Physics is substantive but full-world generation is not assumed.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Provides 168 solver-generation tasks drawn from 61 graphics papers across seven physical domains.</li>
+<li><strong>Physics:</strong> Requires executable numerical solvers to reproduce physically plausible dynamic phenomena.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.08720">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>Video2World</h2>
+<ul>
+<li><strong>Record:</strong> <code>video2world</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Reconstruction, Physics, Interactive</li>
+<li><strong>Placement reason:</strong> The benchmark&#x27;s main distinction is operational video-to-simulation reconstruction, including executable interaction rather than appearance alone.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces 222 reconstruction instances from embodied videos and evaluates nine coding-agent systems.</li>
+<li><strong>World Reconstruction:</strong> Agents reconstruct observed environments and robot behavior as executable simulations.</li>
+<li><strong>Physics:</strong> Dynamic fidelity and physical reasoning are explicit evaluation targets alongside geometric fidelity.</li>
+<li><strong>Interactive:</strong> Functional correctness tests whether reconstructed worlds support the intended embodied interaction.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.04432">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>4DCodeBench</h2>
+<ul>
+<li><strong>Record:</strong> <code>4dcodebench</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Reconstruction, Physics</li>
+<li><strong>Placement reason:</strong> The study measures dynamic reconstruction capabilities; it does not propose a long-video generator.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Defines inverse-graphics evaluation of dynamic scenes through generated executable graphics programs.</li>
+<li><strong>World Reconstruction:</strong> Agents infer scene structure and temporal dynamics from real or synthetic reference videos.</li>
+<li><strong>Physics:</strong> Tasks span physical behaviors such as deformation, fluid flow and fracture.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.03715">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<h2>IGMWorld / IGMBench</h2>
+<ul>
+<li><strong>Record:</strong> <code>igmworld</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Editing</li>
+<li><strong>Placement reason:</strong> IGMBench&#x27;s central research question is the reliability of behavioral world edits rather than new-world generation or action-control design.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces 110 game-modding tasks with executable state, behavioral, preservation and visual criteria.</li>
+<li><strong>World Editing:</strong> Studies edits to existing worlds at property, entity, dynamics and system depth while preserving unaffected properties.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.02331">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The source explicitly distinguishes world editing from world interaction; playing an existing game does not by itself justify an Interactive tag.</li>
+</ul>
+<h2>Physis-Lang</h2>
+<ul>
+<li><strong>Record:</strong> <code>physis-lang</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Physics</li>
+<li><strong>Website:</strong> Physics, Post-Training, Benchmark</li>
+<li><strong>Placement reason:</strong> Its main contribution is physical reasoning language and training for video models; it is a comparison work rather than an executable-world program method.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Physics:</strong> Optimizes language representations of physical entities, causes, laws and temporal processes to improve physical video plausibility.</li>
+<li><strong>Post-Training:</strong> Uses language-guided data curation and supervised fine-tuning of Wan and Cosmos backbones.</li>
+<li><strong>Benchmark:</strong> Introduces PhysCapBench as a stated contribution, with 246 videos, 3,794 human-verified assertions, and physical-caption precision/recall/F1 protocols (sections 4.1?4.2).</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.40358">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
+<li><a href="https://arxiv.org/html/2609.40358v1">Source 2</a> — <code>full_text</code>. Read introduction contributions, sections 4.1?4.2, appendix B.1 and section 5.4.3: new PhysCapBench task/annotations/protocol and prompting versus fine-tuning.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The method does not synthesize executable world code.</li>
+</ul>
+<h2>Text2Sim</h2>
+<ul>
+<li><strong>Record:</strong> <code>text2sim</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics</li>
+<li><strong>Placement reason:</strong> The main contribution is authoring runnable physical simulations from language, rather than a general visual world model or a benchmark resource.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> The pipeline turns text requests into complete executable cases including assets, layout, controls, and rendering.</li>
+<li><strong>Physics:</strong> Physics expertise and execution-based repair are evaluated across rigid, articulated, deformable, and cloth phenomena.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.36593">Source 1</a> — <code>primary_abstract</code>. Read the current v2 author abstract online; title and identifier match.</li>
+<li><a href="https://arxiv.org/html/2609.36593v2">Source 2</a> — <code>full_text</code>. Read design goals and editable-output/application passages. Debug Cards distill reusable experience, not model weights.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Dataset construction is an application and the abstract promises releases; no Dataset or Post-Training tag is inferred from these statements.</li>
+</ul>
+<h2>Code4Scene</h2>
+<ul>
+<li><strong>Record:</strong> <code>code4scene</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Generation, World Editing, Physics</li>
+<li><strong>Placement reason:</strong> Its principal contribution is a controlled scene construction/editing benchmark and evaluation protocol.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces 190 Unreal Engine cases and compares 14 coding-agent configurations under a shared execution interface.</li>
+<li><strong>World Generation:</strong> The construction setting tests creating whole scenes from open-ended language specifications.</li>
+<li><strong>World Editing:</strong> The editing setting requires recovering target state while preserving unrelated scene content.</li>
+<li><strong>Physics:</strong> Engine-native static physical validity, including spatial defects hidden by plausible renders, is a named evaluation axis.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.36777">Source 1</a> — <code>primary_abstract</code>. Read the author abstract online; matches the catalog identity.</li>
+</ul>
+<h2>GPUPhysBench</h2>
+<ul>
+<li><strong>Record:</strong> <code>gpuphysbench</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, Physics, Acceleration</li>
+<li><strong>Placement reason:</strong> A dedicated GPU simulation benchmark makes both physical correctness and runtime optimization central.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces 50 tasks, fixed agent time budgets, and expert reference implementations.</li>
+<li><strong>Physics:</strong> Tasks cover fluid, deformable-solid, and granular simulation operators and complete simulators.</li>
+<li><strong>Acceleration:</strong> Agents optimize GPU implementations, and runtime relative to expert code is a central reported outcome.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.35639">Source 1</a> — <code>primary_abstract</code>. Read the author abstract online, including numerical-correctness and runtime comparisons.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Efficient GPU code is not sufficient evidence of real-time end-to-end operation; Real-Time is omitted.</li>
+</ul>
+<h2>WorldAgent</h2>
+<ul>
+<li><strong>Record:</strong> <code>worldagent</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics, Benchmark</li>
+<li><strong>Placement reason:</strong> The method&#x27;s central output is a verified physical world constructed from a natural-language request.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> A world-construction layer expands one prompt into specifications, geometry, and executable simulation steps.</li>
+<li><strong>Physics:</strong> Verification checks numerical simulation states and implicit physical constraints, then revises failing construction steps.</li>
+<li><strong>Benchmark:</strong> Introduces AgenticSimBench: 13 compositional physical-world prompts with seven physical, shot, content, and visual metrics, formally defined in Appendix C.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.33208">Source 1</a> — <code>primary_abstract</code>. Read the author abstract online, including construction/verification responsibilities and AgenticSimBench.</li>
+<li><a href="https://arxiv.org/html/2609.33208v1">Source 2</a> — <code>full_text</code>. Read contributions and section 4.2: AgenticSimBench is newly constructed, with explicit task scope and seven scoring metrics.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Benchmark is an additional website relationship; the README retains World Generation as the dominant method contribution.</li>
+</ul>
+<h2>GameDirector</h2>
+<ul>
+<li><strong>Record:</strong> <code>game-director</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> General World Model</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, Real-Time, Streaming, Multi-Agent, Action Control, World Editing, Neural Rendering, Long Video Generation</li>
+<li><strong>Placement reason:</strong> An integrated game-world framework joins persistent mechanics, player interaction, NPC behavior, and visual generation.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Combines perception, state tracking, rule enforcement, and generated gameplay in a closed loop.</li>
+<li><strong>Memory:</strong> An external tracker maintains health, meters, cooldowns, and terminal states across play.</li>
+<li><strong>Interactive:</strong> Generated observations feed back into decisions after player actions.</li>
+<li><strong>Real-Time:</strong> Section 4.1 reports 20 FPS closed-loop operation for the studied three-game setup, using 832-by-480 generation.</li>
+<li><strong>Streaming:</strong> Section 3.4 generates four-frame steps and feeds them back for subsequent control.</li>
+<li><strong>Multi-Agent:</strong> The player and independently controlled boss act against one another under shared combat state.</li>
+<li><strong>Action Control:</strong> Player inputs and validated boss actions condition the generated video.</li>
+<li><strong>World Editing:</strong> Players configure characters, combat attributes, skills, and rules.</li>
+<li><strong>Neural Rendering:</strong> The video model visually realizes decisions produced by the explicit logic layer.</li>
+<li><strong>Long Video Generation:</strong> Appendix A.3 evaluates generated gameplay using minute-long control sequences.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.25652">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract.</li>
+<li><a href="https://arxiv.org/html/2609.25652v1">Source 2</a> — <code>full_text</code>. Read sections 3.2-3.4, 4.1, and Appendix A.2-A.3.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Reported frame rate was not reproduced; inference hardware was not specified in the passages read.</li>
+</ul>
+<h2>CoDeR</h2>
+<ul>
+<li><strong>Record:</strong> <code>coder</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> General World Model</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, Multi-Agent, Action Control, World Generation, Neural Rendering, Long Video Generation, Post-Training</li>
+<li><strong>Placement reason:</strong> An integrated executable-world and generative-observation framework explicitly studies persistent state, interaction, and multiple inhabitants.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Connects world rules, executable evolution, and perceptual observations in one framework.</li>
+<li><strong>Memory:</strong> Registers generated appearance back into the world and tests revisits and off-screen evolution.</li>
+<li><strong>Interactive:</strong> Demonstrates environment interactions such as opening doors and piloting vehicles.</li>
+<li><strong>Multi-Agent:</strong> Multi-Traveler tests show one inhabitant&#x27;s actions changing another&#x27;s observations of shared state.</li>
+<li><strong>Action Control:</strong> Code-defined actions extend the action space beyond a fixed predefined menu.</li>
+<li><strong>World Generation:</strong> Logical-space construction builds and composes world modules from high-level intent.</li>
+<li><strong>Neural Rendering:</strong> An Artist video model renders whitebox/depth conditions into visual observations.</li>
+<li><strong>Long Video Generation:</strong> Autoregressive chunk rollout is explicitly examined, including degradation near 5,000 frames.</li>
+<li><strong>Post-Training:</strong> Section 4.2 adapts MiniMax-H3 to code-world whitebox/depth/registered observations using Visual Cue Hacking pairs, backbone LoRA, and full ControlNet tuning.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.26458">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract.</li>
+<li><a href="https://arxiv.org/html/2609.26458v1">Source 2</a> — <code>full_text</code>. Read sections 3.2, 4.1-4.3, and the long-video limitation; section 4.2 specifically trains the new code-world observation interface.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>No Real-Time claim is inferred from persistent interaction. Long rollouts explicitly accumulate visual errors.</li>
+</ul>
+<h2>BVB / Blender-VideoBench</h2>
+<ul>
+<li><strong>Record:</strong> <code>bvb</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Reconstruction</li>
+<li><strong>Placement reason:</strong> Its main contribution tests video understanding by requiring executable animated reconstructions.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Provides a shared Blender reconstruction harness, cost limits, dual evaluation axes, and comparison of 51 configurations.</li>
+<li><strong>World Reconstruction:</strong> Agents reconstruct real-world videos as animated scenes, preserving spatiotemporal facts and appearance.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.15478">Source 1</a> — <code>primary_abstract</code>. Read the current v3 author abstract, including the reconstruction task and evaluation setup.</li>
+</ul>
+<h2>Recursive Code World Models</h2>
+<ul>
+<li><strong>Record:</strong> <code>recursive-cwm</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Reconstruction</li>
+<li><strong>Website:</strong> World Reconstruction</li>
+<li><strong>Placement reason:</strong> Recursive perception and refinement recover a complex 3D scene from one image; recursion is a construction strategy rather than a separate topic.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Reconstruction:</strong> Recursive Scene Programs and a global-local-global solver reconstruct fine geometry while maintaining reference alignment and scene relations.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.11499">Source 1</a> — <code>primary_abstract</code>. Read the current v2 author abstract and matched the single-reference-image reconstruction objective.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Perception/editing loops refine the reconstruction; they are not by themselves evidence of a separate user-facing World Editing contribution.</li>
+</ul>
+<h2>Programmable World Model</h2>
+<ul>
+<li><strong>Record:</strong> <code>programmable-world-model</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> General World Model</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, Action Control, World Editing, Neural Rendering, Long Video Generation, Benchmark, Post-Training</li>
+<li><strong>Placement reason:</strong> A complete programmable world loop links canonical state transitions and controllable visual observations.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Combines executable entity/rule state, player-driven transitions, control compilation, and generated observations.</li>
+<li><strong>Memory:</strong> Maintains off-screen entities and hidden attributes, plus temporal and geometry-aligned visual memory.</li>
+<li><strong>Interactive:</strong> The engine validates and executes player actions, then renders the resulting state.</li>
+<li><strong>Action Control:</strong> Player commands and object motion are compiled into explicit visual conditioning.</li>
+<li><strong>World Editing:</strong> Programs define editable entity attributes, relations, and rules governing gameplay.</li>
+<li><strong>Neural Rendering:</strong> A pretrained generative renderer transforms projected box controls into visual detail.</li>
+<li><strong>Long Video Generation:</strong> Section 4.4.2 adds chunk-autoregressive rendering with temporal and spatial memory for extended sequences.</li>
+<li><strong>Benchmark:</strong> CombatStateBench introduces 50 verified combat clips, synchronized engine state, and Count Accuracy/State Accuracy scoring over sampled frames and death events.</li>
+<li><strong>Post-Training:</strong> Section 4.4.1 freezes pretrained LingBot-World-v1 and trains a new Structured Spatial ControlNet to follow engine-derived identity, semantic, and motion controls.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.10540">Source 1</a> — <code>primary_abstract</code>. Read the current v2 author abstract.</li>
+<li><a href="https://arxiv.org/html/2609.10540v2">Source 2</a> — <code>full_text</code>. Read sections 4.1-4.4 and 5.1-5.2: executable transitions, cross-chunk memory, and the new CombatStateBench tasks/scoring protocol.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Chunk-causal rendering alone is not treated as sufficient proof of a dedicated streaming implementation or real-time operation. CombatStateBench does not replace the method&#x27;s README category.</li>
+</ul>
+<h2>VeriPhy</h2>
+<ul>
+<li><strong>Record:</strong> <code>veriphy</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Evaluation</li>
+<li><strong>Website:</strong> Evaluation, Physics</li>
+<li><strong>Placement reason:</strong> The central contribution is an auditable physical verifier with evidence-linked diagnoses, rather than a general world generator.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Evaluation:</strong> Produces localized supported/contradicted/unknown judgments and compares them with annotated generation failures.</li>
+<li><strong>Physics:</strong> Compiles physical obligations and measures trajectories and other typed physical quantities to diagnose implausibility.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.03153">Source 1</a> — <code>primary_abstract</code>. Read the author abstract, including corpus and evidence-provenance claims.</li>
+<li><a href="https://arxiv.org/html/2609.03153v1">Source 2</a> — <code>full_text</code>. Read section 5.5 and scope statements about prompt-only refinement and independent ratings.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The refinement loop improves its triggering metric but the reported independent rater shows no change; this is not evidence of a generally improved generator or a Post-Training method.</li>
+</ul>
+<h2>Code as Worlds</h2>
+<ul>
+<li><strong>Record:</strong> <code>code-as-worlds</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Physics</li>
+<li><strong>Website:</strong> Physics, World Generation, World Reconstruction, Post-Training</li>
+<li><strong>Placement reason:</strong> Verified physical worlds support quantitative physical reasoning, making Physics the most informative single README category.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Physics:</strong> Explicit physical composition, parameters, and evolution support quantitative reasoning about mechanisms.</li>
+<li><strong>World Generation:</strong> A text-driven pipeline proposes and verifies executable physical-world hypotheses.</li>
+<li><strong>World Reconstruction:</strong> A video-driven discovery loop recovers executable representations from observed physical events.</li>
+<li><strong>Post-Training:</strong> Section 5.4.1 uses supervised fine-tuning followed by GRPO on world-derived physical questions.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2608.27549">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract.</li>
+<li><a href="https://arxiv.org/html/2608.27549v1">Source 2</a> — <code>full_text</code>. Read the text/video construction description and the two-phase training protocol in section 5.4.1.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Training a visual physical-reasoning model is not automatically Agent Learning, which is reserved for policy or acting-agent improvement.</li>
+</ul>
+<h2>Code World Model</h2>
+<ul>
+<li><strong>Record:</strong> <code>code-world-model</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> General World Model</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, Action Control, World Editing, Neural Rendering, Long Video Generation, Post-Training</li>
+<li><strong>Placement reason:</strong> The paper proposes the integrated agent-code-state-proxy-observation architecture, with a limited interactive-world prototype.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> A coding agent governs executable world evolution and a video model supplies visual observations.</li>
+<li><strong>Memory:</strong> World state preserves identities, rules, relations, history, and consequences outside the current view.</li>
+<li><strong>Interactive:</strong> Agent-built worlds accept actions and feed updated state into subsequent observations.</li>
+<li><strong>Action Control:</strong> Frame-aligned proxies constrain character positions, motions, and action trajectories.</li>
+<li><strong>World Editing:</strong> The agent locally revises state and operating mechanisms through modifiable code.</li>
+<li><strong>Neural Rendering:</strong> Proxy videos condition an adapted video model to realize the executable state visually.</li>
+<li><strong>Long Video Generation:</strong> Section 4.1 describes continuation using overlapping 124-frame windows.</li>
+<li><strong>Post-Training:</strong> The main proxy-observation interface is learned by adapting pretrained MiniMax-H3 with rank-128 LoRA on aligned gameplay pairs, rather than merely training a comparison baseline.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2608.25927">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract.</li>
+<li><a href="https://arxiv.org/html/2608.25927v1">Source 2</a> — <code>full_text</code>. Read sections 3.1, 4.1, and 5, including windowed inference and prototype limits.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Section 5 explicitly says autoregressive real-time generation is not implemented. Complete autonomous open-world construction remains future work.</li>
+</ul>
+<h2>VideoCoCo</h2>
+<ul>
+<li><strong>Record:</strong> <code>videococo</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Neural Rendering</li>
+<li><strong>Website:</strong> Neural Rendering, Physics, Dataset, Post-Training</li>
+<li><strong>Placement reason:</strong> The paper&#x27;s distinctive output is physically consistent video obtained by transforming an executable simulation draft.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Neural Rendering:</strong> A generative video engine edits deterministic Blender drafts into photorealistic observations.</li>
+<li><strong>Physics:</strong> Executable process-level plans address physical dynamics and are evaluated on physics-oriented video quality benchmarks.</li>
+<li><strong>Dataset:</strong> Introduces VideoCoCo-3K as a named contribution: 3,000 aligned draft-instruction-target triplets. Official code currently provides an eight-triplet sample; full release is unverified.</li>
+<li><strong>Post-Training:</strong> Adapts pretrained OmniWeaving to simulation drafts and explicitly compares full fine-tuning, LoRA adaptation, and no-tuning variants.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.27380">Source 1</a> — <code>primary_abstract</code>. Read the current v2 author abstract, including dual-engine stages and VideoCoCo-3K.</li>
+<li><a href="https://arxiv.org/html/2607.27380v2">Source 2</a> — <code>full_text</code>. Read contributions, sections 3.3-3.4, and Table 3: new aligned data construction and editor-adaptation ablations.</li>
+<li><a href="https://github.com/micky-li-hd/VideoCoCo/blob/main/README.md">Source 3</a> — <code>official_project</code>. Read the official README via GitHub connector: eight toy triplets are released; it explicitly distinguishes them from a training-scale corpus.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Full VideoCoCo-3K public release is not established. Dataset describes the named data contribution and available toy sample, not a claim that all 3,000 training triplets can be downloaded.</li>
+</ul>
+<h2>VisualPatchWorld</h2>
+<ul>
+<li><strong>Record:</strong> <code>visualpatchworld</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Planning</li>
+<li><strong>Website:</strong> Planning, World Reconstruction, Physics</li>
+<li><strong>Placement reason:</strong> The induced executable dynamics are judged primarily by their usefulness for model-predictive planning and control.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Planning:</strong> Recovered programs roll forward inside model-predictive control and improve navigation/manipulation planning success.</li>
+<li><strong>World Reconstruction:</strong> Active probes choose a dynamics form and recorded state-action traces fit its unknown parameters.</li>
+<li><strong>Physics:</strong> The method addresses dynamical form, contact-rich motion, grasping, and physical parameter identification.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.25236">Source 1</a> — <code>primary_abstract</code>. Read the author abstract, including identification procedure and planning experiments.</li>
+</ul>
+<h2>GS-Agent</h2>
+<ul>
+<li><strong>Record:</strong> <code>gs-agent</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics</li>
+<li><strong>Placement reason:</strong> The main contribution automates construction of dynamic physical worlds from language.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Creates 4D worlds by coordinating assets, layout, material tuning, motion, cameras, and lighting.</li>
+<li><strong>Physics:</strong> Physics-engine feedback drives physical plausibility for interacting liquids, deformable objects, and rigid bodies.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.21522">Source 1</a> — <code>primary_abstract</code>. Read the author abstract and distinguished authoring agents from world inhabitants.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Multi-agent refers to specialized authoring agents, so the world-inhabitant Multi-Agent topic is omitted.</li>
+</ul>
+<h2>SimWorlds</h2>
+<ul>
+<li><strong>Record:</strong> <code>simworlds</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics, World Editing, Benchmark</li>
+<li><strong>Placement reason:</strong> Its primary deliverable is a dynamic procedural scene-authoring system, with a benchmark supporting method evaluation.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> A planner-coder-reviewer workflow creates dynamic 4D Blender scenes from text.</li>
+<li><strong>Physics:</strong> Coordinates physical solvers and uses runtime-state inspection to detect mechanisms that rendered images conceal.</li>
+<li><strong>World Editing:</strong> Edit mode updates existing scenes from text and target images; section 4.2 evaluates these edits separately on reused BlenderBench tasks.</li>
+<li><strong>Benchmark:</strong> Introduces 4DBuildBench: 50 prompts spanning five physical solvers, three dynamic difficulty levels, and static scenes, with engine-state MPR/SPR and itemized visual judging.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.01766">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract, including the newly introduced 4DBuildBench.</li>
+<li><a href="https://arxiv.org/html/2607.01766v1">Source 2</a> — <code>full_text</code>. Read sections 4.1-4.2 and Appendix D: new 4DBuildBench composition/scoring, plus separate existing-scene editing experiments.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The multi-agent title describes scene-authoring agents rather than autonomous inhabitants. Benchmark records the new 4DBuildBench, not mere reuse of BlenderBench; the README remains World Generation.</li>
+</ul>
+<h2>MPMWorlds</h2>
+<ul>
+<li><strong>Record:</strong> <code>mpmworlds</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Dataset</li>
+<li><strong>Website:</strong> Dataset, Physics, World Reconstruction, Evaluation</li>
+<li><strong>Placement reason:</strong> The paper centers on a new paired physical-simulation dataset and comparative study; Dataset best represents its main contribution.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Dataset:</strong> Provides paired source code, configurations, and rendered simulations covering varied physical materials.</li>
+<li><strong>Physics:</strong> Investigates physical-parameter inference and extrapolation across fluids and deformable materials.</li>
+<li><strong>World Reconstruction:</strong> Code models infer complete runnable physical scenes from an observed video prefix and optional side information.</li>
+<li><strong>Evaluation:</strong> Controlled comparisons isolate geometric and dynamical weaknesses of code generation and video diffusion.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2606.01538">Source 1</a> — <code>primary_abstract</code>. Read the current v2 author abstract.</li>
+<li><a href="https://arxiv.org/html/2606.01538v2">Source 2</a> — <code>full_text</code>. Read contributions, sections 3-4, dataset statistics, input conditions, and physical-extrapolation analysis.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Simulations last ten seconds; longer-horizon physical extrapolation is not sufficient to assign Long Video Generation. Ordinary fine-tuning of comparison baselines is not treated as a separate Post-Training contribution.</li>
+</ul>
+<h2>3DCodeBench / 3DCodeArena</h2>
+<ul>
+<li><strong>Record:</strong> <code>3dcodebench</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Generation, Dataset</li>
+<li><strong>Placement reason:</strong> A procedural 3D modeling benchmark, public human-preference arena, and associated data are the principal deliverables.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Defines standardized procedural-modeling evaluation for 12 VLM agents and human preference rankings.</li>
+<li><strong>World Generation:</strong> Tests code-based creation of engine-ready 3D assets from multimodal references.</li>
+<li><strong>Dataset:</strong> Releases a curated collection pairing text/image prompts, procedural programs, and 3D objects.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2606.01057">Source 1</a> — <code>primary_abstract</code>. Read the author abstract including benchmark, arena, and released multimodal triplets.</li>
+</ul>
+<h2>SceneCode</h2>
+<ul>
+<li><strong>Record:</strong> <code>scene-code</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, World Editing, Interactive, Physics</li>
+<li><strong>Placement reason:</strong> The framework creates indoor environments with editable, physically interactable articulated assets.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Compiles language into house layouts, per-object programs, and assembled simulation-ready scenes.</li>
+<li><strong>World Editing:</strong> Section 4.3 demonstrates changing named asset parameters and locally re-executing individual objects.</li>
+<li><strong>Interactive:</strong> Section 4.4 demonstrates robots physically opening/sliding generated articulated parts.</li>
+<li><strong>Physics:</strong> Programs compile collision and joint metadata for contact-based MuJoCo manipulation.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2605.19587">Source 1</a> — <code>primary_abstract</code>. Read the matching author abstract.</li>
+<li><a href="https://arxiv.org/html/2605.19587v1">Source 2</a> — <code>full_text</code>. Read code-level editing and robot interaction demonstrations in sections 4.3-4.4.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>A persistent construction registry is not treated as a world-memory research contribution.</li>
+</ul>
+<h2>SimWorld Studio</h2>
+<ul>
+<li><strong>Record:</strong> <code>simworld-studio</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Agent Learning</li>
+<li><strong>Website:</strong> Agent Learning, World Generation, Interactive</li>
+<li><strong>Placement reason:</strong> The central contribution is co-evolving generated embodied environments and learner curricula.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Agent Learning:</strong> Learner feedback drives adaptive curricula; navigation training gains over fixed environments are evaluated.</li>
+<li><strong>World Generation:</strong> SimCoder constructs 3D environments from language or images using engine-level code.</li>
+<li><strong>Interactive:</strong> Generated environments expose Gym-style interfaces for embodied interaction and learning.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2605.09423">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract, including generation, verifier feedback and curriculum experiments.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Self-evolving skills are not evidence of world-model parameter post-training.</li>
+</ul>
+<h2>Code2Worlds</h2>
+<ul>
+<li><strong>Record:</strong> <code>code2worlds</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Physics, Benchmark</li>
+<li><strong>Placement reason:</strong> The method generates dynamic 4D worlds through simulation code and physics-aware refinement.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Dual-stream code generation separates object construction from environmental orchestration.</li>
+<li><strong>Physics:</strong> A dynamics-scripting agent and motion critic address physical hallucinations in generated simulations.</li>
+<li><strong>Benchmark:</strong> Introduces Code4D for object, scene and dynamic generation, with CLIP/VBench, SGS, Richness, HRS and physical-failure protocols.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2602.11757">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and its dynamic-fidelity contribution.</li>
+<li><a href="https://arxiv.org/html/2602.11757">Source 2</a> — <code>full_text</code>. Read Code4D contribution statement, Section 4.1 benchmark/metrics and Appendix D task construction/release details.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Code4D is introduced by this paper; full benchmark prompts and scripts are promised upon acceptance, not independently verified as released.</li>
+</ul>
+<h2>Debugging Code World Models</h2>
+<ul>
+<li><strong>Record:</strong> <code>debugging-cwm</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Evaluation</li>
+<li><strong>Website:</strong> Evaluation, Code Execution, Memory</li>
+<li><strong>Placement reason:</strong> This is a diagnostic analysis of execution semantics and long-horizon state-tracking failures.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Evaluation:</strong> Controlled interventions separate trace truncation, string errors and action hallucination.</li>
+<li><strong>Code Execution:</strong> The object of study is neural prediction of Python execution traces and runtime variables.</li>
+<li><strong>Memory:</strong> Experiments isolate state propagation over long operation sequences under corrected versus generated actions.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2602.07672">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/2602.07672v2">Source 2</a> — <code>full_text</code>. Read introduction and contribution statements; inspected long-horizon experiment framing, not every appendix.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The permutation task adapts an existing benchmark; this analysis is not classified as a new benchmark release.</li>
+</ul>
+<h2>SWE-World</h2>
+<ul>
+<li><strong>Record:</strong> <code>swe-world</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Agent Learning</li>
+<li><strong>Website:</strong> Agent Learning, Code Execution, Post-Training</li>
+<li><strong>Placement reason:</strong> A learned execution surrogate enables Docker-free software-agent optimization.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Agent Learning:</strong> Agents learn inside a surrogate software environment instead of repeatedly constructing containers.</li>
+<li><strong>Code Execution:</strong> Models predict intermediate execution outcomes and final program-test feedback.</li>
+<li><strong>Post-Training:</strong> The paper evaluates Docker-free supervised fine-tuning and reinforcement learning of coding agents.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2602.03419">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and reported SFT/RL results.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>This is a computational environment model, not a physical-world simulator.</li>
+<li>Container removal is not sufficient evidence of measured real-time execution or an inference acceleration contribution.</li>
+</ul>
+<h2>Code World Models for General Game Playing</h2>
+<ul>
+<li><strong>Record:</strong> <code>general-game-playing</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Planning</li>
+<li><strong>Website:</strong> Planning, World Reconstruction, Multi-Agent</li>
+<li><strong>Placement reason:</strong> Executable game rules and hidden-state inference support strong search-based game play.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Planning:</strong> Synthesized transition, legality and value functions drive MCTS and information-set search.</li>
+<li><strong>World Reconstruction:</strong> Game descriptions and observed trajectories are translated into state, transition, reward and observation rules.</li>
+<li><strong>Multi-Agent:</strong> The work evaluates strategic play across two-player perfect- and imperfect-information games.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2510.04542">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/2510.04542v1">Source 2</a> — <code>full_text</code>. Read introduction, world-model definition and Section 5&#x27;s ten-game setup, accuracy protocol and match evaluation.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>General game playing does not by itself mean a general-purpose flagship world model.</li>
+<li>No Benchmark tag: four new games support the method experiments, but the paper does not introduce a named benchmark suite as a research contribution.</li>
+<li>Code Execution is reserved for execution semantics research, not ordinary simulator rollouts.</li>
+</ul>
+<h2>CWM (Meta)</h2>
+<ul>
+<li><strong>Record:</strong> <code>cwm-meta</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Code Execution</li>
+<li><strong>Website:</strong> Code Execution, Post-Training</li>
+<li><strong>Placement reason:</strong> The model grounds coding in computational state transitions and execution traces.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Code Execution:</strong> Mid-training teaches changes to Python runtime variables and agentic software environments; execution prediction is evaluated.</li>
+<li><strong>Post-Training:</strong> The report provides supervised fine-tuning and multi-environment reasoning RL stages and released checkpoints.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2510.02387">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/2510.02387v1">Source 2</a> — <code>full_text</code>. Read introduction and trace-data definition; checked planning motivation and limitations.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The modeled domain is program execution; this is not a generated embodied world.</li>
+<li>The report treats robust planning with the model largely as future research, so Planning is not assigned.</li>
+<li>General World Model is withheld because the contribution is a domain-specific coding model rather than a complete general interactive-world framework.</li>
+</ul>
+<h2>BlenderGym</h2>
+<ul>
+<li><strong>Record:</strong> <code>blendergym</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Benchmark</li>
+<li><strong>Website:</strong> Benchmark, World Editing, World Reconstruction, Evaluation</li>
+<li><strong>Placement reason:</strong> A graphics-editing benchmark also analyzes generator and verifier inference scaling.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Benchmark:</strong> Introduces a comprehensive VLM benchmark for code-based 3D graphics editing.</li>
+<li><strong>World Editing:</strong> Tasks require modifying graphics scenes, a central target of the benchmark.</li>
+<li><strong>World Reconstruction:</strong> Evaluation uses code-based 3D reconstruction tasks.</li>
+<li><strong>Evaluation:</strong> Separately analyzes generator/verifier scaling and allocation of inference compute.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2504.01786">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and inference-scaling analysis claims.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Inference scaling allocates more computation; it is not automatically inference acceleration.</li>
+</ul>
+<h2>FactorSim</h2>
+<ul>
+<li><strong>Record:</strong> <code>factorsim</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Agent Learning, Interactive, Benchmark</li>
+<li><strong>Placement reason:</strong> Factorized generation constructs full simulators for policy transfer and introduces a test suite.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Generates complete simulation code from language specifications using factored POMDP structure.</li>
+<li><strong>Agent Learning:</strong> Policies trained in generated simulations are evaluated for zero-shot transfer.</li>
+<li><strong>Interactive:</strong> Generation explicitly builds action handling, state-update logic and rendered feedback.</li>
+<li><strong>Benchmark:</strong> A stated contribution is an eight-environment generative simulation benchmark with system-test and transfer metrics.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2409.17652">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/2409.17652v2">Source 2</a> — <code>full_text</code>. Read introduction and benchmark contribution, including MVC/action-loop examples and eight-task definition.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Factorization reduces generation context; this does not establish real-time inference.</li>
+<li>Generated agents or enemies do not make multi-agent reasoning the paper&#x27;s research focus.</li>
+</ul>
+<h2>GIF-MCTS / CWMB</h2>
+<ul>
+<li><strong>Record:</strong> <code>gif-mcts</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Planning</li>
+<li><strong>Website:</strong> Planning, World Reconstruction, Benchmark, Acceleration</li>
+<li><strong>Placement reason:</strong> Search synthesizes transition models from observations for efficient model-based planning.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Planning:</strong> Synthesized Python transition/reward models are used directly for downstream planning.</li>
+<li><strong>World Reconstruction:</strong> Generated models are revised to reproduce observed environment state transitions.</li>
+<li><strong>Benchmark:</strong> Introduces CWMB: 18 environments with descriptions/trajectories; scores transition accuracy and normalized planning return.</li>
+<li><strong>Acceleration:</strong> The paper reports faster downstream model-based inference from calling code rather than a neural world model.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2405.15383">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/2405.15383v2">Source 2</a> — <code>full_text</code>. Inspected synthesis method, Section 3 benchmark construction, Section 5.3 accuracy/return protocol and Appendix I task list.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>No Real-Time tag: relative inference-speed gains do not establish a real-time deployment budget.</li>
+<li>Search over candidate programs is not multi-agent world dynamics.</li>
+</ul>
+<h2>PhysDreamer</h2>
+<ul>
+<li><strong>Record:</strong> <code>physdreamer</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Physics</li>
+<li><strong>Website:</strong> Physics, Interactive, Action Control</li>
+<li><strong>Placement reason:</strong> Video priors are distilled into object material dynamics for new physical interactions.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Physics:</strong> Estimates physical material properties and grounds deformable-object responses in simulation.</li>
+<li><strong>Interactive:</strong> Static 3D objects are endowed with dynamics that respond to new external interactions.</li>
+<li><strong>Action Control:</strong> Demonstrates responses conditioned on applied forces and agent manipulations.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2404.13026">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and stated force/manipulation scope.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Distilling video priors into material parameters is not necessarily post-training the video model.</li>
+<li>This inverse-physics neighbor does not itself synthesize symbolic world programs.</li>
+</ul>
+<h2>SceneCraft (Blender code)</h2>
+<ul>
+<li><strong>Record:</strong> <code>scenecraft</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, World Reconstruction, Neural Rendering</li>
+<li><strong>Placement reason:</strong> Scene graphs and Blender code build complex scenes, with reconstruction and video-control demonstrations.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Produces Blender Python scripts arranging up to a hundred assets from text.</li>
+<li><strong>World Reconstruction:</strong> Demonstrates reconstruction of detailed scenes from the Sintel movie.</li>
+<li><strong>Neural Rendering:</strong> Generated scenes supply intermediate control signals to a generative video model.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2403.01248">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract, including applications beyond text-to-scene generation.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Reusable script-library learning is not persistent world-state memory or weight post-training.</li>
+<li>Spatial layout planning is not automatically action planning for an agent.</li>
+</ul>
+<h2>Holodeck</h2>
+<ul>
+<li><strong>Record:</strong> <code>holodeck</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Agent Learning</li>
+<li><strong>Placement reason:</strong> Language-generated 3D environments support navigation training in novel scene types.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Builds indoor environments by selecting assets and solving LLM-generated spatial constraints.</li>
+<li><strong>Agent Learning:</strong> Trains embodied navigation agents using generated environments without manually built scene data.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2312.09067">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and downstream navigation-training application.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Scene layout generation alone is not a complete general-purpose world model.</li>
+</ul>
+<h2>RoboGen</h2>
+<ul>
+<li><strong>Record:</strong> <code>robogen</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Agent Learning</li>
+<li><strong>Website:</strong> Agent Learning, World Generation, Planning</li>
+<li><strong>Placement reason:</strong> The propose-generate-learn cycle scales robot skill learning with generated simulations and supervision.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Agent Learning:</strong> Automatically acquires diverse robot policies and demonstrations through self-guided training.</li>
+<li><strong>World Generation:</strong> Creates task-specific simulation environments, object sets and spatial layouts.</li>
+<li><strong>Planning:</strong> Decomposes high-level tasks and selects motion planning, trajectory optimization or RL for individual subtasks.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/2311.01455">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract and all phases of the learning pipeline.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>An endless stream of skill demonstrations is data generation, not streaming video generation.</li>
+<li>Training robot policies is covered by Agent Learning; no separate world-model post-training is claimed.</li>
+</ul>
+<h2>World Programs</h2>
+<ul>
+<li><strong>Record:</strong> <code>world-programs</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Planning</li>
+<li><strong>Website:</strong> Planning, World Reconstruction, Agent Learning</li>
+<li><strong>Placement reason:</strong> Learned graph-rewrite actions and dynamics provide a simulator for compositional planning.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Planning:</strong> Uses induced world programs with search; the application is chemical synthesis planning.</li>
+<li><strong>World Reconstruction:</strong> Induces unknown actions and transition dynamics from observed state-state pairs.</li>
+<li><strong>Agent Learning:</strong> The formalism learns action policies and permits reinforcement learning with the induced simulator.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1912.13007">Source 1</a> — <code>primary_abstract</code>. Read the complete author abstract.</li>
+<li><a href="https://arxiv.org/html/1912.13007v1">Source 2</a> — <code>full_text</code>. Read formalism and chemical-planning experiment sections, including learned policy and transition functions.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The paper proposes a future community challenge, not a newly released benchmark suite.</li>
+<li>Graph rewriting and chemical reactions are not evidence of physics simulation.</li>
+</ul>
+<h2>WorldStream</h2>
+<ul>
+<li><strong>Record:</strong> <code>worldstream</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> World Generation</li>
+<li><strong>Website:</strong> World Generation, Memory, Interactive, Streaming, World Editing</li>
+<li><strong>Placement reason:</strong> Procedural world expansion, persistent records and language-driven edits support continued exploration.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>World Generation:</strong> Hierarchical semantic plans drive local procedural generation of connected landscapes.</li>
+<li><strong>Memory:</strong> Plans, object identities and accepted edits persist after geometry unloads and on revisits.</li>
+<li><strong>Interactive:</strong> Language requests select executable NPC behaviors and update world state.</li>
+<li><strong>Streaming:</strong> Movement-aware scheduling extends the map incrementally during exploration.</li>
+<li><strong>World Editing:</strong> Users can modify existing regions or constrain future content through language.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://krennic999.github.io/WorldStream/blog/">Source 1</a> — <code>official_project</code>. Read system overview, planning, generation, persistence, interaction, latency and limitations sections.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Streaming refers to spatial world expansion, not video generation.</li>
+<li>Warm-cache plan-to-visible latency is estimated at 2.3 seconds without sufficient hardware detail for an independent Real-Time claim.</li>
+<li>The article describes a procedural prototype; neural video integration is future work.</li>
+</ul>
+<h2>StreamRender-H3</h2>
+<ul>
+<li><strong>Record:</strong> <code>streamrender-h3</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Real-Time</li>
+<li><strong>Website:</strong> General World Model, Memory, Interactive, Real-Time, Acceleration, Long Video Generation, Streaming, Multi-Agent, Action Control, Neural Rendering, Post-Training</li>
+<li><strong>Placement reason:</strong> An integrated engine-renderer loop makes continuous interactive video generation run in real time.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>General World Model:</strong> Combines explicit world state, transitions, player actions and continuous observation generation through a replaceable engine interface.</li>
+<li><strong>Memory:</strong> Persistent maps support revisits; sink frames preserve appearance across continuation windows.</li>
+<li><strong>Interactive:</strong> New player inputs affect ongoing generated video within the running feedback loop.</li>
+<li><strong>Real-Time:</strong> Reports real-time racing deployment, with 218 ms diffusion steps on eight GB200 GPUs.</li>
+<li><strong>Acceleration:</strong> Kernel, cache and deployment changes reduce diffusion time by 3.67 times.</li>
+<li><strong>Long Video Generation:</strong> Shows one-minute continuous generations and addresses accumulated continuation errors.</li>
+<li><strong>Streaming:</strong> Generates and decodes successive chunks while new engine frames arrive.</li>
+<li><strong>Multi-Agent:</strong> The same world updates player and rival cars driven by separate scripted drivers.</li>
+<li><strong>Action Control:</strong> Keyboard or controller inputs steer, accelerate and brake the simulated car.</li>
+<li><strong>Neural Rendering:</strong> Diffusion maps engine semantics to photorealistic frames.</li>
+<li><strong>Post-Training:</strong> Fine-tunes MiniMax-H3 and distills generation to two steps.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">Source 1</a> — <code>official_project</code>. Read architecture, training, decoder, acceleration and deployment sections.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Real-time figures depend on the reported multi-GPU deployment; decoder-only timings use one GB200.</li>
+</ul>
+<h2>Streaming Code World Model</h2>
+<ul>
+<li><strong>Record:</strong> <code>streaming-cwm</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Streaming</li>
+<li><strong>Website:</strong> Streaming, Long Video Generation, Acceleration, Neural Rendering, Post-Training</li>
+<li><strong>Placement reason:</strong> A community extension makes proxy-conditioned video generation causal and accelerates it through distillation.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Streaming:</strong> Produces causal chunks from the start image, available proxies and previous chunks.</li>
+<li><strong>Long Video Generation:</strong> Provides 60-second generation and noisy-history training to reduce long-stream drift.</li>
+<li><strong>Acceleration:</strong> Four-step DMD achieves a reported nine-fold speedup over 35-step sampling.</li>
+<li><strong>Neural Rendering:</strong> MiniMax-H3 renders videos conditioned on coarse code-world proxies.</li>
+<li><strong>Post-Training:</strong> Includes causal diffusion-forcing fine-tuning and four-step DMD self-forcing training.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://github.com/TingtingLiao/streaming-code-world-model/blob/main/README.md">Source 1</a> — <code>official_project</code>. Read complete official README through the GitHub connector, including method, training, speed table and hardware.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>Explicitly not real time: one H200 takes 5.1 seconds to generate a 0.71-second chunk.</li>
+<li>This is a community extension, not an additional paper or the original Code World Model.</li>
+<li>Causal past-frame conditioning alone is not labeled a dedicated world-memory contribution.</li>
+</ul>
+<h2>H3 Streaming VAE Decoder</h2>
+<ul>
+<li><strong>Record:</strong> <code>h3-streaming-vae</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Streaming</li>
+<li><strong>Website:</strong> Streaming, Acceleration, Neural Rendering</li>
+<li><strong>Placement reason:</strong> This component decodes arriving video latents causally and provides fused execution paths.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Streaming:</strong> Emits frames when a latent arrives, with no need for future latents.</li>
+<li><strong>Acceleration:</strong> Offers fused decoder kernels and compiled paths for supported Blackwell hardware.</li>
+<li><strong>Neural Rendering:</strong> Converts MiniMax-H3 or StreamRender-H3 latent representations into video frames.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder/blob/main/README.md">Source 1</a> — <code>official_project</code>. Read complete official README through the GitHub connector, including ownership of distilled weights and fused-kernel requirements.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The project blog could not be fetched by the web tool; official repository documentation was successfully read.</li>
+<li>No Post-Training tag: it supports NVIDIA&#x27;s separately distilled checkpoint, which is not trained in this repository.</li>
+<li>No standalone world state or action dynamics; no complete-world, interaction or real-time-throughput claim is inferred.</li>
+</ul>
+<h2>Code Video Model</h2>
+<ul>
+<li><strong>Record:</strong> <code>code-video-model</code></li>
+<li><strong>Reviewed:</strong> 2026-10-22</li>
+<li><strong>README:</strong> Neural Rendering</li>
+<li><strong>Website:</strong> Neural Rendering, World Generation, World Editing, World Reconstruction, Physics, Benchmark</li>
+<li><strong>Placement reason:</strong> Executable previs controls video structure while training-free diffusion conditioning preserves reference appearance.</li>
+</ul>
+<p><strong>Topic evidence</strong></p>
+<ul>
+<li><strong>Neural Rendering:</strong> A pretrained video model renders a code-built proxy using early-step conditioning.</li>
+<li><strong>World Generation:</strong> Programs construct and animate scenes from prompts.</li>
+<li><strong>World Editing:</strong> Code permits explicit object, layout and scene modifications.</li>
+<li><strong>World Reconstruction:</strong> The project demonstrates 3D/4D reconstruction as a supported application.</li>
+<li><strong>Physics:</strong> Program equations determine dynamics instead of leaving motion wholly implicit.</li>
+<li><strong>Benchmark:</strong> Introduces CodeVideoBench: 22 cases over eight applications, with Structure, Style and Quality evaluation dimensions.</li>
+</ul>
+<p><strong>Sources actually consulted</strong></p>
+<ul>
+<li><a href="https://code-video-model.github.io/">Source 1</a> — <code>official_project</code>. Read complete official project abstract and application gallery.</li>
+<li><a href="https://github.com/code-video-model/CodeVideoModel/blob/main/README.md">Source 2</a> — <code>official_project</code>. Read official Benchmark and Evaluation sections: task files, 22 cases/eight applications and per-dimension scoring script.</li>
+</ul>
+<p><strong>Limits / unresolved details</strong></p>
+<ul>
+<li>The linked technical-report PDF exceeded the web tool&#x27;s fetch-size limit; classification uses the successfully read official project and repository.</li>
+<li>The method is explicitly training-free; no Post-Training tag.</li>
+<li>Offline proxy-conditioned clips do not establish live interaction, streaming, real-time performance or long-video generation.</li>
+</ul></article></main></html>

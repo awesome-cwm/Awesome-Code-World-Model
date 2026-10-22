@@ -19,23 +19,12 @@ def validate(catalog, taxonomy):
     dimensions = {d['id']: d for d in taxonomy['dimensions']}
     collections = {c['id']: c for c in taxonomy['collections']}
     sections = {s['id'] for s in taxonomy['collection_sections']}
-    areas = {a['id']: a for a in taxonomy['research_areas']}
-    tag_dimensions = {d['id']: d for d in taxonomy['tag_dimensions']}
-    assert len(areas) == len(taxonomy['research_areas']), 'Duplicate research area'
-    assert len(tag_dimensions) == len(taxonomy['tag_dimensions']), 'Duplicate tag dimension'
-    direction_ids, tag_ids = set(), set()
-    for area in areas.values():
-        assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', area['id']) and area['name']
-        for direction in area['directions']:
-            assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', direction['id']) and direction['name']
-            assert direction['id'] not in direction_ids, direction['id']
-            direction_ids.add(direction['id'])
-    for dimension in tag_dimensions.values():
-        assert dimension['name'] and dimension['values']
-        for tag, label in dimension['values'].items():
-            assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', tag) and label
-            assert tag not in tag_ids, tag
-            tag_ids.add(tag)
+    topics = {t['id']: t for t in taxonomy['topics']}
+    assert len(topics) == len(taxonomy['topics']), 'Duplicate topic'
+    assert not {'research_areas', 'tag_dimensions'} & set(taxonomy), 'Use a flat topic vocabulary'
+    for topic in topics.values():
+        assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', topic['id'])
+        assert all(isinstance(topic.get(key), str) and topic[key].strip() for key in ['name','zh','description'])
     assert len(collections) == len(taxonomy['collections'])
     assert all(c['section'] in sections for c in collections.values())
     ids, arxiv_ids, titles = set(), set(), set()
@@ -49,18 +38,25 @@ def validate(catalog, taxonomy):
         assert categories[p['category']]['track'] == p['track'], p['id']
         assert p['scope'] in taxonomy['scopes']
         classification = p.get('classification')
-        assert isinstance(classification, dict) and {'area', 'direction', 'tags', 'basis'} <= set(classification), p['id']
-        assert isinstance(classification['area'], str) and classification['area'] in areas, p['id']
-        direction = classification['direction']
-        assert direction is None or (isinstance(direction, str) and direction in {d['id'] for d in areas[classification['area']]['directions']}), p['id']
-        assert isinstance(classification['tags'], dict) and set(classification['tags']) == set(tag_dimensions), p['id']
-        total_tags = 0
-        for key, values in classification['tags'].items():
-            assert isinstance(values, list) and all(isinstance(v, str) for v in values), (p['id'], key)
-            assert len(values) == len(set(values)) and set(values) <= set(tag_dimensions[key]['values']), (p['id'], key)
-            total_tags += len(values)
-        assert total_tags >= 1, f"At least one auxiliary tag is required: {p['id']}"
-        assert isinstance(classification['basis'], str) and classification['basis'].strip(), p['id']
+        required = {'readme_topic','topics','checked','summary_reason','topic_reasons','sources','uncertainties'}
+        assert isinstance(classification, dict) and required <= set(classification), p['id']
+        selected = classification['topics']
+        assert isinstance(selected, list) and selected and all(isinstance(t, str) for t in selected), p['id']
+        assert len(selected) == len(set(selected)) and set(selected) <= set(topics), p['id']
+        assert isinstance(classification['readme_topic'], str) and classification['readme_topic'] in selected, p['id']
+        assert not {'area','direction','tags'} & set(classification), p['id']
+        assert isinstance(classification['summary_reason'], str) and classification['summary_reason'].strip(), p['id']
+        reasons = classification['topic_reasons']
+        assert isinstance(reasons, dict) and set(reasons) == set(selected), p['id']
+        assert all(isinstance(reason, str) and reason.strip() for reason in reasons.values()), p['id']
+        date.fromisoformat(classification['checked'])
+        assert classification['sources'] and isinstance(classification['sources'], list), p['id']
+        for source in classification['sources']:
+            assert source['basis'] in {'primary_abstract','official_project','full_text'}, p['id']
+            parsed = urlparse(source['url'])
+            assert parsed.scheme == 'https' and parsed.hostname and not parsed.username, p['id']
+            assert isinstance(source['note'], str) and source['note'].strip(), p['id']
+        assert isinstance(classification['uncertainties'], list) and all(isinstance(note, str) and note.strip() for note in classification['uncertainties']), p['id']
         assert p['type'] in {'preprint', 'report', 'project'}
         assert set(p['dimensions']) == set(dimensions), p['id']
         for key, values in p['dimensions'].items():
@@ -138,9 +134,9 @@ def collection_entries(papers, collection_id):
                   key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
 
 
-def research_entries(papers, area_id):
-    """Each paper appears in exactly one primary research-area section."""
-    return sorted([p for p in papers if p['classification']['area'] == area_id],
+def topic_entries(papers, topic_id):
+    """README placement is unique; website topic membership may overlap."""
+    return sorted([p for p in papers if p['classification']['readme_topic'] == topic_id],
                   key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
 
 
@@ -190,60 +186,50 @@ def render_readme(catalog, taxonomy, repository):
         settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
         site_url = settings.get('preview_url') or 'site/index.html'
         assert site_url == 'site/index.html' or (urlparse(site_url).scheme == 'https' and urlparse(site_url).hostname and not urlparse(site_url).username)
+    reviewed = max(p['classification']['checked'] for p in papers)
     intro = (ROOT / 'docs/README.template.md').read_text().replace('{{SITE_URL}}', site_url)
-    benchmarks = sum(len(p['benchmarks']) for p in papers)
-    intro = intro.replace('{{STATS}}', f"**{len(papers)} unique papers / projects · {benchmarks} named benchmark suites · {len(taxonomy['research_areas'])} research areas · {len(taxonomy['tag_dimensions'])} auxiliary tag dimensions** · Sources checked **{catalog['curated_at']}**.")
+    intro = intro.replace('{{STATS}}', f"**{len(papers)} unique papers / projects · {len(taxonomy['topics'])} flat topics** · Topic assignments reviewed **{reviewed}**.")
     intro = intro.replace('{{NEWS}}', '\n\n'.join(f"{n['icon']} **[{n['date']}] {n['title']}** — {n['body']}" for n in news))
-    parts = [intro, '\n---\n\n<a id="recent-paper-updates"></a>\n## 🔥 Recent Paper Updates\n']
-    recent = sorted([p for p in papers if p['published']], key=lambda p:(p['published'],p['id']), reverse=True)[:20]
-    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent)
-    parts.append('**Also tracked — official projects with unconfirmed first-release dates:**\n')
-    parts.extend(readme_entry(p, recent=True)+'\n' for p in papers if not p['published'])
-    parts.append('\n---\n\n## Overview\n')
-    parts.extend(['- 🚩 [News & Updates](#news-updates)', '- 🔥 [Recent Paper Updates](#recent-paper-updates)'])
-    parts.extend(f"- [{area['name']}](#{area['id']})" for area in taxonomy['research_areas'])
-    parts.extend(['- 📊 [Benchmark Atlas](#benchmarks)', '- 🛠️ [Reusable resources](#infrastructure)', '- 🧭 [Taxonomy & reading guide](#reading-guide)', '- 📝 [Citation](#citation)'])
-    parts.append('\n**World Models Taxonomy V2:** each paper has exactly one primary research area and one or more auxiliary tags. A direction refines the primary area when applicable. The six area sections below do not cross-list papers. Recent updates and reading paths are separate navigation aids.\n')
-    for area in taxonomy['research_areas']:
-        parts.append(f"\n---\n\n<a id=\"{area['id']}\"></a>\n## {area['name']}\n")
-        parts.append('**Directions:** '+' · '.join(d['name'] for d in area['directions'])+'\n')
-        direction_names = {d['id']:d['name'] for d in area['directions']}
-        for p in research_entries(papers, area['id']):
-            direction = p['classification']['direction']
-            suffix = ' · **'+direction_names[direction]+'**' if direction else ''
-            parts.append(readme_entry(p)+suffix+'\n')
-    parts.append('\n---\n\n<a id="benchmarks"></a>\n## 📊 Benchmarks & Evaluation\n')
-    parts.append('[Benchmark Atlas: inputs → artifacts → evaluation evidence](docs/BENCHMARKS.md). Named suites within method papers remain associated with their original paper; they do not create additional primary classifications.\n')
-    parts.append('**Named suites:** '+' · '.join(b['name'] for p in papers for b in p['benchmarks'])+'\n')
-    parts.append('\n<a id="infrastructure"></a>\n## 🛠️ Datasets, Harnesses & Streaming Systems\n')
-    for group in taxonomy['collections']:
-        if group['section'] == 'infrastructure':
-            parts.append(f"- **{group['name']}**: {group['question']}")
+    parts = [intro, '\n---\n\n## Browse by Topic\n',
+             'Each paper is listed **exactly once** below, under the topic that best describes its main contribution. The website uses the same flat vocabulary and allows each paper to appear under **multiple topics**. Select several website topics to find their intersection. Only topics with a designated README entry become headings here; all 22 topics remain available on the website.\n']
+    occupied = [(topic, topic_entries(papers, topic['id'])) for topic in taxonomy['topics']]
+    for topic, entries in occupied:
+        if entries:
+            parts.append(f"- [{topic['name']}](#{topic['id']}) ({len(entries)})")
+    parts.append('\n[All 22 topic filters]('+site_url+') · [Topic definitions](docs/TAXONOMY.md) · [Per-paper review and sources](docs/TOPIC_REVIEW.md)\n')
+    for topic, entries in occupied:
+        if not entries:
+            continue
+        parts.append(f"\n---\n\n<a id=\"{topic['id']}\"></a>\n## {topic['name']}\n\n{topic['description']}\n")
+        parts.append(f"[Browse all papers tagged {topic['name']} →]({site_url}?topics={topic['id']})\n")
+        parts.extend(readme_entry(p)+'\n' for p in entries)
     parts.append('''
 ---
 
-<a id="reading-guide"></a>
-## 🧭 Taxonomy & Reading Guide
+<a id="benchmarks"></a>
+## Benchmarks & Resources
 
-Select **one research area** and optionally a direction, then combine **one or more auxiliary tags** across Research Challenges, Memory & State, Control & Interaction, Representation & Output, Methods & Training, Runtime & Efficiency, World Setting & Domain, and Evaluation Focus. Tag filters use an intersection and can be combined with publication month, title/author search, and resource badges.
+[Benchmark Atlas](docs/BENCHMARKS.md) compares inputs, executable artifacts, evaluation evidence, and limitations. Named suites within method papers, such as CombatStateBench and SimCode4D, remain associated with their original paper; they are not duplicate paper records.
 
-The initial V2 assignments migrate the existing curated metadata and editorial summaries; they are not a new full-text review or a certification of reported capabilities. [Taxonomy / 中文分类说明](docs/TAXONOMY.md).
-''')
-    by_id = {p['id']:p for p in papers}
-    for path in taxonomy['reading_paths']:
-        links = [f"[{by_id[i]['short_title']}]({by_id[i]['verification']['source']})" for i in path['papers']]
-        parts.append(f"- **{path['title']}**: "+' → '.join(links))
-    parts.append('''
+<a id="infrastructure"></a>
+Datasets, execution harnesses, rendering components, and streaming systems are included in the topic list above. Supporting components remain distinguished in the source metadata and editorial descriptions.
+
+## Reading & Review
+
+The [topic guide](docs/TAXONOMY.md) explains the vocabulary. The [per-paper review](docs/TOPIC_REVIEW.md) records the single README placement, overlapping website topics, primary sources, and unresolved details for every record. The review uses author abstracts, official project documentation, and selected method or evaluation sections; it is not an independent reproduction.
+
+For new work, use the website's publication-month navigation. Each paper has one bibliography entry in this README; recent-paper and reading-path lists are kept out of the README to preserve that rule.
+
 <a id="citation"></a>
-## 📝 Citation
+## Citation
 
 Please cite the original papers. Download [all BibTeX entries](site/papers.bib) and use the entries for the papers you reference.
 
 ## Contributing & Maintenance
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to suggest a paper or correction. [Research notes](docs/RESEARCH.md) document source checks and title disambiguation.
+See [CONTRIBUTING.md](CONTRIBUTING.md) to suggest a paper or correction. [Research notes](docs/RESEARCH.md) document the original scope and identity checks.
 
-`data/papers.json` is the single source of truth; `data/taxonomy.json` defines V2 research areas, directions, and auxiliary tags; `data/updates.json` records collection news. The README, website data, and exports are generated together.
+`data/papers.json` is the single source of truth. `data/taxonomy.json` defines the flat topics; `classification.readme_topic` gives one README placement, while `classification.topics` gives all reviewed website topics. Source links and reasons are stored with each assignment. The README, website data, review report, and exports are generated together.
 
 ```bash
 python3 scripts/build.py
@@ -251,13 +237,13 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
 ```
 
-Open `http://localhost:8000`, or open `site/index.html` directly. [GitHub Pages deployment](docs/DEPLOYMENT.md) · [Daily discovery prototype / developer handoff](docs/CRAWLER_HANDOFF.md) · [JSON](data/papers.json) · [CSV](site/papers.csv).
+Open `http://localhost:8000`, or open `site/index.html` directly. [GitHub Pages deployment](docs/DEPLOYMENT.md) · [Daily discovery prototype](docs/CRAWLER_HANDOFF.md) · [JSON](data/papers.json) · [CSV](site/papers.csv).
 
 The daily discovery prototype proposes candidates for review. It does not silently promote papers into the curated list.
 
 ## Acknowledgments & License
 
-The simple paper-list layout is inspired by [EasonTuT/Awesome-Interactive-World-Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model); compound paper indexing also draws inspiration from [Awesome 3D Gaussian Splatting](https://mrnerf.github.io/awesome-3D-gaussian-splatting/). The World Models Taxonomy V2 follows the maintainer-provided research-area and tag-dimension specification. Our metadata, editorial notes, and implementation are maintained independently.
+The simple list and topic naming draw inspiration from [Awesome Interactive World Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model); compound indexing also draws inspiration from [Awesome 3D Gaussian Splatting](https://mrnerf.github.io/awesome-3D-gaussian-splatting/). The flat topic scheme follows the maintainer's direction. Metadata, editorial decisions, and implementation are maintained independently.
 
 Repository code and original editorial content: [MIT](LICENSE). Paper titles, abstracts, and external resources remain attributable to their respective authors and providers.
 ''')
@@ -265,9 +251,30 @@ Repository code and original editorial content: [MIT](LICENSE). Paper titles, ab
     return re.sub(r'(<a id="[a-z0-9-]+"></a>)\n(?=#)', r'\1\n\n', readme)
 
 
+def render_topic_review(catalog, taxonomy):
+    names = {t['id']:t['name'] for t in taxonomy['topics']}
+    parts = ['# Per-paper Topic Review\n',
+             'Every record was individually checked against the primary sources linked below. README placement is an editorial choice based on the main contribution; website topics overlap. Reading scope is stated per source. No independent reproduction is claimed.\n',
+             'The topic vocabulary is defined in [the topic guide](TAXONOMY.md). Reasons and source links are also available in `data/papers.json`.\n']
+    for p in catalog['papers']:
+        c = p['classification']
+        parts.extend([f"## {p['short_title']}\n", f"- **Record:** `{p['id']}`",
+                      f"- **Reviewed:** {c['checked']}", f"- **README:** {names[c['readme_topic']]}",
+                      '- **Website:** '+', '.join(names[t] for t in c['topics']),
+                      '- **Placement reason:** '+c['summary_reason'], '\n**Topic evidence**\n'])
+        parts.extend(f"- **{names[t]}:** {c['topic_reasons'][t]}" for t in c['topics'])
+        parts.append('\n**Sources actually consulted**\n')
+        for i, source in enumerate(c['sources'], 1):
+            parts.append(f"- [Source {i}]({source['url']}) — `{source['basis']}`. {source['note']}")
+        if c['uncertainties']:
+            parts.append('\n**Limits / unresolved details**\n')
+            parts.extend('- '+note for note in c['uncertainties'])
+        parts.append('')
+    return '\n'.join(parts).strip()+'\n'
+
 
 def web_link(url):
-    links={'docs/TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
+    links={'docs/TAXONOMY.md':'taxonomy.html','docs/TOPIC_REVIEW.md':'topic-review.html','TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
            'docs/DEPLOYMENT.md':'deployment.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
            'docs/BENCHMARKS.md':'benchmarks.html','BENCHMARKS.md':'benchmarks.html','site/index.html':'./','data/papers.json':'papers.json','site/papers.bib':'papers.bib','site/papers.csv':'papers.csv','LICENSE':'LICENSE'}
     return links.get(url, url[5:] if url.startswith('site/') else url)
@@ -376,9 +383,12 @@ def outputs(catalog, taxonomy, repository):
     payload = {**catalog, 'taxonomy': taxonomy, 'repository': repository, 'news': updates['news']}
     readme = render_readme(catalog, taxonomy, repository)
     benchmark_guide = render_benchmarks(catalog, taxonomy)
+    topic_review = render_topic_review(catalog, taxonomy)
     out = {
         ROOT/'README.md': readme,
         ROOT/'docs/BENCHMARKS.md': benchmark_guide,
+        ROOT/'docs/TOPIC_REVIEW.md': topic_review,
+        ROOT/'site/topic-review.html': document_page('Per-paper topic review', topic_review),
         ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide),
         ROOT/'site/catalog.js': 'window.CWM_CATALOG = '+json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')+';\n',
         ROOT/'site/papers.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n',
@@ -387,15 +397,18 @@ def outputs(catalog, taxonomy, repository):
         ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(),
     }
     buf=io.StringIO(newline='')
-    fields=['id','title','published','date_basis','type','research_area','research_direction','auxiliary_tags','classification_basis','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
+    fields=['id','title','published','date_basis','type','readme_topic','topics','topic_checked','topic_reason','topic_evidence','topic_sources','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
     writer=csv.DictWriter(buf, fieldnames=fields)
     writer.writeheader()
     for p in catalog['papers']:
         row={k:p[k] or '' for k in fields if k in p}
-        row['research_area']=p['classification']['area']
-        row['research_direction']=p['classification']['direction'] or ''
-        row['auxiliary_tags']=json.dumps(p['classification']['tags'],ensure_ascii=False)
-        row['classification_basis']=p['classification']['basis']
+        classification=p['classification']
+        row['readme_topic']=classification['readme_topic']
+        row['topics']='; '.join(classification['topics'])
+        row['topic_checked']=classification['checked']
+        row['topic_reason']=classification['summary_reason']
+        row['topic_evidence']=json.dumps(classification['topic_reasons'],ensure_ascii=False)
+        row['topic_sources']=json.dumps(classification['sources'],ensure_ascii=False)
         row.update({d['id']:'; '.join(p['dimensions'][d['id']]) for d in taxonomy['dimensions']})
         row['collections']='; '.join(p['collections'])
         row['benchmark_names']='; '.join(b['name'] for b in p['benchmarks'])

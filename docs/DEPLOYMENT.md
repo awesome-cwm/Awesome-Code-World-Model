@@ -10,11 +10,15 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
 ```
 
-打开 http://localhost:8000。也可以直接打开 `site/index.html`，搜索与对比使用本地 `catalog.js`，不依赖 fetch。
+打开 http://localhost:8000。也可以直接打开 `site/index.html`，搜索与主题筛选使用本地 `catalog.js`，不依赖 fetch。
 
 ## 复合标签网站与预览入口
 
-网站采用简洁论文清单，按 World Models Taxonomy V2 提供主分类单选、细方向单选与八个维度的辅助标签多选，并保留月份、标题／作者检索和徽标筛选。辅助标签取交集，条件保存在网址中。`data/taxonomy.json` 的 `research_areas`、`tag_dimensions` 定义词表；每篇论文的 `classification` 保存唯一主分类与辅助标签。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。
+网站采用简洁论文清单，展示 `data/taxonomy.json.topics` 中的 22 个平级主题复选项，多选取交集，并保留月份、标题／作者检索和资源徽标筛选。没有主分类、细方向或辅助维度界面。条件保存在网址的 `topics`、`month`、`q`、`badge` 参数中；旧 `area`、`direction`、`tags` 参数不参与筛选。
+
+每条记录的 `classification.readme_topic` 只决定 README 中的唯一展示位置，必须属于同一记录的 `classification.topics`。网站按 `topics` 检索，可跨主题对应；结果列表仍只显示每篇论文一次。README 全部论文条目也只列一次，不重复列近期论文或阅读路径。
+
+分类的核对日期、逐标签英文依据、实际来源阅读范围与不确定项保存在 `classification` 中。构建生成 `docs/TOPIC_REVIEW.md` 和 `site/topic-review.html`，方便逐篇复核；来源核对不等于完整全文审查或独立复现。历史 `track`、`category`、`cross_categories`、`dimensions` 仅供旧爬虫兼容，不构成公开分类。完整 BibTeX、JSON、CSV 导出保留在静态目录和 README 链接中。
 
 `data/site.json` 的 `repository` 保存目标 GitHub 仓库，当前为 `awesome-cwm/Awesome-Code-World-Model`；默认构建与 `--check` 都使用此配置，使提交的 README 与 CI 校验一致。网站地址为 `https://awesome-cwm.github.io/Awesome-Code-World-Model/`，上线结果以 Pages deployment 为准。
 
@@ -24,9 +28,9 @@ python3 -m http.server 8000 --directory site
 
 ## 发布
 
-1. 在目标 GitHub 账号或组织创建 `awesome-code-world-model`，并将此目录推送到 `main` 分支。
+1. 将此目录推送到目标仓库的 `main` 分支；当前仓库为 `awesome-cwm/Awesome-Code-World-Model`。
 2. 打开仓库 Settings → Pages → Build and deployment，选择 **GitHub Actions**。
-3. 执行 `Deploy research website` 工作流。站点地址通常是 `https://OWNER.github.io/awesome-code-world-model/`，实际以 deployment 输出为准。
+3. 执行 `Deploy research website` 工作流。站点地址通常是 `https://OWNER.github.io/REPOSITORY/`，实际以 deployment 输出为准。
 4. 网页构建会从 `github.repository` 自动生成正确的 GitHub 链接；未配置仓库的本地版本显示 Repository guide。
 5. 保留 `docs/README.template.md` 中的 `{{SITE_URL}}` 占位符；构建会自动替换实际 Pages 地址。不要在 README 中手改自动生成的论文条目。
 

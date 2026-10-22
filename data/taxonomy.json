@@ -1,240 +1,137 @@
 {
-  "version": "2.0",
-  "research_areas": [
+  "version": "3.0",
+  "topics": [
     {
-      "id": "world-construction",
-      "name": "World Construction",
-      "zh": "世界构建",
-      "directions": [
-        {
-          "id": "generation",
-          "name": "Generation"
-        },
-        {
-          "id": "reconstruction",
-          "name": "Reconstruction"
-        },
-        {
-          "id": "programmatic-generation",
-          "name": "Programmatic Generation"
-        }
-      ]
+      "id": "general-world-model",
+      "name": "General World Model",
+      "zh": "通用世界模型",
+      "description": "Integrated world-model frameworks combining world state, evolution, interaction, or observations; a system-level scope, not a quality ranking."
     },
     {
-      "id": "world-dynamics-simulation",
-      "name": "World Dynamics & Simulation",
-      "zh": "世界动力学与仿真",
-      "directions": [
-        {
-          "id": "state-prediction",
-          "name": "State Prediction"
-        },
-        {
-          "id": "physical-simulation",
-          "name": "Physical Simulation"
-        },
-        {
-          "id": "long-horizon-rollout",
-          "name": "Long-Horizon Rollout"
-        },
-        {
-          "id": "multi-agent-dynamics",
-          "name": "Multi-Agent Dynamics"
-        }
-      ]
+      "id": "memory",
+      "name": "Memory",
+      "zh": "记忆",
+      "description": "Persistent state, historical information, off-screen entities, identity, or memory consistency."
     },
     {
-      "id": "world-interaction-control",
-      "name": "World Interaction & Control",
-      "zh": "世界交互与控制",
-      "directions": [
-        {
-          "id": "navigation",
-          "name": "Navigation"
-        },
-        {
-          "id": "action-control",
-          "name": "Action Control"
-        },
-        {
-          "id": "world-editing",
-          "name": "World Editing"
-        },
-        {
-          "id": "rule-control",
-          "name": "Rule Control"
-        },
-        {
-          "id": "multi-agent-interaction",
-          "name": "Multi-Agent Interaction"
-        }
-      ]
+      "id": "interactive",
+      "name": "Interactive",
+      "zh": "交互",
+      "description": "Worlds that respond to user or agent actions and continue running."
     },
     {
-      "id": "world-reasoning-learning",
-      "name": "World Reasoning & Learning",
-      "zh": "世界推理与学习",
-      "directions": [
-        {
-          "id": "planning",
-          "name": "Planning"
-        },
-        {
-          "id": "counterfactual-reasoning",
-          "name": "Counterfactual Reasoning"
-        },
-        {
-          "id": "agent-learning",
-          "name": "Agent Learning"
-        }
-      ]
+      "id": "real-time",
+      "name": "Real-Time",
+      "zh": "实时",
+      "description": "Reported real-time generation, simulation, or low-latency interaction, with the original hardware and timing conditions."
     },
     {
-      "id": "modeling-systems",
-      "name": "Modeling & Systems",
-      "zh": "建模与系统",
-      "directions": [
-        {
-          "id": "model-architecture",
-          "name": "Model Architecture"
-        },
-        {
-          "id": "training-alignment",
-          "name": "Training & Alignment"
-        },
-        {
-          "id": "inference-serving",
-          "name": "Inference & Serving"
-        }
-      ]
+      "id": "acceleration",
+      "name": "Acceleration",
+      "zh": "加速",
+      "description": "Reducing inference, execution, or rendering time and computational cost."
     },
     {
-      "id": "resources-analysis",
-      "name": "Resources & Analysis",
-      "zh": "资源与分析",
-      "directions": [
-        {
-          "id": "dataset",
-          "name": "Dataset"
-        },
-        {
-          "id": "benchmark",
-          "name": "Benchmark"
-        },
-        {
-          "id": "evaluation",
-          "name": "Evaluation"
-        },
-        {
-          "id": "survey",
-          "name": "Survey"
-        }
-      ]
-    }
-  ],
-  "tag_dimensions": [
-    {
-      "id": "research_challenges",
-      "name": "Research Challenges",
-      "values": {
-        "inverse-reconstruction": "Inverse Reconstruction",
-        "physical-consistency": "Physical Consistency",
-        "temporal-consistency": "Temporal Consistency",
-        "compositional-generalization": "Compositional Generalization",
-        "physical-reasoning": "Physical Reasoning",
-        "functional-correctness": "Functional Correctness",
-        "counterfactual-testing": "Counterfactual Testing"
-      }
+      "id": "long-video-generation",
+      "name": "Long Video Generation",
+      "zh": "长视频生成",
+      "description": "Sustained or extended-duration video generation and its temporal consistency, beyond generic multi-step simulation."
     },
     {
-      "id": "memory_state",
-      "name": "Memory & State",
-      "values": {
-        "explicit-state": "Explicit State",
-        "persistent-state": "Persistent State",
-        "off-screen-state": "Off-screen State",
-        "object-identity": "Object Identity",
-        "visual-memory": "Visual Memory"
-      }
+      "id": "streaming",
+      "name": "Streaming",
+      "zh": "流式生成",
+      "description": "Incremental input, continuous output, or causal chunk-by-chunk generation; not automatically real time."
     },
     {
-      "id": "control_interaction",
-      "name": "Control & Interaction",
-      "values": {
-        "action-conditioned": "Action-conditioned",
-        "closed-loop": "Closed-loop Interaction",
-        "program-editing": "Program Editing",
-        "rule-editing": "Rule Editing",
-        "camera-control": "Camera Control",
-        "world-expansion": "World Expansion"
-      }
+      "id": "multi-agent",
+      "name": "Multi-Agent",
+      "zh": "多主体",
+      "description": "Multiple acting entities within the modeled world and their shared state or interactions; distinct from coding-agent collaboration."
     },
     {
-      "id": "representation_output",
-      "name": "Representation & Output",
-      "values": {
-        "scene-program": "Scene Programs",
-        "transition-program": "Transition Programs",
-        "physics-program": "Physics Programs",
-        "visual-proxy": "Visual Proxies",
-        "execution-trace": "Software Execution Traces",
-        "physical-language": "Physical Language",
-        "scene-constraints": "Scene Constraints",
-        "neural-geometry": "Neural Geometry",
-        "video-latents": "Video Latents",
-        "code-corpus": "Code & Simulation Corpora"
-      }
+      "id": "action-control",
+      "name": "Action Control",
+      "zh": "动作控制",
+      "description": "Explicit control of world behavior through keyboard, mouse, robot actions, or other action inputs."
     },
     {
-      "id": "methods_training",
-      "name": "Methods & Training",
-      "values": {
-        "program-synthesis": "Program Synthesis",
-        "program-search": "Program Search",
-        "execution-feedback": "Execution Feedback",
-        "visual-feedback": "Visual Feedback",
-        "physics-feedback": "Physics Feedback",
-        "trajectory-fitting": "Trajectory Fitting",
-        "task-feedback": "Task Feedback",
-        "training-objective": "Model Training",
-        "multi-agent-method": "Multi-agent Methods",
-        "distillation": "Distillation",
-        "training-free": "Training-free"
-      }
+      "id": "physics",
+      "name": "Physics",
+      "zh": "物理",
+      "description": "Physical mechanisms, motion, contact, collisions, materials, or physical consistency."
     },
     {
-      "id": "runtime_efficiency",
-      "name": "Runtime & Efficiency",
-      "values": {
-        "streaming-output": "Streaming Output",
-        "runtime-measurement": "Runtime Measurement",
-        "gpu-computing": "GPU Computing",
-        "cache-reuse": "Cache Reuse"
-      }
+      "id": "world-generation",
+      "name": "World Generation",
+      "zh": "世界生成",
+      "description": "Creating scenes, assets, games, or simulation environments from desired specifications."
     },
     {
-      "id": "world_setting_domain",
-      "name": "World Setting & Domain",
-      "values": {
-        "general-worlds": "General Worlds",
-        "physical-phenomena": "Physical Phenomena",
-        "robotics": "Robotics",
-        "games": "Games",
-        "video-generation": "Video Generation",
-        "software-environments": "Software Environments"
-      }
+      "id": "world-reconstruction",
+      "name": "World Reconstruction",
+      "zh": "世界重建",
+      "description": "Recovering scenes, physics, or rules from reference images, video, trajectories, or observations."
     },
     {
-      "id": "evaluation_focus",
-      "name": "Evaluation Focus",
-      "values": {
-        "eval-executability": "Executability",
-        "eval-visual-geometry": "Visual & Geometric Fidelity",
-        "eval-physical-fidelity": "Physical Fidelity",
-        "eval-functional-success": "Functional / Task Success",
-        "eval-latency-throughput": "Latency & Throughput",
-        "eval-reasoning-prediction": "Reasoning & Prediction"
-      }
+      "id": "world-editing",
+      "name": "World Editing",
+      "zh": "世界编辑",
+      "description": "Editing objects, layouts, properties, behaviors, or world rules."
+    },
+    {
+      "id": "neural-rendering",
+      "name": "Neural Rendering",
+      "zh": "神经渲染",
+      "description": "Neural image or video generation conditioned on code, executable state, geometry, or proxies."
+    },
+    {
+      "id": "planning",
+      "name": "Planning",
+      "zh": "规划",
+      "description": "Searching or imagining actions with world models to choose a plan."
+    },
+    {
+      "id": "agent-learning",
+      "name": "Agent Learning",
+      "zh": "智能体学习",
+      "description": "Using generated worlds, simulated experience, or world-model feedback to improve an acting or reasoning agent."
+    },
+    {
+      "id": "code-execution",
+      "name": "Code Execution",
+      "zh": "代码执行",
+      "description": "Modeling execution semantics, predicting computational states, or investigating execution correctness; not every method that runs code."
+    },
+    {
+      "id": "post-training",
+      "name": "Post-Training",
+      "zh": "后训练",
+      "description": "Fine-tuning, reinforcement learning, distillation, or adaptation of existing models."
+    },
+    {
+      "id": "benchmark",
+      "name": "Benchmark",
+      "zh": "基准",
+      "description": "Reusable test tasks and scoring protocols; a method-side benchmark does not automatically become the README category."
+    },
+    {
+      "id": "dataset",
+      "name": "Dataset",
+      "zh": "数据集",
+      "description": "Constructed or published world programs, scenes, trajectories, simulations, or paired data resources. Public release scope is recorded separately."
+    },
+    {
+      "id": "evaluation",
+      "name": "Evaluation",
+      "zh": "评测分析",
+      "description": "Focused evaluation, diagnosis, and analysis of capabilities, evidence, or failure modes."
+    },
+    {
+      "id": "survey",
+      "name": "Survey",
+      "zh": "综述",
+      "description": "Surveys, literature syntheses, taxonomies, and research overviews."
     }
   ],
   "tracks": [

@@ -4,17 +4,19 @@
 <pre><code>python3 scripts/build.py
 python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site</code></pre>
-<p>打开 http://localhost:8000。也可以直接打开 <code>site/index.html</code>，搜索与对比使用本地 <code>catalog.js</code>，不依赖 fetch。</p>
+<p>打开 http://localhost:8000。也可以直接打开 <code>site/index.html</code>，搜索与主题筛选使用本地 <code>catalog.js</code>，不依赖 fetch。</p>
 <h2>复合标签网站与预览入口</h2>
-<p>网站采用简洁论文清单，按 World Models Taxonomy V2 提供主分类单选、细方向单选与八个维度的辅助标签多选，并保留月份、标题／作者检索和徽标筛选。辅助标签取交集，条件保存在网址中。<code>data/taxonomy.json</code> 的 <code>research_areas</code>、<code>tag_dimensions</code> 定义词表；每篇论文的 <code>classification</code> 保存唯一主分类与辅助标签。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。</p>
+<p>网站采用简洁论文清单，展示 <code>data/taxonomy.json.topics</code> 中的 22 个平级主题复选项，多选取交集，并保留月份、标题／作者检索和资源徽标筛选。没有主分类、细方向或辅助维度界面。条件保存在网址的 <code>topics</code>、<code>month</code>、<code>q</code>、<code>badge</code> 参数中；旧 <code>area</code>、<code>direction</code>、<code>tags</code> 参数不参与筛选。</p>
+<p>每条记录的 <code>classification.readme_topic</code> 只决定 README 中的唯一展示位置，必须属于同一记录的 <code>classification.topics</code>。网站按 <code>topics</code> 检索，可跨主题对应；结果列表仍只显示每篇论文一次。README 全部论文条目也只列一次，不重复列近期论文或阅读路径。</p>
+<p>分类的核对日期、逐标签英文依据、实际来源阅读范围与不确定项保存在 <code>classification</code> 中。构建生成 <code>docs/TOPIC_REVIEW.md</code> 和 <code>site/topic-review.html</code>，方便逐篇复核；来源核对不等于完整全文审查或独立复现。历史 <code>track</code>、<code>category</code>、<code>cross_categories</code>、<code>dimensions</code> 仅供旧爬虫兼容，不构成公开分类。完整 BibTeX、JSON、CSV 导出保留在静态目录和 README 链接中。</p>
 <p><code>data/site.json</code> 的 <code>repository</code> 保存目标 GitHub 仓库，当前为 <code>awesome-cwm/Awesome-Code-World-Model</code>；默认构建与 <code>--check</code> 都使用此配置，使提交的 README 与 CI 校验一致。网站地址为 <code>https://awesome-cwm.github.io/Awesome-Code-World-Model/</code>，上线结果以 Pages deployment 为准。</p>
 <p>同一配置文件的 <code>preview_url</code> 保存之前的独立托管预览入口。未配置仓库且没有指定 <code>--repository</code> 时，README 才使用此入口；两者均为空则回退为本地 <code>site/index.html</code>。该预览通过 Sites 发布，初始为账号私有访问，公开 GitHub Pages 是独立的发布渠道。</p>
 <p>指定 <code>python3 scripts/build.py --repository OWNER/REPOSITORY</code> 后，README 自动使用目标仓库的 GitHub Pages 地址，优先于预览配置。GitHub Actions 的 Pages 工作流已传入当前仓库名，无需手工替换生成文件中的 URL。</p>
 <h2>发布</h2>
 <ol>
-<li>在目标 GitHub 账号或组织创建 <code>awesome-code-world-model</code>，并将此目录推送到 <code>main</code> 分支。</li>
+<li>将此目录推送到目标仓库的 <code>main</code> 分支；当前仓库为 <code>awesome-cwm/Awesome-Code-World-Model</code>。</li>
 <li>打开仓库 Settings → Pages → Build and deployment，选择 <strong>GitHub Actions</strong>。</li>
-<li>执行 <code>Deploy research website</code> 工作流。站点地址通常是 <code>https://OWNER.github.io/awesome-code-world-model/</code>，实际以 deployment 输出为准。</li>
+<li>执行 <code>Deploy research website</code> 工作流。站点地址通常是 <code>https://OWNER.github.io/REPOSITORY/</code>，实际以 deployment 输出为准。</li>
 <li>网页构建会从 <code>github.repository</code> 自动生成正确的 GitHub 链接；未配置仓库的本地版本显示 Repository guide。</li>
 <li>保留 <code>docs/README.template.md</code> 中的 <code>{{SITE_URL}}</code> 占位符；构建会自动替换实际 Pages 地址。不要在 README 中手改自动生成的论文条目。</li>
 </ol>

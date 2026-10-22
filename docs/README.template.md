@@ -2,13 +2,13 @@
 <h1>📜 Awesome Code World Model</h1>
 <p><b>Code World Model papers organized by core research challenges.</b></p>
 <img src="site/banner.svg" width="100%" alt="Code World Model: code builds worlds; code explains worlds">
-<h3>🌐 Explore World Models Taxonomy V2: one primary research area, multiple auxiliary tags.</h3>
+<h3>🌐 Explore 22 topics with simple multi-select filters.</h3>
 <p><a href="{{SITE_URL}}"><img src="site/browse.svg" width="270" alt="Browse Interactive Webpage"></a><br><b>🔥 👆 Open the interactive paper list 👆 🔥</b></p>
 </div>
 
-**[Open the research website →]({{SITE_URL}})** · Select **one research area**, optionally a direction, and **one or more auxiliary tags**. Tag filters use AND and combine with publication month and title/author search.
+**[Open the research website →]({{SITE_URL}})** · Select topics such as **General World Model**, **Memory**, **Real-Time**, and **Acceleration**. All topics are peers; multiple selections use AND and combine with publication month and title/author search.
 
-Try an intersection: **[Reconstruction + Physical Consistency]({{SITE_URL}}?area=world-construction&direction=reconstruction&tags=physical-consistency)** · **[Inference & Serving]({{SITE_URL}}?area=modeling-systems&direction=inference-serving)** · **[Benchmarks]({{SITE_URL}}?area=resources-analysis&direction=benchmark)**.
+Try an intersection: **[Memory + Real-Time]({{SITE_URL}}?topics=memory,real-time)** · **[Acceleration + Neural Rendering]({{SITE_URL}}?topics=acceleration,neural-rendering)** · **[Benchmark + Physics]({{SITE_URL}}?topics=benchmark,physics)**.
 
 ---
 
@@ -31,7 +31,7 @@ Try an intersection: **[Reconstruction + Physical Consistency]({{SITE_URL}}?area
 <a id="news-updates"></a>
 ## 🚩 News & Updates
 
-Major collection updates and announcements. Scroll down for recent papers and the complete categorized list.
+Major collection updates and announcements. Scroll down for the complete topic list; use the website's month navigation for recent work.
 
 {{NEWS}}
 

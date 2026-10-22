@@ -1,6 +1,8 @@
 """防止分类漂移、误去重、候选覆盖和生成内容丢失。"""
 import copy
+import csv
 import importlib.util
+import io
 import json
 import sys
 import tempfile
@@ -54,7 +56,7 @@ class CatalogTests(unittest.TestCase):
         repository='awesome-cwm/Awesome-Code-World-Model'
         generated=build.outputs(self.catalog,self.taxonomy,repository)
         self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/',generated[ROOT/'README.md'])
-        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?area=world-construction&direction=reconstruction&tags=physical-consistency',generated[ROOT/'README.md'])
+        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=memory,real-time',generated[ROOT/'README.md'])
         self.assertIn('"repository":"'+repository+'"',generated[ROOT/'site/catalog.js'])
 
     def test_resource_badge_requires_matching_evidence(self):
@@ -96,59 +98,147 @@ class CatalogTests(unittest.TestCase):
         self.assertNotIn('javascript:',rendered)
         self.assertIn('src="banner.svg"',rendered)
 
-    def test_taxonomy_v2_matches_maintainer_design(self):
-        self.assertEqual([a['name'] for a in self.taxonomy['research_areas']], [
-            'World Construction', 'World Dynamics & Simulation',
-            'World Interaction & Control', 'World Reasoning & Learning',
-            'Modeling & Systems', 'Resources & Analysis'])
-        self.assertEqual(sum(len(a['directions']) for a in self.taxonomy['research_areas']),22)
-        self.assertEqual([d['name'] for d in self.taxonomy['tag_dimensions']], [
-            'Research Challenges', 'Memory & State', 'Control & Interaction',
-            'Representation & Output', 'Methods & Training', 'Runtime & Efficiency',
-            'World Setting & Domain', 'Evaluation Focus'])
+    def test_flat_topics_match_the_agreed_vocabulary(self):
+        expected=[
+            ('general-world-model','General World Model'), ('memory','Memory'),
+            ('interactive','Interactive'), ('real-time','Real-Time'),
+            ('acceleration','Acceleration'), ('long-video-generation','Long Video Generation'),
+            ('streaming','Streaming'), ('multi-agent','Multi-Agent'),
+            ('action-control','Action Control'), ('physics','Physics'),
+            ('world-generation','World Generation'), ('world-reconstruction','World Reconstruction'),
+            ('world-editing','World Editing'), ('neural-rendering','Neural Rendering'),
+            ('planning','Planning'), ('agent-learning','Agent Learning'),
+            ('code-execution','Code Execution'), ('post-training','Post-Training'),
+            ('benchmark','Benchmark'), ('dataset','Dataset'),
+            ('evaluation','Evaluation'), ('survey','Survey')]
+        self.assertEqual([(t['id'],t['name']) for t in self.taxonomy['topics']],expected)
+        self.assertFalse({'research_areas','tag_dimensions'} & set(self.taxonomy))
 
-    def test_primary_area_is_required_and_single(self):
-        for invalid in [None, [], ['world-construction','resources-analysis'], 'unknown']:
-            with self.subTest(area=invalid):
+    def test_readme_topic_is_single_valid_and_in_website_topics(self):
+        for invalid in [None, [], ['memory','physics'], 'unknown']:
+            with self.subTest(readme_topic=invalid):
                 c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['area']=invalid
+                c['papers'][0]['classification']['readme_topic']=invalid
                 with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+        c=copy.deepcopy(self.catalog)
+        classification=c['papers'][0]['classification']
+        classification['topics']=['memory']
+        classification['topic_reasons']={'memory':'Reviewed memory mechanism.'}
+        classification['readme_topic']='physics'
+        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_flat_website_topics_must_be_nonempty_unique_and_known(self):
+        for invalid in [None, 'memory', [], ['unknown'], ['memory','memory'], ['memory',None], [['memory']]]:
+            with self.subTest(topics=invalid):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['topics']=invalid
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_review_fields_are_required_and_old_hierarchy_is_forbidden(self):
         c=copy.deepcopy(self.catalog)
         del c['papers'][0]['classification']
         with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_direction_must_belong_to_primary_area_but_can_be_unspecified(self):
-        c=copy.deepcopy(self.catalog)
-        c['papers'][0]['classification'].update(area='world-construction',direction='benchmark')
-        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-        c['papers'][0]['classification']['direction']=None
-        self.assertTrue(build.validate(c,self.taxonomy))
-
-    def test_auxiliary_tags_require_valid_unique_values_in_their_own_dimension(self):
-        for invalid in [[], ['unknown'], ['explicit-state'], ['physical-consistency','physical-consistency']]:
-            with self.subTest(tags=invalid):
+        for field in ['readme_topic','topics','checked','summary_reason','topic_reasons','sources','uncertainties']:
+            with self.subTest(missing=field):
                 c=copy.deepcopy(self.catalog)
-                classification=c['papers'][0]['classification']
-                classification['tags']={d['id']:[] for d in self.taxonomy['tag_dimensions']}
-                classification['tags']['research_challenges']=invalid
+                del c['papers'][0]['classification'][field]
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+        for field in ['area','direction','tags']:
+            with self.subTest(legacy_field=field):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification'][field]=None
                 with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
 
-    def test_primary_readme_sections_partition_all_records_once(self):
-        grouped=[p['id'] for area in self.taxonomy['research_areas']
-                 for p in build.research_entries(self.catalog['papers'],area['id'])]
-        self.assertEqual(len(grouped),len(set(grouped)))
-        self.assertEqual(set(grouped),{p['id'] for p in self.catalog['papers']})
+    def test_every_website_topic_has_exactly_one_nonempty_evidence_reason(self):
+        c=copy.deepcopy(self.catalog)
+        classification=c['papers'][0]['classification']
+        for invalid in [None, {}, {t:'' for t in classification['topics']},
+                        {t:None for t in classification['topics']},
+                        dict(classification['topic_reasons'],unknown='Unsupported topic.')]:
+            with self.subTest(reasons=invalid):
+                changed=copy.deepcopy(c)
+                changed['papers'][0]['classification']['topic_reasons']=invalid
+                with self.assertRaises(AssertionError):build.validate(changed,self.taxonomy)
+        for invalid in [None,'','   ']:
+            with self.subTest(summary_reason=invalid):
+                changed=copy.deepcopy(c)
+                changed['papers'][0]['classification']['summary_reason']=invalid
+                with self.assertRaises(AssertionError):build.validate(changed,self.taxonomy)
 
-    def test_csv_preserves_single_primary_area_and_grouped_auxiliary_tags(self):
-        import csv,io
+    def test_review_requires_primary_source_records_with_safe_urls_and_reading_scope(self):
+        for invalid in [None, [], 'https://arxiv.org/abs/2608.25927']:
+            with self.subTest(sources=invalid):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['sources']=invalid
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+        source={'url':'https://arxiv.org/abs/2608.25927','basis':'primary_abstract','note':'Read the author abstract.'}
+        for field,value in [('url','http://arxiv.org/abs/2608.25927'),('url','javascript:alert(1)'),
+                            ('url','https:///missing-host'),('url','https://user@example.org/paper'),
+                            ('basis','unread'),('note',''),('note',None)]:
+            with self.subTest(field=field,value=value):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['sources']=[dict(source,**{field:value})]
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_review_date_and_uncertainties_keep_their_documented_types(self):
+        for invalid in ['2026/10/22','2026-99-99',None]:
+            with self.subTest(checked=invalid):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['checked']=invalid
+                with self.assertRaises((TypeError,ValueError)):build.validate(c,self.taxonomy)
+        for invalid in [None,'Unverified claim.',[''],[1]]:
+            with self.subTest(uncertainties=invalid):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['uncertainties']=invalid
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_readme_topics_partition_all_records_and_entries_never_repeat(self):
+        papers=self.catalog['papers']
+        grouped=[p['id'] for topic in self.taxonomy['topics']
+                 for p in build.topic_entries(papers,topic['id'])]
+        self.assertEqual(len(grouped),len(set(grouped)))
+        self.assertEqual(set(grouped),{p['id'] for p in papers})
+        readme=build.outputs(self.catalog,self.taxonomy,'')[ROOT/'README.md']
+        bibliography_lines=[line for line in readme.splitlines()
+                            if any(line==build.readme_entry(p) for p in papers)]
+        self.assertEqual(len(bibliography_lines),len(papers))
+        for paper in papers:
+            with self.subTest(paper=paper['id']):
+                self.assertEqual(readme.count(build.readme_entry(paper)),1)
+
+    def test_a_paper_has_one_readme_placement_and_multiple_website_memberships(self):
+        paper=next(p for p in self.catalog['papers'] if len(p['classification']['topics'])>1)
+        placed=[topic['id'] for topic in self.taxonomy['topics']
+                if paper['id'] in {p['id'] for p in build.topic_entries([paper],topic['id'])}]
+        self.assertEqual(placed,[paper['classification']['readme_topic']])
+        website_memberships=[topic['id'] for topic in self.taxonomy['topics']
+                             if topic['id'] in paper['classification']['topics']]
+        self.assertGreater(len(website_memberships),1)
+        self.assertEqual(set(website_memberships),set(paper['classification']['topics']))
+
+    def test_csv_preserves_readme_website_topics_and_review_evidence(self):
         generated=build.outputs(self.catalog,self.taxonomy,'')
         rows=list(csv.DictReader(io.StringIO(generated[ROOT/'site/papers.csv'])))
         by_id={p['id']:p for p in self.catalog['papers']}
+        self.assertEqual(len(rows),len(self.catalog['papers']))
+        self.assertEqual({row['id'] for row in rows},set(by_id))
         for row in rows:
             c=by_id[row['id']]['classification']
-            self.assertEqual(row['research_area'],c['area'])
-            self.assertEqual(row['research_direction'],c['direction'] or '')
-            self.assertEqual(json.loads(row['auxiliary_tags']),c['tags'])
+            self.assertEqual(row['readme_topic'],c['readme_topic'])
+            self.assertEqual(row['topics'].split('; '),c['topics'])
+            self.assertEqual(row['topic_checked'],c['checked'])
+            self.assertEqual(row['topic_reason'],c['summary_reason'])
+            self.assertEqual(json.loads(row['topic_evidence']),c['topic_reasons'])
+            self.assertEqual(json.loads(row['topic_sources']),c['sources'])
+
+    def test_per_paper_review_is_exported_to_markdown_and_website(self):
+        generated=build.outputs(self.catalog,self.taxonomy,'')
+        review=generated[ROOT/'docs/TOPIC_REVIEW.md']
+        self.assertIn(ROOT/'site/topic-review.html',generated)
+        for paper in self.catalog['papers']:
+            self.assertIn('**Record:** `'+paper['id']+'`',review)
+            self.assertIn(paper['classification']['summary_reason'],review)
+            self.assertIn(paper['classification']['sources'][0]['url'],review)
 
 
 class DiscoveryTests(unittest.TestCase):
