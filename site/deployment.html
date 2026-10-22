@@ -6,7 +6,7 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site</code></pre>
 <p>打开 http://localhost:8000。也可以直接打开 <code>site/index.html</code>，搜索与对比使用本地 <code>catalog.js</code>，不依赖 fetch。</p>
 <h2>复合标签网站与预览入口</h2>
-<p>网站采用简洁论文清单，支持十个大标签复选取交集、标题／作者检索与徽标筛选。筛选条件保存在网址中。<code>data/taxonomy.json</code> 的 <code>topics</code> 定义标签和初始映射；后续可在论文记录中用 <code>topics</code> 数组进行人工覆盖。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。</p>
+<p>网站采用简洁论文清单，按 World Models Taxonomy V2 提供主分类单选、细方向单选与八个维度的辅助标签多选，并保留月份、标题／作者检索和徽标筛选。辅助标签取交集，条件保存在网址中。<code>data/taxonomy.json</code> 的 <code>research_areas</code>、<code>tag_dimensions</code> 定义词表；每篇论文的 <code>classification</code> 保存唯一主分类与辅助标签。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。</p>
 <p><code>data/site.json</code> 的 <code>repository</code> 保存目标 GitHub 仓库，当前为 <code>awesome-cwm/Awesome-Code-World-Model</code>；默认构建与 <code>--check</code> 都使用此配置，使提交的 README 与 CI 校验一致。网站地址为 <code>https://awesome-cwm.github.io/Awesome-Code-World-Model/</code>，上线结果以 Pages deployment 为准。</p>
 <p>同一配置文件的 <code>preview_url</code> 保存之前的独立托管预览入口。未配置仓库且没有指定 <code>--repository</code> 时，README 才使用此入口；两者均为空则回退为本地 <code>site/index.html</code>。该预览通过 Sites 发布，初始为账号私有访问，公开 GitHub Pages 是独立的发布渠道。</p>
 <p>指定 <code>python3 scripts/build.py --repository OWNER/REPOSITORY</code> 后，README 自动使用目标仓库的 GitHub Pages 地址，优先于预览配置。GitHub Actions 的 Pages 工作流已传入当前仓库名，无需手工替换生成文件中的 URL。</p>

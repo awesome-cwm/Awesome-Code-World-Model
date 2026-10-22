@@ -93,7 +93,34 @@
       "collections": [
         "d_streaming"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "inference-serving",
+        "tags": {
+          "research_challenges": [],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "visual-proxy"
+          ],
+          "methods_training": [
+            "training-objective"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement"
+          ],
+          "world_setting_domain": [
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.27690",
@@ -172,7 +199,42 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "reconstruction",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.27999",
@@ -272,7 +334,45 @@
       "collections": [
         "d_streaming"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "rule-control",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-objective"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement"
+          ],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.26098",
@@ -362,7 +462,39 @@
           "caveat": "A successful build or high integration score is insufficient for completion.",
           "source": "https://arxiv.org/abs/2610.26098"
         }
-      ]
+      ],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state"
+          ],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.25019",
@@ -432,7 +564,38 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "reconstruction",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "physics-feedback",
+            "trajectory-fitting"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-physical-fidelity",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.21283",
@@ -511,7 +674,44 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "world-editing",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state",
+            "object-identity",
+            "visual-memory"
+          ],
+          "control_interaction": [
+            "action-conditioned",
+            "program-editing",
+            "rule-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.22341",
@@ -623,7 +823,36 @@
         "d_corpora",
         "d_harnesses"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "dataset",
+        "tags": {
+          "research_challenges": [],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program",
+            "code-corpus"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.23986",
@@ -739,6 +968,38 @@
           "https://huggingface.co/datasets/Qwen/BlenderWorld"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -828,7 +1089,41 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "reconstruction",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback",
+            "physics-feedback",
+            "trajectory-fitting"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.17651",
@@ -931,7 +1226,40 @@
           "caveat": "Simulator compatibility should be separated from rendered appearance.",
           "source": "https://arxiv.org/abs/2610.17651"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.17288",
@@ -1044,6 +1372,41 @@
           "https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "physical-reasoning",
+            "counterfactual-testing"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -1154,6 +1517,39 @@
           "https://huggingface.co/datasets/SourajaKundu123/PhySimCode"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "physical-reasoning"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program",
+            "code-corpus"
+          ],
+          "methods_training": [
+            "program-synthesis"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-physical-fidelity",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -1230,7 +1626,36 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "training-alignment",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "execution-trace"
+          ],
+          "methods_training": [
+            "execution-feedback",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "software-environments"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.15166",
@@ -1345,6 +1770,38 @@
           "https://huggingface.co/datasets/HelenPeng/ExeWorldBench"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -1444,7 +1901,46 @@
       "collections": [
         "d_harnesses"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "agent-learning",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "task-feedback",
+            "training-objective"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement"
+          ],
+          "world_setting_domain": [
+            "robotics",
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.08720",
@@ -1543,7 +2039,38 @@
           "caveat": "Solver completion assumes a supplied environment; it is not unrestricted world reconstruction.",
           "source": "https://arxiv.org/abs/2610.08720"
         }
-      ]
+      ],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency",
+            "physical-reasoning"
+          ],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.04432",
@@ -1660,7 +2187,42 @@
           "caveat": "A visually accurate reconstruction can still fail the manipulation task.",
           "source": "https://aetherlabsai.github.io/Video2World"
         }
-      ]
+      ],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2610.03715",
@@ -1777,6 +2339,38 @@
           "https://huggingface.co/datasets/4DCodeBench/Dataset-Synthetic"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program",
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -1891,6 +2485,43 @@
           "https://vinesmsuic.github.io/IGMWorld/"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing",
+            "rule-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -1974,7 +2605,33 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "model-architecture",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "physical-language"
+          ],
+          "methods_training": [
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.36593",
@@ -2050,7 +2707,39 @@
       "collections": [
         "d_harnesses"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback",
+            "multi-agent-method"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.36777",
@@ -2156,6 +2845,40 @@
           "https://simworld-ai-code4scene.static.hf.space"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-physical-fidelity",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -2241,6 +2964,38 @@
         "checked": "2026-10-21",
         "evidence": [],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [
+            "runtime-measurement",
+            "gpu-computing"
+          ],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-physical-fidelity",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -2332,7 +3087,39 @@
       "collections": [
         "d_harnesses"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds",
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.25652",
@@ -2411,7 +3198,42 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "rule-control",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing",
+            "rule-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.26458",
@@ -2496,7 +3318,42 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "multi-agent-interaction",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "action-conditioned",
+            "program-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-objective",
+            "multi-agent-method"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.15478",
@@ -2608,6 +3465,36 @@
           "https://yoloytang.me/BVB/"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -2679,7 +3566,35 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "reconstruction",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.10540",
@@ -2783,7 +3698,44 @@
           "caveat": "Count/state fidelity does not exhaust general world intelligence or physical correctness.",
           "source": "https://arxiv.org/abs/2609.10540"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "rule-control",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state",
+            "off-screen-state"
+          ],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing",
+            "rule-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds",
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2609.03153",
@@ -2863,7 +3815,34 @@
       "collections": [
         "d_harnesses"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "evaluation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-physical-fidelity",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2608.27549",
@@ -2959,7 +3938,40 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": null,
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "physical-reasoning"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-physical-fidelity",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2608.25927",
@@ -3046,7 +4058,42 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-interaction-control",
+        "direction": "rule-control",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "action-conditioned",
+            "program-editing"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2607.27380",
@@ -3151,7 +4198,38 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "model-architecture",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2607.25236",
@@ -3230,7 +4308,40 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "planning",
+        "tags": {
+          "research_challenges": [
+            "compositional-generalization",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned",
+            "closed-loop"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "trajectory-fitting",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics",
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2607.21522",
@@ -3311,7 +4422,39 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing",
+            "camera-control"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback",
+            "physics-feedback",
+            "multi-agent-method"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2607.01766",
@@ -3409,7 +4552,39 @@
           "caveat": "Text-to-world construction, not inverse reconstruction from source video.",
           "source": "https://arxiv.org/abs/2607.01766"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "physics-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback",
+            "physics-feedback",
+            "multi-agent-method"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2606.01538",
@@ -3500,7 +4675,38 @@
           "caveat": "Inference and extrapolation are distinct; the comparisons concern the stated 2D MPM setting.",
           "source": "https://arxiv.org/abs/2606.01538"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-dynamics-simulation",
+        "direction": "long-horizon-rollout",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction",
+            "physical-consistency",
+            "temporal-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "physics-program",
+            "code-corpus"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "trajectory-fitting"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2606.01057",
@@ -3609,6 +4815,37 @@
           "https://huggingface.co/datasets/YipengGao/3DCode"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program",
+            "code-corpus"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -3691,7 +4928,41 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "object-identity"
+          ],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2605.09423",
@@ -3770,7 +5041,39 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "agent-learning",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "physics-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2602.11757",
@@ -3867,7 +5170,37 @@
           "caveat": "Visual motion critique is not equivalent to simulator-enforced contact physics.",
           "source": "https://arxiv.org/abs/2602.11757"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds",
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2602.07672",
@@ -3934,7 +5267,33 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "evaluation",
+        "tags": {
+          "research_challenges": [],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "execution-trace"
+          ],
+          "methods_training": [
+            "execution-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "software-environments"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2602.03419",
@@ -4021,7 +5380,35 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-dynamics-simulation",
+        "direction": "state-prediction",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "execution-trace"
+          ],
+          "methods_training": [
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "software-environments"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2510.04542",
@@ -4103,7 +5490,36 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "planning",
+        "tags": {
+          "research_challenges": [
+            "compositional-generalization",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2510.02387",
@@ -4229,7 +5645,37 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-dynamics-simulation",
+        "direction": "state-prediction",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "execution-trace"
+          ],
+          "methods_training": [
+            "execution-feedback",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "software-environments"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-functional-success",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2504.01786",
@@ -4333,6 +5779,35 @@
           "https://huggingface.co/datasets/richard-guyunqi/BG_bench_data"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "resources-analysis",
+        "direction": "benchmark",
+        "tags": {
+          "research_challenges": [
+            "inverse-reconstruction"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -4418,7 +5893,38 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "agent-learning",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics",
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2405.15383",
@@ -4508,7 +6014,39 @@
           "caveat": "Transition-model utility is evaluated separately from visual rendering.",
           "source": "https://arxiv.org/abs/2405.15383"
         }
-      ]
+      ],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "planning",
+        "tags": {
+          "research_challenges": [
+            "compositional-generalization",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "program-search",
+            "execution-feedback",
+            "trajectory-fitting"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-executability",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2404.13026",
@@ -4590,7 +6128,36 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-dynamics-simulation",
+        "direction": "physical-simulation",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "neural-geometry"
+          ],
+          "methods_training": [
+            "trajectory-fitting",
+            "training-objective"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "physical-phenomena"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2403.01248",
@@ -4671,6 +6238,38 @@
         "checked": "2026-10-21",
         "evidence": [],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-program",
+            "visual-proxy"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback",
+            "visual-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -4764,7 +6363,33 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-construction",
+        "direction": "generation",
+        "tags": {
+          "research_challenges": [
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing"
+          ],
+          "representation_output": [
+            "scene-constraints"
+          ],
+          "methods_training": [],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "2311.01455",
@@ -4852,7 +6477,36 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "agent-learning",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "scene-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "task-feedback"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "robotics"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "arxiv": "1912.13007",
@@ -4920,7 +6574,37 @@
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
       "collections": [],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "world-reasoning-learning",
+        "direction": "planning",
+        "tags": {
+          "research_challenges": [
+            "compositional-generalization",
+            "functional-correctness"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "action-conditioned"
+          ],
+          "representation_output": [
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "trajectory-fitting"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "general-worlds"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success",
+            "eval-reasoning-prediction"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "id": "worldstream",
@@ -5006,6 +6690,46 @@
           "https://krennic999.github.io/WorldStream/blog/"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "world-construction",
+        "direction": "programmatic-generation",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency",
+            "functional-correctness"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state",
+            "object-identity"
+          ],
+          "control_interaction": [
+            "closed-loop",
+            "program-editing",
+            "world-expansion"
+          ],
+          "representation_output": [
+            "scene-program",
+            "transition-program"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "execution-feedback"
+          ],
+          "runtime_efficiency": [
+            "runtime-measurement",
+            "cache-reuse"
+          ],
+          "world_setting_domain": [
+            "games"
+          ],
+          "evaluation_focus": [
+            "eval-functional-success",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -5088,7 +6812,44 @@
       "collections": [
         "d_streaming"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "inference-serving",
+        "tags": {
+          "research_challenges": [
+            "temporal-consistency"
+          ],
+          "memory_state": [
+            "explicit-state",
+            "persistent-state"
+          ],
+          "control_interaction": [
+            "closed-loop"
+          ],
+          "representation_output": [
+            "transition-program",
+            "visual-proxy"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-objective"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement"
+          ],
+          "world_setting_domain": [
+            "games",
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "id": "streaming-cwm",
@@ -5167,7 +6928,35 @@
       "collections": [
         "d_streaming"
       ],
-      "benchmarks": []
+      "benchmarks": [],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "inference-serving",
+        "tags": {
+          "research_challenges": [],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "visual-proxy"
+          ],
+          "methods_training": [
+            "training-objective",
+            "distillation"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement"
+          ],
+          "world_setting_domain": [
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     },
     {
       "id": "h3-streaming-vae",
@@ -5250,6 +7039,34 @@
           "https://solarx-team.github.io/H3-Streaming-VAE-Decoder/"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
+      },
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "inference-serving",
+        "tags": {
+          "research_challenges": [],
+          "memory_state": [],
+          "control_interaction": [],
+          "representation_output": [
+            "video-latents"
+          ],
+          "methods_training": [
+            "training-free"
+          ],
+          "runtime_efficiency": [
+            "streaming-output",
+            "runtime-measurement",
+            "cache-reuse"
+          ],
+          "world_setting_domain": [
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-latency-throughput"
+          ]
+        },
+        "basis": "existing_curated_metadata"
       }
     },
     {
@@ -5349,7 +7166,37 @@
           "caveat": "Video-generation evaluation does not establish a persistent interactive state machine.",
           "source": "https://code-video-model.github.io/"
         }
-      ]
+      ],
+      "classification": {
+        "area": "modeling-systems",
+        "direction": "model-architecture",
+        "tags": {
+          "research_challenges": [
+            "physical-consistency"
+          ],
+          "memory_state": [],
+          "control_interaction": [
+            "program-editing",
+            "camera-control"
+          ],
+          "representation_output": [
+            "visual-proxy"
+          ],
+          "methods_training": [
+            "program-synthesis",
+            "training-free"
+          ],
+          "runtime_efficiency": [],
+          "world_setting_domain": [
+            "video-generation"
+          ],
+          "evaluation_focus": [
+            "eval-visual-geometry",
+            "eval-physical-fidelity"
+          ]
+        },
+        "basis": "existing_curated_metadata"
+      }
     }
   ]
 }

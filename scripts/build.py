@@ -19,15 +19,23 @@ def validate(catalog, taxonomy):
     dimensions = {d['id']: d for d in taxonomy['dimensions']}
     collections = {c['id']: c for c in taxonomy['collections']}
     sections = {s['id'] for s in taxonomy['collection_sections']}
-    topics = {t['id'] for t in taxonomy['topics']}
-    assert len(topics) == len(taxonomy['topics']), '重复的大标签'
-    for t in taxonomy['topics']:
-        assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', t['id']) and t['name'] and t['zh'] and t['description']
-        rules = t['rules']
-        assert set(rules) <= {'categories','code_roles','dynamics','representations','interactions','collections','benchmark'}
-        for key, known in [('categories',categories),('code_roles',dimensions['code_role']['values']),('dynamics',dimensions['dynamics']['values']),('representations',dimensions['representation']['values']),('interactions',dimensions['interaction']['values']),('collections',collections)]:
-            assert set(rules.get(key, [])) <= set(known), (t['id'], key)
-        assert 'benchmark' not in rules or isinstance(rules['benchmark'], bool)
+    areas = {a['id']: a for a in taxonomy['research_areas']}
+    tag_dimensions = {d['id']: d for d in taxonomy['tag_dimensions']}
+    assert len(areas) == len(taxonomy['research_areas']), 'Duplicate research area'
+    assert len(tag_dimensions) == len(taxonomy['tag_dimensions']), 'Duplicate tag dimension'
+    direction_ids, tag_ids = set(), set()
+    for area in areas.values():
+        assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', area['id']) and area['name']
+        for direction in area['directions']:
+            assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', direction['id']) and direction['name']
+            assert direction['id'] not in direction_ids, direction['id']
+            direction_ids.add(direction['id'])
+    for dimension in tag_dimensions.values():
+        assert dimension['name'] and dimension['values']
+        for tag, label in dimension['values'].items():
+            assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', tag) and label
+            assert tag not in tag_ids, tag
+            tag_ids.add(tag)
     assert len(collections) == len(taxonomy['collections'])
     assert all(c['section'] in sections for c in collections.values())
     ids, arxiv_ids, titles = set(), set(), set()
@@ -40,9 +48,19 @@ def validate(catalog, taxonomy):
         titles.add(normalized)
         assert categories[p['category']]['track'] == p['track'], p['id']
         assert p['scope'] in taxonomy['scopes']
-        if 'topics' in p:
-            assert isinstance(p['topics'], list) and len(p['topics']) == len(set(p['topics']))
-            assert set(p['topics']) <= topics, p['id']
+        classification = p.get('classification')
+        assert isinstance(classification, dict) and {'area', 'direction', 'tags', 'basis'} <= set(classification), p['id']
+        assert isinstance(classification['area'], str) and classification['area'] in areas, p['id']
+        direction = classification['direction']
+        assert direction is None or (isinstance(direction, str) and direction in {d['id'] for d in areas[classification['area']]['directions']}), p['id']
+        assert isinstance(classification['tags'], dict) and set(classification['tags']) == set(tag_dimensions), p['id']
+        total_tags = 0
+        for key, values in classification['tags'].items():
+            assert isinstance(values, list) and all(isinstance(v, str) for v in values), (p['id'], key)
+            assert len(values) == len(set(values)) and set(values) <= set(tag_dimensions[key]['values']), (p['id'], key)
+            total_tags += len(values)
+        assert total_tags >= 1, f"At least one auxiliary tag is required: {p['id']}"
+        assert isinstance(classification['basis'], str) and classification['basis'].strip(), p['id']
         assert p['type'] in {'preprint', 'report', 'project'}
         assert set(p['dimensions']) == set(dimensions), p['id']
         for key, values in p['dimensions'].items():
@@ -120,6 +138,12 @@ def collection_entries(papers, collection_id):
                   key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
 
 
+def research_entries(papers, area_id):
+    """Each paper appears in exactly one primary research-area section."""
+    return sorted([p for p in papers if p['classification']['area'] == area_id],
+                  key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
+
+
 def render_benchmarks(catalog, taxonomy):
     parts = ['# Benchmark Atlas / 基准索引\n',
              '基准按任务、提交产物、评分证据与适用边界比较。任务设定与评测对象不同，分数不能跨基准直接排名。同一论文的配套 benchmark 作为具名协议索引，不重复计为新论文。\n']
@@ -165,11 +189,10 @@ def render_readme(catalog, taxonomy, repository):
         settings_path = ROOT / 'data/site.json'
         settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
         site_url = settings.get('preview_url') or 'site/index.html'
-        assert site_url == 'site/index.html' or (urlparse(site_url).scheme == 'https' and urlparse(site_url).hostname and not urlparse(site_url).username), '网站预览链接必须使用 HTTPS'
-    intro = (ROOT / 'docs/README.template.md').read_text()
-    intro = intro.replace('{{SITE_URL}}', site_url)
+        assert site_url == 'site/index.html' or (urlparse(site_url).scheme == 'https' and urlparse(site_url).hostname and not urlparse(site_url).username)
+    intro = (ROOT / 'docs/README.template.md').read_text().replace('{{SITE_URL}}', site_url)
     benchmarks = sum(len(p['benchmarks']) for p in papers)
-    intro = intro.replace('{{STATS}}', f"**{len(papers)} unique papers / projects · {benchmarks} named benchmark suites · {len(taxonomy['topics'])} research topics · 2 core directions** · Sources checked **{catalog['curated_at']}**.")
+    intro = intro.replace('{{STATS}}', f"**{len(papers)} unique papers / projects · {benchmarks} named benchmark suites · {len(taxonomy['research_areas'])} research areas · {len(taxonomy['tag_dimensions'])} auxiliary tag dimensions** · Sources checked **{catalog['curated_at']}**.")
     intro = intro.replace('{{NEWS}}', '\n\n'.join(f"{n['icon']} **[{n['date']}] {n['title']}** — {n['body']}" for n in news))
     parts = [intro, '\n---\n\n<a id="recent-paper-updates"></a>\n## 🔥 Recent Paper Updates\n']
     recent = sorted([p for p in papers if p['published']], key=lambda p:(p['published'],p['id']), reverse=True)[:20]
@@ -178,48 +201,33 @@ def render_readme(catalog, taxonomy, repository):
     parts.extend(readme_entry(p, recent=True)+'\n' for p in papers if not p['published'])
     parts.append('\n---\n\n## Overview\n')
     parts.extend(['- 🚩 [News & Updates](#news-updates)', '- 🔥 [Recent Paper Updates](#recent-paper-updates)'])
-    track_meta = {'generation':('💻','Code World Model (Generation)','code-world-model'), 'understanding':('🧠','Code as Model (Understanding)','code-as-model'), 'adjacent':('🔎','Related Perspectives','related-perspectives')}
-    icons = {'g_hybrid':'🎮','g_rendering':'🎬','g_simulation':'⚙️','g_scene':'🏗️','g_learning':'🌱','u_inverse':'🔄','u_reasoning':'🧪','u_planning':'🧩','u_verification':'📏','a_software':'💻','a_representation':'💬','a_streaming':'⚡'}
-    for section in taxonomy['collection_sections']:
-        parts.append(f"- {section['icon']} [{section['name']}](#{section['id']})")
-        parts.extend(f"- [{g['name']}](#{g['id'].replace('_','-')})" for g in taxonomy['collections'] if g['section']==section['id'])
-    for track in taxonomy['tracks']:
-        icon, name, anchor = track_meta[track['id']]
-        parts.append(f'- {icon} [{name}](#{anchor})')
-        for c in taxonomy['categories']:
-            if c['track'] == track['id']:
-                parts.append(f"- {icons[c['id']]} [{c['name'].title()}](#{c['id'].replace('_','-')})")
-    parts.extend(['- 🧭 [Reading Guide & Taxonomy](#reading-guide)', '- 📝 [Citation](#citation)', '\nEntries can appear under multiple relevant categories; the total counts unique works. Classic marks editorially selected representatives, not a citation ranking.\n'])
-    for section in taxonomy['collection_sections']:
-        parts.append(f'\n---\n\n<a id="{section["id"]}"></a>\n## {section["icon"]} {section["name"]}\n\n{section["description"]}\n')
-        if section['id']=='benchmarks':
-            parts.append('**[Benchmark Atlas: inputs → artifacts → evaluation evidence](docs/BENCHMARKS.md)** · Benchmark suites embedded in method papers are indexed by their own names, including CWMB, Code4D, 4DBuildBench, SimCode4D, CombatStateBench and CodeVideoBench.\n')
-        for group in taxonomy['collections']:
-            if group['section']!=section['id']:continue
-            parts.append(f'\n<a id="{group["id"].replace("_","-")}"></a>\n### {group["name"]}\n\n{group["question"]}\n')
-            for p in collection_entries(papers,group['id']):
-                parts.append(readme_entry(p)+'\n')
-                if p['benchmarks'] and section['id']=='benchmarks':
-                    for b in p['benchmarks']:
-                        parts.append(f"**{b['name']}** — {b['input']} → {b['artifact']}. **Checks:** {b['checks']}.\n")
-                else:parts.append(p['summary']+'\n')
-    for track in taxonomy['tracks']:
-        icon, name, anchor = track_meta[track['id']]
-        parts.append(f'\n---\n\n<a id="{anchor}"></a>\n## {icon} {name}\n\n{track["description"]}\n')
-        for c in taxonomy['categories']:
-            if c['track'] != track['id']:
-                continue
-            parts.append(f"\n<a id=\"{c['id'].replace('_','-')}\"></a>\n### {icons[c['id']]} {c['name'].title()}\n\n{c['question']}\n")
-            parts.extend(readme_entry(p)+'\n' for p in category_entries(papers,c['id']))
+    parts.extend(f"- [{area['name']}](#{area['id']})" for area in taxonomy['research_areas'])
+    parts.extend(['- 📊 [Benchmark Atlas](#benchmarks)', '- 🛠️ [Reusable resources](#infrastructure)', '- 🧭 [Taxonomy & reading guide](#reading-guide)', '- 📝 [Citation](#citation)'])
+    parts.append('\n**World Models Taxonomy V2:** each paper has exactly one primary research area and one or more auxiliary tags. A direction refines the primary area when applicable. The six area sections below do not cross-list papers. Recent updates and reading paths are separate navigation aids.\n')
+    for area in taxonomy['research_areas']:
+        parts.append(f"\n---\n\n<a id=\"{area['id']}\"></a>\n## {area['name']}\n")
+        parts.append('**Directions:** '+' · '.join(d['name'] for d in area['directions'])+'\n')
+        direction_names = {d['id']:d['name'] for d in area['directions']}
+        for p in research_entries(papers, area['id']):
+            direction = p['classification']['direction']
+            suffix = ' · **'+direction_names[direction]+'**' if direction else ''
+            parts.append(readme_entry(p)+suffix+'\n')
+    parts.append('\n---\n\n<a id="benchmarks"></a>\n## 📊 Benchmarks & Evaluation\n')
+    parts.append('[Benchmark Atlas: inputs → artifacts → evaluation evidence](docs/BENCHMARKS.md). Named suites within method papers remain associated with their original paper; they do not create additional primary classifications.\n')
+    parts.append('**Named suites:** '+' · '.join(b['name'] for p in papers for b in p['benchmarks'])+'\n')
+    parts.append('\n<a id="infrastructure"></a>\n## 🛠️ Datasets, Harnesses & Streaming Systems\n')
+    for group in taxonomy['collections']:
+        if group['section'] == 'infrastructure':
+            parts.append(f"- **{group['name']}**: {group['question']}")
     parts.append('''
 ---
 
 <a id="reading-guide"></a>
-## 🧭 Reading Guide & Taxonomy
+## 🧭 Taxonomy & Reading Guide
 
-**Code World Model** follows intent → executable world → observation. **Code as Model** follows observation → executable hypothesis → prediction, intervention or verification. A paper can contribute to both directions.
+Select **one research area** and optionally a direction, then combine **one or more auxiliary tags** across Research Challenges, Memory & State, Control & Interaction, Representation & Output, Methods & Training, Runtime & Efficiency, World Setting & Domain, and Evaluation Focus. Tag filters use an intersection and can be combined with publication month, title/author search, and resource badges.
 
-The catalog records seven dimensions: **code role, world representation, dynamics authority, construction feedback, interaction contract, evaluation target, and domain**. The website provides a simple list with ten broad research topics that can be selected together. Full rationale and scope boundaries: [Taxonomy / 中文分类说明](docs/TAXONOMY.md).
+The initial V2 assignments migrate the existing curated metadata and editorial summaries; they are not a new full-text review or a certification of reported capabilities. [Taxonomy / 中文分类说明](docs/TAXONOMY.md).
 ''')
     by_id = {p['id']:p for p in papers}
     for path in taxonomy['reading_paths']:
@@ -235,7 +243,7 @@ Please cite the original papers. Download [all BibTeX entries](site/papers.bib) 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to suggest a paper or correction. [Research notes](docs/RESEARCH.md) document source checks and title disambiguation.
 
-`data/papers.json` is the single source of truth; `data/taxonomy.json` defines categories and dimensions; `data/updates.json` records collection news. The README, website data and exports are generated together.
+`data/papers.json` is the single source of truth; `data/taxonomy.json` defines V2 research areas, directions, and auxiliary tags; `data/updates.json` records collection news. The README, website data, and exports are generated together.
 
 ```bash
 python3 scripts/build.py
@@ -249,13 +257,13 @@ The daily discovery prototype proposes candidates for review. It does not silent
 
 ## Acknowledgments & License
 
-Layout and badge conventions follow [EasonTuT/Awesome-Interactive-World-Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model): a website entry, Classic / public-resource legend, collection news, recent papers, and categorized paper lists. Our research taxonomy, editorial notes, artwork and implementation are maintained independently.
+The simple paper-list layout is inspired by [EasonTuT/Awesome-Interactive-World-Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model); compound paper indexing also draws inspiration from [Awesome 3D Gaussian Splatting](https://mrnerf.github.io/awesome-3D-gaussian-splatting/). The World Models Taxonomy V2 follows the maintainer-provided research-area and tag-dimension specification. Our metadata, editorial notes, and implementation are maintained independently.
 
-Repository code and original editorial content: [MIT](LICENSE). Paper titles, abstracts and external resources remain attributable to their respective authors and providers.
+Repository code and original editorial content: [MIT](LICENSE). Paper titles, abstracts, and external resources remain attributable to their respective authors and providers.
 ''')
     readme = '\n'.join(parts).strip()+'\n'
-    # CommonMark 要求 HTML 锚点与后面的 Markdown 标题之间有空行。
     return re.sub(r'(<a id="[a-z0-9-]+"></a>)\n(?=#)', r'\1\n\n', readme)
+
 
 
 def web_link(url):
@@ -379,11 +387,15 @@ def outputs(catalog, taxonomy, repository):
         ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(),
     }
     buf=io.StringIO(newline='')
-    fields=['id','title','published','date_basis','type','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
+    fields=['id','title','published','date_basis','type','research_area','research_direction','auxiliary_tags','classification_basis','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
     writer=csv.DictWriter(buf, fieldnames=fields)
     writer.writeheader()
     for p in catalog['papers']:
         row={k:p[k] or '' for k in fields if k in p}
+        row['research_area']=p['classification']['area']
+        row['research_direction']=p['classification']['direction'] or ''
+        row['auxiliary_tags']=json.dumps(p['classification']['tags'],ensure_ascii=False)
+        row['classification_basis']=p['classification']['basis']
         row.update({d['id']:'; '.join(p['dimensions'][d['id']]) for d in taxonomy['dimensions']})
         row['collections']='; '.join(p['collections'])
         row['benchmark_names']='; '.join(b['name'] for b in p['benchmarks'])

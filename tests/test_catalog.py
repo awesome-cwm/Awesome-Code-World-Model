@@ -54,7 +54,7 @@ class CatalogTests(unittest.TestCase):
         repository='awesome-cwm/Awesome-Code-World-Model'
         generated=build.outputs(self.catalog,self.taxonomy,repository)
         self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/',generated[ROOT/'README.md'])
-        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=reconstruction,physics',generated[ROOT/'README.md'])
+        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?area=world-construction&direction=reconstruction&tags=physical-consistency',generated[ROOT/'README.md'])
         self.assertIn('"repository":"'+repository+'"',generated[ROOT/'site/catalog.js'])
 
     def test_resource_badge_requires_matching_evidence(self):
@@ -95,6 +95,60 @@ class CatalogTests(unittest.TestCase):
         self.assertNotIn('onerror',rendered)
         self.assertNotIn('javascript:',rendered)
         self.assertIn('src="banner.svg"',rendered)
+
+    def test_taxonomy_v2_matches_maintainer_design(self):
+        self.assertEqual([a['name'] for a in self.taxonomy['research_areas']], [
+            'World Construction', 'World Dynamics & Simulation',
+            'World Interaction & Control', 'World Reasoning & Learning',
+            'Modeling & Systems', 'Resources & Analysis'])
+        self.assertEqual(sum(len(a['directions']) for a in self.taxonomy['research_areas']),22)
+        self.assertEqual([d['name'] for d in self.taxonomy['tag_dimensions']], [
+            'Research Challenges', 'Memory & State', 'Control & Interaction',
+            'Representation & Output', 'Methods & Training', 'Runtime & Efficiency',
+            'World Setting & Domain', 'Evaluation Focus'])
+
+    def test_primary_area_is_required_and_single(self):
+        for invalid in [None, [], ['world-construction','resources-analysis'], 'unknown']:
+            with self.subTest(area=invalid):
+                c=copy.deepcopy(self.catalog)
+                c['papers'][0]['classification']['area']=invalid
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+        c=copy.deepcopy(self.catalog)
+        del c['papers'][0]['classification']
+        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_direction_must_belong_to_primary_area_but_can_be_unspecified(self):
+        c=copy.deepcopy(self.catalog)
+        c['papers'][0]['classification'].update(area='world-construction',direction='benchmark')
+        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+        c['papers'][0]['classification']['direction']=None
+        self.assertTrue(build.validate(c,self.taxonomy))
+
+    def test_auxiliary_tags_require_valid_unique_values_in_their_own_dimension(self):
+        for invalid in [[], ['unknown'], ['explicit-state'], ['physical-consistency','physical-consistency']]:
+            with self.subTest(tags=invalid):
+                c=copy.deepcopy(self.catalog)
+                classification=c['papers'][0]['classification']
+                classification['tags']={d['id']:[] for d in self.taxonomy['tag_dimensions']}
+                classification['tags']['research_challenges']=invalid
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
+
+    def test_primary_readme_sections_partition_all_records_once(self):
+        grouped=[p['id'] for area in self.taxonomy['research_areas']
+                 for p in build.research_entries(self.catalog['papers'],area['id'])]
+        self.assertEqual(len(grouped),len(set(grouped)))
+        self.assertEqual(set(grouped),{p['id'] for p in self.catalog['papers']})
+
+    def test_csv_preserves_single_primary_area_and_grouped_auxiliary_tags(self):
+        import csv,io
+        generated=build.outputs(self.catalog,self.taxonomy,'')
+        rows=list(csv.DictReader(io.StringIO(generated[ROOT/'site/papers.csv'])))
+        by_id={p['id']:p for p in self.catalog['papers']}
+        for row in rows:
+            c=by_id[row['id']]['classification']
+            self.assertEqual(row['research_area'],c['area'])
+            self.assertEqual(row['research_direction'],c['direction'] or '')
+            self.assertEqual(json.loads(row['auxiliary_tags']),c['tags'])
 
 
 class DiscoveryTests(unittest.TestCase):

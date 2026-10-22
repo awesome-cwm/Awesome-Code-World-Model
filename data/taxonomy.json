@@ -1,16 +1,241 @@
 {
-  "version": "1.1",
-  "topics": [
-    {"id":"generation","name":"World Generation","zh":"世界生成","description":"Code-built assets, scenes and executable worlds.","rules":{"categories":["g_scene","g_simulation","g_hybrid","g_learning"]}},
-    {"id":"reconstruction","name":"World Reconstruction","zh":"世界重建","description":"Recover world programs and simulations from observations.","rules":{"categories":["u_inverse"]}},
-    {"id":"physics","name":"Physics","zh":"物理建模与仿真","description":"Physical mechanisms, simulation, parameters and numerical solvers.","rules":{"categories":["g_simulation","u_reasoning"],"code_roles":["solver"],"dynamics":["physics"],"representations":["physics_program","neural_material"]}},
-    {"id":"rendering","name":"Rendering & Video","zh":"渲染与视频生成","description":"Code-guided video, neural rendering and streaming visual output.","rules":{"categories":["g_rendering","a_streaming"],"code_roles":["proxy"],"representations":["video_latents"]}},
-    {"id":"interaction","name":"Interaction & Editing","zh":"交互与编辑","description":"Action-driven interaction, playable worlds and program editing.","rules":{"categories":["g_hybrid"],"interactions":["editable","action","closed_loop","world_streaming"]}},
-    {"id":"memory","name":"Memory & Consistency","zh":"记忆与一致性","description":"Persistent state, off-screen objects and continuity as worlds expand.","rules":{"categories":["g_hybrid"],"interactions":["world_streaming"]}},
-    {"id":"reasoning","name":"Reasoning & Planning","zh":"推理与规划","description":"Executable physical reasoning, rule induction, counterfactuals and planning.","rules":{"categories":["u_reasoning","u_planning"]}},
-    {"id":"learning","name":"Agent Learning","zh":"智能体学习","description":"Worlds, tasks and curricula for learning agents.","rules":{"categories":["g_learning"],"code_roles":["environment"]}},
-    {"id":"evaluation","name":"Evaluation","zh":"验证与评测","description":"Verification, functional evaluation and named benchmark protocols.","rules":{"categories":["u_verification"],"benchmark":true}},
-    {"id":"dataset","name":"Dataset","zh":"数据集","description":"Reusable executable code and simulation corpora.","rules":{"collections":["d_corpora"]}}
+  "version": "2.0",
+  "research_areas": [
+    {
+      "id": "world-construction",
+      "name": "World Construction",
+      "zh": "世界构建",
+      "directions": [
+        {
+          "id": "generation",
+          "name": "Generation"
+        },
+        {
+          "id": "reconstruction",
+          "name": "Reconstruction"
+        },
+        {
+          "id": "programmatic-generation",
+          "name": "Programmatic Generation"
+        }
+      ]
+    },
+    {
+      "id": "world-dynamics-simulation",
+      "name": "World Dynamics & Simulation",
+      "zh": "世界动力学与仿真",
+      "directions": [
+        {
+          "id": "state-prediction",
+          "name": "State Prediction"
+        },
+        {
+          "id": "physical-simulation",
+          "name": "Physical Simulation"
+        },
+        {
+          "id": "long-horizon-rollout",
+          "name": "Long-Horizon Rollout"
+        },
+        {
+          "id": "multi-agent-dynamics",
+          "name": "Multi-Agent Dynamics"
+        }
+      ]
+    },
+    {
+      "id": "world-interaction-control",
+      "name": "World Interaction & Control",
+      "zh": "世界交互与控制",
+      "directions": [
+        {
+          "id": "navigation",
+          "name": "Navigation"
+        },
+        {
+          "id": "action-control",
+          "name": "Action Control"
+        },
+        {
+          "id": "world-editing",
+          "name": "World Editing"
+        },
+        {
+          "id": "rule-control",
+          "name": "Rule Control"
+        },
+        {
+          "id": "multi-agent-interaction",
+          "name": "Multi-Agent Interaction"
+        }
+      ]
+    },
+    {
+      "id": "world-reasoning-learning",
+      "name": "World Reasoning & Learning",
+      "zh": "世界推理与学习",
+      "directions": [
+        {
+          "id": "planning",
+          "name": "Planning"
+        },
+        {
+          "id": "counterfactual-reasoning",
+          "name": "Counterfactual Reasoning"
+        },
+        {
+          "id": "agent-learning",
+          "name": "Agent Learning"
+        }
+      ]
+    },
+    {
+      "id": "modeling-systems",
+      "name": "Modeling & Systems",
+      "zh": "建模与系统",
+      "directions": [
+        {
+          "id": "model-architecture",
+          "name": "Model Architecture"
+        },
+        {
+          "id": "training-alignment",
+          "name": "Training & Alignment"
+        },
+        {
+          "id": "inference-serving",
+          "name": "Inference & Serving"
+        }
+      ]
+    },
+    {
+      "id": "resources-analysis",
+      "name": "Resources & Analysis",
+      "zh": "资源与分析",
+      "directions": [
+        {
+          "id": "dataset",
+          "name": "Dataset"
+        },
+        {
+          "id": "benchmark",
+          "name": "Benchmark"
+        },
+        {
+          "id": "evaluation",
+          "name": "Evaluation"
+        },
+        {
+          "id": "survey",
+          "name": "Survey"
+        }
+      ]
+    }
+  ],
+  "tag_dimensions": [
+    {
+      "id": "research_challenges",
+      "name": "Research Challenges",
+      "values": {
+        "inverse-reconstruction": "Inverse Reconstruction",
+        "physical-consistency": "Physical Consistency",
+        "temporal-consistency": "Temporal Consistency",
+        "compositional-generalization": "Compositional Generalization",
+        "physical-reasoning": "Physical Reasoning",
+        "functional-correctness": "Functional Correctness",
+        "counterfactual-testing": "Counterfactual Testing"
+      }
+    },
+    {
+      "id": "memory_state",
+      "name": "Memory & State",
+      "values": {
+        "explicit-state": "Explicit State",
+        "persistent-state": "Persistent State",
+        "off-screen-state": "Off-screen State",
+        "object-identity": "Object Identity",
+        "visual-memory": "Visual Memory"
+      }
+    },
+    {
+      "id": "control_interaction",
+      "name": "Control & Interaction",
+      "values": {
+        "action-conditioned": "Action-conditioned",
+        "closed-loop": "Closed-loop Interaction",
+        "program-editing": "Program Editing",
+        "rule-editing": "Rule Editing",
+        "camera-control": "Camera Control",
+        "world-expansion": "World Expansion"
+      }
+    },
+    {
+      "id": "representation_output",
+      "name": "Representation & Output",
+      "values": {
+        "scene-program": "Scene Programs",
+        "transition-program": "Transition Programs",
+        "physics-program": "Physics Programs",
+        "visual-proxy": "Visual Proxies",
+        "execution-trace": "Software Execution Traces",
+        "physical-language": "Physical Language",
+        "scene-constraints": "Scene Constraints",
+        "neural-geometry": "Neural Geometry",
+        "video-latents": "Video Latents",
+        "code-corpus": "Code & Simulation Corpora"
+      }
+    },
+    {
+      "id": "methods_training",
+      "name": "Methods & Training",
+      "values": {
+        "program-synthesis": "Program Synthesis",
+        "program-search": "Program Search",
+        "execution-feedback": "Execution Feedback",
+        "visual-feedback": "Visual Feedback",
+        "physics-feedback": "Physics Feedback",
+        "trajectory-fitting": "Trajectory Fitting",
+        "task-feedback": "Task Feedback",
+        "training-objective": "Model Training",
+        "multi-agent-method": "Multi-agent Methods",
+        "distillation": "Distillation",
+        "training-free": "Training-free"
+      }
+    },
+    {
+      "id": "runtime_efficiency",
+      "name": "Runtime & Efficiency",
+      "values": {
+        "streaming-output": "Streaming Output",
+        "runtime-measurement": "Runtime Measurement",
+        "gpu-computing": "GPU Computing",
+        "cache-reuse": "Cache Reuse"
+      }
+    },
+    {
+      "id": "world_setting_domain",
+      "name": "World Setting & Domain",
+      "values": {
+        "general-worlds": "General Worlds",
+        "physical-phenomena": "Physical Phenomena",
+        "robotics": "Robotics",
+        "games": "Games",
+        "video-generation": "Video Generation",
+        "software-environments": "Software Environments"
+      }
+    },
+    {
+      "id": "evaluation_focus",
+      "name": "Evaluation Focus",
+      "values": {
+        "eval-executability": "Executability",
+        "eval-visual-geometry": "Visual & Geometric Fidelity",
+        "eval-physical-fidelity": "Physical Fidelity",
+        "eval-functional-success": "Functional / Task Success",
+        "eval-latency-throughput": "Latency & Throughput",
+        "eval-reasoning-prediction": "Reasoning & Prediction"
+      }
+    }
   ],
   "tracks": [
     {

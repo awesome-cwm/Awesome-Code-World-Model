@@ -14,7 +14,7 @@ python3 -m http.server 8000 --directory site
 
 ## 复合标签网站与预览入口
 
-网站采用简洁论文清单，支持十个大标签复选取交集、标题／作者检索与徽标筛选。筛选条件保存在网址中。`data/taxonomy.json` 的 `topics` 定义标签和初始映射；后续可在论文记录中用 `topics` 数组进行人工覆盖。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。
+网站采用简洁论文清单，按 World Models Taxonomy V2 提供主分类单选、细方向单选与八个维度的辅助标签多选，并保留月份、标题／作者检索和徽标筛选。辅助标签取交集，条件保存在网址中。`data/taxonomy.json` 的 `research_areas`、`tag_dimensions` 定义词表；每篇论文的 `classification` 保存唯一主分类与辅助标签。完整 BibTeX、JSON、CSV 导出继续保留在静态目录和 README 链接中。
 
 `data/site.json` 的 `repository` 保存目标 GitHub 仓库，当前为 `awesome-cwm/Awesome-Code-World-Model`；默认构建与 `--check` 都使用此配置，使提交的 README 与 CI 校验一致。网站地址为 `https://awesome-cwm.github.io/Awesome-Code-World-Model/`，上线结果以 Pages deployment 为准。
 

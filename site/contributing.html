@@ -4,9 +4,9 @@
 <ol>
 <li>Provide a primary source: arXiv, publisher, official technical report or author-maintained project.</li>
 <li>Check the exact title, authors and first submission date. Leave publication date null if unconfirmed. Do not infer a release date from repository creation.</li>
-<li>Choose a primary research question in <code>data/taxonomy.json</code>, then add cross-categories where justified. Explain the role of code and who determines the next state.</li>
+<li>Follow <strong>World Models Taxonomy V2</strong> in <code>data/taxonomy.json</code>. Set <code>classification.area</code> to exactly one of the six research areas. Set <code>classification.direction</code> to one direction under that area, or <code>null</code> when none accurately describes the contribution. Supply the eight dimension arrays in <code>classification.tags</code>, with at least one valid auxiliary tag in total. Record the evidence in <code>classification.basis</code>; do not infer capabilities from titles alone.</li>
 </ol>
-<p>   The website&#x27;s ten broad topics are provisionally mapped from existing metadata through <code>taxonomy.topics</code>. To replace the mapping after editorial review, add an explicit <code>topics</code> array to the paper record using those topic IDs; this overrides the fallback, including when the array is empty. Do not infer topics from titles alone.</p>
+<p>   Select the primary area by the main contribution, rather than every component the paper uses. A method with a benchmark need not have Benchmark as its primary direction. Legacy <code>track</code>, <code>category</code>, <code>cross_categories</code>, and <code>dimensions</code> remain source metadata for maintenance; they no longer create multiple primary classifications.</p>
 <ol>
 <li>Add a unique record to <code>data/papers.json</code>. Preserve the source abstract separately from the editorial summary. Each resource needs its own type and provenance URL.</li>
 <li>Set <code>verification.basis</code> honestly: primary abstract, official project, or full text. Record the date on which you reviewed the source.</li>
@@ -15,7 +15,7 @@
 <li>Run <code>python3 scripts/build.py</code> and <code>python3 -m unittest discover -s tests -v</code>; include generated files in the PR.</li>
 </ol>
 <p>Do not edit <code>site/catalog.js</code>, exported files, <code>docs/BENCHMARKS.md</code> or the generated README directly. Edit <code>docs/README.template.md</code> for introductory copy. Edit <code>site/index.html</code>, <code>site/style.css</code> and <code>site/app.js</code> for the frontend.</p>
-<p>Add collection announcements to <code>data/updates.json</code>. Categories list representative works first and then other papers by first submission date, including cross-listed contributions.</p>
+<p>Add collection announcements to <code>data/updates.json</code>. The README lists each paper under exactly one primary research area, with representative works first and other papers ordered by first submission date. Auxiliary tags supply cross-cutting indexes without duplicating primary membership.</p>
 <h2>Promote a crawler candidate</h2>
 <p>Candidates live in <code>data/inbox.json</code>, outside the public curated index. Read the source and create a complete record before promotion; the crawler&#x27;s suggested category is not sufficient evidence. After adding the curated record, set the candidate&#x27;s status to <code>accepted</code>. Set <code>rejected</code> with a reason for irrelevant or duplicate results. Keep decision records so later daily runs do not reopen the same candidate.</p>
 <h2>Review checklist</h2>
@@ -24,7 +24,7 @@
 <li>Is this generated motion, an engine-stepped physical simulation, or a learned transition?</li>
 <li>Do tags describe measured targets rather than imply success?</li>
 <li>Are streaming, throughput and interaction latency distinguished?</li>
-<li>Is the main contribution generation or understanding, with useful cross-links?</li>
+<li>Does the record have exactly one V2 research area, a matching direction if specified, and at least one auxiliary tag from the correct dimension?</li>
 <li>Are code links distinguished from project, data and weight links?</li>
 </ul>
 <p>Use English for commit messages. Code comments and classification rationale may be written in Chinese. The main collection is written in English for an international audience; detailed Chinese taxonomy notes are in <code>docs/TAXONOMY.md</code>.</p></article></main></html>
