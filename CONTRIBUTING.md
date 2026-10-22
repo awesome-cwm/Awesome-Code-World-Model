@@ -31,4 +31,4 @@ Candidates live in `data/inbox.json`, outside the public curated index. Read the
 - Is the main contribution generation or understanding, with useful cross-links?
 - Are code links distinguished from project, data and weight links?
 
-原始分类理由可以使用中文。代码注释和维护提交默认使用中文。英文主目录面向国际读者；中文深度分类说明在 `docs/TAXONOMY.md`。
+Use English for commit messages. Code comments and classification rationale may be written in Chinese. The main collection is written in English for an international audience; detailed Chinese taxonomy notes are in `docs/TAXONOMY.md`.
