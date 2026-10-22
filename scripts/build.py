@@ -84,8 +84,6 @@ def validate(catalog, taxonomy):
         for b in p['benchmarks']:
             assert all(isinstance(b.get(k), str) and b[k].strip() for k in ['name','input','artifact','checks','caveat','source']), p['id']
             assert urlparse(b['source']).scheme == 'https', p['id']
-        assert isinstance(p['classic'], bool)
-        assert not p['classic'] or p['classic_note'].strip()
         available = {r['url'] for r in p['resources'] if r['kind'] != 'paper'}
         status = p['resource_status']
         assert status['status'] == ('available' if available else 'not_found'), p['id']
@@ -124,20 +122,20 @@ def md(value):
 
 
 def category_entries(papers, category_id):
-    """参考清单式顺序：代表作置顶，其余按首次提交日期倒序；包含交叉分类。"""
+    """按首次提交日期倒序；包含交叉分类。"""
     selected = [p for p in papers if p['category'] == category_id or category_id in p['cross_categories']]
-    return sorted(selected, key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
+    return sorted(selected, key=lambda p:(p['published'] or '', p['id']), reverse=True)
 
 
 def collection_entries(papers, collection_id):
     return sorted([p for p in papers if collection_id in p['collections']],
-                  key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
+                  key=lambda p:(p['published'] or '', p['id']), reverse=True)
 
 
 def topic_entries(papers, topic_id):
     """README placement is unique; website topic membership may overlap."""
     return sorted([p for p in papers if p['classification']['readme_topic'] == topic_id],
-                  key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
+                  key=lambda p:(p['published'] or '', p['id']), reverse=True)
 
 
 def render_benchmarks(catalog, taxonomy):
@@ -167,12 +165,11 @@ def readme_entry(p, recent=False):
     title = p['title'].replace('[', r'\[').replace(']', r'\]')
     if recent:
         return f'[{stamp}] {availability}[{title}]({primary})'
-    star = f"🌟({p['classic_note']}) " if p['classic'] else ''
-    line = f'[{stamp}] {availability}{star}[{title}]({primary})'
+    line = f'[{stamp}] {availability}[{title}]({primary})'
     extras = [f"[{r['kind'].title()}]({r['url']})" for r in p['resources'] if r['kind'] != 'paper' and r['url'] != primary]
     if extras:
         line += ' · ' + ' · '.join(extras)
-    return f'**{line}**' if p['classic'] else line
+    return line
 
 
 def render_readme(catalog, taxonomy, repository):

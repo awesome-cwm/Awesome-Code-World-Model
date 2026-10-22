@@ -82,11 +82,9 @@ H3 解码博客只明确到 2026 年 10 月，保留日级日期未知。其解�
 - `official_project`：核对官方项目页／README 的内容与资源指向。
 - `full_text`：阅读了全文中与分类有关的具体章节；本轮用于 BlenderGym、Code4Scene、GPUPhysBench 的任务与评价分析，不表示全文逐字审核或实验复现。
 
-参考排版修订版采用原参考目录的徽标约定：`🌟 Classic` 表示编辑选取的类别代表作；`✅ Open Source` 表示已找到代码、权重、数据或官方项目页；`❌️ Not Open Source` 表示已检查来源中暂未找到这类公开资源。它们是资源发现标签，不是许可证或复现完整性认证。“Paper / Code / Project / Data / Weights”链接仍分别显示实际资源类型；仅有论文链接不会得到 ✅。
+徽标只显示 `✅ Open Source` 和 `❌️ Not Open Source` 两种状态，不再标注代表作或设置特殊高亮。沿用目录的资源记录口径：前者表示已找到代码、权重、数据或官方项目页，后者表示已检查来源中暂未找到这类公开资源。“Paper / Code / Project / Data / Weights”链接分别显示实际资源类型；仅有论文链接不会得到 ✅。
 
 上一轮从 arXiv 元数据的 comment 字段及已核验官方仓库补充 23 个资源链接，覆盖 SolarRenderer、Matrix-Game 4.0、AgentGarten、Video2World、Code as Worlds、VideoCoCo 等。当时 31 条记录有公开资源，13 条暂未找到。本轮继续补充新基准和数据链接；最新状态以每条记录的 `resource_status` 为准。
-
-八篇 🌟 代表作是 Code World Model、VideoCoCo、Code2Worlds、RoboGen、Code as Worlds、MPMWorlds、GIF-MCTS 和 World Programs。它们分别代表持续代码世界、代码预演、动态模拟生成、生成式环境学习、可执行物理假设、逆物理外推、转移程序搜索和早期世界程序。此选择不表示引用量排名，也不把近期工作宣称为历史经典。
 
 ## 参考
 

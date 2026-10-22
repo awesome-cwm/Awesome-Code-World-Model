@@ -19,7 +19,7 @@ function expectedPapers(filters={}){
     const titleAndAuthors=[p.title,p.short_title,...p.authors].join(' ').toLowerCase();
     return words.every(word=>titleAndAuthors.includes(word))&&
       state.topics.every(topic=>p.classification.topics.includes(topic))&&
-      (state.badge==='all'||(state.badge==='classic'?p.classic:p.resource_status.status===state.badge))&&
+      (state.badge==='all'||p.resource_status.status===state.badge)&&
       (state.month==='all'||monthFor(p)===state.month);
   });
 }
@@ -81,6 +81,9 @@ fs.mkdirSync(out,{recursive:true});
     assert.equal(await page.locator('#topic-options input[type="checkbox"]').count(),22);
     assert.equal(await page.locator('#topic-options input:disabled').count(),0,'Even empty topics remain selectable');
     assert.equal(await page.locator('input[type="radio"],#direction,#area-options,#auxiliary-options').count(),0);
+    assert.equal(await page.locator('[data-badge="classic"],.badge-star,.paper-card.starred').count(),0);
+    assert.deepEqual(await page.locator('.paper-badges .badge').allTextContents(),
+      await page.locator('.paper-card').evaluateAll(nodes=>nodes.map(node=>node.querySelector('.badge-open')?'✅ Open Source':'❌️ Not Open Source')));
     assert.deepEqual(await page.locator('#topic-options input').evaluateAll(nodes=>nodes.map(n=>n.value)),taxonomy.topics.map(t=>t.id));
     const labels=await page.locator('.paper-card').evaluateAll(nodes=>nodes.map(n=>({
       id:n.dataset.paper,topics:[...n.querySelectorAll('.paper-topics [data-topic]')].map(b=>b.dataset.topic)
@@ -201,7 +204,7 @@ fs.mkdirSync(out,{recursive:true});
     await assertClear();
     checks.push('All topics clears only the topic selection while preserving query, resources and month; Clear filters resets everything');
 
-    for(const resource of ['classic','available','not_found']){
+    for(const resource of ['available','not_found']){
       await page.locator('[data-badge="'+resource+'"]').click();
       await assertResults({badge:resource});
       await assertMonthCounts({badge:resource});
@@ -235,8 +238,9 @@ fs.mkdirSync(out,{recursive:true});
     const sanitized=new URL(page.url()).searchParams;
     assert.deepEqual([...sanitized.keys()],['topics']);
     assert.deepEqual(sanitized.get('topics').split(','),sorted(triple));
-    await page.goto(base+'/?area=world-construction&direction=reconstruction&tags=physics&exclude=memory&match=any',{waitUntil:'networkidle'});
+    await page.goto(base+'/?area=world-construction&direction=reconstruction&tags=physics&exclude=memory&match=any&badge=classic',{waitUntil:'networkidle'});
     assert.deepEqual(await checkedTopics(),[]);
+    assert.equal(await page.locator('[data-badge="all"]').getAttribute('aria-pressed'),'true');
     await assertResults();
     checks.push('Invalid IDs and retired hierarchy/OR/exclusion parameters are ignored, valid repeated topics deduplicate, URLs normalize after interaction and empty results reset safely');
 
@@ -266,7 +270,7 @@ fs.mkdirSync(out,{recursive:true});
     checks.push('Opening site/index.html directly from file:// supports topic intersections, months and reset');
 
     await page.goto(base+'/readme.html',{waitUntil:'networkidle'});
-    const websiteEntry=page.locator('.prose a').filter({hasText:'Open the research website'});
+    const websiteEntry=page.locator('.prose a').filter({hasText:'All 22 topic filters'});
     assert.ok(await websiteEntry.count()>0,'Generated README retains the website entry');
     const websiteHref=await websiteEntry.first().getAttribute('href');
     assert.ok(/^https:\/\/[^/]+\.github\.io\/[^/]+\//.test(websiteHref)||websiteHref==='index.html'||websiteHref==='./');

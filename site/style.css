@@ -34,7 +34,6 @@ button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible {
 .badge-filters button,#all-topics,.topic-option { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:6px 12px; font-size:12px; line-height:1.5; white-space:nowrap; transition:background .12s,border-color .12s; }
 .badge-filters button:hover,#all-topics:hover,.topic-option:hover { border-color:#93b4f4; background:#eff6ff; }
 .badge-filters button[aria-pressed=true],#all-topics[aria-pressed=true] { color:#fff; background:var(--blue); border-color:var(--blue); }
-.badge-filters [data-badge=classic][aria-pressed=true] { background:#d97706; border-color:#d97706; }
 .badge-filters [data-badge=available][aria-pressed=true] { background:#059669; border-color:#059669; }
 .badge-filters [data-badge=not_found][aria-pressed=true] { background:#b45353; border-color:#b45353; }
 #topic-options { display:contents; }
@@ -51,12 +50,10 @@ button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible {
 .paper-list { display:flex; flex-direction:column; gap:12px; }
 .paper-card { background:#fff; border:1px solid #e8ecf0; border-radius:10px; padding:16px 19px; transition:box-shadow .15s,border-color .15s; }
 .paper-card:hover { border-color:#d5dfec; box-shadow:0 5px 20px #0f172a09; }
-.paper-card.starred { border-left:4px solid #f59e0b; padding-left:16px; }
 .paper-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
 .paper-main { min-width:0; flex:1; }
 .paper-badges { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:7px; }
 .badge { display:inline-flex; align-items:center; border-radius:14px; font-size:10px; font-weight:650; line-height:1.5; padding:2px 7px; border:1px solid transparent; }
-.badge-star { color:#92400e; background:#fef3c7; border-color:#fde68a; }
 .badge-open { color:#047857; background:#d1fae5; border-color:#a7f3d0; }
 .badge-closed { color:#9f4a4a; background:#fdf0ef; border-color:#f3d4d1; }
 .paper-card h2 { font-size:15px; font-weight:650; line-height:1.48; margin:0; letter-spacing:-.1px; }
@@ -120,7 +117,6 @@ button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible {
   .list-status { font-size:10px; }
   .list-status button { font-size:10px; }
   .paper-card { padding:14px; }
-  .paper-card.starred { padding-left:11px; }
   .paper-heading { gap:9px; }
   .paper-card h2 { font-size:14px; }
   .paper-date { font-size:9px; padding:3px 5px; }

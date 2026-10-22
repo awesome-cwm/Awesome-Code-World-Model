@@ -6,7 +6,7 @@
   const $=selector=>document.querySelector(selector);
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const topicById=new Map(taxonomy.topics.map(t=>[t.id,t]));
-  const badges=['all','classic','available','not_found'];
+  const badges=['all','available','not_found'];
   const monthFor=p=>p.published?p.published.slice(0,7):'undated';
   const months=[...new Set(papers.map(monthFor))].sort((a,b)=>a==='undated'?1:b==='undated'?-1:b.localeCompare(a));
   const defaults={q:'',badge:'all',topics:[],month:'all'};
@@ -34,7 +34,7 @@
     return papers.filter(p=>{
       const haystack=[p.title,p.short_title,...p.authors].join(' ').toLocaleLowerCase();
       return words.every(word=>haystack.includes(word))&&engine.matchesTopics(p.classification.topics,state.topics)&&
-        (state.badge==='all'||(state.badge==='classic'?p.classic:p.resource_status.status===state.badge))&&
+        (state.badge==='all'||p.resource_status.status===state.badge)&&
         (ignoreMonth||state.month==='all'||monthFor(p)===state.month);
     }).sort((a,b)=>{
       if(!a.published&&!b.published)return a.title.localeCompare(b.title);
@@ -58,9 +58,9 @@
     const primary=p.resources.find(r=>r.kind==='paper')?.url||p.verification.source;
     const resources=p.resources.filter(r=>r.kind!=='paper'),labels={code:'Code',project:'Project',data:'Data',weights:'Weights'};
     const stamp=p.published?p.published.slice(0,7):'Date TBC';
-    const badge=p.resource_status.status==='available'?'<span class="badge badge-open">✅ Public resources</span>':'<span class="badge badge-closed">No resources found</span>';
-    return `<article class="paper-card${p.classic?' starred':''}" data-paper="${esc(p.id)}">
-      <div class="paper-heading"><div class="paper-main"><div class="paper-badges">${p.classic?'<span class="badge badge-star" title="'+esc(p.classic_note)+'">🌟 Classic</span>':''}${badge}</div><h2><a href="${esc(primary)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a></h2></div><time class="paper-date"${p.published?' datetime="'+esc(p.published)+'"':''}>${esc(stamp)}</time></div>
+    const badge=p.resource_status.status==='available'?'<span class="badge badge-open">✅ Open Source</span>':'<span class="badge badge-closed">❌️ Not Open Source</span>';
+    return `<article class="paper-card" data-paper="${esc(p.id)}">
+      <div class="paper-heading"><div class="paper-main"><div class="paper-badges">${badge}</div><h2><a href="${esc(primary)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a></h2></div><time class="paper-date"${p.published?' datetime="'+esc(p.published)+'"':''}>${esc(stamp)}</time></div>
       <div class="paper-topics">${p.classification.topics.map(topicButton).join('')}</div>
       <p class="paper-description">${esc(p.summary)}</p>
       ${resources.length?'<div class="paper-links">'+resources.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(labels[r.kind]||r.kind)} ↗</a>`).join('')+'</div>':''}

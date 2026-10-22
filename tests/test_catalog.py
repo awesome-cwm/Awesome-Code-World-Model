@@ -56,7 +56,7 @@ class CatalogTests(unittest.TestCase):
         repository='awesome-cwm/Awesome-Code-World-Model'
         generated=build.outputs(self.catalog,self.taxonomy,repository)
         self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/',generated[ROOT/'README.md'])
-        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=memory,real-time',generated[ROOT/'README.md'])
+        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=memory',generated[ROOT/'README.md'])
         self.assertIn('"repository":"'+repository+'"',generated[ROOT/'site/catalog.js'])
 
     def test_resource_badge_requires_matching_evidence(self):
@@ -85,10 +85,11 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(json.loads(row['benchmark_protocols'])[0]['checks'])
         self.assertEqual(len(rows),len(self.catalog['papers']))
 
-    def test_classic_entry_keeps_clickable_links(self):
+    def test_paper_entry_keeps_clickable_links(self):
         p=next(p for p in self.catalog['papers'] if p['id']=='code-world-model')
         rendered=build.inline_markdown(build.readme_entry(p))
-        self.assertTrue(rendered.startswith('<strong>'))
+        self.assertNotIn('<strong>',rendered)
+        self.assertNotIn('🌟',rendered)
         self.assertIn('<a href="https://arxiv.org/abs/2608.25927">',rendered)
 
     def test_readme_html_only_allows_safe_layout(self):
