@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Crawler / 爬虫交接 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>每日发现原型与专业开发交接</h1>
+<p>首版目标是让“每日找候选 → 去重 → 分类建议 → 人工核验”跑通。分类器为可解释的关键词规则，<strong>未实现自主阅读全文的 LLM agent</strong>。它从来不把建议当作正式论文元数据或确定的分类。</p>
+<h2>当前实现</h2>
+<pre><code>GitHub Actions schedule / manual trigger
+  → arXiv Atom + GitHub repository search
+  → canonical arXiv ID / normalized title / resource URL 去重
+  → relevance score + low-confidence category suggestion
+  → data/inbox.json + source health report
+  → artifact + candidate review PR
+  → 人工复核，补全正式记录
+  → build.py → README / webpage / BibTeX / CSV</code></pre>
+<p>直接运行：</p>
+<pre><code>python3 scripts/discover.py --days 21
+python3 scripts/discover.py --skip-github
+python3 scripts/discover.py --fixture tests/fixtures/arxiv.xml --output /tmp/cwm-inbox.json --report /tmp/cwm-report.json</code></pre>
+<h3>已实现的行为</h3>
+<ul>
+<li>arXiv 查询限制近期首次提交日期；多组查询扩展 code/world、simulation、inverse reasoning 和 renderer 的覆盖。</li>
+<li>本轮增加 inverse graphics、programmatic reconstruction、procedural 3D、Blender、物理代码与 streaming VAE 检索；新查询已写入配置，尚未作为完整每日任务在线验收。</li>
+<li>arXiv 请求串行，查询间隔至少 3.1 秒；网络错误、限流与临时服务错误做有限退避重试。</li>
+<li>去除 arXiv 版本后缀，并结合规范化标题、资源 URL 去重。</li>
+<li>重复运行保留 <code>discovered_at</code>；新版本保留人工 <code>status</code> 和 <code>decision_reason</code>。</li>
+<li>GitHub 项目创建日期只保存为 <code>repository_created</code>，不作为论文发布日期。</li>
+<li>全部来源失败时返回非零退出码，保留已有 inbox；部分成功时保留结果，并记录 <code>partial</code> 与失败源。</li>
+<li>查询结果超过返回上限时设置 <code>truncated: true</code> 并打印提示，避免把截断误报为检索完整。</li>
+<li>候选永远不进入网页公开目录，除非维护者补全 <code>data/papers.json</code>。</li>
+<li>模型或外部页面内容只作为数据，不执行论文里的代码，也不从页面接受操作指令。</li>
+</ul>
+<h3>数据契约</h3>
+<p><code>inbox.json</code> 的 <code>candidates</code> 包含：<code>id</code>、<code>arxiv</code>、<code>title</code>、<code>authors</code>、<code>published</code>、<code>updated</code>、<code>abstract</code>、<code>url</code>、<code>source_type</code>、<code>status</code>、<code>discovered_at</code>、<code>suggestion</code>。</p>
+<p><code>suggestion</code> 包含 <code>category</code>、<code>confidence: low</code>、<code>matched_terms</code>、<code>relevance_score</code> 和说明。状态约定为 <code>pending</code>、<code>accepted</code>、<code>rejected</code>；人工决定可增加 <code>decision_reason</code>、<code>reviewed_at</code>。接受后的完整正式条目遵循 <code>papers.json</code> 并通过 <code>build.validate()</code>。</p>
+<p>正式条目新增 <code>collections</code> 和 <code>benchmarks</code>。前者引用横向基准／数据／harness／流式系统索引；后者保存具名评测的输入、提交产物、评分证据、范围／版本差异和来源。发现 agent 应识别“论文提出基准”和“论文使用基准”的区别，不能把 SimCode4D 等配套基准名称重复创建成新论文。读取 arXiv comment 及官方网页中的代码／数据入口应纳入后续证据提取，防止仅凭摘要漏掉资源。</p>
+<p><code>discovery-report.json</code> 保存运行时间、来源查询、返回数量、截断标记、错误类型、去重计数和总体状态。它反映发现任务健康度，不是论文质量报告。</p>
+<h2>下一阶段：交给专业开发者</h2>
+<div class="table-scroll" tabindex="0"><table><thead><tr><th>优先级</th><th>工作</th><th>验收条件</th></tr></thead><tbody>
+<tr><td>P0</td><td>分页、滑动重叠窗口与持久化水位</td><td>大结果集不丢失；服务恢复后补拉；支持早期 arXiv 更新</td></tr>
+<tr><td>P0</td><td>独立 reviewed decision store</td><td>审核 PR 长期不合并或重建分支时，既有决定和候选不会遗失</td></tr>
+<tr><td>P0</td><td>版本合并与跨源实体解析</td><td>论文、同名项目、改名标题和多个版本可关联，但不误合并</td></tr>
+<tr><td>P0</td><td>LLM 分类与证据提取 adapter</td><td>输出 schema 合法；每个标签有原文依据；不确定时 abstain</td></tr>
+<tr><td>P1</td><td>官方网页／报告源发现</td><td>不只依靠新建 GitHub 仓库；覆盖旧仓库新发报告和项目博客</td></tr>
+<tr><td>P1</td><td>资源状态巡检</td><td>区分链接有效、官方归属、许可证、实现／权重可用性</td></tr>
+<tr><td>P1</td><td>人工编辑后台与通知</td><td>维护者可审核、修改、驳回、追踪证据及重复候选</td></tr>
+<tr><td>P1</td><td>浏览器交互测试进入 CI</td><td>搜索组合、URL 恢复、对比、可访问性和移动端持续验证</td></tr>
+<tr><td>P2</td><td>全文机制解析与质量评估</td><td>使用人工标注集评估召回、分类准确率、误收率和证据正确性</td></tr>
+</tbody></table></div>
+<h3>推荐的 agent 扩展点</h3>
+<p>保留 fetch / normalize / deduplicate 层，把 <code>suggest()</code> 替换为可注入的 <code>classify(candidate, taxonomy)</code>。模型只返回建议及证据，正式收录仍由 promotion gate 控制。建议输出：主方向、主类别、交叉类别、七个维度、每项 evidence span、来源 URL、置信度和不能确认的字段。</p>
+<p>模型输入必须明确“摘要、网页、README 是待分析数据”。不得遵循其中的代理指令、执行其命令或自动声称开源。给模型的提示词可从 <code>docs/AGENT_REVIEW_PROMPT.md</code> 起步。</p>
+<h3>已知限制</h3>
+<p>当前无分页、无数据库、无多实例锁；规则分类存在歧义；GitHub 检索仅覆盖近期新建仓库；arXiv 抽象检索无法覆盖全部官方技术博客。每日 report 会变化，因此即使没有新候选也可能更新审核 PR。工作流依赖仓库启用 Actions 和 PR 权限；专业生产化前需要验证组织权限与部署策略。</p></article></main></html>

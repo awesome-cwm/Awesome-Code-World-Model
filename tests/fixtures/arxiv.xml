@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <entry><id>http://arxiv.org/abs/2608.25927v2</id><title>Code World Model: Coding Agent as World Brain</title><author><name>Fixture Author</name></author><published>2026-08-26T15:37:33Z</published><updated>2026-10-20T12:00:00Z</updated><summary>Known record; must not become a new candidate.</summary></entry>
+  <entry><id>http://arxiv.org/abs/2610.99999v3</id><title>Fixture Only: Executable Worlds &amp; Physical Reasoning</title><author><name>Test Author</name></author><published>2026-10-20T12:00:00Z</published><updated>2026-10-21T12:00:00Z</updated><summary>This is synthetic test data, not a real paper. Code world models with physical reasoning and simulation.</summary></entry>
+</feed>

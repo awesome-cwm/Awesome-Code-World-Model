@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# CSV 由构建脚本输出标准 CRLF；保留字节，避免跨平台校验发生漂移。
+*.csv -text whitespace=cr-at-eol

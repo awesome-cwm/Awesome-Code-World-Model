@@ -1,0 +1,48 @@
+name: Daily research discovery
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: daily-discovery
+  cancel-in-progress: false
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Discover and deduplicate candidates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/discover.py
+      - name: Upload candidates and source health
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-discovery
+          path: |
+            data/inbox.json
+            data/discovery-report.json
+      - name: Open candidate review PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/research-candidates
+          commit-message: '更新每日论文候选与来源健康报告'
+          title: '[Discovery] Review new code-world-model candidates'
+          body: |
+            Daily metadata discovery with rule-based category suggestions.
+
+            Review `data/inbox.json` and the source health report. Candidates are not added to the public collection until a maintainer checks their primary sources and completes a curated record.
+
+            See `docs/CRAWLER_HANDOFF.md` for limitations and the agent-review extension point.
+          add-paths: |
+            data/inbox.json
+            data/discovery-report.json
+          delete-branch: true

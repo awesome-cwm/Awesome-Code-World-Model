@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+research/sources/*
+!research/sources/README.md
+test-results/

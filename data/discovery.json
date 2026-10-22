@@ -1,0 +1,20 @@
+{
+  "lookback_days": 21,
+  "max_results_per_query": 100,
+  "arxiv_queries": [
+    "ti:\"code world\" OR ti:\"code as world\" OR ti:\"code video\"",
+    "(all:\"executable world\" OR all:\"world program\" OR all:\"coding agent\") AND (all:\"physics\" OR all:\"simulation\" OR all:\"world model\")",
+    "(all:\"neural renderer\" OR all:\"generative rendering\" OR all:\"streaming diffusion\") AND (all:\"code\" OR all:\"game engine\" OR all:\"simulator\")",
+    "(all:\"code generation\" OR all:\"program synthesis\") AND (all:\"system identification\" OR all:\"physical reasoning\" OR all:\"world model\")",
+    "(ti:benchmark OR ti:bench OR ti:dataset) AND (all:\"procedural 3D\" OR all:\"inverse graphics\" OR all:\"video-to-code\" OR all:\"programmatic reconstruction\")",
+    "(all:Blender OR all:\"physics simulation\" OR all:\"executable 3D\") AND (all:\"coding agents\" OR all:\"code generation\")",
+    "(all:\"video VAE\" OR all:\"VAE decoder\") AND (all:streaming OR all:causal)"
+  ],
+  "github_queries": [
+    "\"code world model\" in:name,description",
+    "\"generative renderer\" in:name,description",
+    "\"video reconstruction\" \"benchmark\" in:description",
+    "\"streaming\" \"VAE\" in:name,description",
+    "\"persistent\" \"3D worlds\" in:description"
+  ]
+}

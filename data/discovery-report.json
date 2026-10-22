@@ -1,0 +1,51 @@
+{
+  "run_at": "2026-10-21T04:25:19.316934+00:00",
+  "mode": "live",
+  "status": "ok",
+  "sources": [
+    {
+      "source": "arxiv",
+      "query": "(ti:\"code world\" OR ti:\"code as world\" OR ti:\"code video\") AND submittedDate:[202610180000 TO 202610212359]",
+      "ok": true,
+      "returned": 0,
+      "total": 0,
+      "truncated": false
+    },
+    {
+      "source": "arxiv",
+      "query": "((all:\"executable world\" OR all:\"world program\" OR all:\"coding agent\") AND (all:\"physics\" OR all:\"simulation\" OR all:\"world model\")) AND submittedDate:[202610180000 TO 202610212359]",
+      "ok": true,
+      "returned": 7,
+      "total": 7,
+      "truncated": false
+    },
+    {
+      "source": "arxiv",
+      "query": "((all:\"neural renderer\" OR all:\"generative rendering\" OR all:\"streaming diffusion\") AND (all:\"code\" OR all:\"game engine\" OR all:\"simulator\")) AND submittedDate:[202610180000 TO 202610212359]",
+      "ok": true,
+      "returned": 1,
+      "total": 1,
+      "truncated": false
+    },
+    {
+      "source": "arxiv",
+      "query": "((all:\"code generation\" OR all:\"program synthesis\") AND (all:\"system identification\" OR all:\"physical reasoning\" OR all:\"world model\")) AND submittedDate:[202610180000 TO 202610212359]",
+      "ok": true,
+      "returned": 0,
+      "total": 0,
+      "truncated": false
+    }
+  ],
+  "counts": {
+    "new": 5,
+    "updated": 0,
+    "already_curated": 3,
+    "duplicates": 0
+  },
+  "candidate_count": 5,
+  "manual_review": {
+    "accepted": 0,
+    "rejected": 5,
+    "note": "真实在线查询样例；5 条候选经过范围筛查后排除，未加入正式目录。"
+  }
+}

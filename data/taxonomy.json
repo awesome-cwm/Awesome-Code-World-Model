@@ -1,0 +1,346 @@
+{
+  "version": "1.1",
+  "topics": [
+    {"id":"generation","name":"World Generation","zh":"世界生成","description":"Code-built assets, scenes and executable worlds.","rules":{"categories":["g_scene","g_simulation","g_hybrid","g_learning"]}},
+    {"id":"reconstruction","name":"World Reconstruction","zh":"世界重建","description":"Recover world programs and simulations from observations.","rules":{"categories":["u_inverse"]}},
+    {"id":"physics","name":"Physics","zh":"物理建模与仿真","description":"Physical mechanisms, simulation, parameters and numerical solvers.","rules":{"categories":["g_simulation","u_reasoning"],"code_roles":["solver"],"dynamics":["physics"],"representations":["physics_program","neural_material"]}},
+    {"id":"rendering","name":"Rendering & Video","zh":"渲染与视频生成","description":"Code-guided video, neural rendering and streaming visual output.","rules":{"categories":["g_rendering","a_streaming"],"code_roles":["proxy"],"representations":["video_latents"]}},
+    {"id":"interaction","name":"Interaction & Editing","zh":"交互与编辑","description":"Action-driven interaction, playable worlds and program editing.","rules":{"categories":["g_hybrid"],"interactions":["editable","action","closed_loop","world_streaming"]}},
+    {"id":"memory","name":"Memory & Consistency","zh":"记忆与一致性","description":"Persistent state, off-screen objects and continuity as worlds expand.","rules":{"categories":["g_hybrid"],"interactions":["world_streaming"]}},
+    {"id":"reasoning","name":"Reasoning & Planning","zh":"推理与规划","description":"Executable physical reasoning, rule induction, counterfactuals and planning.","rules":{"categories":["u_reasoning","u_planning"]}},
+    {"id":"learning","name":"Agent Learning","zh":"智能体学习","description":"Worlds, tasks and curricula for learning agents.","rules":{"categories":["g_learning"],"code_roles":["environment"]}},
+    {"id":"evaluation","name":"Evaluation","zh":"验证与评测","description":"Verification, functional evaluation and named benchmark protocols.","rules":{"categories":["u_verification"],"benchmark":true}},
+    {"id":"dataset","name":"Dataset","zh":"数据集","description":"Reusable executable code and simulation corpora.","rules":{"collections":["d_corpora"]}}
+  ],
+  "tracks": [
+    {
+      "id": "generation",
+      "name": "Code World Model",
+      "subtitle": "Generate a world",
+      "description": "Intent → executable state and rules → observations and interaction.",
+      "question": "What should exist, and how should it evolve?"
+    },
+    {
+      "id": "understanding",
+      "name": "Code as Model",
+      "subtitle": "Understand a world",
+      "description": "Observations → executable hypotheses → prediction, intervention and verification.",
+      "question": "What mechanism explains what we observed?"
+    },
+    {
+      "id": "adjacent",
+      "name": "Related perspectives",
+      "subtitle": "Clarify the boundary",
+      "description": "Software execution worlds, alternative physical representations and streaming decoder infrastructure.",
+      "question": "What is being modeled, and is the representation executable?"
+    }
+  ],
+  "categories": [
+    {
+      "id": "g_hybrid",
+      "track": "generation",
+      "name": "Persistent & playable worlds",
+      "question": "Who owns state, rules and consequences outside the current frame?",
+      "description": "Explicit state evolution coupled to generative observations, world editing and gameplay."
+    },
+    {
+      "id": "g_rendering",
+      "track": "generation",
+      "name": "Code-guided video & rendering",
+      "question": "How does executable structure control appearance over time?",
+      "description": "Executable previs, proxy conditioning, neural rendering and causal streaming."
+    },
+    {
+      "id": "g_simulation",
+      "track": "generation",
+      "name": "Physical simulation synthesis",
+      "question": "Does generated code instantiate working physical mechanisms?",
+      "description": "Text-to-simulation, numerical engines, contact and dynamic scene construction."
+    },
+    {
+      "id": "g_scene",
+      "track": "generation",
+      "name": "Scene & asset programs",
+      "question": "Can a scene be edited, composed and loaded into a simulator?",
+      "description": "Programmatic geometry, articulation, scene compilation and editable assets."
+    },
+    {
+      "id": "g_learning",
+      "track": "generation",
+      "name": "Worlds for agent learning",
+      "question": "Can generated environments grow with an agent's capabilities?",
+      "description": "Runnable training environments, curriculum generation and environment–agent co-evolution."
+    },
+    {
+      "id": "u_inverse",
+      "track": "understanding",
+      "name": "Inverse world reconstruction",
+      "question": "Which program and parameters explain the observations?",
+      "description": "Image/video-to-code, real-to-sim reconstruction and system identification."
+    },
+    {
+      "id": "u_reasoning",
+      "track": "understanding",
+      "name": "Executable physical reasoning",
+      "question": "Does running a hypothesis support quantitative predictions and interventions?",
+      "description": "Abductive world discovery, physical supervision and solver synthesis."
+    },
+    {
+      "id": "u_planning",
+      "track": "understanding",
+      "name": "Rule induction & planning",
+      "question": "Is the inferred transition function useful for choosing actions?",
+      "description": "Programmatic dynamics learned from trajectories or rules, followed by search or control."
+    },
+    {
+      "id": "u_verification",
+      "track": "understanding",
+      "name": "Verification & evaluation",
+      "question": "Can we distinguish a working world from a plausible-looking one?",
+      "description": "Executable benchmarks, physical obligations, functional tests and auditable critiques."
+    },
+    {
+      "id": "a_software",
+      "track": "adjacent",
+      "name": "Software execution worlds",
+      "question": "Is code the environment being predicted rather than a physical world representation?",
+      "description": "Learned execution, tool feedback and software-agent world models."
+    },
+    {
+      "id": "a_representation",
+      "track": "adjacent",
+      "name": "Alternative representations",
+      "question": "What can language, constraints or neural priors supply without synthesized world code?",
+      "description": "Conceptual neighbors that clarify the scope of executable world representations."
+    },
+    {
+      "id": "a_streaming",
+      "track": "adjacent",
+      "name": "Streaming decoder infrastructure",
+      "question": "When can pixels be emitted after a latent arrives?",
+      "description": "Causal video decoding, cache reuse and deployment kernels supporting interactive renderers."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "code_role",
+      "name": "Role of code",
+      "question": "What does the code actually do?",
+      "values": {
+        "scene": "Scene / asset construction",
+        "transition": "State-transition rules",
+        "solver": "Physical solver / simulation",
+        "proxy": "Visual / temporal proxy",
+        "hypothesis": "Executable hypothesis",
+        "verifier": "Verifier / evaluator",
+        "environment": "Learning environment",
+        "target": "Execution prediction target",
+        "none": "No executable world code"
+      }
+    },
+    {
+      "id": "representation",
+      "name": "World representation",
+      "question": "Where is the inspectable state?",
+      "values": {
+        "scene_program": "Scene program",
+        "state_program": "Explicit state + rules",
+        "physics_program": "Physical program + parameters",
+        "proxy_video": "Proxy video / geometry conditions",
+        "program_model": "Transition / world program",
+        "execution_trace": "Software execution trace",
+        "language": "Physical language",
+        "constraints": "Scene constraints",
+        "neural_material": "Material parameters + neural geometry",
+        "video_latents": "Video latents / decoder cache"
+      }
+    },
+    {
+      "id": "dynamics",
+      "name": "Dynamics authority",
+      "question": "What determines the next state?",
+      "values": {
+        "script": "Authored / synthesized rules",
+        "physics": "Numerical physics engine",
+        "hybrid": "Rules + physics / rendering",
+        "learned": "Learned neural transition",
+        "none": "No dynamics model",
+        "unknown": "Not established"
+      }
+    },
+    {
+      "id": "feedback",
+      "name": "Construction feedback",
+      "question": "What corrects a generated hypothesis?",
+      "values": {
+        "execution": "Execution / compilation",
+        "visual": "Visual critique",
+        "physical": "Physical checks / measurements",
+        "trajectory": "Trajectory / parameter fitting",
+        "task": "Task success / agent feedback",
+        "training": "Model training objective",
+        "none": "Not specified"
+      }
+    },
+    {
+      "id": "interaction",
+      "name": "Interaction contract",
+      "question": "What can a user or agent change?",
+      "values": {
+        "offline": "Offline synthesis / replay",
+        "editable": "Program / parameter editing",
+        "action": "Action-conditioned rollout",
+        "closed_loop": "Closed-loop environment",
+        "streaming": "Causal streaming output",
+        "none": "Not applicable",
+        "world_streaming": "On-demand world expansion"
+      }
+    },
+    {
+      "id": "evaluation",
+      "name": "Evaluation target",
+      "question": "What has the paper chosen to measure?",
+      "values": {
+        "execution": "Executability",
+        "visual": "Visual / geometric fidelity",
+        "physical": "Physical fidelity",
+        "functional": "Functional / task success",
+        "latency": "Latency / throughput",
+        "reasoning": "Reasoning / prediction quality"
+      }
+    },
+    {
+      "id": "domain",
+      "name": "Domain",
+      "question": "Which world is being modeled?",
+      "values": {
+        "general": "General / open-ended worlds",
+        "physical": "Physical phenomena",
+        "embodied": "Embodied / robotics",
+        "games": "Games / rule systems",
+        "video": "Video / visual generation",
+        "software": "Software / computational environments"
+      }
+    }
+  ],
+  "scopes": {
+    "core": "Core collection",
+    "foundation": "Earlier foundations",
+    "adjacent": "Related / enabling work"
+  },
+  "reading_paths": [
+    {
+      "id": "render",
+      "title": "From code to pixels",
+      "description": "Executable previs, persistent state, then fast observation generation.",
+      "papers": [
+        "videococo",
+        "code-world-model",
+        "programmable-world-model",
+        "code-video-model",
+        "solarrenderer",
+        "matrix-game-4"
+      ]
+    },
+    {
+      "id": "understand",
+      "title": "From observation to mechanism",
+      "description": "Infer an executable explanation, then test its predictions and utility.",
+      "papers": [
+        "gif-mcts",
+        "mpmworlds",
+        "code-as-worlds",
+        "video2world",
+        "neoworld-3"
+      ]
+    },
+    {
+      "id": "physical",
+      "title": "From plausible to executable",
+      "description": "Separate visual quality from engine readiness, physical checks and task success.",
+      "papers": [
+        "code2worlds",
+        "simworlds",
+        "text2sim",
+        "worldagent",
+        "code2worlds-2",
+        "worldsolver"
+      ]
+    },
+    {
+      "id": "learning",
+      "title": "Worlds that train agents",
+      "description": "Move from generated environments to curricula and reusable experience.",
+      "papers": [
+        "robogen",
+        "factorsim",
+        "simworld-studio",
+        "agentgarten"
+      ]
+    }
+  ],
+  "collection_sections": [
+    {
+      "id": "benchmarks",
+      "name": "Benchmarks & Evaluation",
+      "icon": "📊",
+      "description": "Compare the task, submitted artifact and evidence of success. These suites test different capabilities; their scores are not interchangeable."
+    },
+    {
+      "id": "infrastructure",
+      "name": "Datasets, Harnesses & Streaming Systems",
+      "icon": "🛠️",
+      "description": "Reusable code corpora, construction workflows and systems that deliver persistent worlds or streaming pixels."
+    }
+  ],
+  "collections": [
+    {
+      "id": "b_reconstruction",
+      "section": "benchmarks",
+      "name": "Video reconstruction & inverse graphics",
+      "question": "What observable scene structure and motion survive video-to-code reconstruction?"
+    },
+    {
+      "id": "b_creation",
+      "section": "benchmarks",
+      "name": "Procedural 3D creation & scene editing",
+      "question": "Does the delivered native scene satisfy the reference and preserve the intended structure?"
+    },
+    {
+      "id": "b_physics",
+      "section": "benchmarks",
+      "name": "Physical mechanisms, parameters & solvers",
+      "question": "Does code recover the mechanism, satisfy physical checks and generalize beyond the observed motion?"
+    },
+    {
+      "id": "b_interaction",
+      "section": "benchmarks",
+      "name": "Executable interaction, state & intervention",
+      "question": "Can the world complete tasks, preserve state and behave correctly after an edit?"
+    },
+    {
+      "id": "b_video",
+      "section": "benchmarks",
+      "name": "Code-guided video generation",
+      "question": "How well does the rendered video follow the code-built spatial and temporal plan?"
+    },
+    {
+      "id": "d_corpora",
+      "section": "infrastructure",
+      "name": "Executable code & simulation corpora",
+      "question": "What reusable programs, paired observations and verification records are available?"
+    },
+    {
+      "id": "d_harnesses",
+      "section": "infrastructure",
+      "name": "Construction & verification harnesses",
+      "question": "What execution and inspection loop helps an agent build a usable world?"
+    },
+    {
+      "id": "d_streaming",
+      "section": "infrastructure",
+      "name": "Streaming worlds, renderers & decoders",
+      "question": "Is the system expanding world state, generating observations, or only decoding latents?"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">Awesome Code World Model</title><desc id="desc">Two directions: code generates worlds, and executable models explain observations.</desc>
+<rect width="1200" height="300" rx="16" fill="#eff3ed"/><path d="M600 36v228" stroke="#d1dcd1"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="58" y="68" font-size="13" letter-spacing="3" fill="#667c6b">01 / GENERATION</text>
+<text x="58" y="128" font-size="42" font-weight="700" fill="#294f3a">Code World Model</text>
+<text x="58" y="170" font-size="19" fill="#627668">Build the scene. Write the rules. Render the world.</text>
+<text x="58" y="241" font-size="17" fill="#294f3a">INTENT → EXECUTABLE PROGRAM → WORLD</text>
+<text x="650" y="68" font-size="13" letter-spacing="3" fill="#657b96">02 / UNDERSTANDING</text>
+<text x="650" y="128" font-size="42" font-weight="700" fill="#496991">Code as Model</text>
+<text x="650" y="170" font-size="19" fill="#66778c">Observe a world. Infer a program. Test a mechanism.</text>
+<text x="650" y="241" font-size="16" fill="#496991">OBSERVATION → PROGRAM → REASONING</text>
+</g></svg>

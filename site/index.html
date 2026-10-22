@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple Code World Model paper list. Search papers and select multiple research topics to find their intersection.">
+  <meta name="theme-color" content="#f8f9fa">
+  <title>Awesome Code World Model</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="catalog.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#paper-list">Skip to papers</a>
+  <main class="container">
+    <header class="page-header">
+      <h1><img src="icon.svg" width="42" height="42" alt="">Awesome Code World Model</h1>
+      <p>A curated collection of Code World Model papers, organized by research direction.</p>
+    </header>
+    <aside class="month-timeline" aria-labelledby="month-heading">
+      <h2 id="month-heading">Month</h2>
+      <nav id="month-options" aria-label="Filter papers by publication month"></nav>
+    </aside>
+    <section class="toolbar" aria-label="Search and filter papers">
+      <label class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search papers by title or author</span><input id="search" type="search" placeholder="Search papers by title or author…" autocomplete="off"></label>
+      <div class="badge-filters" role="group" aria-label="Paper badges"><span class="filter-label">Tags</span><button data-badge="all" aria-pressed="true">All</button><button data-badge="classic" aria-pressed="false">🌟 Classic</button><button data-badge="available" aria-pressed="false">✅ Public resources</button><button data-badge="not_found" aria-pressed="false">No resources found</button></div>
+      <div class="topic-filters" role="group" aria-label="Research topics" aria-describedby="filter-help"><span class="filter-label">Topics</span><button id="all-topics" aria-pressed="true">All</button><div id="topic-options"></div></div>
+      <p class="filter-help" id="filter-help">Select multiple topics to match all of them. Click again to deselect.</p>
+    </section>
+    <div class="list-status"><p id="result-count" role="status" aria-live="polite"></p><button id="clear">Clear filters</button></div>
+    <section id="paper-list" class="paper-list" aria-label="Matching papers"><p class="loading">Loading papers…</p></section>
+    <noscript><p>Enable JavaScript to search and filter, or browse the <a href="readme.html">complete paper list</a>.</p></noscript>
+    <footer class="page-footer"><span id="checked-date"></span><a id="source-link" href="readme.html">README ↗</a></footer>
+  </main>
+</body>
+</html>

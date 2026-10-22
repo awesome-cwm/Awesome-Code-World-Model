@@ -1,0 +1,28 @@
+{
+  "news": [
+    {
+      "date": "2026-10-21",
+      "icon": "📊",
+      "title": "Benchmark Atlas & Infrastructure",
+      "body": "Added 14 works, including 4DCodeBench, BVB, BlenderWorld, PhysCodeGym, PhySimCode, ExeWorldBench, WorldStream and H3 Streaming VAE Decoder. Named benchmark suites now have task, artifact and evaluation indexes; 3DCodeVerse data and harness resources are linked."
+    },
+    {
+      "date": "2026-10-21",
+      "icon": "🔥",
+      "title": "Initial Collection",
+      "body": "44 papers and projects covering Code World Model (generation) and Code as Model (understanding), including earlier foundations and the latest October releases."
+    },
+    {
+      "date": "2026-10-21",
+      "icon": "🗂️",
+      "title": "Research Taxonomy",
+      "body": "Nine core research categories, two related perspectives, and seven comparison dimensions. Representative works are highlighted with 🌟."
+    },
+    {
+      "date": "2026-10-21",
+      "icon": "🤖",
+      "title": "Daily Discovery Prototype",
+      "body": "Daily arXiv and GitHub discovery is implemented as a candidate-review workflow. Automated promotion and a full literature-review agent remain future work."
+    }
+  ]
+}
