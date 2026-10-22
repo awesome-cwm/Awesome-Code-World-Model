@@ -66,11 +66,25 @@ def validate(catalog, taxonomy):
         assert p['verification']['status'] == 'verified'
         assert p['verification']['basis'] in {'primary_abstract', 'official_project', 'full_text'}
         checked = date.fromisoformat(p['verification']['checked'])
+        assert p['date_basis'] in {'arxiv_first_submission', 'earliest_online_record', 'unknown'}, p['id']
         if p['published']:
             assert date.fromisoformat(p['published']) <= checked
             assert p['date_basis'] != 'unknown'
         else:
             assert p['date_basis'] == 'unknown'
+        if p['date_basis'] == 'earliest_online_record':
+            evidence = p.get('date_evidence')
+            assert p['published'] and not p['arxiv'] and isinstance(evidence, dict), p['id']
+            date_checked = date.fromisoformat(evidence['checked'])
+            assert isinstance(evidence['note'], str) and evidence['note'].strip(), p['id']
+            sources = evidence['sources']
+            assert isinstance(sources, list) and sources, p['id']
+            for source in sources:
+                assert date.fromisoformat(source['date']) <= date_checked, p['id']
+                parsed = urlparse(source['url'])
+                assert parsed.scheme == 'https' and parsed.hostname and not parsed.username, p['id']
+                assert isinstance(source['note'], str) and source['note'].strip(), p['id']
+            assert p['published'] == min(source['date'] for source in sources), p['id']
         if p['arxiv']:
             assert re.fullmatch(r'\d{4}\.\d{4,5}', p['arxiv'])
             assert p['arxiv'] not in arxiv_ids, f"重复 arXiv: {p['arxiv']}"
@@ -174,7 +188,6 @@ def readme_entry(p, recent=False):
 
 def render_readme(catalog, taxonomy, repository):
     papers = catalog['papers']
-    news = json.loads((ROOT / 'data/updates.json').read_text())['news']
     if repository:
         owner, repo = repository.split('/')
         site_url = f'https://{owner}.github.io/{repo}/'
@@ -183,12 +196,8 @@ def render_readme(catalog, taxonomy, repository):
         settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
         site_url = settings.get('preview_url') or 'site/index.html'
         assert site_url == 'site/index.html' or (urlparse(site_url).scheme == 'https' and urlparse(site_url).hostname and not urlparse(site_url).username)
-    reviewed = max(p['classification']['checked'] for p in papers)
     intro = (ROOT / 'docs/README.template.md').read_text().replace('{{SITE_URL}}', site_url)
-    intro = intro.replace('{{STATS}}', f"**{len(papers)} unique papers / projects · {len(taxonomy['topics'])} flat topics** · Topic assignments reviewed **{reviewed}**.")
-    intro = intro.replace('{{NEWS}}', '\n\n'.join(f"{n['icon']} **[{n['date']}] {n['title']}** — {n['body']}" for n in news))
-    parts = [intro, '\n---\n\n## Browse by Topic\n',
-             'Each paper is listed **exactly once** below, under the topic that best describes its main contribution. The website uses the same flat vocabulary and allows each paper to appear under **multiple topics**. Select several website topics to find their intersection. Only topics with a designated README entry become headings here; all 22 topics remain available on the website.\n']
+    parts = [intro, '\n## Contents\n']
     occupied = [(topic, topic_entries(papers, topic['id'])) for topic in taxonomy['topics']]
     for topic, entries in occupied:
         if entries:
@@ -394,11 +403,12 @@ def outputs(catalog, taxonomy, repository):
         ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(),
     }
     buf=io.StringIO(newline='')
-    fields=['id','title','published','date_basis','type','readme_topic','topics','topic_checked','topic_reason','topic_evidence','topic_sources','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
+    fields=['id','title','published','date_basis','date_evidence','type','readme_topic','topics','topic_checked','topic_reason','topic_evidence','topic_sources','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
     writer=csv.DictWriter(buf, fieldnames=fields)
     writer.writeheader()
     for p in catalog['papers']:
         row={k:p[k] or '' for k in fields if k in p}
+        row['date_evidence']=json.dumps(p['date_evidence'],ensure_ascii=False) if p.get('date_evidence') else ''
         classification=p['classification']
         row['readme_topic']=classification['readme_topic']
         row['topics']='; '.join(classification['topics'])

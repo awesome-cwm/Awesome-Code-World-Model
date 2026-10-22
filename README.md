@@ -1,50 +1,9 @@
-<div align="center">
-<h1>📜 Awesome Code World Model</h1>
-<p><b>Code World Model papers organized by core research challenges.</b></p>
-<img src="site/banner.svg" width="100%" alt="Code World Model: code builds worlds; code explains worlds">
-</div>
+# Awesome Code World Model
 
----
-
-<table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center">✅ <b>Open Source</b></td>
-    <td align="center">❌️ <b>Not Open Source</b></td>
-  </tr>
-</table>
-
-`[YYYY-MM]` indicates the first submission month; unconfirmed dates appear as `[Date TBC]`.
-
-**58 unique papers / projects · 22 flat topics** · Topic assignments reviewed **2026-10-22**.
-
-📊 **[Benchmarks & Evaluation](#benchmarks)** · [Benchmark Atlas](docs/BENCHMARKS.md) · 🛠️ **[Datasets, Harnesses & Streaming Systems](#infrastructure)**
-
----
-
-<a id="news-updates"></a>
-
-## 🚩 News & Updates
-
-Major collection updates and announcements. Scroll down for the complete topic list; use the website's month navigation for recent work.
-
-🏷️ **[2026-10-22] Flat Topics & Per-paper Review** — Reviewed all 58 records against primary sources and reorganized the collection into 22 flat topics. Each paper has one README entry and may match several website topics. The website supports checkbox intersections with search and publication months. Assignment reasons and source-reading scope are recorded in the per-paper review.
-
-📊 **[2026-10-21] Benchmark Atlas & Infrastructure** — Added 14 works across benchmarks, datasets and infrastructure. The Benchmark Atlas records inputs, executable artifacts, evaluation evidence and scope limits; data and harness resources are linked.
-
-🔥 **[2026-10-21] Initial Collection** — 44 papers and projects covering Code World Model (generation) and Code as Model (understanding), including earlier foundations and the latest October releases.
-
-🗂️ **[2026-10-21] Original Research Taxonomy (superseded)** — The initial categories and comparison dimensions were replaced by the flat topic scheme on 2026-10-22.
-
-🤖 **[2026-10-21] Daily Discovery Prototype** — Daily arXiv and GitHub discovery is implemented as a candidate-review workflow. Automated promotion and a full literature-review agent remain future work.
-
-💡 **[Ongoing] Community Contributions Welcome** — Suggest missing papers, earlier foundations, public resources, or classification corrections through an issue or PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
+[Website](https://awesome-cwm.github.io/Awesome-Code-World-Model/) · ✅ Open Source · ❌️ Not Open Source
 
 
----
-
-## Browse by Topic
-
-Each paper is listed **exactly once** below, under the topic that best describes its main contribution. The website uses the same flat vocabulary and allows each paper to appear under **multiple topics**. Select several website topics to find their intersection. Only topics with a designated README entry become headings here; all 22 topics remain available on the website.
+## Contents
 
 - [General World Model](#general-world-model) (5)
 - [Memory](#memory) (1)
@@ -110,7 +69,7 @@ Reported real-time generation, simulation, or low-latency interaction, with the 
 
 [Browse all papers tagged Real-Time →](https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=real-time)
 
-[Date TBC] ✅[StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3)
+[2026-10] ✅[StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3)
 
 
 ---
@@ -136,9 +95,9 @@ Incremental input, continuous output, or causal chunk-by-chunk generation; not a
 
 [Browse all papers tagged Streaming →](https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=streaming)
 
-[Date TBC] ✅[Streaming Code World Model](https://github.com/TingtingLiao/streaming-code-world-model) · [Weights](https://huggingface.co/Luffuly/streaming-code-world-model)
+[2026-10] ✅[H3 Streaming VAE Decoder: Training-Free Streaming without Future Latents](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Code](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder)
 
-[Date TBC] ✅[H3 Streaming VAE Decoder: Training-Free Streaming without Future Latents](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Code](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder)
+[2026-10] ✅[Streaming Code World Model](https://github.com/TingtingLiao/streaming-code-world-model) · [Weights](https://huggingface.co/Luffuly/streaming-code-world-model)
 
 
 ---
@@ -170,6 +129,8 @@ Creating scenes, assets, games, or simulation environments from desired specific
 
 [2026-10] ✅[Code2Worlds-2: Physically Plausible Agent Harness for Embodied World Simulation](https://arxiv.org/abs/2610.17651) · [Code](https://github.com/AIGeeksGroup/Code2Worlds-2) · [Project](https://aigeeksgroup.github.io/Code2Worlds-2)
 
+[2026-10] ✅[WorldStream: Building 3D Worlds as You Explore](https://krennic999.github.io/WorldStream/blog/) · [Project](https://github.com/krennic999/WorldStream) · [Project](https://krennic999.github.io/WorldStream/)
+
 [2026-09] ❌️[Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise](https://arxiv.org/abs/2609.36593)
 
 [2026-09] ❌️[WorldAgent: Verification-Guided Agentic Physical World Construction](https://arxiv.org/abs/2609.33208)
@@ -187,8 +148,6 @@ Creating scenes, assets, games, or simulation environments from desired specific
 [2024-03] ❌️[SceneCraft: An LLM Agent for Synthesizing 3D Scene as Blender Code](https://arxiv.org/abs/2403.01248)
 
 [2023-12] ✅[Holodeck: Language Guided Generation of 3D Embodied AI Environments](https://arxiv.org/abs/2312.09067) · [Code](https://github.com/allenai/Holodeck) · [Project](https://yueyang1996.github.io/holodeck/)
-
-[Date TBC] ✅[WorldStream: Building 3D Worlds as You Explore](https://krennic999.github.io/WorldStream/blog/) · [Project](https://github.com/krennic999/WorldStream) · [Project](https://krennic999.github.io/WorldStream/)
 
 
 ---
@@ -218,9 +177,9 @@ Neural image or video generation conditioned on code, executable state, geometry
 
 [Browse all papers tagged Neural Rendering →](https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=neural-rendering)
 
-[2026-07] ✅[VideoCoCo: Code-as-CoT for Physically-Consistent Video Generation via an Agentic Dual-Engine System](https://arxiv.org/abs/2607.27380) · [Code](https://github.com/micky-li-hd/VideoCoCo)
+[2026-09] ✅[Code Video Model](https://code-video-model.github.io/tech_report.pdf) · [Project](https://code-video-model.github.io/) · [Code](https://github.com/code-video-model/CodeVideoModel) · [Data](https://huggingface.co/datasets/code-video-model/CodeVideoBench)
 
-[Date TBC] ✅[Code Video Model](https://code-video-model.github.io/tech_report.pdf) · [Project](https://code-video-model.github.io/) · [Code](https://github.com/code-video-model/CodeVideoModel) · [Data](https://huggingface.co/datasets/code-video-model/CodeVideoBench)
+[2026-07] ✅[VideoCoCo: Code-as-CoT for Physically-Consistent Video Generation via an Agentic Dual-Engine System](https://arxiv.org/abs/2607.27380) · [Code](https://github.com/micky-li-hd/VideoCoCo)
 
 
 ---

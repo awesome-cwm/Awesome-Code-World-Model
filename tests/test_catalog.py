@@ -48,9 +48,22 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(json.loads(a[ROOT/'site/papers.json'])['papers']),len(self.catalog['papers']))
 
     def test_unknown_date_is_not_invented(self):
-        p=next(p for p in self.catalog['papers'] if p['id']=='streaming-cwm')
-        self.assertIsNone(p['published'])
+        p=copy.deepcopy(next(p for p in self.catalog['papers'] if p['id']=='streaming-cwm'))
+        p['published']=None
+        p['date_basis']='unknown'
+        p.pop('date_evidence',None)
         self.assertNotIn('year =',build.bibtex(p))
+
+    def test_online_dates_require_matching_primary_evidence(self):
+        for change in ['missing', 'empty', 'earlier', 'unsafe']:
+            with self.subTest(change=change):
+                c=copy.deepcopy(self.catalog)
+                p=next(p for p in c['papers'] if p['id']=='streaming-cwm')
+                if change=='missing':p.pop('date_evidence')
+                elif change=='empty':p['date_evidence']['sources']=[]
+                elif change=='earlier':p['published']='2026-10-02'
+                else:p['date_evidence']['sources'][0]['url']='javascript:alert(1)'
+                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
 
     def test_public_repository_links_are_used_for_readme_and_catalog(self):
         repository='awesome-cwm/Awesome-Code-World-Model'
@@ -224,7 +237,9 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(rows),len(self.catalog['papers']))
         self.assertEqual({row['id'] for row in rows},set(by_id))
         for row in rows:
-            c=by_id[row['id']]['classification']
+            paper=by_id[row['id']]
+            c=paper['classification']
+            self.assertEqual(json.loads(row['date_evidence']) if row['date_evidence'] else None,paper.get('date_evidence'))
             self.assertEqual(row['readme_topic'],c['readme_topic'])
             self.assertEqual(row['topics'].split('; '),c['topics'])
             self.assertEqual(row['topic_checked'],c['checked'])

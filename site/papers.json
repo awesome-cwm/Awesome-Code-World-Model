@@ -6504,9 +6504,9 @@
       "title": "WorldStream: Building 3D Worlds as You Explore",
       "short_title": "WorldStream",
       "authors": [],
-      "published": null,
+      "published": "2026-10-06",
       "updated": null,
-      "date_basis": "unknown",
+      "date_basis": "earliest_online_record",
       "type": "project",
       "scope": "core",
       "track": "generation",
@@ -6613,6 +6613,17 @@
           "The article describes a procedural prototype; neural video integration is future work."
         ],
         "checked": "2026-10-22"
+      },
+      "date_evidence": {
+        "checked": "2026-10-22",
+        "sources": [
+          {
+            "date": "2026-10-06",
+            "url": "https://github.com/krennic999/WorldStream/commit/1eb09cb6452bd6ca186b4f403f9f9bcef9690d61",
+            "note": "WorldStream final release; the initial commit includes the project README, working project page and system blog. UTC committer timestamp: 2026-10-06T09:48:00Z."
+          }
+        ],
+        "note": "Earliest dated project-bearing commit found in the official repository. Its creation timestamp alone is not used. The blog footer says last updated October 4, but that is an editing date and does not establish online availability on October 4; asset filenames are not publication dates."
       }
     },
     {
@@ -6621,9 +6632,9 @@
       "title": "StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render",
       "short_title": "StreamRender-H3",
       "authors": [],
-      "published": null,
+      "published": "2026-10-08",
       "updated": null,
-      "date_basis": "unknown",
+      "date_basis": "earliest_online_record",
       "type": "report",
       "scope": "core",
       "track": "generation",
@@ -6736,6 +6747,22 @@
           "Real-time figures depend on the reported multi-GPU deployment; decoder-only timings use one GB200."
         ],
         "checked": "2026-10-22"
+      },
+      "date_evidence": {
+        "checked": "2026-10-22",
+        "sources": [
+          {
+            "date": "2026-10-08",
+            "url": "https://github.com/NVlabs/Sana/commit/9021e03b4dafaeb431580bc152f722c8292e6a16",
+            "note": "Adds the original StreamRender-H3 blog under Sol-Engine on the page branch. The committed page identifies the project and describes the engine-renderer system. UTC committer timestamp: 2026-10-08T09:09:00Z."
+          },
+          {
+            "date": "2026-10-10",
+            "url": "https://github.com/NVlabs/Sana/commit/fcef8d4287d5f45e1a5e839c940b7e14c91c71fc",
+            "note": "Adds the end-to-end StreamRender-H3 runtime under models/streamrender_h3; this code release is later than the original project page."
+          }
+        ],
+        "note": "Compared the complete path histories of the official project page and runtime. Use the earlier project-page record, rather than the creation of the unrelated parent Sana repository or the later model release. Hugging Face API/history requests were unavailable during this check; no claim of exhaustive web coverage is made."
       }
     },
     {
@@ -6747,9 +6774,9 @@
         "Tingting Liao",
         "Guangyi Liu"
       ],
-      "published": null,
+      "published": "2026-10-12",
       "updated": null,
-      "date_basis": "unknown",
+      "date_basis": "earliest_online_record",
       "type": "project",
       "scope": "core",
       "track": "generation",
@@ -6846,6 +6873,17 @@
           "Causal past-frame conditioning alone is not labeled a dedicated world-memory contribution."
         ],
         "checked": "2026-10-22"
+      },
+      "date_evidence": {
+        "checked": "2026-10-22",
+        "sources": [
+          {
+            "date": "2026-10-12",
+            "url": "https://github.com/TingtingLiao/streaming-code-world-model/commit/64c489a49e9ed5c92c4faa8773edc8b42b457c7c",
+            "note": "Initial release; the committed README identifies Streaming Code World Model and includes sampling, training and checkpoint instructions. UTC committer timestamp: 2026-10-12T12:04:09Z."
+          }
+        ],
+        "note": "Earliest dated project content in the complete official repository history. The empty repository was created on October 2, which is not treated as a release. Hugging Face API/history requests were unavailable during this check."
       }
     },
     {
@@ -6861,9 +6899,9 @@
         "Guian Fang",
         "Shengju Qian"
       ],
-      "published": null,
+      "published": "2026-10-15",
       "updated": null,
-      "date_basis": "unknown",
+      "date_basis": "earliest_online_record",
       "type": "report",
       "scope": "adjacent",
       "track": "adjacent",
@@ -6920,7 +6958,7 @@
         "d_streaming"
       ],
       "benchmarks": [],
-      "performance_note": "The blog reports decoder quality and latency after latent arrival, not action-to-display latency. It identifies October 2026 but no first-release day; the date remains unconfirmed at day precision. Original H3 weights and NVIDIA’s student checkpoint remain separate resources.",
+      "performance_note": "The blog reports decoder quality and latency after latent arrival, not action-to-display latency. Original H3 weights and NVIDIA’s student checkpoint remain separate resources.",
       "resource_status": {
         "status": "available",
         "checked": "2026-10-21",
@@ -6956,6 +6994,17 @@
           "No standalone world state or action dynamics; no complete-world, interaction or real-time-throughput claim is inferred."
         ],
         "checked": "2026-10-22"
+      },
+      "date_evidence": {
+        "checked": "2026-10-22",
+        "sources": [
+          {
+            "date": "2026-10-15",
+            "url": "https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder/commit/f76a17715734925a1ce10ac6665ae87f655c5510",
+            "note": "Initial commit adds both streaming decoders and their installation and usage instructions. UTC committer timestamp: 2026-10-15T13:09:57Z."
+          }
+        ],
+        "note": "The complete official repository history contains project code on October 15, before the October 16 blog/citation update and SolarWM announcement. Use the earlier content record."
       }
     },
     {
@@ -6966,9 +7015,9 @@
       "authors": [
         "Code Video Model Team"
       ],
-      "published": null,
+      "published": "2026-09-11",
       "updated": null,
-      "date_basis": "unknown",
+      "date_basis": "earliest_online_record",
       "type": "report",
       "scope": "core",
       "track": "generation",
@@ -7093,6 +7142,27 @@
           "Offline proxy-conditioned clips do not establish live interaction, streaming, real-time performance or long-video generation."
         ],
         "checked": "2026-10-22"
+      },
+      "date_evidence": {
+        "checked": "2026-10-22",
+        "sources": [
+          {
+            "date": "2026-09-11",
+            "url": "https://github.com/code-video-model/code-video-model.github.io/commit/70cbf3680f5d09cdaf5bc9e3d52a110f379bc410",
+            "note": "Initial project-site commit adds project-page-template/index.html. Confirmed that its title, heading and demo gallery identify Code Video Model. UTC committer timestamp: 2026-09-11T16:53:44Z."
+          },
+          {
+            "date": "2026-09-25",
+            "url": "https://github.com/code-video-model/CodeVideoModel/commit/00c7c857c6c155a82a9c39b53cfbc4e5787382af",
+            "note": "Initial CodeVideoModel implementation commit; later than the project-site record."
+          },
+          {
+            "date": "2026-09-25",
+            "url": "https://github.com/code-video-model/CodeVideoModel-Demo/commit/55caa0b21c456cff960da142856ffc0cd3c51ccf",
+            "note": "Initial anonymous supplementary project page; later than the official project-site record."
+          }
+        ],
+        "note": "Compared complete histories for the project website, implementation and anonymous demo, plus the September 25 CodeVideoBench history. Use the earliest project-bearing website commit; do not substitute the later October report announcement. This is an online-record date, not a formal paper publication date."
       }
     }
   ]

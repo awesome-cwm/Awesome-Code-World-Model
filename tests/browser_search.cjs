@@ -180,7 +180,7 @@ fs.mkdirSync(out,{recursive:true});
       await assertResults({month:'undated',topics:[unknownTopic]});
     }
     await clear();
-    checks.push('Month navigation composes with topic AND filters, recomputes all month counts, and restores dated and Date TBC URLs');
+    checks.push('Month navigation composes with topic AND filters, recomputes all month counts and restores dated URLs');
 
     const anchor=datedMatch,query=anchor.short_title,badge=anchor.resource_status.status;
     const preserved={q:query,badge,month:monthFor(anchor)};
@@ -270,6 +270,8 @@ fs.mkdirSync(out,{recursive:true});
     checks.push('Opening site/index.html directly from file:// supports topic intersections, months and reset');
 
     await page.goto(base+'/readme.html',{waitUntil:'networkidle'});
+    assert.equal(await page.locator('.prose img').count(),0);
+    assert.deepEqual((await page.locator('.prose h1,.prose h2').allTextContents()).slice(0,2),['Awesome Code World Model','Contents']);
     const websiteEntry=page.locator('.prose a').filter({hasText:'All 22 topic filters'});
     assert.ok(await websiteEntry.count()>0,'Generated README retains the website entry');
     const websiteHref=await websiteEntry.first().getAttribute('href');
