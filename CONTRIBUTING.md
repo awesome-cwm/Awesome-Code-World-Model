@@ -1,39 +1,33 @@
 # Contributing
 
-We welcome papers, official projects, classification corrections and missing earlier work. The collection focuses on executable representations of worlds, with explicit scope notes for software execution models and related enabling work.
+We welcome papers, official projects, classification corrections and missing earlier work. The collection focuses on executable representations of worlds, with a separately labeled boundary for software execution models and alternative representations.
 
-## Add or correct a record
+## Add a record
 
-1. Read a primary source: the author abstract, publisher page, official report, project or repository. Verify the exact title and authors. For arXiv papers, use the first submission date. For projects and reports without arXiv metadata, use the earliest dated project content found in official online records, set `date_basis: "earliest_online_record"`, and record `date_evidence` with `checked`, `sources` (each with `date`, `url`, `note`) and a comparison `note`. Repository creation, asset filenames and editing timestamps alone do not establish a release. Leave dates null only when no dated content can be verified.
-2. Use the 22 flat topics in `data/taxonomy.json`. Set `classification.readme_topic` to one topic ID representing the main contribution, and include it in the nonempty, unique `classification.topics` list. The former controls one README placement; the latter enables overlapping website filters. These are the same vocabulary, with no additional hierarchy.
-3. Record `classification.checked` as an ISO date (`YYYY-MM-DD`), an English `summary_reason`, and an English `topic_reasons` entry for every selected topic. Its keys must exactly match `topics`. Include nonempty `sources` with `url`, `basis` and `note`, plus an `uncertainties` array. Source basis is `primary_abstract`, `official_project` or `full_text`. Describe the sections actually read; do not claim a complete full-text review or reproduction from an abstract.
-4. Preserve the source abstract separately from the editorial summary in `data/papers.json`. Each resource needs its own type and provenance URL. Keep `verification` and `resource_status.evidence` honest and current.
-5. Assign topics based on the paper's supported contributions. A topic denotes research scope, not demonstrated quality.
-6. Preserve legacy `track`, `category`, `cross_categories` and `dimensions` for crawler compatibility. They do not define public categories. Maintain `collections` and `benchmarks` where applicable. A named protocol records `name`, `input`, `artifact`, `checks`, `caveat` and a primary `source`; it is not another paper record.
-7. Run `python3 scripts/build.py`, `python3 -m unittest discover -s tests -v` and `node tests/search.test.cjs`. Include generated files in the PR and verify `python3 scripts/build.py --check`.
+1. Provide a primary source: arXiv, publisher, official technical report or author-maintained project.
+2. Check the exact title, authors and first submission date. Leave publication date null if unconfirmed. Do not infer a release date from repository creation.
+3. Choose a primary research question in `data/taxonomy.json`, then add cross-categories where justified. Explain the role of code and who determines the next state.
+4. Add a unique record to `data/papers.json`. Preserve the source abstract separately from the editorial summary. Each resource needs its own type and provenance URL.
+5. Set `verification.basis` honestly: primary abstract, official project, or full text. Record the date on which you reviewed the source.
+6. Set `classic: false` and an empty `classic_note` by default. Selecting a representative work requires an editorial rationale. Keep `resource_status.evidence` synchronized with non-paper resource URLs; its badge follows the public-resource convention documented in the README.
+7. Set `collections` and `benchmarks` (empty arrays when not applicable). A named benchmark protocol records `name`, `input`, `artifact`, `checks`, `caveat` and a primary `source`. Benchmark names within method papers are aliases, not additional paper records. Keep collection membership aligned with the protocol and identify differences between paper and public-release versions.
+8. Run `python3 scripts/build.py` and `python3 -m unittest discover -s tests -v`; include generated files in the PR.
 
-## Topic boundaries
+Do not edit `site/catalog.js`, exported files, `docs/BENCHMARKS.md` or the generated README directly. Edit `docs/README.template.md` for introductory copy. Edit `site/index.html`, `site/style.css` and `site/app.js` for the frontend.
 
-- General World Model describes an integrated framework, not a quality ranking. A component or a method using a world model does not automatically qualify.
-- Multi-Agent refers to entities acting inside the world, not collaborating coding agents.
-- Streaming, Real-Time and Acceleration are distinct. Preserve reported timing and hardware conditions. Generic long-horizon simulation is not necessarily Long Video Generation.
-- Code Execution concerns computational semantics, state prediction or correctness; merely executing generated world code is insufficient.
-- A training-free adaptation is not automatically Post-Training. Supporting someone else's distilled checkpoint is not evidence that this project trained it.
-- A method may receive a website Benchmark topic when it introduces and substantively defines a named task suite and scoring protocol. Substantive newly introduced data resources may support Dataset; record the actual public scope separately. Keep its README placement under the main contribution. Reusing existing tests or publishing demonstration files is insufficient.
-- Resource availability and Dataset are separate. A code, project or weights link can support a resource badge without constituting a dataset release. Record promised or incomplete releases explicitly; publishing a paper about a dataset does not imply that its full data are downloadable.
-
-Select topics based on supported contributions; there is no fixed per-paper tag limit. The website combines selected topics by intersection, together with month, title/author search and resource filters.
-
-## Generated files and README
-
-Do not hand-edit the generated README, `site/catalog.js`, exports, `docs/BENCHMARKS.md`, `docs/TOPIC_REVIEW.md` or their generated web pages. Edit `docs/README.template.md` for introductory copy; edit source data for records and evidence. Frontend sources are `site/index.html`, `site/style.css`, `site/search.js` and `site/app.js`.
-
-Each paper appears exactly once in the README bibliography. Do not duplicate entries under recent updates or reading paths. Website topics may overlap, while a result list still shows each paper once. The per-paper topic review preserves the evidence and actual reading scope.
-
-Add collection announcements to `data/updates.json`. The Chinese classification guide is [docs/TAXONOMY.md](docs/TAXONOMY.md); the root `Code_World_Models_Taxonomy.md` is a matching convenience copy.
+Add collection announcements to `data/updates.json`. Categories list representative works first and then other papers by first submission date, including cross-listed contributions.
 
 ## Promote a crawler candidate
 
-Candidates in `data/inbox.json` stay outside the public index. Read the source and complete the record and topic evidence before promotion; the crawler's low-confidence legacy category suggestion is not sufficient. After adding the curated record, set its status to `accepted`. Set `rejected` with a reason for irrelevant or duplicate results. Preserve decisions so later discovery runs do not reopen the same candidate.
+Candidates live in `data/inbox.json`, outside the public curated index. Read the source and create a complete record before promotion; the crawler's suggested category is not sufficient evidence. After adding the curated record, set the candidate's status to `accepted`. Set `rejected` with a reason for irrelevant or duplicate results. Keep decision records so later daily runs do not reopen the same candidate.
 
-Use English for commit messages and public classification reasons. The main collection is written in English; detailed taxonomy and maintenance notes may be in Chinese.
+## Review checklist
+
+- Is code the world representation, a controller, a rendering condition, or the object being predicted?
+- Is this generated motion, an engine-stepped physical simulation, or a learned transition?
+- Do tags describe measured targets rather than imply success?
+- Are streaming, throughput and interaction latency distinguished?
+- Is the main contribution generation or understanding, with useful cross-links?
+- Are code links distinguished from project, data and weight links?
+
+原始分类理由可以使用中文。代码注释和维护提交默认使用中文。英文主目录面向国际读者；中文深度分类说明在 `docs/TAXONOMY.md`。
