@@ -3,7 +3,7 @@
 <p><b>Executable worlds, organized by the research questions they answer.</b></p>
 <img src="site/banner.svg" width="100%" alt="Awesome Code World Model research map: generation builds executable worlds; understanding infers and tests world programs. Scenes, physics, rendering, interaction, reasoning and verification surround a shared program representation.">
 <p><b>Code builds worlds. Code explains worlds.</b></p>
-<p><a href="{{SITE_URL}}"><img src="site/browse.svg" width="270" alt="Browse Interactive Webpage"></a></p>
+<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/"><img src="site/browse.svg" width="270" alt="Browse Interactive Webpage"></a></p>
 <p>Search papers · Filter mechanisms · Compare work · Explore benchmarks</p>
 <p>{{STATS}}</p>
 <p><a href="#overview">Research map</a> · <a href="#benchmarks">Benchmark atlas</a> · <a href="docs/TAXONOMY.md">Taxonomy</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
