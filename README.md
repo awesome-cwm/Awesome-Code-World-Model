@@ -19,7 +19,7 @@
 </tr>
 </table>
 
-**Legend.** 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Dates use first submission; unknown releases remain `Date TBC`.
+**Legend.** 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Category dates use first submission; Recent Paper Updates may use collection-update dates. Unknown releases remain `Date TBC`.
 
 ---
 
@@ -49,10 +49,6 @@
 
 ## 🔥 Recent Paper Updates
 
-[2026-10-21] ✅[VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?](https://arxiv.org/abs/2608.15265)
-
-[2026-10-21] ✅[HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis](https://arxiv.org/abs/2609.26793)
-
 [2026-10-20] ✅[SolarRenderer: Few-Step Generative Reference Rendering](https://arxiv.org/abs/2610.28630)
 
 [2026-10-20] ❌️[NeoWorld-3: From Pixels to Code-Defined Physical Worlds](https://arxiv.org/abs/2610.27690)
@@ -61,12 +57,12 @@
 
 [2026-10-19] ❌️[From Code to Playable Systems: CEGame-Bench for Long-Horizon Game Creation Agents](https://arxiv.org/abs/2610.26098)
 
-<details>
-<summary>More recent papers & projects with unconfirmed dates</summary>
-
 [2026-10-18] ❌️[LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica](https://arxiv.org/abs/2610.25019)
 
 [2026-10-15] ✅[Mallea: Building, Steering, and Memorizing Worlds with Coding Agent](https://arxiv.org/abs/2610.21283)
+
+<details>
+<summary>More recent papers & projects with unconfirmed dates</summary>
 
 [2026-10-15] ✅[3DCodeVerse: Exploring 3D Worlds as Code](https://arxiv.org/abs/2610.22341)
 
@@ -91,6 +87,10 @@
 [2026-10-03] ✅[Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos](https://arxiv.org/abs/2610.04432)
 
 [2026-10-02] ✅[4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes](https://arxiv.org/abs/2610.03715)
+
+[2026-10-01] ✅[World Editing: Intervening on Executable Worlds at Increasing Depth](https://arxiv.org/abs/2610.02331)
+
+[2026-09-30] ❌️[Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model](https://arxiv.org/abs/2609.40358)
 
 **Official projects with unconfirmed first-release dates**
 

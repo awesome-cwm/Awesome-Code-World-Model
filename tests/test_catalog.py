@@ -56,10 +56,11 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual(p['published'], published)
             self.assertTrue(build.readme_entry(p, recent=True, update_date='2026-10-21').startswith('[2026-10-21]'))
             self.assertTrue(build.readme_entry(p).startswith('[' + published[:7] + ']'))
+            self.assertTrue(build.readme_entry(p, recent=True).startswith('[' + published + ']'))
         readme = build.render_readme(self.catalog, self.taxonomy, '')
         recent = readme.split('## 🔥 Recent Paper Updates')[1].split('<details>')[0]
-        self.assertIn('[2026-10-21] ✅[HARMONY:', recent)
-        self.assertIn('[2026-10-21] ✅[VibeWorlding:', recent)
+        self.assertNotIn('[2026-10-21] ✅[HARMONY:', recent)
+        self.assertNotIn('[2026-10-21] ✅[VibeWorlding:', recent)
 
     def test_resource_badge_requires_matching_evidence(self):
         c=copy.deepcopy(self.catalog)
