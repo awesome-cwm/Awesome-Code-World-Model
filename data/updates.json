@@ -1,16 +1,16 @@
 {
   "news": [
     {
-      "date": "2026-10-22",
-      "icon": "🏷️",
-      "title": "Flat Topics & Per-paper Review",
-      "body": "Reviewed all 58 records against primary sources and reorganized the collection into 22 flat topics. Each paper has one README entry and may match several website topics. The website supports checkbox intersections with search and publication months. Assignment reasons and source-reading scope are recorded in the per-paper review."
+      "date": "2026-10-23",
+      "icon": "🧭",
+      "title": "Research Map & README Refresh",
+      "body": "Separated interaction from streaming delivery; narrowed executable verification to methods, with benchmarks indexed by task. Refreshed the visual research map and compact reading index. All 58 records are retained."
     },
     {
       "date": "2026-10-21",
       "icon": "📊",
       "title": "Benchmark Atlas & Infrastructure",
-      "body": "Added 14 works across benchmarks, datasets and infrastructure. The Benchmark Atlas records inputs, executable artifacts, evaluation evidence and scope limits; data and harness resources are linked."
+      "body": "Added 14 works, including 4DCodeBench, BVB, BlenderWorld, PhysCodeGym, PhySimCode, ExeWorldBench, WorldStream and H3 Streaming VAE Decoder. Named benchmark suites now have task, artifact and evaluation indexes; 3DCodeVerse data and harness resources are linked."
     },
     {
       "date": "2026-10-21",
@@ -21,8 +21,8 @@
     {
       "date": "2026-10-21",
       "icon": "🗂️",
-      "title": "Original Research Taxonomy (superseded)",
-      "body": "The initial categories and comparison dimensions were replaced by the flat topic scheme on 2026-10-22."
+      "title": "Research Taxonomy",
+      "body": "Nine core research categories, two related perspectives, and seven comparison dimensions. Representative works are highlighted with 🌟."
     },
     {
       "date": "2026-10-21",

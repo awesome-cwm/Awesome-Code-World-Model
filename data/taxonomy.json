@@ -1,139 +1,5 @@
 {
-  "version": "3.0",
-  "topics": [
-    {
-      "id": "general-world-model",
-      "name": "General World Model",
-      "zh": "通用世界模型",
-      "description": "Integrated world-model frameworks combining world state, evolution, interaction, or observations; a system-level scope, not a quality ranking."
-    },
-    {
-      "id": "memory",
-      "name": "Memory",
-      "zh": "记忆",
-      "description": "Persistent state, historical information, off-screen entities, identity, or memory consistency."
-    },
-    {
-      "id": "interactive",
-      "name": "Interactive",
-      "zh": "交互",
-      "description": "Worlds that respond to user or agent actions and continue running."
-    },
-    {
-      "id": "real-time",
-      "name": "Real-Time",
-      "zh": "实时",
-      "description": "Reported real-time generation, simulation, or low-latency interaction, with the original hardware and timing conditions."
-    },
-    {
-      "id": "acceleration",
-      "name": "Acceleration",
-      "zh": "加速",
-      "description": "Reducing inference, execution, or rendering time and computational cost."
-    },
-    {
-      "id": "long-video-generation",
-      "name": "Long Video Generation",
-      "zh": "长视频生成",
-      "description": "Sustained or extended-duration video generation and its temporal consistency, beyond generic multi-step simulation."
-    },
-    {
-      "id": "streaming",
-      "name": "Streaming",
-      "zh": "流式生成",
-      "description": "Incremental input, continuous output, or causal chunk-by-chunk generation; not automatically real time."
-    },
-    {
-      "id": "multi-agent",
-      "name": "Multi-Agent",
-      "zh": "多主体",
-      "description": "Multiple acting entities within the modeled world and their shared state or interactions; distinct from coding-agent collaboration."
-    },
-    {
-      "id": "action-control",
-      "name": "Action Control",
-      "zh": "动作控制",
-      "description": "Explicit control of world behavior through keyboard, mouse, robot actions, or other action inputs."
-    },
-    {
-      "id": "physics",
-      "name": "Physics",
-      "zh": "物理",
-      "description": "Physical mechanisms, motion, contact, collisions, materials, or physical consistency."
-    },
-    {
-      "id": "world-generation",
-      "name": "World Generation",
-      "zh": "世界生成",
-      "description": "Creating scenes, assets, games, or simulation environments from desired specifications."
-    },
-    {
-      "id": "world-reconstruction",
-      "name": "World Reconstruction",
-      "zh": "世界重建",
-      "description": "Recovering scenes, physics, or rules from reference images, video, trajectories, or observations."
-    },
-    {
-      "id": "world-editing",
-      "name": "World Editing",
-      "zh": "世界编辑",
-      "description": "Editing objects, layouts, properties, behaviors, or world rules."
-    },
-    {
-      "id": "neural-rendering",
-      "name": "Neural Rendering",
-      "zh": "神经渲染",
-      "description": "Neural image or video generation conditioned on code, executable state, geometry, or proxies."
-    },
-    {
-      "id": "planning",
-      "name": "Planning",
-      "zh": "规划",
-      "description": "Searching or imagining actions with world models to choose a plan."
-    },
-    {
-      "id": "agent-learning",
-      "name": "Agent Learning",
-      "zh": "智能体学习",
-      "description": "Using generated worlds, simulated experience, or world-model feedback to improve an acting or reasoning agent."
-    },
-    {
-      "id": "code-execution",
-      "name": "Code Execution",
-      "zh": "代码执行",
-      "description": "Modeling execution semantics, predicting computational states, or investigating execution correctness; not every method that runs code."
-    },
-    {
-      "id": "post-training",
-      "name": "Post-Training",
-      "zh": "后训练",
-      "description": "Fine-tuning, reinforcement learning, distillation, or adaptation of existing models."
-    },
-    {
-      "id": "benchmark",
-      "name": "Benchmark",
-      "zh": "基准",
-      "description": "Reusable test tasks and scoring protocols; a method-side benchmark does not automatically become the README category."
-    },
-    {
-      "id": "dataset",
-      "name": "Dataset",
-      "zh": "数据集",
-      "description": "Constructed or published world programs, scenes, trajectories, simulations, or paired data resources. Public release scope is recorded separately."
-    },
-    {
-      "id": "evaluation",
-      "name": "Evaluation",
-      "zh": "评测分析",
-      "description": "Focused evaluation, diagnosis, and analysis of capabilities, evidence, or failure modes."
-    },
-    {
-      "id": "survey",
-      "name": "Survey",
-      "zh": "综述",
-      "description": "Surveys, literature syntheses, taxonomies, and research overviews."
-    }
-  ],
+  "version": "1.2",
   "tracks": [
     {
       "id": "generation",
@@ -217,9 +83,9 @@
     {
       "id": "u_verification",
       "track": "understanding",
-      "name": "Verification & evaluation",
-      "question": "Can we distinguish a working world from a plausible-looking one?",
-      "description": "Executable benchmarks, physical obligations, functional tests and auditable critiques."
+      "name": "Executable verification",
+      "question": "Which executable checks can accept, reject or qualify a world hypothesis?",
+      "description": "Verification methods, physical obligations and auditable evidence. Benchmark datasets are indexed separately by their target task."
     },
     {
       "id": "a_software",
@@ -292,8 +158,8 @@
     },
     {
       "id": "feedback",
-      "name": "Construction feedback",
-      "question": "What corrects a generated hypothesis?",
+      "name": "Refinement signal",
+      "question": "What signal refines the program or model, during construction or training?",
       "values": {
         "execution": "Execution / compilation",
         "visual": "Visual critique",
@@ -313,9 +179,18 @@
         "editable": "Program / parameter editing",
         "action": "Action-conditioned rollout",
         "closed_loop": "Closed-loop environment",
-        "streaming": "Causal streaming output",
         "none": "Not applicable",
-        "world_streaming": "On-demand world expansion"
+        "unknown": "Not established"
+      }
+    },
+    {
+      "id": "delivery",
+      "name": "Delivery mode",
+      "question": "How is the world or its observations delivered?",
+      "values": {
+        "streaming": "Causal observation streaming",
+        "world_streaming": "On-demand world expansion",
+        "unknown": "Not separately established"
       }
     },
     {
