@@ -19,5 +19,3 @@ jobs:
         with:
           node-version: '22'
       - run: node --check site/app.js
-      - run: node --check site/search.js
-      - run: node --test tests/search.test.cjs

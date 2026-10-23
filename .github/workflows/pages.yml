@@ -7,7 +7,6 @@ on:
       - 'data/papers.json'
       - 'data/taxonomy.json'
       - 'data/updates.json'
-      - 'data/site.json'
       - 'docs/**'
       - 'scripts/build.py'
       - 'CONTRIBUTING.md'

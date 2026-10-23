@@ -34,7 +34,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           branch: automation/research-candidates
-          commit-message: 'Update daily research candidates and source health report'
+          commit-message: '更新每日论文候选与来源健康报告'
           title: '[Discovery] Review new code-world-model candidates'
           body: |
             Daily metadata discovery with rule-based category suggestions.
