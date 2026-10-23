@@ -1,13 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
-<title id="title">Awesome Code World Model</title><desc id="desc">Two directions: code generates worlds, and executable models explain observations.</desc>
-<rect width="1200" height="300" rx="16" fill="#eff3ed"/><path d="M600 36v228" stroke="#d1dcd1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="660" viewBox="0 0 1440 660" role="img" aria-labelledby="title desc">
+<title id="title">Awesome Code World Model — an executable world research map</title>
+<desc id="desc">Scene programs, physical simulation, neural rendering, persistent worlds, reconstruction, reasoning, planning and verification surround a shared executable world. Generation builds a world from intent; understanding infers a program from observations.</desc>
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f5f7ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#eaf9f6"/></linearGradient>
+  <linearGradient id="ink"><stop stop-color="#5155d9"/><stop offset=".55" stop-color="#3878b9"/><stop offset="1" stop-color="#1ba698"/></linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e6f3ff"/><stop offset="1" stop-color="#8493ec"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#d6e8ff" stop-opacity=".65"/><stop offset="1" stop-color="#edf4ff" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#c6d3eb" opacity=".4"/></pattern>
+  <clipPath id="globe"><ellipse cx="720" cy="552" rx="296" ry="175"/></clipPath>
+  <g id="node"><circle r="29" fill="#fff" stroke="#d4dcf3" stroke-width="2"/><circle r="23" fill="currentColor" opacity=".1"/></g>
+  <g id="cube" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="m0-15 14 8v16L0 17-14 9V-7Z M-14-7 0 1 14-7M0 1v16"/></g>
+</defs>
+<rect width="1440" height="660" rx="24" fill="url(#bg)"/>
+<rect width="1440" height="660" rx="24" fill="url(#dots)"/>
+<ellipse cx="720" cy="312" rx="600" ry="300" fill="url(#halo)"/>
+<path d="M154 355C172 18 1252 10 1290 355" fill="none" stroke="#aebdea" stroke-width="1.7" stroke-dasharray="6 7"/>
+<path d="M154 355C222 542 1190 542 1290 355" fill="none" stroke="#a6d5e3" stroke-width="1.7" stroke-dasharray="6 7"/>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+  <g transform="translate(158 318)" color="#5972d7"><use href="#node"/><use href="#cube"/><text y="52" fill="#263c70" font-size="19">Scene programs</text></g>
+  <g transform="translate(274 170)" color="#6960d4"><use href="#node"/><path d="M-15 6Q-6-21 4 1T17-9M-18 12H18" fill="none" stroke="currentColor" stroke-width="2.5"/><text y="52" fill="#263c70" font-size="19">Physical simulation</text></g>
+  <g transform="translate(480 91)" color="#5a73d7"><use href="#node"/><rect x="-16" y="-11" width="32" height="23" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m-5-6 12 7-12 7Z" fill="currentColor"/><text y="52" fill="#263c70" font-size="19">Code-guided rendering</text></g>
+  <g transform="translate(720 66)" color="#329aa1"><use href="#node"/><path d="M-13 10V-9H13V10M-17 1H17M-5-15V16M5-15V16" fill="none" stroke="currentColor" stroke-width="2"/><text y="52" fill="#263c70" font-size="19">Persistent worlds</text></g>
+  <g transform="translate(960 91)" color="#329aa1"><use href="#node"/><use href="#cube"/><path d="M-20 0a20 20 0 0 1 27-19M7-23v7h7" fill="none" stroke="currentColor" stroke-width="2"/><text y="52" fill="#263c70" font-size="19">Inverse reconstruction</text></g>
+  <g transform="translate(1166 170)" color="#4e83be"><use href="#node"/><path d="m-17-1 9-7 8 12 15-17M-17 15h34" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="0" cy="4" r="3" fill="currentColor"/><text y="52" fill="#263c70" font-size="19">Reasoning &amp; planning</text></g>
+  <g transform="translate(1285 318)" color="#7661cd"><use href="#node"/><path d="M0-16 14-10v12C13 9 5 14 0 17-5 14-13 9-14 2v-12Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m-7 0 5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.5"/><text y="52" fill="#263c70" font-size="19">Verification</text></g>
+  <text x="720" y="217" font-size="16" letter-spacing="5" fill="#6979a0">A MAP OF EXECUTABLE INTELLIGENCE</text>
+  <text x="720" y="284" font-size="65" font-weight="700" fill="#16274f">Awesome</text>
+  <text x="720" y="359" font-size="72" font-weight="700" fill="url(#ink)">Code World Model</text>
+  <text x="720" y="401" font-size="24" fill="#687fa5">Build a world. Infer a program. Test what follows.</text>
+</g>
+<g clip-path="url(#globe)" transform="translate(0 48)">
+  <ellipse cx="720" cy="552" rx="296" ry="175" fill="url(#sea)" stroke="#9cb8e8" stroke-width="2"/>
+  <g fill="none" stroke="#fff" opacity=".65"><ellipse cx="720" cy="552" rx="202" ry="175"/><ellipse cx="720" cy="552" rx="91" ry="175"/><ellipse cx="720" cy="552" rx="296" ry="91"/><ellipse cx="720" cy="552" rx="296" ry="37"/><path d="M424 552h592M720 377v350"/></g>
+  <path d="m523 446 61-24 37 9 18 26-24 12 17 27-34 24-6 40-26 10-18-42-35-14 13-32-26-14Z M761 415l63 1 24 28 61 11 30 32-14 25-48-11-17 38-29 5-18-39-37 7-26-36-32-12Z M684 510l32 12 23 40-16 39-28-14-4-28-22-24Z" fill="#43aba9" opacity=".3"/>
+</g>
+<path d="M0 464 80 418l51 16 57-62 53 61 80 63-36 60H0Z" fill="#e6eafb"/>
+<path d="m0 496 79-40 45 31 70-52 119 99v68H0Z" fill="#d3def8"/>
+<path d="m1120 527 93-82 38 18 75-93 44 47 70 50v135h-320Z" fill="#dcecf8"/>
+<path d="m1130 561 119-61 29 20 75-61 87 49v94h-310Z" fill="#c6e3ec"/>
 <g font-family="Arial,Helvetica,sans-serif">
-<text x="58" y="68" font-size="13" letter-spacing="3" fill="#667c6b">01 / GENERATION</text>
-<text x="58" y="128" font-size="42" font-weight="700" fill="#294f3a">Code World Model</text>
-<text x="58" y="170" font-size="19" fill="#627668">Build the scene. Write the rules. Render the world.</text>
-<text x="58" y="241" font-size="17" fill="#294f3a">INTENT → EXECUTABLE PROGRAM → WORLD</text>
-<text x="650" y="68" font-size="13" letter-spacing="3" fill="#657b96">02 / UNDERSTANDING</text>
-<text x="650" y="128" font-size="42" font-weight="700" fill="#496991">Code as Model</text>
-<text x="650" y="170" font-size="19" fill="#66778c">Observe a world. Infer a program. Test a mechanism.</text>
-<text x="650" y="241" font-size="16" fill="#496991">OBSERVATION → PROGRAM → REASONING</text>
-</g></svg>
+  <rect x="70" y="468" width="382" height="139" rx="16" fill="#fff" stroke="#d6dff4"/>
+  <text x="95" y="501" font-size="14" letter-spacing="2" fill="#626bd0">01 / GENERATION</text>
+  <text x="95" y="539" font-size="25" font-weight="700" fill="#273e74">Code builds worlds</text>
+  <text x="95" y="575" font-size="19" fill="#657697">Intent → program → interaction</text>
+  <rect x="988" y="468" width="382" height="139" rx="16" fill="#fff" stroke="#cce6e5"/>
+  <text x="1013" y="501" font-size="14" letter-spacing="2" fill="#318f99">02 / UNDERSTANDING</text>
+  <text x="1013" y="539" font-size="25" font-weight="700" fill="#273e74">Code explains worlds</text>
+  <text x="1013" y="575" font-size="19" fill="#657697">Observe → infer → test</text>
+  <rect x="569" y="469" width="302" height="102" rx="14" fill="#23375e"/>
+  <g font-family="monospace" font-size="18"><text x="592" y="503" fill="#c5b7ff">world.step(action)</text><text x="592" y="537" fill="#96e1d9">→ state, observation</text></g>
+  <text x="720" y="636" text-anchor="middle" font-size="16" letter-spacing="2" fill="#536f97">PROGRAM · EXECUTE · OBSERVE · VERIFY</text>
+</g>
+</svg>

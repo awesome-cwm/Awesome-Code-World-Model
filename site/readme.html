@@ -1,183 +1,237 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Repository guide — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>Awesome Code World Model</h1>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/">Website</a> · ✅ Open Source · ❌️ Not Open Source</p>
-<h2>Contents</h2>
-<ul>
-<li><a href="#general-world-model">General World Model</a> (5)</li>
-<li><a href="#memory">Memory</a> (1)</li>
-<li><a href="#real-time">Real-Time</a> (1)</li>
-<li><a href="#acceleration">Acceleration</a> (1)</li>
-<li><a href="#streaming">Streaming</a> (2)</li>
-<li><a href="#physics">Physics</a> (3)</li>
-<li><a href="#world-generation">World Generation</a> (11)</li>
-<li><a href="#world-reconstruction">World Reconstruction</a> (3)</li>
-<li><a href="#neural-rendering">Neural Rendering</a> (2)</li>
-<li><a href="#planning">Planning</a> (4)</li>
-<li><a href="#agent-learning">Agent Learning</a> (4)</li>
-<li><a href="#code-execution">Code Execution</a> (1)</li>
-<li><a href="#post-training">Post-Training</a> (1)</li>
-<li><a href="#benchmark">Benchmark</a> (14)</li>
-<li><a href="#dataset">Dataset</a> (2)</li>
-<li><a href="#evaluation">Evaluation</a> (3)</li>
-</ul>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/">All 22 topic filters</a> · <a href="taxonomy.html">Topic definitions</a> · <a href="topic-review.html">Per-paper review and sources</a></p>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Repository guide — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><div align="center">
+<h1>📜 Awesome Code World Model</h1>
+<p><b>Executable worlds, organized by the research questions they answer.</b></p>
+<img src="banner.svg" width="100%" alt="Awesome Code World Model research map: generation builds executable worlds; understanding infers and tests world programs. Scenes, physics, rendering, interaction, reasoning and verification surround a shared program representation.">
+<p><b>Code builds worlds. Code explains worlds.</b></p>
+<p><a href="./"><img src="browse.svg" width="270" alt="Browse Interactive Webpage"></a></p>
+<p>Search papers · Filter mechanisms · Compare work · Explore benchmarks</p>
+<p><b>58 papers &amp; projects</b> · <b>21 benchmark suites</b> · <b>8 comparison dimensions</b><br>Sources checked 2026-10-21</p>
+<p><a href="#overview">Research map</a> · <a href="#benchmarks">Benchmark atlas</a> · <a href="taxonomy.html">Taxonomy</a> · <a href="contributing.html">Contribute</a></p>
+</div>
 <hr>
-<a id="general-world-model"></a>
-<h2>General World Model</h2>
-<p>Integrated world-model frameworks combining world state, evolution, interaction, or observations; a system-level scope, not a quality ranking.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=general-world-model">Browse all papers tagged General World Model →</a></p>
+<table width="100%">
+<tr>
+<td align="center">🌟 <b>Representative</b></td>
+<td align="center">✅ <b>Public resources</b></td>
+<td align="center">❌️ <b>Resources not found</b></td>
+</tr>
+</table>
+<p><strong>Legend.</strong> 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Dates use first submission; unknown releases remain <code>Date TBC</code>.</p>
+<hr>
+<a id="news-updates"></a>
+<h2>🚩 News &amp; Updates</h2>
+<p>🧭 <strong>[2026-10-23] Research Map &amp; README Refresh</strong> — Separated interaction from streaming delivery; narrowed executable verification to methods, with benchmarks indexed by task. Refreshed the visual research map and compact reading index. All 58 records are retained.</p>
+<p>📊 <strong>[2026-10-21] Benchmark Atlas &amp; Infrastructure</strong> — Added 14 works, including 4DCodeBench, BVB, BlenderWorld, PhysCodeGym, PhySimCode, ExeWorldBench, WorldStream and H3 Streaming VAE Decoder. Named benchmark suites now have task, artifact and evaluation indexes; 3DCodeVerse data and harness resources are linked.</p>
+<details>
+<summary>Earlier collection updates</summary>
+<p>🔥 <strong>[2026-10-21] Initial Collection</strong> — 44 papers and projects covering Code World Model (generation) and Code as Model (understanding), including earlier foundations and the latest October releases.</p>
+<p>🗂️ <strong>[2026-10-21] Research Taxonomy</strong> — Nine core research categories, two related perspectives, and seven comparison dimensions. Representative works are highlighted with 🌟.</p>
+<p>🤖 <strong>[2026-10-21] Daily Discovery Prototype</strong> — Daily arXiv and GitHub discovery is implemented as a candidate-review workflow. Automated promotion and a full literature-review agent remain future work.</p>
+</details>
+<a id="recent-paper-updates"></a>
+<h2>🔥 Recent Paper Updates</h2>
+<p>[2026-10-20] ✅<a href="https://arxiv.org/abs/2610.28630">SolarRenderer: Few-Step Generative Reference Rendering</a></p>
+<p>[2026-10-20] ❌️<a href="https://arxiv.org/abs/2610.27690">NeoWorld-3: From Pixels to Code-Defined Physical Worlds</a></p>
+<p>[2026-10-20] ✅<a href="https://arxiv.org/abs/2610.27999">Matrix-Game 4.0: Harnessing Video Models for Real-Time Playable Game Worlds</a></p>
+<p>[2026-10-19] ❌️<a href="https://arxiv.org/abs/2610.26098">From Code to Playable Systems: CEGame-Bench for Long-Horizon Game Creation Agents</a></p>
+<p>[2026-10-18] ❌️<a href="https://arxiv.org/abs/2610.25019">LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica</a></p>
+<p>[2026-10-15] ✅<a href="https://arxiv.org/abs/2610.21283">Mallea: Building, Steering, and Memorizing Worlds with Coding Agent</a></p>
+<details>
+<summary>More recent papers &amp; projects with unconfirmed dates</summary>
+<p>[2026-10-15] ✅<a href="https://arxiv.org/abs/2610.22341">3DCodeVerse: Exploring 3D Worlds as Code</a></p>
+<p>[2026-10-14] ✅<a href="https://arxiv.org/abs/2610.23986">BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References</a></p>
+<p>[2026-10-13] ✅<a href="https://arxiv.org/abs/2610.18835">RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks</a></p>
+<p>[2026-10-13] ✅<a href="https://arxiv.org/abs/2610.17651">Code2Worlds-2: Physically Plausible Agent Harness for Embodied World Simulation</a></p>
+<p>[2026-10-12] ✅<a href="https://arxiv.org/abs/2610.17288">PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction</a></p>
+<p>[2026-10-11] ✅<a href="https://arxiv.org/abs/2610.15722">PhySimCode: A Benchmark and Evaluation Method for Physics Video to Code Generation</a></p>
+<p>[2026-10-11] ❌️<a href="https://arxiv.org/abs/2610.15368">ANTE: Anticipate, Then Execute -- Learning Internal World Models for Coding Agents from Verified Beliefs</a></p>
+<p>[2026-10-10] ✅<a href="https://arxiv.org/abs/2610.15166">ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling</a></p>
+<p>[2026-10-08] ✅<a href="https://arxiv.org/abs/2610.12374">AgentGarten: Code Worlds for Evolving Agents</a></p>
+<p>[2026-10-06] ✅<a href="https://arxiv.org/abs/2610.08720">WorldSolver: Can LLM Agents Simulate the Physical Dynamics via Solver Generation?</a></p>
+<p>[2026-10-03] ✅<a href="https://arxiv.org/abs/2610.04432">Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos</a></p>
+<p>[2026-10-02] ✅<a href="https://arxiv.org/abs/2610.03715">4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes</a></p>
+<p>[2026-10-01] ✅<a href="https://arxiv.org/abs/2610.02331">World Editing: Intervening on Executable Worlds at Increasing Depth</a></p>
+<p>[2026-09-30] ❌️<a href="https://arxiv.org/abs/2609.40358">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model</a></p>
+<p><strong>Official projects with unconfirmed first-release dates</strong></p>
+<p>[Date TBC] ✅<a href="https://krennic999.github.io/WorldStream/blog/">WorldStream: Building 3D Worlds as You Explore</a></p>
+<p>[Date TBC] ✅<a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render</a></p>
+<p>[Date TBC] ✅<a href="https://github.com/TingtingLiao/streaming-code-world-model">Streaming Code World Model</a></p>
+<p>[Date TBC] ✅<a href="https://solarx-team.github.io/H3-Streaming-VAE-Decoder/">H3 Streaming VAE Decoder: Training-Free Streaming without Future Latents</a></p>
+<p>[Date TBC] ✅<a href="https://code-video-model.github.io/tech_report.pdf">Code Video Model</a></p>
+</details>
+<hr>
+<a id="overview"></a>
+<h2>🧭 Overview</h2>
+<p>Two reading directions share one executable representation. Choose a research question below; use the benchmark and infrastructure indexes for reusable resources.</p>
+<table width="100%">
+<tr>
+<td width="50%" valign="top"><b><a href="#code-world-model">💻 Code World Model · Generation</a></b><br>Intent → program → world<br><br><a href="#g-hybrid">🎮 Persistent &amp; playable worlds</a><br><a href="#g-rendering">🎬 Code-guided video &amp; rendering</a><br><a href="#g-simulation">⚙️ Physical simulation synthesis</a><br><a href="#g-scene">🏗️ Scene &amp; asset programs</a><br><a href="#g-learning">🌱 Worlds for agent learning</a></td>
+<td width="50%" valign="top"><b><a href="#code-as-model">🧠 Code as Model · Understanding</a></b><br>Observation → program → explanation<br><br><a href="#u-inverse">🔄 Inverse world reconstruction</a><br><a href="#u-reasoning">🧪 Executable physical reasoning</a><br><a href="#u-planning">🧩 Rule induction &amp; planning</a><br><a href="#u-verification">📏 Executable verification</a></td>
+</tr>
+<tr><td colspan="2" align="center"><a href="#benchmarks">📊 Benchmarks &amp; Evaluation</a> · <a href="#infrastructure">🛠️ Datasets &amp; Systems</a> · <a href="#related-perspectives">🔎 Related Perspectives</a><br><a href="#reading-guide">Reading paths &amp; dimensions</a> · <a href="#citation">Citation</a></td></tr>
+</table>
+<p>Each work appears once in the main research list, under its primary contribution. Cross-category associations remain searchable in the website. <a href="taxonomy.html">Classification rationale</a>.</p>
+<hr>
+<a id="code-world-model"></a>
+<h2>💻 Code World Model · Generation</h2>
+<p>Intent → executable state and rules → observations and interaction.</p>
+<a id="g-hybrid"></a>
+<h3>🎮 Persistent &amp; playable worlds</h3>
+<p>Who owns state, rules and consequences outside the current frame?</p>
+<p><strong>[2026-08] ✅🌟(Persistent world state with proxy-conditioned generative observations) <a href="https://arxiv.org/abs/2608.25927">Code World Model: Coding Agent as World Brain</a> · <a href="https://github.com/buaacyw/code-world-model">Code</a> · <a href="https://buaacyw.github.io/cwm/">Project</a></strong></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.27999">Matrix-Game 4.0: Harnessing Video Models for Real-Time Playable Game Worlds</a> · <a href="https://matrix-game-v4-0.github.io/page/">Project</a></p>
+<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.26098">From Code to Playable Systems: CEGame-Bench for Long-Horizon Game Creation Agents</a></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.21283">Mallea: Building, Steering, and Memorizing Worlds with Coding Agent</a> · <a href="https://lxycopper.github.io/Mallea">Project</a></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.02331">World Editing: Intervening on Executable Worlds at Increasing Depth</a> · <a href="https://github.com/vinesmsuic/IGMWorld/">Code</a> · <a href="https://vinesmsuic.github.io/IGMWorld/">Project</a></p>
 <p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.25652">GameDirector: Decoupling Gameplay Logic from Rendering for Player-Configurable Game World Models</a> · <a href="https://jimntu.github.io/gamedirector/">Project</a></p>
 <p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.26458">Code Plans, Diffusion Renders: Open-Ended Generative World Modeling</a> · <a href="https://becauseimbatman0.github.io/CoDeR">Project</a></p>
 <p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.10540">Programmable World Model</a> · <a href="https://alaya-lab.github.io/pwm">Project</a> · <a href="https://github.com/AlayaLab/pwm">Code</a></p>
-<p>[2026-08] ✅<a href="https://arxiv.org/abs/2608.25927">Code World Model: Coding Agent as World Brain</a> · <a href="https://github.com/buaacyw/code-world-model">Code</a> · <a href="https://buaacyw.github.io/cwm/">Project</a></p>
-<hr>
-<a id="memory"></a>
-<h2>Memory</h2>
-<p>Persistent state, historical information, off-screen entities, identity, or memory consistency.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=memory">Browse all papers tagged Memory →</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.21283">Mallea: Building, Steering, and Memorizing Worlds with Coding Agent</a> · <a href="https://lxycopper.github.io/Mallea">Project</a></p>
-<hr>
-<a id="real-time"></a>
-<h2>Real-Time</h2>
-<p>Reported real-time generation, simulation, or low-latency interaction, with the original hardware and timing conditions.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=real-time">Browse all papers tagged Real-Time →</a></p>
-<p>[2026-10] ✅<a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render</a> · <a href="https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3">Code</a></p>
-<hr>
-<a id="acceleration"></a>
-<h2>Acceleration</h2>
-<p>Reducing inference, execution, or rendering time and computational cost.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=acceleration">Browse all papers tagged Acceleration →</a></p>
+<p>[Date TBC] ✅<a href="https://krennic999.github.io/WorldStream/blog/">WorldStream: Building 3D Worlds as You Explore</a> · <a href="https://github.com/krennic999/WorldStream">Project</a> · <a href="https://krennic999.github.io/WorldStream/">Project</a></p>
+<a id="g-rendering"></a>
+<h3>🎬 Code-guided video &amp; rendering</h3>
+<p>How does executable structure control appearance over time?</p>
+<p><strong>[2026-07] ✅🌟(Executable Blender code as process-level chain of thought) <a href="https://arxiv.org/abs/2607.27380">VideoCoCo: Code-as-CoT for Physically-Consistent Video Generation via an Agentic Dual-Engine System</a> · <a href="https://github.com/micky-li-hd/VideoCoCo">Code</a></strong></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.28630">SolarRenderer: Few-Step Generative Reference Rendering</a> · <a href="https://enderfga.cn/SolarRenderer">Project</a> · <a href="https://github.com/Enderfga/SolarRenderer">Code</a></p>
-<hr>
-<a id="streaming"></a>
-<h2>Streaming</h2>
-<p>Incremental input, continuous output, or causal chunk-by-chunk generation; not automatically real time.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=streaming">Browse all papers tagged Streaming →</a></p>
-<p>[2026-10] ✅<a href="https://solarx-team.github.io/H3-Streaming-VAE-Decoder/">H3 Streaming VAE Decoder: Training-Free Streaming without Future Latents</a> · <a href="https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder">Code</a></p>
-<p>[2026-10] ✅<a href="https://github.com/TingtingLiao/streaming-code-world-model">Streaming Code World Model</a> · <a href="https://huggingface.co/Luffuly/streaming-code-world-model">Weights</a></p>
-<hr>
-<a id="physics"></a>
-<h2>Physics</h2>
-<p>Physical mechanisms, motion, contact, collisions, materials, or physical consistency.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=physics">Browse all papers tagged Physics →</a></p>
-<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.40358">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model</a></p>
-<p>[2026-08] ✅<a href="https://arxiv.org/abs/2608.27549">Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning</a> · <a href="https://mirros-lab.github.io/code-as-world">Project</a></p>
-<p>[2024-04] ✅<a href="https://arxiv.org/abs/2404.13026">PhysDreamer: Physics-Based Interaction with 3D Objects via Video Generation</a> · <a href="https://physdreamer.github.io/">Project</a></p>
-<hr>
-<a id="world-generation"></a>
-<h2>World Generation</h2>
-<p>Creating scenes, assets, games, or simulation environments from desired specifications.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=world-generation">Browse all papers tagged World Generation →</a></p>
+<p>[Date TBC] ✅<a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render</a> · <a href="https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3">Code</a></p>
+<p>[Date TBC] ✅<a href="https://github.com/TingtingLiao/streaming-code-world-model">Streaming Code World Model</a> · <a href="https://huggingface.co/Luffuly/streaming-code-world-model">Weights</a></p>
+<p>[Date TBC] ✅<a href="https://code-video-model.github.io/tech_report.pdf">Code Video Model</a> · <a href="https://code-video-model.github.io/">Project</a> · <a href="https://github.com/code-video-model/CodeVideoModel">Code</a> · <a href="https://huggingface.co/datasets/code-video-model/CodeVideoBench">Data</a></p>
+<a id="g-simulation"></a>
+<h3>⚙️ Physical simulation synthesis</h3>
+<p>Does generated code instantiate working physical mechanisms?</p>
+<p><strong>[2026-02] ✅🌟(Language-to-code generation of dynamic 4D worlds) <a href="https://arxiv.org/abs/2602.11757">Code2Worlds: Empowering Coding LLMs for 4D World Generation</a> · <a href="https://github.com/AIGeeksGroup/Code2Worlds">Code</a> · <a href="https://aigeeksgroup.github.io/Code2Worlds">Project</a></strong></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.17651">Code2Worlds-2: Physically Plausible Agent Harness for Embodied World Simulation</a> · <a href="https://github.com/AIGeeksGroup/Code2Worlds-2">Code</a> · <a href="https://aigeeksgroup.github.io/Code2Worlds-2">Project</a></p>
-<p>[2026-10] ✅<a href="https://krennic999.github.io/WorldStream/blog/">WorldStream: Building 3D Worlds as You Explore</a> · <a href="https://github.com/krennic999/WorldStream">Project</a> · <a href="https://krennic999.github.io/WorldStream/">Project</a></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.15166">ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling</a> · <a href="https://helen1p.github.io/ExeWorldBench/">Project</a> · <a href="https://github.com/Helen1p/ExeWorldBench">Project</a> · <a href="https://huggingface.co/datasets/HelenPeng/ExeWorldBench">Data</a></p>
 <p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.36593">Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise</a></p>
+<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.35639">GPUPhysBench: Benchmarking Coding Agents for Correct and Efficient GPU Physics Simulation</a></p>
 <p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.33208">WorldAgent: Verification-Guided Agentic Physical World Construction</a></p>
 <p>[2026-07] ✅<a href="https://arxiv.org/abs/2607.21522">GS-Agent: Creating 4D Physical Worlds With Generative Simulation</a> · <a href="https://umass-embodied-agi.github.io/gs-agent/">Project</a></p>
 <p>[2026-07] ✅<a href="https://arxiv.org/abs/2607.01766">SimWorlds: A Multi-Agent System for Dynamic 3D Scene Creation</a> · <a href="https://dynsimworlds.github.io">Project</a></p>
+<a id="g-scene"></a>
+<h3>🏗️ Scene &amp; asset programs</h3>
+<p>Can a scene be edited, composed and loaded into a simulator?</p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.22341">3DCodeVerse: Exploring 3D Worlds as Code</a> · <a href="https://3dcodeverse.com/">Project</a> · <a href="https://github.com/gaoypeng/3dcodeverse">Code</a> · <a href="https://huggingface.co/datasets/ilabai/3dcodeverse">Data</a></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.23986">BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References</a> · <a href="https://github.com/QwenLM/BlenderWorld">Code</a> · <a href="https://blenderworld.github.io/">Project</a> · <a href="https://huggingface.co/datasets/Qwen/BlenderWorld">Data</a></p>
+<p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.36777">Code4Scene: Benchmarking Coding Agents for Constructing and Editing 3D Scenes</a> · <a href="https://github.com/SimWorld-AI/Code4Scene">Code</a> · <a href="https://simworld-ai-code4scene.static.hf.space">Project</a></p>
+<p>[2026-05] ✅<a href="https://arxiv.org/abs/2606.01057">3DCodeBench: Benchmarking Agentic Procedural 3D Modeling Via Code</a> · <a href="https://github.com/gaoypeng/3dcodebench">Code</a> · <a href="https://www.3dcodebench.com/">Project</a> · <a href="https://huggingface.co/datasets/YipengGao/3DCode">Data</a></p>
 <p>[2026-05] ✅<a href="https://arxiv.org/abs/2605.19587">SceneCode: Executable World Programs for Editable Indoor Scenes with Articulated Objects</a> · <a href="https://scene-code.github.io/">Project</a></p>
-<p>[2026-02] ✅<a href="https://arxiv.org/abs/2602.11757">Code2Worlds: Empowering Coding LLMs for 4D World Generation</a> · <a href="https://github.com/AIGeeksGroup/Code2Worlds">Code</a> · <a href="https://aigeeksgroup.github.io/Code2Worlds">Project</a></p>
-<p>[2024-09] ✅<a href="https://arxiv.org/abs/2409.17652">FactorSim: Generative Simulation via Factorized Representation</a> · <a href="https://cs.stanford.edu/~sunfanyun/factorsim/">Project</a></p>
+<p>[2025-04] ✅<a href="https://arxiv.org/abs/2504.01786">BlenderGym: Benchmarking Foundational Model Systems for Graphics Editing</a> · <a href="https://github.com/richard-guyunqi/BlenderGym-Open">Code</a> · <a href="https://blendergym.github.io/">Project</a> · <a href="https://huggingface.co/datasets/richard-guyunqi/BG_bench_data">Data</a></p>
 <p>[2024-03] ❌️<a href="https://arxiv.org/abs/2403.01248">SceneCraft: An LLM Agent for Synthesizing 3D Scene as Blender Code</a></p>
-<p>[2023-12] ✅<a href="https://arxiv.org/abs/2312.09067">Holodeck: Language Guided Generation of 3D Embodied AI Environments</a> · <a href="https://github.com/allenai/Holodeck">Code</a> · <a href="https://yueyang1996.github.io/holodeck/">Project</a></p>
-<hr>
-<a id="world-reconstruction"></a>
-<h2>World Reconstruction</h2>
-<p>Recovering scenes, physics, or rules from reference images, video, trajectories, or observations.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=world-reconstruction">Browse all papers tagged World Reconstruction →</a></p>
-<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.27690">NeoWorld-3: From Pixels to Code-Defined Physical Worlds</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.18835">RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks</a> · <a href="https://robosimstudio.github.io">Project</a></p>
-<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.11499">Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs</a></p>
-<hr>
-<a id="neural-rendering"></a>
-<h2>Neural Rendering</h2>
-<p>Neural image or video generation conditioned on code, executable state, geometry, or proxies.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=neural-rendering">Browse all papers tagged Neural Rendering →</a></p>
-<p>[2026-09] ✅<a href="https://code-video-model.github.io/tech_report.pdf">Code Video Model</a> · <a href="https://code-video-model.github.io/">Project</a> · <a href="https://github.com/code-video-model/CodeVideoModel">Code</a> · <a href="https://huggingface.co/datasets/code-video-model/CodeVideoBench">Data</a></p>
-<p>[2026-07] ✅<a href="https://arxiv.org/abs/2607.27380">VideoCoCo: Code-as-CoT for Physically-Consistent Video Generation via an Agentic Dual-Engine System</a> · <a href="https://github.com/micky-li-hd/VideoCoCo">Code</a></p>
-<hr>
-<a id="planning"></a>
-<h2>Planning</h2>
-<p>Searching or imagining actions with world models to choose a plan.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=planning">Browse all papers tagged Planning →</a></p>
-<p>[2026-07] ✅<a href="https://arxiv.org/abs/2607.25236">VisualPatchWorld: Code World Models as Latent Structured Representations for Planning</a> · <a href="https://github.com/HKBU-KnowComp/VisualPatchWorld/">Code</a></p>
-<p>[2025-10] ❌️<a href="https://arxiv.org/abs/2510.04542">Code World Models for General Game Playing</a></p>
-<p>[2024-05] ✅<a href="https://arxiv.org/abs/2405.15383">Generating Code World Models with Large Language Models Guided by Monte Carlo Tree Search</a> · <a href="https://sites.google.com/view/code-world-models/home">Project</a></p>
-<p>[2019-12] ❌️<a href="https://arxiv.org/abs/1912.13007">World Programs for Model-Based Learning and Planning in Compositional State and Action Spaces</a></p>
-<hr>
-<a id="agent-learning"></a>
-<h2>Agent Learning</h2>
-<p>Using generated worlds, simulated experience, or world-model feedback to improve an acting or reasoning agent.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=agent-learning">Browse all papers tagged Agent Learning →</a></p>
+<a id="g-learning"></a>
+<h3>🌱 Worlds for agent learning</h3>
+<p>Can generated environments grow with an agent&#x27;s capabilities?</p>
+<p><strong>[2023-11] ✅🌟(The propose–generate–learn loop for generative simulation) <a href="https://arxiv.org/abs/2311.01455">RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation</a> · <a href="https://github.com/Genesis-Embodied-AI/RoboGen">Code</a> · <a href="https://robogen-ai.github.io/">Project</a></strong></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.12374">AgentGarten: Code Worlds for Evolving Agents</a> · <a href="https://mirros-lab.github.io/agent-garten">Project</a></p>
 <p>[2026-05] ❌️<a href="https://arxiv.org/abs/2605.09423">SimWorld Studio: Automatic Environment Generation with Evolving Coding Agent for Embodied Agent Learning</a></p>
-<p>[2026-02] ✅<a href="https://arxiv.org/abs/2602.03419">SWE-World: Building Software Engineering Agents in Docker-Free Environments</a> · <a href="https://github.com/RUCAIBox/SWE-World">Code</a></p>
-<p>[2023-11] ✅<a href="https://arxiv.org/abs/2311.01455">RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation</a> · <a href="https://github.com/Genesis-Embodied-AI/RoboGen">Code</a> · <a href="https://robogen-ai.github.io/">Project</a></p>
+<p>[2024-09] ✅<a href="https://arxiv.org/abs/2409.17652">FactorSim: Generative Simulation via Factorized Representation</a> · <a href="https://cs.stanford.edu/~sunfanyun/factorsim/">Project</a></p>
 <hr>
-<a id="code-execution"></a>
-<h2>Code Execution</h2>
-<p>Modeling execution semantics, predicting computational states, or investigating execution correctness; not every method that runs code.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=code-execution">Browse all papers tagged Code Execution →</a></p>
-<p>[2025-09] ✅<a href="https://arxiv.org/abs/2510.02387">CWM: An Open-Weights LLM for Research on Code Generation with World Models</a> · <a href="https://github.com/facebookresearch/cwm">Code</a></p>
-<hr>
-<a id="post-training"></a>
-<h2>Post-Training</h2>
-<p>Fine-tuning, reinforcement learning, distillation, or adaptation of existing models.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=post-training">Browse all papers tagged Post-Training →</a></p>
-<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.15368">ANTE: Anticipate, Then Execute -- Learning Internal World Models for Coding Agents from Verified Beliefs</a></p>
-<hr>
-<a id="benchmark"></a>
-<h2>Benchmark</h2>
-<p>Reusable test tasks and scoring protocols; a method-side benchmark does not automatically become the README category.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=benchmark">Browse all papers tagged Benchmark →</a></p>
-<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.26098">From Code to Playable Systems: CEGame-Bench for Long-Horizon Game Creation Agents</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.23986">BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References</a> · <a href="https://github.com/QwenLM/BlenderWorld">Code</a> · <a href="https://blenderworld.github.io/">Project</a> · <a href="https://huggingface.co/datasets/Qwen/BlenderWorld">Data</a></p>
+<a id="code-as-model"></a>
+<h2>🧠 Code as Model · Understanding</h2>
+<p>Observations → executable hypotheses → prediction, intervention and verification.</p>
+<a id="u-inverse"></a>
+<h3>🔄 Inverse world reconstruction</h3>
+<p>Which program and parameters explain the observations?</p>
+<p><strong>[2026-06] ✅🌟(Code vs. video diffusion for inverse physics and stable extrapolation) <a href="https://arxiv.org/abs/2606.01538">MPMWorlds: Material-Point-Method Simulations for Inferring and Extrapolating Physical Dynamics</a> · <a href="https://zzigak.github.io/mpmworlds/">Project</a></strong></p>
+<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.27690">NeoWorld-3: From Pixels to Code-Defined Physical Worlds</a></p>
+<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.25019">LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica</a></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.18835">RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks</a> · <a href="https://robosimstudio.github.io">Project</a></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.17288">PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction</a> · <a href="https://github.com/ShaoShuai0605/PhysCodeGym">Code</a> · <a href="https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym">Data</a></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.15722">PhySimCode: A Benchmark and Evaluation Method for Physics Video to Code Generation</a> · <a href="https://github.com/SourajaKundu/PhySimCode">Code</a> · <a href="https://sourajakundu.github.io/PhySimCode/">Project</a> · <a href="https://huggingface.co/datasets/SourajaKundu123/PhySimCode">Data</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.15166">ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling</a> · <a href="https://helen1p.github.io/ExeWorldBench/">Project</a> · <a href="https://github.com/Helen1p/ExeWorldBench">Project</a> · <a href="https://huggingface.co/datasets/HelenPeng/ExeWorldBench">Data</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.08720">WorldSolver: Can LLM Agents Simulate the Physical Dynamics via Solver Generation?</a> · <a href="https://github.com/sirujiang/WorldSolver">Code</a></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.04432">Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos</a> · <a href="https://aetherlabsai.github.io/Video2World">Project</a> · <a href="https://github.com/AetherLabsAI/Video2World">Code</a> · <a href="https://huggingface.co/datasets/AetherLabs-AI/Video2World">Data</a></p>
 <p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.03715">4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes</a> · <a href="https://github.com/4DCodeBench/4DCodeBench">Code</a> · <a href="https://4dcodebench.com/">Project</a> · <a href="https://huggingface.co/datasets/4DCodeBench/Dataset-Real-World">Data</a> · <a href="https://huggingface.co/datasets/4DCodeBench/Dataset-Synthetic">Data</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.02331">World Editing: Intervening on Executable Worlds at Increasing Depth</a> · <a href="https://github.com/vinesmsuic/IGMWorld/">Code</a> · <a href="https://vinesmsuic.github.io/IGMWorld/">Project</a></p>
-<p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.36777">Code4Scene: Benchmarking Coding Agents for Constructing and Editing 3D Scenes</a> · <a href="https://github.com/SimWorld-AI/Code4Scene">Code</a> · <a href="https://simworld-ai-code4scene.static.hf.space">Project</a></p>
-<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.35639">GPUPhysBench: Benchmarking Coding Agents for Correct and Efficient GPU Physics Simulation</a></p>
 <p>[2026-09] ✅<a href="https://arxiv.org/abs/2609.15478">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</a> · <a href="https://github.com/yunlong10/BVB">Code</a> · <a href="https://yoloytang.me/BVB/">Project</a></p>
-<p>[2026-05] ✅<a href="https://arxiv.org/abs/2606.01057">3DCodeBench: Benchmarking Agentic Procedural 3D Modeling Via Code</a> · <a href="https://github.com/gaoypeng/3dcodebench">Code</a> · <a href="https://www.3dcodebench.com/">Project</a> · <a href="https://huggingface.co/datasets/YipengGao/3DCode">Data</a></p>
-<p>[2025-04] ✅<a href="https://arxiv.org/abs/2504.01786">BlenderGym: Benchmarking Foundational Model Systems for Graphics Editing</a> · <a href="https://github.com/richard-guyunqi/BlenderGym-Open">Code</a> · <a href="https://blendergym.github.io/">Project</a> · <a href="https://huggingface.co/datasets/richard-guyunqi/BG_bench_data">Data</a></p>
-<hr>
-<a id="dataset"></a>
-<h2>Dataset</h2>
-<p>Constructed or published world programs, scenes, trajectories, simulations, or paired data resources. Public release scope is recorded separately.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=dataset">Browse all papers tagged Dataset →</a></p>
-<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.22341">3DCodeVerse: Exploring 3D Worlds as Code</a> · <a href="https://3dcodeverse.com/">Project</a> · <a href="https://github.com/gaoypeng/3dcodeverse">Code</a> · <a href="https://huggingface.co/datasets/ilabai/3dcodeverse">Data</a></p>
-<p>[2026-06] ✅<a href="https://arxiv.org/abs/2606.01538">MPMWorlds: Material-Point-Method Simulations for Inferring and Extrapolating Physical Dynamics</a> · <a href="https://zzigak.github.io/mpmworlds/">Project</a></p>
-<hr>
-<a id="evaluation"></a>
-<h2>Evaluation</h2>
-<p>Focused evaluation, diagnosis, and analysis of capabilities, evidence, or failure modes.</p>
-<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=evaluation">Browse all papers tagged Evaluation →</a></p>
-<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.25019">LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica</a></p>
+<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.11499">Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs</a></p>
+<a id="u-reasoning"></a>
+<h3>🧪 Executable physical reasoning</h3>
+<p>Does running a hypothesis support quantitative predictions and interventions?</p>
+<p><strong>[2026-08] ✅🌟(Executable world hypotheses for quantitative physical reasoning) <a href="https://arxiv.org/abs/2608.27549">Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning</a> · <a href="https://mirros-lab.github.io/code-as-world">Project</a></strong></p>
+<p>[2026-10] ✅<a href="https://arxiv.org/abs/2610.08720">WorldSolver: Can LLM Agents Simulate the Physical Dynamics via Solver Generation?</a> · <a href="https://github.com/sirujiang/WorldSolver">Code</a></p>
+<a id="u-planning"></a>
+<h3>🧩 Rule induction &amp; planning</h3>
+<p>Is the inferred transition function useful for choosing actions?</p>
+<p><strong>[2024-05] ✅🌟(Program-synthesis search for executable transition models) <a href="https://arxiv.org/abs/2405.15383">Generating Code World Models with Large Language Models Guided by Monte Carlo Tree Search</a> · <a href="https://sites.google.com/view/code-world-models/home">Project</a></strong></p>
+<p><strong>[2019-12] ❌️🌟(Early world-program formulation for compositional planning) <a href="https://arxiv.org/abs/1912.13007">World Programs for Model-Based Learning and Planning in Compositional State and Action Spaces</a></strong></p>
+<p>[2026-07] ✅<a href="https://arxiv.org/abs/2607.25236">VisualPatchWorld: Code World Models as Latent Structured Representations for Planning</a> · <a href="https://github.com/HKBU-KnowComp/VisualPatchWorld/">Code</a></p>
+<p>[2025-10] ❌️<a href="https://arxiv.org/abs/2510.04542">Code World Models for General Game Playing</a></p>
+<a id="u-verification"></a>
+<h3>📏 Executable verification</h3>
+<p>Which executable checks can accept, reject or qualify a world hypothesis?</p>
 <p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.03153">VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement</a></p>
-<p>[2026-02] ❌️<a href="https://arxiv.org/abs/2602.07672">Debugging code world models</a></p>
 <hr>
 <a id="benchmarks"></a>
-<h2>Benchmarks &amp; Resources</h2>
-<p><a href="benchmarks.html">Benchmark Atlas</a> compares inputs, executable artifacts, evaluation evidence, and limitations. Named suites within method papers, such as CombatStateBench and SimCode4D, remain associated with their original paper; they are not duplicate paper records.</p>
+<h2>📊 Benchmarks &amp; Evaluation</h2>
+<p>Compare the task, submitted artifact and evidence of success. These suites test different capabilities; their scores are not interchangeable.</p>
+<p><strong><a href="benchmarks.html">Open the Benchmark Atlas →</a></strong> for inputs, submitted artifacts, evaluation evidence and version caveats. Suite names below link to their sources; method papers are counted only once.</p>
+<div class="table-scroll" tabindex="0"><table><thead><tr><th>Research task</th><th>Suites / resources</th></tr></thead><tbody>
+<tr><td>Video reconstruction &amp; inverse graphics</td><td><a href="https://github.com/ShaoShuai0605/PhysCodeGym">PhysCodeGym</a> · <a href="https://aetherlabsai.github.io/Video2World">Video2World</a> · <a href="https://github.com/4DCodeBench/4DCodeBench">4DCodeBench</a> · <a href="https://yoloytang.me/BVB/">BVB / Blender-VideoBench</a></td></tr>
+<tr><td>Procedural 3D creation &amp; scene editing</td><td><a href="https://arxiv.org/abs/2602.11757">Code4D</a> · <a href="https://github.com/QwenLM/BlenderWorld">BlenderWorld</a> · <a href="https://arxiv.org/html/2609.36777v1">Code4Scene</a> · <a href="https://arxiv.org/abs/2607.01766">4DBuildBench</a> · <a href="https://www.3dcodebench.com/">3DCodeBench / 3DCodeArena</a> · <a href="https://arxiv.org/html/2504.01786v1">BlenderGym</a></td></tr>
+<tr><td>Physical mechanisms, parameters &amp; solvers</td><td><a href="https://arxiv.org/abs/2606.01538">MPMWorlds</a> · <a href="https://github.com/ShaoShuai0605/PhysCodeGym">PhysCodeGym</a> · <a href="https://github.com/SourajaKundu/PhySimCode">PhySimCode</a> · <a href="https://arxiv.org/abs/2610.15166">ExeWorldBench</a> · <a href="https://arxiv.org/abs/2610.08720">WorldSolver</a> · <a href="https://arxiv.org/html/2609.35639v1">GPUPhysBench</a> · <a href="https://arxiv.org/abs/2607.01766">4DBuildBench</a></td></tr>
+<tr><td>Executable interaction, state &amp; intervention</td><td><a href="https://arxiv.org/abs/2405.15383">Code World Models Benchmark (CWMB)</a> · <a href="https://arxiv.org/abs/2610.26098">CEGame-Bench</a> · <a href="https://arxiv.org/abs/2610.17651">SimCode4D</a> · <a href="https://arxiv.org/abs/2610.15166">ExeWorldBench</a> · <a href="https://aetherlabsai.github.io/Video2World">Video2World</a> · <a href="https://vinesmsuic.github.io/IGMWorld/">IGMBench</a> · <a href="https://arxiv.org/abs/2609.10540">CombatStateBench</a></td></tr>
+<tr><td>Code-guided video generation</td><td><a href="https://code-video-model.github.io/">CodeVideoBench</a></td></tr>
+</tbody></table></div>
+<hr>
 <a id="infrastructure"></a>
-<p>Datasets, execution harnesses, rendering components, and streaming systems are included in the topic list above. Supporting components remain distinguished in the source metadata and editorial descriptions.</p>
-<h2>Reading &amp; Review</h2>
-<p>The <a href="taxonomy.html">topic guide</a> explains the vocabulary. The <a href="topic-review.html">per-paper review</a> records the single README placement, overlapping website topics, primary sources, and unresolved details for every record. The review uses author abstracts, official project documentation, and selected method or evaluation sections; it is not an independent reproduction.</p>
-<p>For new work, use the website&#x27;s publication-month navigation. Each paper has one bibliography entry in this README; recent-paper and reading-path lists are kept out of the README to preserve that rule.</p>
+<h2>🛠️ Datasets, Harnesses &amp; Streaming Systems</h2>
+<p>Reusable code corpora, construction workflows and systems that deliver persistent worlds or streaming pixels.</p>
+<div class="table-scroll" tabindex="0"><table><thead><tr><th>Research task</th><th>Suites / resources</th></tr></thead><tbody>
+<tr><td>Executable code &amp; simulation corpora</td><td><a href="https://arxiv.org/abs/2606.01538">MPMWorlds</a> · <a href="https://3dcodeverse.com/">3DCodeVerse</a> · <a href="https://github.com/SourajaKundu/PhySimCode">PhySimCode</a> · <a href="https://www.3dcodebench.com/">3DCodeBench / 3DCodeArena</a></td></tr>
+<tr><td>Construction &amp; verification harnesses</td><td><a href="https://3dcodeverse.com/">3DCodeVerse</a> · <a href="https://arxiv.org/abs/2610.17651">Code2Worlds-2</a> · <a href="https://arxiv.org/abs/2610.12374">AgentGarten</a> · <a href="https://arxiv.org/abs/2609.36593">Text2Sim</a> · <a href="https://arxiv.org/abs/2609.33208">WorldAgent</a> · <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> · <a href="https://arxiv.org/abs/2607.01766">SimWorlds</a></td></tr>
+<tr><td>Streaming worlds, renderers &amp; decoders</td><td><a href="https://arxiv.org/abs/2610.28630">SolarRenderer</a> · <a href="https://arxiv.org/abs/2610.27999">Matrix-Game 4.0</a> · <a href="https://krennic999.github.io/WorldStream/blog/">WorldStream</a> · <a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">StreamRender-H3</a> · <a href="https://github.com/TingtingLiao/streaming-code-world-model">Streaming Code World Model</a> · <a href="https://solarx-team.github.io/H3-Streaming-VAE-Decoder/">H3 Streaming VAE Decoder</a></td></tr>
+</tbody></table></div>
+<hr>
+<a id="related-perspectives"></a>
+<h2>🔎 Related Perspectives</h2>
+<p>Neighboring work clarifies the scope: software execution, non-program representations and decoder components.</p>
+<a id="a-software"></a>
+<h3>💻 Software execution worlds</h3>
+<p>Is code the environment being predicted rather than a physical world representation?</p>
+<p>[2026-10] ❌️<a href="https://arxiv.org/abs/2610.15368">ANTE: Anticipate, Then Execute -- Learning Internal World Models for Coding Agents from Verified Beliefs</a></p>
+<p>[2026-02] ❌️<a href="https://arxiv.org/abs/2602.07672">Debugging code world models</a></p>
+<p>[2026-02] ✅<a href="https://arxiv.org/abs/2602.03419">SWE-World: Building Software Engineering Agents in Docker-Free Environments</a> · <a href="https://github.com/RUCAIBox/SWE-World">Code</a></p>
+<p>[2025-09] ✅<a href="https://arxiv.org/abs/2510.02387">CWM: An Open-Weights LLM for Research on Code Generation with World Models</a> · <a href="https://github.com/facebookresearch/cwm">Code</a></p>
+<a id="a-representation"></a>
+<h3>💬 Alternative representations</h3>
+<p>What can language, constraints or neural priors supply without synthesized world code?</p>
+<p>[2026-09] ❌️<a href="https://arxiv.org/abs/2609.40358">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model</a></p>
+<p>[2024-04] ✅<a href="https://arxiv.org/abs/2404.13026">PhysDreamer: Physics-Based Interaction with 3D Objects via Video Generation</a> · <a href="https://physdreamer.github.io/">Project</a></p>
+<p>[2023-12] ✅<a href="https://arxiv.org/abs/2312.09067">Holodeck: Language Guided Generation of 3D Embodied AI Environments</a> · <a href="https://github.com/allenai/Holodeck">Code</a> · <a href="https://yueyang1996.github.io/holodeck/">Project</a></p>
+<a id="a-streaming"></a>
+<h3>⚡ Streaming decoder infrastructure</h3>
+<p>When can pixels be emitted after a latent arrives?</p>
+<p>[Date TBC] ✅<a href="https://solarx-team.github.io/H3-Streaming-VAE-Decoder/">H3 Streaming VAE Decoder: Training-Free Streaming without Future Latents</a> · <a href="https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder">Code</a></p>
+<hr>
+<a id="reading-guide"></a>
+<h2>🧭 Reading Guide &amp; Taxonomy</h2>
+<p>Research categories describe the main question. Benchmarks and infrastructure describe reusable contributions. Comparison dimensions describe mechanisms; they are multi-label facets, not a ranking.</p>
+<div class="table-scroll" tabindex="0"><table><thead><tr><th>Dimension</th><th>What to compare</th></tr></thead><tbody>
+<tr><td>Role of code</td><td>What does the code actually do?</td></tr>
+<tr><td>World representation</td><td>Where is the inspectable state?</td></tr>
+<tr><td>Dynamics authority</td><td>What determines the next state?</td></tr>
+<tr><td>Refinement signal</td><td>What signal refines the program or model, during construction or training?</td></tr>
+<tr><td>Interaction contract</td><td>What can a user or agent change?</td></tr>
+<tr><td>Delivery mode</td><td>How is the world or its observations delivered?</td></tr>
+<tr><td>Evaluation target</td><td>What has the paper chosen to measure?</td></tr>
+<tr><td>Domain</td><td>Which world is being modeled?</td></tr>
+</tbody></table></div>
+<p>Streaming delivery does not establish real-time control. Public resources do not establish an open-source license. <a href="taxonomy.html">Full taxonomy and scope boundaries →</a></p>
+<ul>
+<li><strong>From code to pixels</strong>: <a href="https://arxiv.org/abs/2607.27380">VideoCoCo</a> → <a href="https://arxiv.org/abs/2608.25927">Code World Model</a> → <a href="https://arxiv.org/abs/2609.10540">Programmable World Model</a> → <a href="https://code-video-model.github.io/">Code Video Model</a> → <a href="https://arxiv.org/abs/2610.28630">SolarRenderer</a> → <a href="https://arxiv.org/abs/2610.27999">Matrix-Game 4.0</a></li>
+<li><strong>From observation to mechanism</strong>: <a href="https://arxiv.org/abs/2405.15383">GIF-MCTS / CWMB</a> → <a href="https://arxiv.org/abs/2606.01538">MPMWorlds</a> → <a href="https://arxiv.org/abs/2608.27549">Code as Worlds</a> → <a href="https://arxiv.org/abs/2610.04432">Video2World</a> → <a href="https://arxiv.org/abs/2610.27690">NeoWorld-3</a></li>
+<li><strong>From plausible to executable</strong>: <a href="https://arxiv.org/abs/2602.11757">Code2Worlds</a> → <a href="https://arxiv.org/abs/2607.01766">SimWorlds</a> → <a href="https://arxiv.org/abs/2609.36593">Text2Sim</a> → <a href="https://arxiv.org/abs/2609.33208">WorldAgent</a> → <a href="https://arxiv.org/abs/2610.17651">Code2Worlds-2</a> → <a href="https://arxiv.org/abs/2610.08720">WorldSolver</a></li>
+<li><strong>Worlds that train agents</strong>: <a href="https://arxiv.org/abs/2311.01455">RoboGen</a> → <a href="https://arxiv.org/abs/2409.17652">FactorSim</a> → <a href="https://arxiv.org/abs/2605.09423">SimWorld Studio</a> → <a href="https://arxiv.org/abs/2610.12374">AgentGarten</a></li>
+</ul>
 <a id="citation"></a>
-<h2>Citation</h2>
-<p>Please cite the original papers. Download <a href="papers.bib">all BibTeX entries</a> and use the entries for the papers you reference.</p>
+<h2>📝 Citation</h2>
+<p>Please cite the original papers. Download <a href="papers.bib">all BibTeX entries</a>, or copy individual citations from the website.</p>
 <h2>Contributing &amp; Maintenance</h2>
-<p>See <a href="contributing.html">CONTRIBUTING.md</a> to suggest a paper or correction. <a href="research.html">Research notes</a> document the original scope and identity checks.</p>
-<p><code>data/papers.json</code> is the single source of truth. <code>data/taxonomy.json</code> defines the flat topics; <code>classification.readme_topic</code> gives one README placement, while <code>classification.topics</code> gives all reviewed website topics. Source links and reasons are stored with each assignment. The README, website data, review report, and exports are generated together.</p>
+<p>Missing a paper or a resource? See <a href="contributing.html">CONTRIBUTING.md</a>. Source checks and naming boundaries are documented in <a href="research.html">Research notes</a>.</p>
+<details>
+<summary>Local preview &amp; maintenance</summary>
+<p><code>data/papers.json</code> stores the literature; <code>data/taxonomy.json</code> defines categories and dimensions. Edit <code>docs/README.template.md</code> and <code>scripts/build.py</code> to change this generated README.</p>
 <pre><code>python3 scripts/build.py
 python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site</code></pre>
-<p>Open <code>http://localhost:8000</code>, or open <code>site/index.html</code> directly. <a href="deployment.html">GitHub Pages deployment</a> · <a href="crawler.html">Daily discovery prototype</a> · <a href="papers.json">JSON</a> · <a href="papers.csv">CSV</a>.</p>
-<p>The daily discovery prototype proposes candidates for review. It does not silently promote papers into the curated list.</p>
+<p>Open <code>http://localhost:8000</code>, or open <code>site/index.html</code> directly. <a href="deployment.html">GitHub Pages setup</a> · <a href="crawler.html">Daily discovery workflow</a> · <a href="papers.json">JSON</a> · <a href="papers.csv">CSV</a>.</p>
+</details>
 <h2>Acknowledgments &amp; License</h2>
-<p>The simple list and topic naming draw inspiration from <a href="https://github.com/EasonTuT/Awesome-Interactive-World-Model">Awesome Interactive World Model</a>; compound indexing also draws inspiration from <a href="https://mrnerf.github.io/awesome-3D-gaussian-splatting/">Awesome 3D Gaussian Splatting</a>. The flat topic scheme follows the maintainer&#x27;s direction. Metadata, editorial decisions, and implementation are maintained independently.</p>
-<p>Repository code and original editorial content: <a href="LICENSE">MIT</a>. Paper titles, abstracts, and external resources remain attributable to their respective authors and providers.</p></article></main></html>
+<p>Visual hierarchy and paper-list conventions take inspiration from <a href="https://github.com/EasonTuT/Awesome-Interactive-World-Model">Awesome Interactive World Model</a>. The research taxonomy, editorial notes, vector artwork and implementation are maintained independently.</p>
+<p>Repository code and original editorial content: <a href="LICENSE">MIT</a>. Papers and external resources belong to their respective authors and providers.</p></article></main></html>

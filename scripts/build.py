@@ -19,12 +19,6 @@ def validate(catalog, taxonomy):
     dimensions = {d['id']: d for d in taxonomy['dimensions']}
     collections = {c['id']: c for c in taxonomy['collections']}
     sections = {s['id'] for s in taxonomy['collection_sections']}
-    topics = {t['id']: t for t in taxonomy['topics']}
-    assert len(topics) == len(taxonomy['topics']), 'Duplicate topic'
-    assert not {'research_areas', 'tag_dimensions'} & set(taxonomy), 'Use a flat topic vocabulary'
-    for topic in topics.values():
-        assert re.fullmatch(r'[a-z]+(?:-[a-z]+)*', topic['id'])
-        assert all(isinstance(topic.get(key), str) and topic[key].strip() for key in ['name','zh','description'])
     assert len(collections) == len(taxonomy['collections'])
     assert all(c['section'] in sections for c in collections.values())
     ids, arxiv_ids, titles = set(), set(), set()
@@ -37,26 +31,6 @@ def validate(catalog, taxonomy):
         titles.add(normalized)
         assert categories[p['category']]['track'] == p['track'], p['id']
         assert p['scope'] in taxonomy['scopes']
-        classification = p.get('classification')
-        required = {'readme_topic','topics','checked','summary_reason','topic_reasons','sources','uncertainties'}
-        assert isinstance(classification, dict) and required <= set(classification), p['id']
-        selected = classification['topics']
-        assert isinstance(selected, list) and selected and all(isinstance(t, str) for t in selected), p['id']
-        assert len(selected) == len(set(selected)) and set(selected) <= set(topics), p['id']
-        assert isinstance(classification['readme_topic'], str) and classification['readme_topic'] in selected, p['id']
-        assert not {'area','direction','tags'} & set(classification), p['id']
-        assert isinstance(classification['summary_reason'], str) and classification['summary_reason'].strip(), p['id']
-        reasons = classification['topic_reasons']
-        assert isinstance(reasons, dict) and set(reasons) == set(selected), p['id']
-        assert all(isinstance(reason, str) and reason.strip() for reason in reasons.values()), p['id']
-        date.fromisoformat(classification['checked'])
-        assert classification['sources'] and isinstance(classification['sources'], list), p['id']
-        for source in classification['sources']:
-            assert source['basis'] in {'primary_abstract','official_project','full_text'}, p['id']
-            parsed = urlparse(source['url'])
-            assert parsed.scheme == 'https' and parsed.hostname and not parsed.username, p['id']
-            assert isinstance(source['note'], str) and source['note'].strip(), p['id']
-        assert isinstance(classification['uncertainties'], list) and all(isinstance(note, str) and note.strip() for note in classification['uncertainties']), p['id']
         assert p['type'] in {'preprint', 'report', 'project'}
         assert set(p['dimensions']) == set(dimensions), p['id']
         for key, values in p['dimensions'].items():
@@ -66,25 +40,11 @@ def validate(catalog, taxonomy):
         assert p['verification']['status'] == 'verified'
         assert p['verification']['basis'] in {'primary_abstract', 'official_project', 'full_text'}
         checked = date.fromisoformat(p['verification']['checked'])
-        assert p['date_basis'] in {'arxiv_first_submission', 'earliest_online_record', 'unknown'}, p['id']
         if p['published']:
             assert date.fromisoformat(p['published']) <= checked
             assert p['date_basis'] != 'unknown'
         else:
             assert p['date_basis'] == 'unknown'
-        if p['date_basis'] == 'earliest_online_record':
-            evidence = p.get('date_evidence')
-            assert p['published'] and not p['arxiv'] and isinstance(evidence, dict), p['id']
-            date_checked = date.fromisoformat(evidence['checked'])
-            assert isinstance(evidence['note'], str) and evidence['note'].strip(), p['id']
-            sources = evidence['sources']
-            assert isinstance(sources, list) and sources, p['id']
-            for source in sources:
-                assert date.fromisoformat(source['date']) <= date_checked, p['id']
-                parsed = urlparse(source['url'])
-                assert parsed.scheme == 'https' and parsed.hostname and not parsed.username, p['id']
-                assert isinstance(source['note'], str) and source['note'].strip(), p['id']
-            assert p['published'] == min(source['date'] for source in sources), p['id']
         if p['arxiv']:
             assert re.fullmatch(r'\d{4}\.\d{4,5}', p['arxiv'])
             assert p['arxiv'] not in arxiv_ids, f"重复 arXiv: {p['arxiv']}"
@@ -98,6 +58,8 @@ def validate(catalog, taxonomy):
         for b in p['benchmarks']:
             assert all(isinstance(b.get(k), str) and b[k].strip() for k in ['name','input','artifact','checks','caveat','source']), p['id']
             assert urlparse(b['source']).scheme == 'https', p['id']
+        assert isinstance(p['classic'], bool)
+        assert not p['classic'] or p['classic_note'].strip()
         available = {r['url'] for r in p['resources'] if r['kind'] != 'paper'}
         status = p['resource_status']
         assert status['status'] == ('available' if available else 'not_found'), p['id']
@@ -136,20 +98,14 @@ def md(value):
 
 
 def category_entries(papers, category_id):
-    """按首次提交日期倒序；包含交叉分类。"""
+    """参考清单式顺序：代表作置顶，其余按首次提交日期倒序；包含交叉分类。"""
     selected = [p for p in papers if p['category'] == category_id or category_id in p['cross_categories']]
-    return sorted(selected, key=lambda p:(p['published'] or '', p['id']), reverse=True)
+    return sorted(selected, key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
 
 
 def collection_entries(papers, collection_id):
     return sorted([p for p in papers if collection_id in p['collections']],
-                  key=lambda p:(p['published'] or '', p['id']), reverse=True)
-
-
-def topic_entries(papers, topic_id):
-    """README placement is unique; website topic membership may overlap."""
-    return sorted([p for p in papers if p['classification']['readme_topic'] == topic_id],
-                  key=lambda p:(p['published'] or '', p['id']), reverse=True)
+                  key=lambda p:(p['classic'], p['published'] or '', p['id']), reverse=True)
 
 
 def render_benchmarks(catalog, taxonomy):
@@ -179,63 +135,95 @@ def readme_entry(p, recent=False):
     title = p['title'].replace('[', r'\[').replace(']', r'\]')
     if recent:
         return f'[{stamp}] {availability}[{title}]({primary})'
-    line = f'[{stamp}] {availability}[{title}]({primary})'
+    star = f"🌟({p['classic_note']}) " if p['classic'] else ''
+    line = f'[{stamp}] {availability}{star}[{title}]({primary})'
     extras = [f"[{r['kind'].title()}]({r['url']})" for r in p['resources'] if r['kind'] != 'paper' and r['url'] != primary]
     if extras:
         line += ' · ' + ' · '.join(extras)
-    return line
+    return f'**{line}**' if p['classic'] else line
 
 
 def render_readme(catalog, taxonomy, repository):
     papers = catalog['papers']
+    news = json.loads((ROOT / 'data/updates.json').read_text())['news']
+    site_url = 'site/index.html'
     if repository:
         owner, repo = repository.split('/')
         site_url = f'https://{owner}.github.io/{repo}/'
-    else:
-        settings_path = ROOT / 'data/site.json'
-        settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
-        site_url = settings.get('preview_url') or 'site/index.html'
-        assert site_url == 'site/index.html' or (urlparse(site_url).scheme == 'https' and urlparse(site_url).hostname and not urlparse(site_url).username)
-    intro = (ROOT / 'docs/README.template.md').read_text().replace('{{SITE_URL}}', site_url)
-    parts = [intro, '\n## Contents\n']
-    occupied = [(topic, topic_entries(papers, topic['id'])) for topic in taxonomy['topics']]
-    for topic, entries in occupied:
-        if entries:
-            parts.append(f"- [{topic['name']}](#{topic['id']}) ({len(entries)})")
-    parts.append('\n[All 22 topic filters]('+site_url+') · [Topic definitions](docs/TAXONOMY.md) · [Per-paper review and sources](docs/TOPIC_REVIEW.md)\n')
-    for topic, entries in occupied:
-        if not entries:
-            continue
-        parts.append(f"\n---\n\n<a id=\"{topic['id']}\"></a>\n## {topic['name']}\n\n{topic['description']}\n")
-        parts.append(f"[Browse all papers tagged {topic['name']} →]({site_url}?topics={topic['id']})\n")
-        parts.extend(readme_entry(p)+'\n' for p in entries)
+    benchmarks = sum(len(p['benchmarks']) for p in papers)
+    intro = (ROOT / 'docs/README.template.md').read_text()
+    intro = intro.replace('{{SITE_URL}}', site_url)
+    intro = intro.replace('{{STATS}}', f"<b>{len(papers)} papers &amp; projects</b> · <b>{benchmarks} benchmark suites</b> · <b>{len(taxonomy['dimensions'])} comparison dimensions</b><br>Sources checked {catalog['curated_at']}")
+    news_line = lambda n: f"{n['icon']} **[{n['date']}] {n['title']}** — {n['body']}"
+    news_text = '\n\n'.join(news_line(n) for n in news[:2])
+    news_text += '\n\n<details>\n<summary>Earlier collection updates</summary>\n\n' + '\n\n'.join(news_line(n) for n in news[2:]) + '\n\n</details>'
+    parts = [intro.replace('{{NEWS}}', news_text), '\n<a id="recent-paper-updates"></a>\n## 🔥 Recent Paper Updates\n']
+    recent = sorted([p for p in papers if p['published']], key=lambda p:(p['published'],p['id']), reverse=True)[:20]
+    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[:6])
+    parts.append('<details>\n<summary>More recent papers & projects with unconfirmed dates</summary>\n')
+    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[6:])
+    parts.append('**Official projects with unconfirmed first-release dates**\n')
+    parts.extend(readme_entry(p, recent=True)+'\n' for p in papers if not p['published'])
+    parts.append('</details>\n\n---\n\n<a id="overview"></a>\n## 🧭 Overview\n')
+    parts.append('Two reading directions share one executable representation. Choose a research question below; use the benchmark and infrastructure indexes for reusable resources.\n')
+    track_meta = {'generation':('💻','Code World Model · Generation','code-world-model'), 'understanding':('🧠','Code as Model · Understanding','code-as-model'), 'adjacent':('🔎','Related Perspectives','related-perspectives')}
+    icons = {'g_hybrid':'🎮','g_rendering':'🎬','g_simulation':'⚙️','g_scene':'🏗️','g_learning':'🌱','u_inverse':'🔄','u_reasoning':'🧪','u_planning':'🧩','u_verification':'📏','a_software':'💻','a_representation':'💬','a_streaming':'⚡'}
+    parts.append('<table width="100%">\n<tr>')
+    for track in taxonomy['tracks'][:2]:
+        icon, name, anchor = track_meta[track['id']]
+        flow = 'Intent → program → world' if track['id']=='generation' else 'Observation → program → explanation'
+        links = [f'<a href="#{c["id"].replace("_","-")}">{icons[c["id"]]} {html.escape(c["name"])}</a>' for c in taxonomy['categories'] if c['track']==track['id']]
+        parts.append(f'<td width="50%" valign="top"><b><a href="#{anchor}">{icon} {name}</a></b><br>{flow}<br><br>'+ '<br>'.join(links) + '</td>')
+    parts.append('</tr>\n<tr><td colspan="2" align="center"><a href="#benchmarks">📊 Benchmarks &amp; Evaluation</a> · <a href="#infrastructure">🛠️ Datasets &amp; Systems</a> · <a href="#related-perspectives">🔎 Related Perspectives</a><br><a href="#reading-guide">Reading paths &amp; dimensions</a> · <a href="#citation">Citation</a></td></tr>\n</table>\n')
+    parts.append('Each work appears once in the main research list, under its primary contribution. Cross-category associations remain searchable in the website. [Classification rationale](docs/TAXONOMY.md).\n')
+    for track in taxonomy['tracks'][:2]:
+        icon, name, anchor = track_meta[track['id']]
+        parts.append(f'\n---\n\n<a id="{anchor}"></a>\n## {icon} {name}\n\n{track["description"]}\n')
+        for c in taxonomy['categories']:
+            if c['track'] != track['id']: continue
+            parts.append(f'\n<a id="{c["id"].replace("_","-")}"></a>\n### {icons[c["id"]]} {c["name"]}\n\n{c["question"]}\n')
+            parts.extend(readme_entry(p)+'\n' for p in category_entries(papers,c['id']) if p['category']==c['id'])
+    for section in taxonomy['collection_sections']:
+        parts.append(f'\n---\n\n<a id="{section["id"]}"></a>\n## {section["icon"]} {section["name"]}\n\n{section["description"]}\n')
+        if section['id']=='benchmarks':
+            parts.append('**[Open the Benchmark Atlas →](docs/BENCHMARKS.md)** for inputs, submitted artifacts, evaluation evidence and version caveats. Suite names below link to their sources; method papers are counted only once.\n')
+        parts.extend(['| Research task | Suites / resources |','| --- | --- |'])
+        for group in taxonomy['collections']:
+            if group['section']!=section['id']: continue
+            links=[]
+            for p in collection_entries(papers,group['id']):
+                if section['id']=='benchmarks':links.extend(f"[{md(b['name'])}]({b['source']})" for b in p['benchmarks'])
+                else:links.append(f"[{md(p['short_title'])}]({p['verification']['source']})")
+            parts.append(f'| {group["name"]} | '+ ' · '.join(links)+' |')
+        parts.append('')
+    parts.append('\n---\n\n<a id="related-perspectives"></a>\n## 🔎 Related Perspectives\n\nNeighboring work clarifies the scope: software execution, non-program representations and decoder components.\n')
+    for c in taxonomy['categories']:
+        if c['track']!='adjacent':continue
+        parts.append(f'\n<a id="{c["id"].replace("_","-")}"></a>\n### {icons[c["id"]]} {c["name"]}\n\n{c["question"]}\n')
+        parts.extend(readme_entry(p)+'\n' for p in category_entries(papers,c['id']) if p['category']==c['id'])
+    parts.append('\n---\n\n<a id="reading-guide"></a>\n## 🧭 Reading Guide & Taxonomy\n\nResearch categories describe the main question. Benchmarks and infrastructure describe reusable contributions. Comparison dimensions describe mechanisms; they are multi-label facets, not a ranking.\n')
+    parts += ['| Dimension | What to compare |','| --- | --- |']
+    parts.extend(f'| {d["name"]} | {d["question"]} |' for d in taxonomy['dimensions'])
+    parts.append('\nStreaming delivery does not establish real-time control. Public resources do not establish an open-source license. [Full taxonomy and scope boundaries →](docs/TAXONOMY.md)\n')
+    by_id = {p['id']:p for p in papers}
+    for path in taxonomy['reading_paths']:
+        links = [f"[{by_id[i]['short_title']}]({by_id[i]['verification']['source']})" for i in path['papers']]
+        parts.append(f"- **{path['title']}**: "+' → '.join(links))
     parts.append('''
----
-
-<a id="benchmarks"></a>
-## Benchmarks & Resources
-
-[Benchmark Atlas](docs/BENCHMARKS.md) compares inputs, executable artifacts, evaluation evidence, and limitations. Named suites within method papers, such as CombatStateBench and SimCode4D, remain associated with their original paper; they are not duplicate paper records.
-
-<a id="infrastructure"></a>
-Datasets, execution harnesses, rendering components, and streaming systems are included in the topic list above. Supporting components remain distinguished in the source metadata and editorial descriptions.
-
-## Reading & Review
-
-The [topic guide](docs/TAXONOMY.md) explains the vocabulary. The [per-paper review](docs/TOPIC_REVIEW.md) records the single README placement, overlapping website topics, primary sources, and unresolved details for every record. The review uses author abstracts, official project documentation, and selected method or evaluation sections; it is not an independent reproduction.
-
-For new work, use the website's publication-month navigation. Each paper has one bibliography entry in this README; recent-paper and reading-path lists are kept out of the README to preserve that rule.
 
 <a id="citation"></a>
-## Citation
+## 📝 Citation
 
-Please cite the original papers. Download [all BibTeX entries](site/papers.bib) and use the entries for the papers you reference.
+Please cite the original papers. Download [all BibTeX entries](site/papers.bib), or copy individual citations from the website.
 
 ## Contributing & Maintenance
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to suggest a paper or correction. [Research notes](docs/RESEARCH.md) document the original scope and identity checks.
+Missing a paper or a resource? See [CONTRIBUTING.md](CONTRIBUTING.md). Source checks and naming boundaries are documented in [Research notes](docs/RESEARCH.md).
 
-`data/papers.json` is the single source of truth. `data/taxonomy.json` defines the flat topics; `classification.readme_topic` gives one README placement, while `classification.topics` gives all reviewed website topics. Source links and reasons are stored with each assignment. The README, website data, review report, and exports are generated together.
+<details>
+<summary>Local preview & maintenance</summary>
+
+`data/papers.json` stores the literature; `data/taxonomy.json` defines categories and dimensions. Edit `docs/README.template.md` and `scripts/build.py` to change this generated README.
 
 ```bash
 python3 scripts/build.py
@@ -243,44 +231,22 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
 ```
 
-Open `http://localhost:8000`, or open `site/index.html` directly. [GitHub Pages deployment](docs/DEPLOYMENT.md) · [Daily discovery prototype](docs/CRAWLER_HANDOFF.md) · [JSON](data/papers.json) · [CSV](site/papers.csv).
+Open `http://localhost:8000`, or open `site/index.html` directly. [GitHub Pages setup](docs/DEPLOYMENT.md) · [Daily discovery workflow](docs/CRAWLER_HANDOFF.md) · [JSON](data/papers.json) · [CSV](site/papers.csv).
 
-The daily discovery prototype proposes candidates for review. It does not silently promote papers into the curated list.
+</details>
 
 ## Acknowledgments & License
 
-The simple list and topic naming draw inspiration from [Awesome Interactive World Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model); compound indexing also draws inspiration from [Awesome 3D Gaussian Splatting](https://mrnerf.github.io/awesome-3D-gaussian-splatting/). The flat topic scheme follows the maintainer's direction. Metadata, editorial decisions, and implementation are maintained independently.
+Visual hierarchy and paper-list conventions take inspiration from [Awesome Interactive World Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model). The research taxonomy, editorial notes, vector artwork and implementation are maintained independently.
 
-Repository code and original editorial content: [MIT](LICENSE). Paper titles, abstracts, and external resources remain attributable to their respective authors and providers.
+Repository code and original editorial content: [MIT](LICENSE). Papers and external resources belong to their respective authors and providers.
 ''')
     readme = '\n'.join(parts).strip()+'\n'
     return re.sub(r'(<a id="[a-z0-9-]+"></a>)\n(?=#)', r'\1\n\n', readme)
 
 
-def render_topic_review(catalog, taxonomy):
-    names = {t['id']:t['name'] for t in taxonomy['topics']}
-    parts = ['# Per-paper Topic Review\n',
-             'Every record was individually checked against the primary sources linked below. README placement is an editorial choice based on the main contribution; website topics overlap. Reading scope is stated per source. No independent reproduction is claimed.\n',
-             'The topic vocabulary is defined in [the topic guide](TAXONOMY.md). Reasons and source links are also available in `data/papers.json`.\n']
-    for p in catalog['papers']:
-        c = p['classification']
-        parts.extend([f"## {p['short_title']}\n", f"- **Record:** `{p['id']}`",
-                      f"- **Reviewed:** {c['checked']}", f"- **README:** {names[c['readme_topic']]}",
-                      '- **Website:** '+', '.join(names[t] for t in c['topics']),
-                      '- **Placement reason:** '+c['summary_reason'], '\n**Topic evidence**\n'])
-        parts.extend(f"- **{names[t]}:** {c['topic_reasons'][t]}" for t in c['topics'])
-        parts.append('\n**Sources actually consulted**\n')
-        for i, source in enumerate(c['sources'], 1):
-            parts.append(f"- [Source {i}]({source['url']}) — `{source['basis']}`. {source['note']}")
-        if c['uncertainties']:
-            parts.append('\n**Limits / unresolved details**\n')
-            parts.extend('- '+note for note in c['uncertainties'])
-        parts.append('')
-    return '\n'.join(parts).strip()+'\n'
-
-
 def web_link(url):
-    links={'docs/TAXONOMY.md':'taxonomy.html','docs/TOPIC_REVIEW.md':'topic-review.html','TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
+    links={'docs/TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
            'docs/DEPLOYMENT.md':'deployment.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
            'docs/BENCHMARKS.md':'benchmarks.html','BENCHMARKS.md':'benchmarks.html','site/index.html':'./','data/papers.json':'papers.json','site/papers.bib':'papers.bib','site/papers.csv':'papers.csv','LICENSE':'LICENSE'}
     return links.get(url, url[5:] if url.startswith('site/') else url)
@@ -288,8 +254,8 @@ def web_link(url):
 
 class SafeReadmeHTML(HTMLParser):
     """允许 GitHub README 的排版标签，丢弃事件属性和不安全 URL。"""
-    allowed={'div','h1','h2','h3','p','b','strong','a','img','br','table','tbody','tr','td'}
-    attributes={'align','width','height','border','cellspacing','cellpadding','alt','id'}
+    allowed={'div','h1','h2','h3','p','b','strong','a','img','br','table','tbody','tr','td','details','summary'}
+    attributes={'align','width','height','border','cellspacing','cellpadding','alt','id','valign','colspan'}
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -346,6 +312,8 @@ def markdown_body(content):
         line=lines[i]
         if not line.strip():i+=1;continue
         if line.strip()=='---':out.append('<hr>');i+=1;continue
+        if re.fullmatch(r'</?details>|<summary>.*</summary>',line.strip()):
+            out.append(safe_readme_html(line));i+=1;continue
         block=re.match(r'^<(div|table)\b',line)
         if block:
             raw=[line];i+=1
@@ -389,12 +357,9 @@ def outputs(catalog, taxonomy, repository):
     payload = {**catalog, 'taxonomy': taxonomy, 'repository': repository, 'news': updates['news']}
     readme = render_readme(catalog, taxonomy, repository)
     benchmark_guide = render_benchmarks(catalog, taxonomy)
-    topic_review = render_topic_review(catalog, taxonomy)
     out = {
         ROOT/'README.md': readme,
         ROOT/'docs/BENCHMARKS.md': benchmark_guide,
-        ROOT/'docs/TOPIC_REVIEW.md': topic_review,
-        ROOT/'site/topic-review.html': document_page('Per-paper topic review', topic_review),
         ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide),
         ROOT/'site/catalog.js': 'window.CWM_CATALOG = '+json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')+';\n',
         ROOT/'site/papers.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n',
@@ -403,19 +368,11 @@ def outputs(catalog, taxonomy, repository):
         ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(),
     }
     buf=io.StringIO(newline='')
-    fields=['id','title','published','date_basis','date_evidence','type','readme_topic','topics','topic_checked','topic_reason','topic_evidence','topic_sources','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
+    fields=['id','title','published','date_basis','type','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
     writer=csv.DictWriter(buf, fieldnames=fields)
     writer.writeheader()
     for p in catalog['papers']:
         row={k:p[k] or '' for k in fields if k in p}
-        row['date_evidence']=json.dumps(p['date_evidence'],ensure_ascii=False) if p.get('date_evidence') else ''
-        classification=p['classification']
-        row['readme_topic']=classification['readme_topic']
-        row['topics']='; '.join(classification['topics'])
-        row['topic_checked']=classification['checked']
-        row['topic_reason']=classification['summary_reason']
-        row['topic_evidence']=json.dumps(classification['topic_reasons'],ensure_ascii=False)
-        row['topic_sources']=json.dumps(classification['sources'],ensure_ascii=False)
         row.update({d['id']:'; '.join(p['dimensions'][d['id']]) for d in taxonomy['dimensions']})
         row['collections']='; '.join(p['collections'])
         row['benchmark_names']='; '.join(b['name'] for b in p['benchmarks'])
@@ -433,15 +390,12 @@ def outputs(catalog, taxonomy, repository):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='只检查生成结果是否同步')
-    parser.add_argument('--repository', default=None, help='GitHub owner/repository；默认读取 data/site.json')
+    parser.add_argument('--repository', default='', help='GitHub owner/repository，用于生成公开链接')
     args=parser.parse_args()
-    settings_path = ROOT / 'data/site.json'
-    settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
-    repository = args.repository if args.repository is not None else settings.get('repository', '')
     catalog=json.loads((ROOT/'data/papers.json').read_text())
     taxonomy=json.loads((ROOT/'data/taxonomy.json').read_text())
     stale=[]
-    for path, content in outputs(catalog,taxonomy,repository).items():
+    for path, content in outputs(catalog,taxonomy,args.repository).items():
         if args.check:
             # newline='' 保留 CSV 的标准 CRLF 行尾。
             if not path.exists() or path.open(newline='').read()!=content: stale.append(str(path.relative_to(ROOT)))

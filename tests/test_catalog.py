@@ -1,8 +1,6 @@
 """防止分类漂移、误去重、候选覆盖和生成内容丢失。"""
 import copy
-import csv
 import importlib.util
-import io
 import json
 import sys
 import tempfile
@@ -48,29 +46,9 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(json.loads(a[ROOT/'site/papers.json'])['papers']),len(self.catalog['papers']))
 
     def test_unknown_date_is_not_invented(self):
-        p=copy.deepcopy(next(p for p in self.catalog['papers'] if p['id']=='streaming-cwm'))
-        p['published']=None
-        p['date_basis']='unknown'
-        p.pop('date_evidence',None)
+        p=next(p for p in self.catalog['papers'] if p['id']=='streaming-cwm')
+        self.assertIsNone(p['published'])
         self.assertNotIn('year =',build.bibtex(p))
-
-    def test_online_dates_require_matching_primary_evidence(self):
-        for change in ['missing', 'empty', 'earlier', 'unsafe']:
-            with self.subTest(change=change):
-                c=copy.deepcopy(self.catalog)
-                p=next(p for p in c['papers'] if p['id']=='streaming-cwm')
-                if change=='missing':p.pop('date_evidence')
-                elif change=='empty':p['date_evidence']['sources']=[]
-                elif change=='earlier':p['published']='2026-10-02'
-                else:p['date_evidence']['sources'][0]['url']='javascript:alert(1)'
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_public_repository_links_are_used_for_readme_and_catalog(self):
-        repository='awesome-cwm/Awesome-Code-World-Model'
-        generated=build.outputs(self.catalog,self.taxonomy,repository)
-        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/',generated[ROOT/'README.md'])
-        self.assertIn('https://awesome-cwm.github.io/Awesome-Code-World-Model/?topics=memory',generated[ROOT/'README.md'])
-        self.assertIn('"repository":"'+repository+'"',generated[ROOT/'site/catalog.js'])
 
     def test_resource_badge_requires_matching_evidence(self):
         c=copy.deepcopy(self.catalog)
@@ -98,11 +76,10 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(json.loads(row['benchmark_protocols'])[0]['checks'])
         self.assertEqual(len(rows),len(self.catalog['papers']))
 
-    def test_paper_entry_keeps_clickable_links(self):
+    def test_classic_entry_keeps_clickable_links(self):
         p=next(p for p in self.catalog['papers'] if p['id']=='code-world-model')
         rendered=build.inline_markdown(build.readme_entry(p))
-        self.assertNotIn('<strong>',rendered)
-        self.assertNotIn('🌟',rendered)
+        self.assertTrue(rendered.startswith('<strong>'))
         self.assertIn('<a href="https://arxiv.org/abs/2608.25927">',rendered)
 
     def test_readme_html_only_allows_safe_layout(self):
@@ -112,149 +89,29 @@ class CatalogTests(unittest.TestCase):
         self.assertNotIn('javascript:',rendered)
         self.assertIn('src="banner.svg"',rendered)
 
-    def test_flat_topics_match_the_agreed_vocabulary(self):
-        expected=[
-            ('general-world-model','General World Model'), ('memory','Memory'),
-            ('interactive','Interactive'), ('real-time','Real-Time'),
-            ('acceleration','Acceleration'), ('long-video-generation','Long Video Generation'),
-            ('streaming','Streaming'), ('multi-agent','Multi-Agent'),
-            ('action-control','Action Control'), ('physics','Physics'),
-            ('world-generation','World Generation'), ('world-reconstruction','World Reconstruction'),
-            ('world-editing','World Editing'), ('neural-rendering','Neural Rendering'),
-            ('planning','Planning'), ('agent-learning','Agent Learning'),
-            ('code-execution','Code Execution'), ('post-training','Post-Training'),
-            ('benchmark','Benchmark'), ('dataset','Dataset'),
-            ('evaluation','Evaluation'), ('survey','Survey')]
-        self.assertEqual([(t['id'],t['name']) for t in self.taxonomy['topics']],expected)
-        self.assertFalse({'research_areas','tag_dimensions'} & set(self.taxonomy))
+    def test_streaming_delivery_does_not_imply_interaction(self):
+        records = {p['id']: p for p in self.catalog['papers']}
+        decoder = records['h3-streaming-vae']['dimensions']
+        self.assertEqual(decoder['interaction'], ['none'])
+        self.assertEqual(decoder['delivery'], ['streaming'])
+        extension = records['streaming-cwm']['dimensions']
+        self.assertEqual(extension['interaction'], ['unknown'])
+        self.assertEqual(extension['delivery'], ['streaming'])
+        for p in self.catalog['papers']:
+            self.assertFalse({'streaming', 'world_streaming'} & set(p['dimensions']['interaction']))
 
-    def test_readme_topic_is_single_valid_and_in_website_topics(self):
-        for invalid in [None, [], ['memory','physics'], 'unknown']:
-            with self.subTest(readme_topic=invalid):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['readme_topic']=invalid
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-        c=copy.deepcopy(self.catalog)
-        classification=c['papers'][0]['classification']
-        classification['topics']=['memory']
-        classification['topic_reasons']={'memory':'Reviewed memory mechanism.'}
-        classification['readme_topic']='physics'
-        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_flat_website_topics_must_be_nonempty_unique_and_known(self):
-        for invalid in [None, 'memory', [], ['unknown'], ['memory','memory'], ['memory',None], [['memory']]]:
-            with self.subTest(topics=invalid):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['topics']=invalid
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_review_fields_are_required_and_old_hierarchy_is_forbidden(self):
-        c=copy.deepcopy(self.catalog)
-        del c['papers'][0]['classification']
-        with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-        for field in ['readme_topic','topics','checked','summary_reason','topic_reasons','sources','uncertainties']:
-            with self.subTest(missing=field):
-                c=copy.deepcopy(self.catalog)
-                del c['papers'][0]['classification'][field]
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-        for field in ['area','direction','tags']:
-            with self.subTest(legacy_field=field):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification'][field]=None
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_every_website_topic_has_exactly_one_nonempty_evidence_reason(self):
-        c=copy.deepcopy(self.catalog)
-        classification=c['papers'][0]['classification']
-        for invalid in [None, {}, {t:'' for t in classification['topics']},
-                        {t:None for t in classification['topics']},
-                        dict(classification['topic_reasons'],unknown='Unsupported topic.')]:
-            with self.subTest(reasons=invalid):
-                changed=copy.deepcopy(c)
-                changed['papers'][0]['classification']['topic_reasons']=invalid
-                with self.assertRaises(AssertionError):build.validate(changed,self.taxonomy)
-        for invalid in [None,'','   ']:
-            with self.subTest(summary_reason=invalid):
-                changed=copy.deepcopy(c)
-                changed['papers'][0]['classification']['summary_reason']=invalid
-                with self.assertRaises(AssertionError):build.validate(changed,self.taxonomy)
-
-    def test_review_requires_primary_source_records_with_safe_urls_and_reading_scope(self):
-        for invalid in [None, [], 'https://arxiv.org/abs/2608.25927']:
-            with self.subTest(sources=invalid):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['sources']=invalid
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-        source={'url':'https://arxiv.org/abs/2608.25927','basis':'primary_abstract','note':'Read the author abstract.'}
-        for field,value in [('url','http://arxiv.org/abs/2608.25927'),('url','javascript:alert(1)'),
-                            ('url','https:///missing-host'),('url','https://user@example.org/paper'),
-                            ('basis','unread'),('note',''),('note',None)]:
-            with self.subTest(field=field,value=value):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['sources']=[dict(source,**{field:value})]
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_review_date_and_uncertainties_keep_their_documented_types(self):
-        for invalid in ['2026/10/22','2026-99-99',None]:
-            with self.subTest(checked=invalid):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['checked']=invalid
-                with self.assertRaises((TypeError,ValueError)):build.validate(c,self.taxonomy)
-        for invalid in [None,'Unverified claim.',[''],[1]]:
-            with self.subTest(uncertainties=invalid):
-                c=copy.deepcopy(self.catalog)
-                c['papers'][0]['classification']['uncertainties']=invalid
-                with self.assertRaises(AssertionError):build.validate(c,self.taxonomy)
-
-    def test_readme_topics_partition_all_records_and_entries_never_repeat(self):
-        papers=self.catalog['papers']
-        grouped=[p['id'] for topic in self.taxonomy['topics']
-                 for p in build.topic_entries(papers,topic['id'])]
-        self.assertEqual(len(grouped),len(set(grouped)))
-        self.assertEqual(set(grouped),{p['id'] for p in papers})
-        readme=build.outputs(self.catalog,self.taxonomy,'')[ROOT/'README.md']
-        bibliography_lines=[line for line in readme.splitlines()
-                            if any(line==build.readme_entry(p) for p in papers)]
-        self.assertEqual(len(bibliography_lines),len(papers))
-        for paper in papers:
-            with self.subTest(paper=paper['id']):
-                self.assertEqual(readme.count(build.readme_entry(paper)),1)
-
-    def test_a_paper_has_one_readme_placement_and_multiple_website_memberships(self):
-        paper=next(p for p in self.catalog['papers'] if len(p['classification']['topics'])>1)
-        placed=[topic['id'] for topic in self.taxonomy['topics']
-                if paper['id'] in {p['id'] for p in build.topic_entries([paper],topic['id'])}]
-        self.assertEqual(placed,[paper['classification']['readme_topic']])
-        website_memberships=[topic['id'] for topic in self.taxonomy['topics']
-                             if topic['id'] in paper['classification']['topics']]
-        self.assertGreater(len(website_memberships),1)
-        self.assertEqual(set(website_memberships),set(paper['classification']['topics']))
-
-    def test_csv_preserves_readme_website_topics_and_review_evidence(self):
-        generated=build.outputs(self.catalog,self.taxonomy,'')
-        rows=list(csv.DictReader(io.StringIO(generated[ROOT/'site/papers.csv'])))
-        by_id={p['id']:p for p in self.catalog['papers']}
-        self.assertEqual(len(rows),len(self.catalog['papers']))
-        self.assertEqual({row['id'] for row in rows},set(by_id))
-        for row in rows:
-            paper=by_id[row['id']]
-            c=paper['classification']
-            self.assertEqual(json.loads(row['date_evidence']) if row['date_evidence'] else None,paper.get('date_evidence'))
-            self.assertEqual(row['readme_topic'],c['readme_topic'])
-            self.assertEqual(row['topics'].split('; '),c['topics'])
-            self.assertEqual(row['topic_checked'],c['checked'])
-            self.assertEqual(row['topic_reason'],c['summary_reason'])
-            self.assertEqual(json.loads(row['topic_evidence']),c['topic_reasons'])
-            self.assertEqual(json.loads(row['topic_sources']),c['sources'])
-
-    def test_per_paper_review_is_exported_to_markdown_and_website(self):
-        generated=build.outputs(self.catalog,self.taxonomy,'')
-        review=generated[ROOT/'docs/TOPIC_REVIEW.md']
-        self.assertIn(ROOT/'site/topic-review.html',generated)
-        for paper in self.catalog['papers']:
-            self.assertIn('**Record:** `'+paper['id']+'`',review)
-            self.assertIn(paper['classification']['summary_reason'],review)
-            self.assertIn(paper['classification']['sources'][0]['url'],review)
+    def test_readme_keeps_every_primary_entry_and_navigation(self):
+        import re
+        rendered = build.render_readme(self.catalog, self.taxonomy, '')
+        for p in self.catalog['papers']:
+            self.assertEqual(rendered.count(build.readme_entry(p) + '\n'), 1, p['id'])
+        body = build.markdown_body(rendered)
+        anchors = re.findall(r'id="([a-z0-9-]+)"', body)
+        self.assertEqual(len(anchors), len(set(anchors)))
+        for target in re.findall(r'href="#([a-z0-9-]+)"', body):
+            self.assertIn(target, anchors)
+        self.assertEqual(body.count('<details>'), body.count('</details>'))
+        self.assertIn('<summary>Earlier collection updates</summary>', body)
 
 
 class DiscoveryTests(unittest.TestCase):

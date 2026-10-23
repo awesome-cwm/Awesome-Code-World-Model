@@ -1,56 +1,18 @@
-# 网站与数据验收记录
-
-## 22 个平级主题与逐篇核对（2026-10-22）
-
-- 逐篇在线核对现有 58 条论文／项目，记录 90 次主来源引用；其中 30 条补读相关方法、任务或评测正文段落。未把定向阅读称为全篇通读或独立复现。每个网站主题都有英文依据，来源与未确认细节保存在正式数据及生成的 `docs/TOPIC_REVIEW.md`。
-- 使用同一套 22 个平级主题。README 为每篇选择唯一摆放位置，全文论文条目不重复；近期论文与阅读路径不再重复列目。网站使用多主题关联，显示全部 22 个原生复选项并取交集，Survey 当前为零条，不强行填充。
-- 原有 58 条记录的题名、作者、摘要、日期、资源、基准协议和历史元数据保持一致。新增主题 schema 区分 `readme_topic` 与 `topics`，校验逐标签理由、有效来源和实际核对日期；CSV／JSON 与网页数据同步。
-- 30 项 Python 测试、6 项 Node 逻辑检查和 JavaScript 语法检查通过。README 全文逐条唯一性、22 主题词表、合法多主题关系、负例 schema、证据完整性及导出均有检查。
-- 真实 Chrome 本地验收 11 组通过：22 个标签逐项筛选、双／三标签交集、复选／卡片／已选标签／键盘、月份计数与 Date TBC、局部及全量重置、搜索与全部资源徽标、无效与旧参数、390px 手机布局、离线打开、README 唯一分类和逐篇核查页。无页面异常或意外弹窗。
-- 构建与 `--check` 验证生成一致性。截图与报告保存在忽略提交的 `test-results/topics-desktop.png`、`topics-intersection.png`、`topics-mobile.png`、`topics-mobile-selected.png`、`browser-search.json`。复跑入口为 `node tests/browser_search.cjs`。
-
-以下为较早版本的历史记录。
-
-## World Models Taxonomy V2（2026-10-22）
-
-- 主分类按维护者提供的设计更新为六类、22 个细方向；辅助标签按八个维度组织。58 条记录各有一个主分类，辅助标签合计至少一个；初始迁移依据已有整理元数据，未重新逐篇全文审核。
-- 主分类使用原生单选按钮；辅助标签使用复选框，多选取交集。细方向与主分类联动，已选标签在收起面板后仍显示；支持卡片标签入口与独立清空辅助标签。
-- 保留右侧月份索引、移动月份栏、标题／作者搜索和资源徽标筛选。URL 支持刷新、前进后退；无效和旧版筛选条件不会产生隐藏约束。README 的六个主类章节不重复列入同一论文。
-- 25 项 Python 测试、5 项 Node 逻辑检查、构建一致性检查通过。新增检查覆盖主类唯一性、细方向归属、辅助标签维度与非空约束、主类分组完整性及 CSV 导出。
-- 真实 Chrome 下 9 组浏览器验收通过，包括六类逐一切换、跨维度交集、月份组合、URL 恢复、键盘与卡片操作、搜索与徽标、无匹配与安全文本、390px 手机布局、离线打开与 README 入口；无 JavaScript 异常。
-- 截图位于忽略提交的 `test-results/taxonomy-v2-desktop.png`、`taxonomy-v2-intersection.png`、`taxonomy-v2-mobile.png`、`taxonomy-v2-mobile-tags.png`。复跑脚本：`node tests/browser_search.cjs`。
-
-以下为较早版本的历史记录。
-
-## 线上第 3 版本地同步（2026-10-22）
-
-- 从线上源提交 `ff94a3c41d9932dff1df8b9117e675f44221400c` 同步 `site/index.html`、`site/app.js`、`site/style.css`，保留用户新增的月份索引；论文数据未改动。
-- 桌面月份索引位于右侧，手机横向滚动；月份与标签、搜索和徽标组合生效，数量随其他条件更新。包含 Date TBC，重置、刷新和前进后退可恢复状态。
-- 18 项 Python 测试、5 项 Node 检查与 8 组真实 Chrome 验收通过，无 JavaScript 异常。新增月份组合、动态数量、未知日期、URL 恢复与移动月份栏检查。
-- Git 排除本地原文抓取缓存、测试缓存和发布辅助文件；CSV 保留构建脚本输出的 CRLF 字节。
-
-## 简洁论文清单验收（2026-10-22）
-
-- 按 Awesome Interactive World Model 的清单风格调整为浅灰背景、居中标题、蓝色筛选按钮与白色论文卡片。首页保留标题、搜索、徽标、十个可复选研究方向和论文清单。
-- 研究标签为普通复选框，多选取交集，再次点击取消；支持 All 清空方向及 Clear filters 重置。没有 OR、排除、年份、高级筛选、对比、导出面板或大型首屏区域。
-- 标题／作者检索、徽标与标签条件共同生效；网址记录查询并支持刷新及前进后退。旧版 OR、排除、高级筛选参数被忽略，避免隐藏条件影响结果。
-- 18 项 Python 数据与构建测试、5 项 Node 索引检查通过。真实 Chrome 验收 7 组通过，包括 58 条记录、十个复选框、交集与取消、键盘操作、卡片标签、组合搜索、空状态、安全文本、旧网址、390px 手机布局、离线打开及 README 入口；无 JavaScript 异常。
-- 截图：`test-results/simple-desktop.png`、`simple-intersection.png`、`simple-mobile.png`；可复跑脚本仍为 `node tests/browser_search.cjs`。
-
-以下是较早界面版本的历史记录，保留用于追溯。
-
-## 复合标签网站验收（2026-10-22）
-
-- 保留全部 58 条论文记录，未改动 `data/papers.json`；十个大标签通过现有分类和维度建立可调整的映射，并支持后续逐篇显式覆盖。
-- `node tests/search.test.cjs`：5 项索引逻辑检查通过，涵盖 AND / OR、排除优先级、标签循环、URL 归一化、未知值处理、显式标签覆盖和源数据不变。
-- `python3 -m unittest discover -s tests -v`：18 项既有数据与构建检查通过。`node --check site/app.js`、`node --check site/search.js`、构建生成一致性检查通过。
-- `node tests/browser_search.cjs`：真实 Chrome 下 11 组验收通过，涵盖十标签渲染、复合筛选、排除、键盘操作、URL 刷新与历史恢复、关键词与年份和资源组合、命中 BibTeX 导出、空状态与安全转义、详情与五种视图、无剪贴板权限时分享、390px 手机布局、离线打开和 README 入口。无浏览器 JavaScript 异常。
-- 桌面截图为 1440×1080，移动截图为 390×844；页面无水平溢出。截图与报告位于忽略提交的 `test-results/`。
-- 可复跑浏览器检查：先运行本地 HTTP 服务；安装可选依赖 `npm install --prefix test-results/browser-tools playwright`，然后运行 `node tests/browser_search.cjs`。可通过 `CWM_BROWSER_PATH` 指定本机 Chrome / Chromium，`CWM_TEST_URL` 指定服务器。浏览器依赖不参与网站运行。
-
-以下为先前版本的历史记录。
+# 首版验收记录
 
 核验时间：2026-10-21。
+
+## README 与分类修订验收（2026-10-23）
+
+- 本地版本确认：当前修改前的 README 与 `awesome-code-world-model-20261021-v3.zip` 一致；58 条文献与项目、21 个具名协议全部保留。
+- 参考仓库通过 GitHub API 读取：README SHA `a3979dad78ed62a36ccd89d7e1f6547eeb40b856`；首图 SHA `b26385858bd3b492351aa75796b748049f1a3fb2`。借鉴视觉层次、蓝紫／青绿色和研究地图形式，使用独立绘制的 SVG。
+- 保留两条主线、九个核心研究问题；收窄可执行验证，分离横向资源索引；增加 `delivery` 后共八个比较维度。迁移依据与不确定性见 TAXONOMY.md。
+- README 从 54,469 bytes 精简为 28,940 bytes。正文每项主分类完整条目只出现一次，近期更新和资源索引按需重复链接；网页仍提供交叉分类。
+- 20 项单元测试通过，包括所有条目完整性、导航锚点、流式交付不蕴含交互，以及原有数据与发现流程检查。构建同步和 JavaScript 语法检查通过。
+- Chromium 140 浏览器回归全部 15 组通过，包含新增的 `delivery=streaming` 与 `interaction=none` 组合过滤、URL 恢复、三个折叠区展开和目录锚点存在性。390 px 页面无水平溢出，无 JavaScript 异常。
+- 独立 markdown-it CommonMark 解析确认 12 个研究分类三级标题，所有显式锚点及本地资源链接有效。GitHub 风格截图为本地近似预览，未声称远程 GitHub 页面已发布。
+- 桌面、手机、研究目录与首图预览在 `test-results/readme-github-*.png` 和 `test-results/banner-preview.png`。该目录不进入版本控制。
+- 原文来源核验日期仍为 2026-10-21。本次没有重新核验全部论文，也没有绑定远端或发布 Pages。
 
 ## Benchmark 精修版验收
 
