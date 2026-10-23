@@ -1,5 +1,15 @@
 {
+  "paper_updates": {
+    "harmony": "2026-10-21",
+    "vibeworlding": "2026-10-21"
+  },
   "news": [
+    {
+      "date": "2026-10-23",
+      "icon": "📚",
+      "title": "Two New Papers",
+      "body": "Added HARMONY for single-image scene reconstruction and VibeWorlding for 3D world construction."
+    },
     {
       "date": "2026-10-23",
       "icon": "🧭",

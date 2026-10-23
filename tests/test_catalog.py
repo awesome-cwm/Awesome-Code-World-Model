@@ -50,6 +50,17 @@ class CatalogTests(unittest.TestCase):
         self.assertIsNone(p['published'])
         self.assertNotIn('year =',build.bibtex(p))
 
+    def test_recent_update_date_preserves_publication_date(self):
+        for identifier, published in [('harmony', '2026-09-22'), ('vibeworlding', '2026-08-15')]:
+            p = next(p for p in self.catalog['papers'] if p['id'] == identifier)
+            self.assertEqual(p['published'], published)
+            self.assertTrue(build.readme_entry(p, recent=True, update_date='2026-10-21').startswith('[2026-10-21]'))
+            self.assertTrue(build.readme_entry(p).startswith('[' + published[:7] + ']'))
+        readme = build.render_readme(self.catalog, self.taxonomy, '')
+        recent = readme.split('## 🔥 Recent Paper Updates')[1].split('<details>')[0]
+        self.assertIn('[2026-10-21] ✅[HARMONY:', recent)
+        self.assertIn('[2026-10-21] ✅[VibeWorlding:', recent)
+
     def test_resource_badge_requires_matching_evidence(self):
         c=copy.deepcopy(self.catalog)
         p=next(p for p in c['papers'] if p['resource_status']['status']=='not_found')

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "curated_at": "2026-10-21",
+  "curated_at": "2026-10-23",
   "description": "Manually curated. Metadata and abstract / official-project reviewed; not independent reproductions. Null publication dates are intentionally unresolved.",
   "papers": [
     {
@@ -5495,6 +5495,240 @@
           "checks": "Composition, motion and spatiotemporal control in generated video",
           "caveat": "Video-generation evaluation does not establish a persistent interactive state machine.",
           "source": "https://code-video-model.github.io/"
+        }
+      ]
+    },
+    {
+      "arxiv": "2609.26793",
+      "title": "HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis",
+      "authors": [
+        "Shufan Sun",
+        "Chen Wang",
+        "Enxin Song",
+        "Jiatao Gu",
+        "Lingjie Liu"
+      ],
+      "published": "2026-09-22",
+      "updated": "2026-10-05",
+      "abstract": "Compositional 3D scene reconstruction has recently been explored from two directions: agentic reasoning that provides semantic understanding of spatial relationships but lacks precise alignment with input images; and visual geometry foundation models that predict dense point maps from input images but the reconstruction quality is limited. Therefore, recovering a complete 3D scene from a single monocular image with accurate inter-object relationships and high-fidelity reconstruction quality remains challenging. In this paper, we present HARMONY, a hierarchical chain-of-thought framework that leverages both agentic reasoning and visual geometry foundation. Given an image of an indoor scene, starting from an empty 3D floorplan, HARMONY first calibrates the camera against the reference image to establish a semantically-grounded spatial frame, then uses agentic VLM reasoning to recover the 3D room layout and an initial placement order. It then places the objects in a hierarchical order, from wall-mounted elements, free-standing furniture, to dependent decorations on top of furniture. We also use depth-first traversal for furniture so each placement conditions on previously resolved structure and a reflective feedback loop to avoid error accumulation. After each object placement by VLM, we use the point cloud estimations to perform geometry-based refinement so that the rendered image aligns better with the input. HARMONY can produce 3D scenes that are semantically consistent and perceptually aligned with the reference image, extending single-image compositional reconstruction to complex indoor scene images. Experiments on synthetic and real-world images demonstrate that HARMONY outperforms the evaluated reconstruction baselines, while qualitative comparisons with GPT-6 Astra suggest more faithful object arrangements and better preservation of scene details.",
+      "id": "harmony",
+      "short_title": "HARMONY",
+      "track": "understanding",
+      "category": "u_inverse",
+      "scope": "core",
+      "dimensions": {
+        "code_role": [
+          "scene",
+          "hypothesis"
+        ],
+        "representation": [
+          "scene_program"
+        ],
+        "dynamics": [
+          "none"
+        ],
+        "feedback": [
+          "visual"
+        ],
+        "interaction": [
+          "editable"
+        ],
+        "evaluation": [
+          "visual"
+        ],
+        "domain": [
+          "general"
+        ],
+        "delivery": [
+          "unknown"
+        ]
+      },
+      "summary": "A single indoor image is reconstructed as an editable compositional scene using hierarchical VLM placement and geometric refinement. Code assembles and renders scene hypotheses; the reconstruction loop does not learn a world transition model.",
+      "type": "preprint",
+      "date_basis": "arxiv_first_submission",
+      "resources": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2609.26793",
+          "provenance": "https://arxiv.org/abs/2609.26793"
+        },
+        {
+          "kind": "project",
+          "url": "https://cwchenwang.github.io/harmony/",
+          "provenance": "https://arxiv.org/abs/2609.26793"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/ShufanSun/harmony-release",
+          "provenance": "https://cwchenwang.github.io/harmony/"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/ShufanSun/harmony",
+          "provenance": "https://cwchenwang.github.io/harmony/"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "official_project",
+        "checked": "2026-10-23",
+        "source": "https://cwchenwang.github.io/harmony/"
+      },
+      "cross_categories": [
+        "g_scene"
+      ],
+      "added": "2026-10-23",
+      "performance_note": "No end-to-end real-time interaction claim is established by this review.",
+      "classic": false,
+      "classic_note": "",
+      "resource_status": {
+        "status": "available",
+        "checked": "2026-10-23",
+        "evidence": [
+          "https://cwchenwang.github.io/harmony/",
+          "https://github.com/ShufanSun/harmony-release",
+          "https://huggingface.co/datasets/ShufanSun/harmony"
+        ],
+        "basis": "Public-resource convention: official code, data, weights or project. Code license: MIT (https://github.com/ShufanSun/harmony-release/blob/main/LICENSE). HARMONY300: CC-BY-NC-4.0; upstream models and source images retain separate terms. Availability was inspected, not independently reproduced."
+      },
+      "collections": [
+        "b_creation",
+        "d_harnesses"
+      ],
+      "benchmarks": [
+        {
+          "name": "HARMONY300",
+          "input": "Single indoor reference images across 300 scenes and three complexity tiers.",
+          "artifact": "Compositional 3D scene meshes, recovered camera and rendered reference view.",
+          "checks": "N-CLIP, photometric loss and LPIPS on 300 scenes; Chamfer distance and F-scores on 100 synthetic scenes with ground-truth geometry.",
+          "caveat": "Public-release protocol: geometry ground truth covers only the synthetic tier. Image similarity does not establish physical dynamics. Dataset uses CC-BY-NC-4.0 and retains source-specific terms.",
+          "source": "https://github.com/ShufanSun/harmony-release#evaluation"
+        }
+      ]
+    },
+    {
+      "arxiv": "2608.15265",
+      "title": "VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?",
+      "authors": [
+        "Yansong Ning",
+        "Jingwen Ye",
+        "Zhongkai Wu",
+        "Yang Sun",
+        "Yiqin Zhu",
+        "Xingyi Li",
+        "Weidong Zhang",
+        "Hao Liu"
+      ],
+      "published": "2026-08-15",
+      "updated": "2026-08-19",
+      "abstract": "Constructing an interactive 3D open world from a user query is important. However, existing methods are primarily evaluated on idealized, simple queries, making it difficult to systematically analyze and compare how multimodal agents understand user intent, use 3D tools, and reason over textual and visual 3D world information. To this end, we propose VibeWorlding, a unified framework for benchmarking and training vibe worlding agents: a multimodal agent that can autonomously infer user intent, plan scene layout, invoke 3D tools, and reflect on the multimodal feedback in a multi-turn agent-environment interaction process. To achieve this, we first build VWE-BENCH, a benchmark of 2,616 high-quality 3D assets, 323 human-annotated seed 3D worlds, and 6,828 reverse-synthesized multimodal user queries, split into verified queries with ground-truth and unverified queries with carefully designed rubrics. Moreover, we develop VibeWorlding-Gym, a joint multimodal RL post-training framework that integrates (1) a sandbox environment unifying asset retrieval, editing, and image rendering as MCP tools, and (2) a rubric-based verifier that combines physical feasibility and intent fulfillment verification, supporting both fair model evaluation and scalable multimodal RL reward service. Our experiments show that current frontier MLLMs are far from solving the vibe worlding agent task, with even GPT-5.5 and Qwen3.8-Max reaching below 60% success rate, and trace the bottleneck to precise 3D world editing. We further find that RL training can ease this weakness and enable open-source MLLMs to even surpass closed-source frontiers: our VibeWorlder-8B is comparable to frontier MLLMs, while our flagship VibeWorlder-30B-A3B attains the best overall Pass@1 among all evaluated models.",
+      "id": "vibeworlding",
+      "short_title": "VibeWorlding",
+      "track": "generation",
+      "category": "g_scene",
+      "scope": "core",
+      "dimensions": {
+        "code_role": [
+          "scene",
+          "verifier",
+          "environment"
+        ],
+        "representation": [
+          "scene_program"
+        ],
+        "dynamics": [
+          "none"
+        ],
+        "feedback": [
+          "execution",
+          "visual",
+          "physical",
+          "task",
+          "training"
+        ],
+        "interaction": [
+          "editable",
+          "closed_loop"
+        ],
+        "evaluation": [
+          "physical",
+          "functional",
+          "reasoning"
+        ],
+        "domain": [
+          "general"
+        ],
+        "delivery": [
+          "unknown"
+        ]
+      },
+      "summary": "Multimodal agents construct and edit asset-based worlds through MCP tools with visual feedback. The sandbox applies explicit scene edits, while feasibility and intent verifiers support evaluation and RL training; this is not a learned physical transition model.",
+      "type": "preprint",
+      "date_basis": "arxiv_first_submission",
+      "resources": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.15265",
+          "provenance": "https://arxiv.org/abs/2608.15265"
+        },
+        {
+          "kind": "project",
+          "url": "https://usail-hkust.github.io/VibeWorlding-Gym/",
+          "provenance": "https://arxiv.org/html/2608.15265v2"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/usail-hkust/VibeWorlding-Gym",
+          "provenance": "https://arxiv.org/html/2608.15265v2"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/usail-hkust/VWE-Bench",
+          "provenance": "https://arxiv.org/html/2608.15265v2"
+        },
+        {
+          "kind": "weights",
+          "url": "https://huggingface.co/collections/usail-hkust/vibeworlder",
+          "provenance": "https://arxiv.org/html/2608.15265v2"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "official_project",
+        "checked": "2026-10-23",
+        "source": "https://github.com/usail-hkust/VibeWorlding-Gym"
+      },
+      "cross_categories": [
+        "g_learning",
+        "u_verification"
+      ],
+      "added": "2026-10-23",
+      "performance_note": "No end-to-end real-time interaction claim is established by this review.",
+      "classic": false,
+      "classic_note": "",
+      "resource_status": {
+        "status": "available",
+        "checked": "2026-10-23",
+        "evidence": [
+          "https://usail-hkust.github.io/VibeWorlding-Gym/",
+          "https://github.com/usail-hkust/VibeWorlding-Gym",
+          "https://huggingface.co/datasets/usail-hkust/VWE-Bench",
+          "https://huggingface.co/collections/usail-hkust/vibeworlder"
+        ],
+        "basis": "Public-resource convention: official code, data, weights or project. Code license: Apache-2.0 (https://github.com/usail-hkust/VibeWorlding-Gym/blob/main/LICENSE.md). VWE-Bench card declares Apache-2.0. The linked model collection exposes 8B and embedding models at review time; the paper-reported 30B model was not confirmed in that collection. Third-party resources retain their own terms; no independent reproduction."
+      },
+      "collections": [
+        "b_creation",
+        "d_harnesses"
+      ],
+      "benchmarks": [
+        {
+          "name": "VWE-Bench",
+          "input": "Text construction requests or existing worlds paired with editing instructions; the paper reports 2,616 assets, 323 seed worlds and 6,828 queries.",
+          "artifact": "Edited asset scene map and multiview renders produced through the sandbox tools.",
+          "checks": "Pass@1 with structural checks for verified queries and rubric-based feasibility and intent checks for unverified queries, including height and collisions.",
+          "caveat": "Static feasibility checks do not establish dynamic physical accuracy. Counts refer to the paper protocol; the current public dataset is not independently audited for identical coverage.",
+          "source": "https://arxiv.org/html/2608.15265v2"
         }
       ]
     }

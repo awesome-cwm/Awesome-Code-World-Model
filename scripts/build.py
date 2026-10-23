@@ -128,8 +128,10 @@ def render_benchmarks(catalog, taxonomy):
     return '\n'.join(parts)
 
 
-def readme_entry(p, recent=False):
+def readme_entry(p, recent=False, update_date=None):
     stamp = (p['published'] if recent else p['published'][:7]) if p['published'] else 'Date TBC'
+    if recent and update_date:
+        stamp = update_date
     availability = '✅' if p['resource_status']['status'] == 'available' else '❌️'
     primary = next((r['url'] for r in p['resources'] if r['kind'] == 'paper'), p['verification']['source'])
     title = p['title'].replace('[', r'\[').replace(']', r'\]')
@@ -145,7 +147,9 @@ def readme_entry(p, recent=False):
 
 def render_readme(catalog, taxonomy, repository):
     papers = catalog['papers']
-    news = json.loads((ROOT / 'data/updates.json').read_text())['news']
+    updates = json.loads((ROOT / 'data/updates.json').read_text())
+    news = updates['news']
+    paper_updates = updates.get('paper_updates', {})
     site_url = 'site/index.html'
     if repository:
         owner, repo = repository.split('/')
@@ -158,10 +162,10 @@ def render_readme(catalog, taxonomy, repository):
     news_text = '\n\n'.join(news_line(n) for n in news[:2])
     news_text += '\n\n<details>\n<summary>Earlier collection updates</summary>\n\n' + '\n\n'.join(news_line(n) for n in news[2:]) + '\n\n</details>'
     parts = [intro.replace('{{NEWS}}', news_text), '\n<a id="recent-paper-updates"></a>\n## 🔥 Recent Paper Updates\n']
-    recent = sorted([p for p in papers if p['published']], key=lambda p:(p['published'],p['id']), reverse=True)[:20]
-    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[:6])
+    recent = sorted([p for p in papers if p['published']], key=lambda p:(paper_updates.get(p['id'], p['published']),p['id']), reverse=True)[:20]
+    parts.extend(readme_entry(p, recent=True, update_date=paper_updates.get(p['id']))+'\n' for p in recent[:6])
     parts.append('<details>\n<summary>More recent papers & projects with unconfirmed dates</summary>\n')
-    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[6:])
+    parts.extend(readme_entry(p, recent=True, update_date=paper_updates.get(p['id']))+'\n' for p in recent[6:])
     parts.append('**Official projects with unconfirmed first-release dates**\n')
     parts.extend(readme_entry(p, recent=True)+'\n' for p in papers if not p['published'])
     parts.append('</details>\n\n---\n\n<a id="overview"></a>\n## 🧭 Overview\n')

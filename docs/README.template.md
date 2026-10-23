@@ -19,7 +19,7 @@
 </tr>
 </table>
 
-**Legend.** 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Dates use first submission; unknown releases remain `Date TBC`.
+**Legend.** 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Category dates use first submission; Recent Paper Updates may use collection-update dates. Unknown releases remain `Date TBC`.
 
 ---
 
