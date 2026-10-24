@@ -2,6 +2,1310 @@
   "schema_version": 1,
   "candidates": [
     {
+      "id": "github-c400267ccc0df84d",
+      "arxiv": null,
+      "title": "frontier embodied ai",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-23",
+      "abstract": "Frontier Embodied AI: papers, code, and perspectives on In-Context Learning (ICL), Recursive Self-Improvement (RSI), Test-Time Training (TTT), and Code World Models.",
+      "url": "https://github.com/wangskyone/frontier-embodied-ai",
+      "source_type": "github",
+      "repository_created": "2026-10-11",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "code world"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-ada0237a1c313d0c",
+      "arxiv": null,
+      "title": "Awesome Code World Model",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-23",
+      "abstract": " A curated collection of Code World Model papers, benchmarks, datasets, and resources",
+      "url": "https://github.com/awesome-cwm/Awesome-Code-World-Model",
+      "source_type": "github",
+      "repository_created": "2026-10-22",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "code world"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-acd3859023a2495c",
+      "arxiv": null,
+      "title": "CCTVAPP",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-20",
+      "abstract": "CCTV Streaming Applicaiton",
+      "url": "https://github.com/VAE-Developer/CCTVAPP",
+      "source_type": "github",
+      "repository_created": "2026-10-20",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-7660201856258b0c",
+      "arxiv": null,
+      "title": "ComfyUI MiniMax H3 DMAD X2",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-15",
+      "abstract": "MiniMax H3 FL2VA DMAD four-step fusion, SLA 5%, and X2 VAE streaming for ComfyUI.",
+      "url": "https://github.com/sepiablue-ai/ComfyUI-MiniMax-H3-DMAD-X2",
+      "source_type": "github",
+      "repository_created": "2026-10-06",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-4627bfcfa4b5f954",
+      "arxiv": null,
+      "title": "ComfyUI MiniMax H3 PDMD X2",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-15",
+      "abstract": "MiniMax H3 two-step video for ComfyUI: PDMD-distilled 2-step model, sparse attention (keep 20%) and INT8 X2 VAE streaming to 1088x1920. Windows setup and ready-to-load workflows.",
+      "url": "https://github.com/sepiablue-ai/ComfyUI-MiniMax-H3-PDMD-X2",
+      "source_type": "github",
+      "repository_created": "2026-10-06",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-429139ebf6f66535",
+      "arxiv": null,
+      "title": "Awesome Code World Models",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-22",
+      "abstract": "Research on executable visual worlds, programmatic dynamics, generative rendering, and evaluation — with verified sources and official demos.",
+      "url": "https://github.com/Danzer1xxxxChan/Awesome-Code-World-Models",
+      "source_type": "github",
+      "repository_created": "2026-10-21",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "code world",
+          "evaluation",
+          "generative render",
+          "rendering"
+        ],
+        "relevance_score": 8,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31651",
+      "arxiv": "2610.31651",
+      "title": "BrickWright: Agentic Creation of Physically Feasible Brick Builds",
+      "authors": [
+        "Ava Pun",
+        "Kevin Dai",
+        "Sally Chen",
+        "Maxwell Jones",
+        "Ruixuan Liu",
+        "Kangle Deng",
+        "Changliu Liu",
+        "Maneesh Agrawala",
+        "Deva Ramanan",
+        "Jun-Yan Zhu"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the text-to-brick task. Code is available on our project page: https://avalovelace1.github.io/brickwright/",
+      "url": "https://arxiv.org/abs/2610.31651",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "physical world"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31466",
+      "arxiv": "2610.31466",
+      "title": "AnyGameRenderer: Entity-Consistent Generative Rendering Across Games and an Entity-Level Benchmark",
+      "authors": [
+        "Ruicong Liu",
+        "Liangyang Ouyang",
+        "Fengbo Lan",
+        "Zhixiang Wang",
+        "Kaipeng Zhang"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "AI coding agents can now build small playable games in minutes, but the results usually look like programmer art: gray blockouts, colored geometric primitives, and flat semantic blobs. We present AnyGameRenderer, a video-to-video generative renderer that turns such footage into high-quality visuals with characters, motion detail, and effects. Throughout, it keeps the layout, camera, and every entity's position and timing intact. Our AnyGameRenderer generalizes across a wide range of genres that agents build, such as tower defense, auto-battlers, top-down survivors, turn-based battles, kart racing, and crowd runners. AnyGameRenderer takes plain video as its game-state input, with no complex representations such as engine G-buffers, per-object class labels, or low-poly proxies. Gray blockouts, colored primitives, semantic maps, and wireframes all work as input. It also preserves entity correspondence: group counts stay correct, and entities appear and disappear on the right frame. We implement AnyGameRenderer by LoRA fine-tuning MiniMax-H3 ref2va, a 33B reference-video-conditioned video generation model. Training uses $\\sim$10k paired clips from three sources: (i) multi-stream rendering data from 38 agent-made games exported from GEAR, an AI game-creation tool; (ii) two-stream rendering data from Unreal Engine, with programmatically controlled crowds, count changes, and entity scales; and (iii) real gameplay recordings, with pairs reconstructed via 3D-box detection. To evaluate the entity correspondence, we propose an entity-level benchmark of 59 held-out cases with 753 entities, scored against ground-truth boxes. Compared with the base model, AnyGameRenderer better preserves entity correspondence: temporal match rises from 50.9\\% to 62.9\\%, missed count changes fall from 34.7\\% to 21.3\\%, and fewer entities are hallucinated or left unrendered.",
+      "url": "https://arxiv.org/abs/2610.31466",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "gameplay",
+          "generative render",
+          "playable",
+          "reconstruct",
+          "renderer",
+          "rendering"
+        ],
+        "relevance_score": 12,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31118",
+      "arxiv": "2610.31118",
+      "title": "ProductWebBench: Evaluating Website Continuity Beyond Task Completion",
+      "authors": [
+        "Jiajun Wu",
+        "Jian Yang",
+        "Yaxin Du",
+        "Shukai Liu",
+        "Linzheng Chai",
+        "Tuney Zheng",
+        "Wei Zhang",
+        "Haitao Yang",
+        "Yan Bai",
+        "Yihang Lou",
+        "Xianglong Liu",
+        "Bryan Dai"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Frontend coding agents are usually graded on one question: did the requested target get built. Real engineering changes carry a second obligation, because the rest of the site has to keep working. We call that second obligation website continuity, and introduce ProductWebBench, a benchmark that scores both on living frontend repositories: 320 Change tasks over existing code and 80 long-horizon Build tasks. Every task freezes a repository snapshot, staged requirements, browser evidence and deterministic checks before evaluation, and enters only once a reference passes every check and plausible-wrong ones fail. A simulated user reveals the requirements one stage at a time, and every check cleared earlier stays armed for the rest of the run. Across 8,737 runs from 13 models the two come apart: of the Change runs passing every requested-work check, 28.2% still fail a continuity check -- a blank route, horizontal overflow, console errors -- and 10.8% push a browser state they had already passed back to failing. Because the same checks also run on the untouched repository, each regression carries exact provenance, not a post-hoc label: on the 586 runs where both readings exist, 18.3% are caught breaking a verified state. Interaction is a further blind spot, failing in 29.5% of runs whose static DOM already passes. ProductWebBench therefore scores a patch against the living system it lands in, not the target alone.",
+      "url": "https://arxiv.org/abs/2610.31118",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "obligation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.30292",
+      "arxiv": "2610.30292",
+      "title": "GAV: A scientific experimentation environment for PDE agents",
+      "authors": [
+        "Muheng Li",
+        "Wenlong Mou"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "Reliable feedback is essential for coding agents to develop programs for partial differential equations (PDEs). Yet evaluating these programs on new PDE problems often requires expensive reference computations, while fixed datasets restrict the range of experiments. We introduce Generator-Agent-Verifier (GAV), a scientific experimentation environment that makes new PDE problems verifiable by construction. The Generator learns a distribution of continuous reference solutions using data from numerical simulations or experimental measurements to represent a target physical regime. Using the method of manufactured solutions, it works backward from the generated reference solutions to construct matching PDE problems without a separate numerical solve. The Agent designs experiments, investigates failures, and iteratively improves its program. The Verifier evaluates candidate programs against the reference solutions and provides numerical feedback on accuracy and computational cost. This feedback can also guide the generation of new problems that probe the current program's weaknesses. We provide a theoretical analysis of evaluation reliability and guided development. Experiments on Navier-Stokes and Vlasov-Poisson-type equations across different data sources and regimes demonstrate the effectiveness of GAV. In particular, on the numerical Navier-Stokes task, GAV reduces the mean test error of three existing PDE agents by more than an order of magnitude relative to their original setups. Code is available at https://github.com/PotatoJnny/PDE-GAV.",
+      "url": "https://arxiv.org/abs/2610.30292",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.30047",
+      "arxiv": "2610.30047",
+      "title": "SWE-DIVE: Multi-Turn Coding Agent Evaluation with Dynamic User Simulation",
+      "authors": [
+        "Lorenz Brehme",
+        "Benjamin Steenhoek",
+        "Ruth Breu"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "Coding agents are typically evaluated using one-shot, well-formulated prompts. Benchmarks such as SWE-bench use existing GitHub issues as input for a coding agent and evaluate whether the agent successfully solves the task. However, in real-world use cases, prompts are often not as well-formulated or structured as existing GitHub issues. Additionally, a coding agent session is not limited to a single prompt; it typically involves a multi-turn interaction in which the user iteratively adds new tasks and requirements that the agent must fulfill. To benchmark these abilities, we developed SWE-DIVE, a dynamic, interactive validation and evaluation framework for benchmarking coding agents in a multi-turn environment. To achieve this, we introduce a user simulator that can simulate different behavioral patterns and communicate with the coding agent. We also introduce a conversation validator that evaluates the user simulator's outputs to determine whether they fulfill the initial requirements and guide the agent toward successfully solving the task. The entire framework is embedded in a Harbor environment, which orchestrates the coding agent, user simulator, and conversation validator, and executes the test environment to determine whether the agent successfully solves the task. Our results and source code are available in our GitHub repository (https://github.com/lorenzbrehme/swe-dive_usersim).",
+      "url": "https://arxiv.org/abs/2610.30047",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.29822",
+      "arxiv": "2610.29822",
+      "title": "UserSWE: Evaluating Coding Agents in Multi-Turn Conversations with Dynamic Users",
+      "authors": [
+        "Zhan-Yu Wu",
+        "Ji Luo",
+        "Alyssa Wu",
+        "Junjielong Xu",
+        "Richeng Xuan",
+        "Zhichao Hu",
+        "Chongming Gao",
+        "Xinting Hu"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "As coding agents become more capable, developers increasingly use them to fix bugs through multi-turn interactions. Existing benchmarks do not adequately cover this scenario. Most present a complete issue report in a single turn without interaction. Their evaluation can produce both false positives and false negatives, accepting incorrect patches or rejecting correct ones. We introduce UserSWE for evaluating coding agents' ability to fix repository-level bugs through multi-turn interactions with dynamic users and execution-grounded verdicts at every turn. Its construction pipeline turns repository history and existing single-turn benchmarks into multi-turn tasks. At each turn, information pools constrain what the simulated user can reveal, while a persona chain sampled from a transition model calibrated on 20,859 development sessions governs how it speaks. Tests run after every turn, and a pair of agents from different model families writes and gates each verdict, using test results as primary evidence and model judgment only for aspects the tests cannot resolve. We evaluate eleven agents on 72 tasks from 42 repositories and find that agent rankings change with the interaction budget. Claude Fable 5.1 resolves the most tasks in one turn, GPT-6-Astra resolves the most by the eighth turn, and Claude Opus 5 leads at most intermediate budgets. These results indicate that single-turn performance is insufficient to characterize interactive coding ability.",
+      "url": "https://arxiv.org/abs/2610.29822",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.29014",
+      "arxiv": "2610.29014",
+      "title": "GenXR-Bench: Benchmarking Coding Agents for Interactive XR Development",
+      "authors": [
+        "William Huang",
+        "David Li",
+        "Xiang 'Anthony' Chen",
+        "Xun Qian",
+        "Nels Numan",
+        "Zhongyi Zhou",
+        "Hyunsung Cho",
+        "Salman Muin Kayser Chishti",
+        "Ding Xia",
+        "Xincheng Huang",
+        "Jiahao Ren",
+        "Faraz Faruqi",
+        "Tianyu Xu",
+        "Yang Zhang",
+        "David Kim",
+        "Ruofei Du"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "Coding agents are rapidly advancing from single-file generation to long-horizon repository-scale engineering, yet the evaluation of their capabilities to author interactive extended reality (XR) applications remains an open challenge. Unlike traditional software, XR applications operate within dynamic 3D physical environments where runtime robustness depends jointly on continuous user motion, spatial input, and environmental sensing. We introduce GenXR-Bench, the first benchmark for the end-to-end evaluation of coding agents in XR software development. GenXR-Bench contains 112 expert-authored tasks spanning 24 feature implementations, 21 bug repairs, and 67 application generation tasks. Held-out tests combine scripted and adaptive interactions with programmatic and visual assertions to evaluate core functionality and runtime behavior. GenXR-Bench's testing suite achieves 96.5% accuracy against blinded expert judgments of 124 candidate applications executed on consumer XR hardware. Evaluating 10 models on GenXR-Bench, we find that the strongest configuration achieves only 50.9% overall Pass@1. Failure analysis identifies recurring misunderstandings in asynchronous sensor lifecycles, physical grounding, and embodied interaction semantics. GenXR-Bench establishes a reproducible testbed for evaluating coding agents in the interactive and physically situated conditions of spatial computing.",
+      "url": "https://arxiv.org/abs/2610.29014",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.24087",
+      "arxiv": "2610.24087",
+      "title": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+      "authors": [
+        "Peisong Wang",
+        "Feixue Liu",
+        "Yize Meng",
+        "Bowen Liu",
+        "Ruoyu Chen",
+        "Gaoyang Dai",
+        "Xing He",
+        "Aiqian Li",
+        "Fengchi Yuan",
+        "Aochuan Chen",
+        "Chenyi Zi",
+        "Yuhan Li",
+        "Hongchuan Zeng",
+        "Yimo Yan",
+        "Nuo Chen",
+        "Jie Fu",
+        "Zuo-Jun Max Shen",
+        "Yong-Hong KUO",
+        "Jia Li"
+      ],
+      "published": "2026-10-16",
+      "updated": "2026-10-16",
+      "abstract": "Can large language model (LLM) agents deliver expert-level operations research (OR) solutions directly from original client materials, without prior expert reformulation? Existing OR benchmarks typically begin with self-contained descriptions or predefined optimization tasks, underrepresenting the translation of original business materials into professionally validated solutions. We introduce OR-License, an end-to-end benchmark of 31 instances across 10 industrial scenarios from paid OR engagements totaling USD 3.68 million. It preserves original requirements, input data, deliverable formats, and information boundaries after de-identification. To study information acquisition, we introduce ORSim, a controlled client simulator that discloses business facts without supplying OR expertise. Hidden evaluation checks feasibility and compares objective quality against original expert solutions accepted by clients before benchmark construction. Deployment-Adjusted Quality (DAQ) averages expert-relative quality across instances, assigning zero to infeasible deliveries. Across 11 frontier LLMs using coding-agent harnesses, several exceed the expert reference in conditional objective quality, but none matches its DAQ; the strongest primary Claude Code configuration achieves 88.39% strict feasibility and a DAQ of 0.87 against the expert reference of 1. Client information acquisition extends beyond clarification into solution development and validation, with some later stages showing higher confirmed issue-resolution proportions. Trajectory analysis identifies formulation and implementation failures, while task-equalized research-chain completion rates range from 24% to 45% across models on evaluable tasks. These findings motivate sustained information-gap resolution, faithful problem formulation, and evidence-linked self-improvement for reliable long-horizon agents.",
+      "url": "https://arxiv.org/abs/2610.24087",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "evaluation"
+        ],
+        "relevance_score": 2,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.23479",
+      "arxiv": "2610.23479",
+      "title": "HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents",
+      "authors": [
+        "Hongcheng Gao",
+        "Alex Zhou",
+        "Jay Zhu",
+        "Zelin Zheng",
+        "Shijia Ge",
+        "Xiping Li",
+        "Di Wu",
+        "Yazhe Wang",
+        "Jianshu Zeng",
+        "Xuan Shangguan",
+        "Yongli Wang",
+        "Yexing Wan",
+        "Lingyu He",
+        "Zhiqi Jia",
+        "Sihang Wu",
+        "Xiao He"
+      ],
+      "published": "2026-10-16",
+      "updated": "2026-10-20",
+      "abstract": "Agents built on vision language models (VLMs) now compete with learned policies on robot manipulation leaderboards. We ask how far a coding agent can go when it controls a robot instead of a computer, and where it stops. Our system, HexaShell, gives the agent a thin harness: one command line that turns its commands into robot motion and makes no decisions of its own. On the robot, the agent keeps doing what it does best: it reads output, writes code and runs tests. Two agents of the same model share the work. An acting agent runs each episode. After a failure, an optimizer agent reads the full record of the episode, with every command, image and message, finds the cause, and writes or fixes small programs called tools, each with its own tests. What the agents learn stays as code, and no demonstrations or training are needed. At run time, the tools use only what a real robot also has: RGB images, camera calibration and the state of the arms. They find objects by triangulation between camera views. Because these inputs are the same in simulation and on hardware, the tools move to a real robot with a different arm after only a small change for the arm. We build the tools on ten layouts of one seed per task with Codex and GPT-6-Astra and freeze them; the eight Open tasks share one set of tools. In RoboDojo's official evaluation on a hidden seed, 50 episodes for each of the 42 tasks, HexaShell reaches 46.9% success and a progress score of 53.2, the state of the art on the official RoboDojo leaderboard. The limit is contact, not reasoning: memory tasks reach 81.0%, but precision tasks only 32.0%. We open source the tools evolved so far at https://github.com/HexaFuture/HexaShell.",
+      "url": "https://arxiv.org/abs/2610.23479",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.22496",
+      "arxiv": "2610.22496",
+      "title": "Scaling Online Exploration for Robot Agents",
+      "authors": [
+        "Runhan Huang",
+        "Xiangcheng Zhang",
+        "Haoyu Chen",
+        "Yitong Li",
+        "Yen-Jen Wang",
+        "Bohan Lyu",
+        "Haotian Ye",
+        "Chuye Hong",
+        "Yixuan Wang",
+        "Chloe Su",
+        "Haoyu Xiong",
+        "Yangzhen Wu",
+        "Enze Xie",
+        "Travis Manderson",
+        "Stefano Ermon",
+        "Pieter Abbeel",
+        "Antonio Torralba",
+        "Dawn Song",
+        "Weirui Ye",
+        "Yilun Du"
+      ],
+      "published": "2026-10-15",
+      "updated": "2026-10-15",
+      "abstract": "Robot learning has advanced by scaling demonstration datasets and model capacity; however, deploying a new robot embodiment or task typically necessitates a dedicated teleoperation corpus. The resulting policies remain bounded by their imitation distributions, limiting generalization and continual self-improvement. We introduce RAX (Robot Agent eXploration), an open-source framework for robot agents centered on scaling exploration: enabling agents to improve by acquiring online experience and synthesizing executable programs. In RAX, a general-purpose coding agent generates robot control code, operating without action demonstration data, hand-engineered action primitives, or value-function guidance. Through online exploration, the agent identifies decision sequences that achieve task goals and compiles them into modular programs encapsulating the full perception-planning-control loop. Using RAX, we present a systematic multi-embodiment study on scaling online exploration across precision and long-horizon manipulation tasks using single-arm, bimanual, dexterous, mobile, and humanoid systems in simulation and on real robots. Generalization performance on unseen environments improves consistently as exploration scales. In simulation, RAX outperforms top baseline models by +37.4% on average. On real robots, RAX autonomously learns memory-dependent, articulated, high-precision, deformable, and long-horizon mobile manipulation tasks without human demonstrations, continually improving performance by composing verified skills from prior exploration sessions. As exploration scales, we observe emergent capabilities including active perception, error recovery, safety guardrails, and human-robot collaboration. We open-source RAX as a generalist robot-agent platform in which new robot embodiments are integrated through their APIs alone, without teleoperated data collection or policy training.",
+      "url": "https://arxiv.org/abs/2610.22496",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_planning",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "planning",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.21029",
+      "arxiv": "2610.21029",
+      "title": "SCARCE: Emergent Institutions in Long-Horizon Multi-Agent Coding Systems",
+      "authors": [
+        "Abhinav Kumar",
+        "Rediet Abebe",
+        "Eugene Bagdasarian",
+        "Sahar Abdelnabi"
+      ],
+      "published": "2026-10-15",
+      "updated": "2026-10-16",
+      "abstract": "As autonomous agents become widely deployed, coordinating access to shared computing resources and services will become increasingly important. Recent incidents have already revealed unplanned coordination between agents, highlighting the safety implications of these interactions. Yet prior studies of agent negotiation often use stylized games and simulated bargaining, leaving open how these behaviors develop during sustained, long-horizon tasks. We propose SCARCE (Shared Compute ARena for Coding agEnts), a framework in which agents solve sequences of coding tasks under individual deadlines while negotiating access to a shared execution resource. This negotiation determines when and for how long they can inspect programs, compile code, and run tests. We find that agents spontaneously develop informal institutions: persistent rules and commitments grounded in reputation, reciprocity, and precedent. These arrangements, which we call institutional behaviors, carry across tasks and influence resource allocation, with agents sometimes forgoing immediate advantages to honor earlier agreements. We develop a 21-category taxonomy of negotiation strategies and emergent norms and use it to analyze eight models and audit more than 1,500 trajectories across different environmental settings. Among the models tested, newer frontier models exhibit more institutional behaviors than older or lightweight models. Alongside cooperation, we observe exclusionary coalitions and rare divide-and-conquer strategies. SCARCE provides a controlled setting for proactively and systematically auditing how these relationships emerge, shape access to resources, and affect the safety and coordination of multi-agent systems.",
+      "url": "https://arxiv.org/abs/2610.21029",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_hybrid",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "persistent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.19520",
+      "arxiv": "2610.19520",
+      "title": "Spectral World Renderer: Unified 3D Hyperspectral Unmixing",
+      "authors": [
+        "Chia-Ming Lee",
+        "Yu-Jou Hsiao",
+        "Ming-Ching Chang",
+        "Xin Li",
+        "Yu-Lun Liu",
+        "Chih-Chung Hsu"
+      ],
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "abstract": "Cameras and the foundation models built on them recognize what a 3D scene contains, but not what it is made of: surfaces of the same colour can be different materials. Hyperspectral unmixing explains each spectrum as a mixture of material signatures, yet in 3D it is applied to rendered images after the views are composited, or tied to slow implicit fields, and no multi-view data with known composition exist to check the result. We present the Spectral World Renderer (SWR), which unifies world generation and unmixing. A coding agent builds executable 3D worlds that are rendered with measured spectra, so every hyperspectral image comes with exact labels and sub-pixel proportions; the resulting SWR-Bench provides eight indoor and outdoor worlds in which decompositions can be verified. SWR then unmixes inside rendering: each Gaussian of a compact 3D representation is decoded into material abundances before compositing, so one render yields spectra and material maps, and any surface can be queried by material name, a clicked pixel or a reference spectrum. Without material labels, SWR identifies materials best in all eight worlds, has the best mean PSNR on real captures, trains 3.7-12.9x faster than unmixing baselines, renders 34.9 labelled views/s and separates same-coloured materials.",
+      "url": "https://arxiv.org/abs/2610.19520",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "3d scene",
+          "coding agent",
+          "renderer",
+          "rendering"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.18867",
+      "arxiv": "2610.18867",
+      "title": "EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence",
+      "authors": [
+        "Wenyi Li",
+        "Yizhe Chi",
+        "Youjie Zheng",
+        "Chunyu Liu",
+        "Xiaoqiu Wang",
+        "Mingju Gao",
+        "Zheng Jiang",
+        "Deyao Hong",
+        "Calvin Xiao",
+        "Kaisen Yang",
+        "Qinhuai Na"
+      ],
+      "published": "2026-10-13",
+      "updated": "2026-10-14",
+      "abstract": "Coding agents can construct executable programs and revise them through feedback, offering a foundation for embodied control without target-task fine-tuning. Through a programmatic robot interface, the agent observes the scene, executes control programs, and adapts them to the resulting physical state, serving as the closed-loop policy. However, this within-episode adaptation does not automatically preserve experience across scenes. Our trajectory analysis shows that agents spend interaction and inference budgets establishing effective operations and identifying their preconditions, while fresh agents cannot reuse these discoveries. This motivates EmbodiedEvo, a self-evolving coding agent that distills physical feedback into reusable code Skills and diagnostic Lessons. Experience is acquired on one Playground scene per task, then frozen for independent agents in unseen scenes, without updating model weights. On RoboDojo-Sim, EmbodiedEvo achieves an average score of 44.48 and a success rate of 37.82\\%, surpassing all officially verified results. Paired tests show the largest gains on memory-dependent tasks and successful reuse of coordinated procedures, while fine contact control remains difficult. Experience from stronger models also improves weaker executors: Astra's experience raises Sol and Luna's success rates by 8.86 and 5.50 percentage points over no experience. Compared with raw interaction history, Skills and Lessons achieve comparable task performance at 53.0\\% lower execution cost.",
+      "url": "https://arxiv.org/abs/2610.18867",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.18845",
+      "arxiv": "2610.18845",
+      "title": "The Last Remote Sensing Model Built by Humans? Casting Any Earth Observation Task as Recursive Self-Improvement",
+      "authors": [
+        "Sijie Zhao",
+        "Zeqi Zhou",
+        "Heli Qi",
+        "Xuanchao Fu",
+        "Zhuo Zheng",
+        "Junshi Xia",
+        "Junjue Wang",
+        "Weihao Xuan",
+        "Naoto Yokoya"
+      ],
+      "published": "2026-10-13",
+      "updated": "2026-10-15",
+      "abstract": "Earth observation (EO) models are still built by hand. For each new task, experts design a training recipe and tune it against a benchmark. We show that this loop can be handed to an agent. Any verifiable task can be cast as a harness and a verifier, where the harness defines what the agent may use and the verifier defines what counts as success. Every EO task can be made verifiable, through labeled benchmarks, independent sensors, physical models or the repeated observation of the same place. Given only these two components, a general-purpose coding agent builds the EO model and improves it recursively on its own outputs. Settings long treated as separate research problems, from learning with a handful of labels to adapting across domains, become choices of harness and verifier. On six EO benchmarks spanning optical, SAR and multispectral time-series imagery, with outputs that range from land-cover maps and ship instances to canopy heights and answers about large images, agent-built models surpass the state of the art on every one, and on land-cover mapping, they do so from 11% of the training labels. This establishes a new paradigm for EO, in which people design harnesses and verifiers and agents build the models, so EO models improve as agents do.",
+      "url": "https://arxiv.org/abs/2610.18845",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.18454",
+      "arxiv": "2610.18454",
+      "title": "HEPTABench: A framework for portable and controlled agentic evaluations in high energy physics",
+      "authors": [
+        "Tony Menzo",
+        "Alexander Roman",
+        "George T. Fleming",
+        "Sergei Gleyzer",
+        "Konstantin Matchev",
+        "Stephen Mrenna"
+      ],
+      "published": "2026-10-13",
+      "updated": "2026-10-13",
+      "abstract": "Quantifying the capability and reliability of agentic systems in high-energy physics (HEP) requires repeated evaluations under controlled configurations. Establishing whether changes to models, tools, or harnesses improve performance also requires these components to be varied independently. We present the High Energy Physics Tool-and-Agent Benchmarking (HEPTABench) framework for portable and controlled evaluations of agentic systems, with separately configurable tasks, scaffolding, models, providers, harnesses, and domain capabilities. The framework combines HEP benchmark tasks and scientific rubrics with experiment execution and versioned tool interfaces. To support inspection, reproducibility, and post-hoc grading, the framework prioritizes recording and reporting complete experiment specifications, agent trajectories, and experiment artifacts. We demonstrate the framework in two benchmark campaigns. The first campaign evaluates a forward long-lived-particle reach calculation across four frontier coding-agent systems, comparing their built-in coding tools with the same tools supplemented by HEP domain tools. We show that including these HEP domain tools improves numerical accuracy and reduces trial-to-trial dispersion for every tested system. In a complementary campaign covering eight symbolic two-body decay tasks, we show that adding symbolic domain tools increases the fraction of successful trials for Claude Haiku 4.5 from $8\\%$ to $79\\%$, while GPT-5.5 succeeds in every trial with built-in tools alone. Through systematic evaluation of agentic systems, HEPTABench enables the identification of factors that improve the accuracy and reliability of their scientific work.",
+      "url": "https://arxiv.org/abs/2610.18454",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "evaluation"
+        ],
+        "relevance_score": 2,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.18444",
+      "arxiv": "2610.18444",
+      "title": "An Optical KV Cache Network for Disaggregated LLM Serving",
+      "authors": [
+        "Seongwon Yoon",
+        "Shimeng Yu"
+      ],
+      "published": "2026-10-13",
+      "updated": "2026-10-18",
+      "abstract": "In disaggregated LLM serving, each request's KV cache moves from a prefill GPU to a decode GPU before the response begins, and a coding-agent turn often moves the KV cache of its whole long context. Behind an oversubscribed packet fabric, this transfer adds to the time to first token (TTFT). An optical circuit switch (OCS) can give every transfer a full-rate circuit for less than an oversubscribed packet fabric costs, but a mechanical OCS needs tens of milliseconds to reconfigure. We hide this delay inside the prefill. A reservation scheduler commits each circuit while the prefill is still computing, so the circuit is ready when the KV cache is, and each GPU reaches the OCS through its own wavelength-multiplexed (WDM) optics on one fiber pair. In simulations of GPU clusters on real serving traces with prefill times measured on H100 GPUs, this optical KV cache network matches 400G packet fabrics with adaptive routing at 0.55 to 0.78 times the cost of a 2:1 fabric and tolerates the 50 ms reconfiguration delay of a 384-port mechanical OCS.",
+      "url": "https://arxiv.org/abs/2610.18444",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "simulation"
+        ],
+        "relevance_score": 1,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.15585",
+      "arxiv": "2610.15585",
+      "title": "StreamingWAM: Streaming World Action Modeling via Chunk-Wise Staircase Flow Matching",
+      "authors": [
+        "Shaojie Ren",
+        "Jingwen Sun",
+        "Zezhi Liu",
+        "Hongjin Chen",
+        "Xin Jin",
+        "Wei Zou",
+        "Zhibo Chen"
+      ],
+      "published": "2026-10-11",
+      "updated": "2026-10-11",
+      "abstract": "World Action Models (WAMs), often built upon pretrained video-generation world models, have emerged as a promising framework for general-purpose and open-ended robot control. However, their real-world deployment often suffers from discontinuous and jerky execution. Existing methods typically address this issue by either improving inference efficiency or enhancing action continuity across prediction chunks, without jointly addressing both challenges. To bridge this gap, we propose StreamingWAM, a streaming-diffusion framework for WAM-based robot control. StreamingWAM combines a noise ladder for chunk-wise action prediction, a prefix rollout module for cross-chunk continuity, and dense video-history memory for temporally consistent conditioning. Experiments on LIBERO, LIBERO-Plus, RoboTwin 2.0, and real-world robotic tasks demonstrate that StreamingWAM improves action continuity across static and dynamic settings, achieving competitive performance while reducing steady-state replanning latency to 72.9 ms in simulation and 57.3 ms on the real robot. The method also produces smoother action transitions, while the streaming staircase reduces sensitivity to the execution horizon K.",
+      "url": "https://arxiv.org/abs/2610.15585",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_planning",
+        "confidence": "low",
+        "matched_terms": [
+          "diffusion",
+          "planning",
+          "simulation"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.14726",
+      "arxiv": "2610.14726",
+      "title": "LightVAE: Towards Compact and Efficient Video Autoencoders",
+      "authors": [
+        "Shiqiao Gu",
+        "Yang Yong",
+        "Fengjun Zhong",
+        "Ruihao Gong",
+        "Chengtao Lv",
+        "Xiangyu Fan",
+        "Lei Yang",
+        "Xianglong Liu"
+      ],
+      "published": "2026-10-10",
+      "updated": "2026-10-10",
+      "abstract": "Latent diffusion models enable high-quality video generation, but video VAE encoding and decoding remain computationally expensive. Existing methods use stage-specific lightweight operators, yet either constrain spatial and temporal computation jointly or remove temporal computation altogether, without distinguishing their compression sensitivities in pretrained Conv3D. To address these limitations, we present LightVAE, a compression framework that exploits redundancy in temporal modeling and network depth. LightVAE exactly reparameterizes eligible causal Conv3D layers into an aggregate spatial response and a difference-driven temporal correction. Based on their distinct compression sensitivities, temporal low-rank compression (TLR) keeps the aggregate spatial kernel dense and applies layer-specific low-rank approximation only to the temporal correction. An algebraically equivalent folded implementation converts the arithmetic savings into practical acceleration. LightVAE further uses width-preserving block pruning to reduce depth and probe-guided feature alignment, guided by feedback from a frozen teacher suffix, to recover quality after compression. The framework also extends to video encoders. Across three video VAE backbones and two GPU platforms, LightVAE consistently accelerates decoding. For the Wan VAE family, it achieves up to $2.24\\times$ and $1.11\\times$ the decoding throughput of state-of-the-art efficient VAE decoders on NVIDIA H100 and RTX~5090, respectively, with higher DAVIS PSNR and lower LPIPS. On MiniMax-H3, it achieves up to $2.97\\times$ the original decoding throughput while retaining 99.51\\% of the original model's overall VBench-2.0 score. Our code is available at https://github.com/ModelTC/LightVAE.",
+      "url": "https://arxiv.org/abs/2610.14726",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "diffusion"
+        ],
+        "relevance_score": 1,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.14629",
+      "arxiv": "2610.14629",
+      "title": "Executable but Unfaithful: Mock Object, Stub, and Assertion Generation by LLMs and Coding Agents",
+      "authors": [
+        "Hao Ning",
+        "Jiahui Dong",
+        "Zhen Yang",
+        "Guanda Yan",
+        "Yichen Sun",
+        "Xuanyu Zhu",
+        "Zheng Shen",
+        "Yifei Pei",
+        "Jacky Keung",
+        "Jie M. Zhang"
+      ],
+      "published": "2026-10-10",
+      "updated": "2026-10-10",
+      "abstract": "Mocking is a foundational practice in unit testing, enabling developers to isolate the code under test by replacing real dependencies with simulated alternatives. Automating the generation of mock objects, stubs, and mock assertions has been a long-standing research goal. However, capture-and-replay approaches rely on recording the runtime behavior of actual dependencies. Evolutionary approaches such as StubCoder overcome this requirement but constrain generation to predefined symbol pools. Large language models (LLMs) and coding agents offer an alternative by generating mocking artifacts from source code without requiring recorded dependency executions or fixed symbol pools. Yet, no systematic study has evaluated their capabilities across all three artifact types. To address this gap, we construct MockBench, a benchmark comprising 165 mock artifact generation tasks from real-world Java and Python projects, with validated reference mock objects, stubs, and mock assertions. We evaluate six LLMs and three coding agents in terms of executability, behavior fidelity, and interaction-fault detection capability, complemented by comparisons with existing tools and sensitivity analysis. Experimental results show that LLMs and coding agents indeed have been the state-of-the-art techniques in mock-based testing. More specifically, compared with LLMs, coding agents substantially improve executability, while these gains do not consistently translate into higher behavior fidelity or better interaction-fault detection. Furthermore, we analyze 660 failures from LLMs and coding agents, and identify ten error types across the three artifact categories, revealing behavioral deviations that passing tests can conceal. Our findings highlight the challenges of mock artifact generation and provide practical guidance for both developers and researchers.",
+      "url": "https://arxiv.org/abs/2610.14629",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.13376",
+      "arxiv": "2610.13376",
+      "title": "EndoRSI: Physical-Evidence-Driven Recursive Improvement of Endoscopic Robot Policies",
+      "authors": [
+        "Chi Kit Ng",
+        "Yidong Zhang",
+        "Tianchun Wu",
+        "Siu Hing Lui",
+        "Hanlin Zhao",
+        "Huxin Gao",
+        "Hongliang Ren"
+      ],
+      "published": "2026-10-09",
+      "updated": "2026-10-09",
+      "abstract": "Artificial intelligence is beginning to automate scientific discovery, yet physical robot-policy research still relies on scientists and engineers to interpret experimental failures and decide how controllers should be revised. We present EndoRSI (Endoscopic Recursive Self-Improvement), a human-governed, self-improving robotic research system in which the embedded EndoForge coding agent iteratively develops and refines endoscopic robot policies using evidence from physical experiments. Physical execution remains isolated within a safety-constrained runtime under human authorisation. In motorised endoscopy, validation evidence first caused the agent to reject an initial action representation, while subsequent physical experiments falsified an offline-supported insertion strategy by revealing hazardous closed-loop behaviour absent from the source data. Failed physical rollouts were then incorporated into policy revision; insertion success subsequently increased from 2/21 in the first generation to 17/21 in the fourth. The frozen final policy retained competence across visual and hardware shifts and was the best performing autonomous policy across six independent ex-vivo porcine specimens. These results show that physical robot interaction can serve as experimental evidence for agent-driven robot policy research.",
+      "url": "https://arxiv.org/abs/2610.13376",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.13022",
+      "arxiv": "2610.13022",
+      "title": "Don't Guess, Just Ask: Evaluating Interactive Requirement Clarification for Repository-Level Software Development",
+      "authors": [
+        "Mingyu Chen",
+        "Zhiqing Zhong",
+        "Manyi Wang",
+        "Linxi Liang",
+        "Rouyu Chen",
+        "Pinjia He"
+      ],
+      "published": "2026-10-09",
+      "updated": "2026-10-09",
+      "abstract": "As LLMs become increasingly capable of implementing software, a critical bottleneck emerges: whether they truly understand what users want. Users often begin with vague intent, leaving important requirements to be clarified through interaction. In repository-level development, misunderstandings can propagate and cause costly rework. However, existing benchmarks typically evaluate implementation from complete specifications or underspecified requests, overlooking pre-coding requirement clarification. Prior clarification studies mainly focus on function-level tasks. It therefore remains unclear how well LLMs can transform vague intent into clear requirements through interaction and how this capability affects subsequent code generation. We introduce ReqClarifyBench, an interactive requirement clarification benchmark for repository-level software development. It contains 341 tasks spanning game, miniapp, and web development, each with a vague user intent, a human-validated requirement document, and code evaluation artifacts. We employ LLM-based user simulators with diverse personas derived from real-world conversations. We evaluate six LLMs in terms of clarification effectiveness and generated requirement document quality. Results show that stronger clarification effectiveness does not necessarily translate into higher document quality, and performance varies substantially across user personas. We also find that coding-agent harnesses do not further improve requirement document quality compared with their base LLMs. These findings offer insights for building LLM-based end-to-end software development systems.",
+      "url": "https://arxiv.org/abs/2610.13022",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "code generation",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.12549",
+      "arxiv": "2610.12549",
+      "title": "Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback",
+      "authors": [
+        "Jaewoo Lee",
+        "Jeongyeon Seo",
+        "Sihyun Cho",
+        "Gyeongrak Choe",
+        "Yutong Wang",
+        "Bavin Saravanan",
+        "Jia-Bin Huang",
+        "Furong Huang",
+        "Sebastian Scherer",
+        "Guanya Shi",
+        "H. Jin Kim",
+        "Seungjae Lee",
+        "Dongjae Lee"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Embodied coding agents construct robot policies from natural-language instructions by generating executable programs and refining them from execution feedback. This refinement assumes that execution feedback reveals whether the task succeeded and, after a failure, provides sufficient evidence to guide program revision. Aerial manipulation violates this assumption in two ways. Payload constraints restrict onboard camera coverage and leave task-critical outcomes outside the robot's view (partial observability), while strong dynamic coupling and limited control margins make physical interactions fragile (limited interaction robustness) and leave failure causes unresolved. Re-examining the same feedback cannot recover observations that were never collected or separate failure causes that the available evidence does not distinguish. To acquire this missing evidence, we introduce Active Feedback (AF), an active \"View and Probe\" framework. When execution feedback leaves unresolved questions, the agent synthesizes a separate diagnostic program that runs in simulation to inspect unseen outcomes from informative viewpoints (View) or test hypotheses about failure causes through targeted physical interactions (Probe). Across six simulated aerial manipulation tasks with 60 trials per condition, AF reduces false completion declarations from 25 to 5 and raises final task success from 31.7% to 75% compared with terminal feedback under the same coding-agent configuration and task-execution limit. Using shared robot APIs, task programs refined with AF in simulation run on a physical aerial manipulator without task-program source-code modification and complete multi-stage manipulation tasks in the real world. These results show that executable diagnosis fills gaps in execution feedback for embodied coding agents, improving both completion assessment and program refinement in aerial manipulation.",
+      "url": "https://arxiv.org/abs/2610.12549",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.12452",
+      "arxiv": "2610.12452",
+      "title": "BrickBench: Evaluating Agentic Brick Design",
+      "authors": [
+        "Peter Kulits",
+        "Yiqing Xu",
+        "R. Kenny Jones",
+        "Cordelia Schmid",
+        "Jiajun Wu"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "We propose BrickBench, a benchmark for agentic text-conditioned LEGO-set design. Given a prompt, an agent is tasked with producing an assembly that not only satisfies semantic and design criteria, but that can also be physically built. To do so, it must select parts from a discrete library and reason jointly about local and global constraints. We score validity, alignment, and design across three settings that vary in scale and part availability. We provide BrickAgent, an environment for coding agents to construct, inspect, and validate their designs. We find that leading agents largely satisfy verifiable physical and semantic requirements, but fall short of human designs. We release our benchmark and environment at http://www.brickben.ch",
+      "url": "https://arxiv.org/abs/2610.12452",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.12187",
+      "arxiv": "2610.12187",
+      "title": "Autonomous Code Migration for Quantum Programming Languages: A Case Study with QED-C Benchmarks",
+      "authors": [
+        "W. Michael Brown",
+        "Thien Nguyen",
+        "Avimita Chatterjee",
+        "Thomas Lubinski"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Quantum programming requires concepts and intuition that differ substantially from those used in traditional programming languages. Multiple quantum programming frameworks address these requirements through different abstractions and execution models, creating tradeoffs in programmability, portability, and performance. Because quantum software is less prevalent in the training data available to large language models, autonomous coding agents might be expected to face additional challenges when working with these frameworks. We present a case study in autonomous migration of the QED-C Application-Oriented Benchmarks from Qiskit to CUDA-Q. Opus, GPT, and Gemini models were each tasked with porting thirteen benchmark methods spanning foundational algorithms, amplitude estimation, Monte Carlo methods, variational optimization, linear-system solving, and factoring. In all cases, the models were able to generate satisfactory ports with little direct coding help and there was a drastic reduction in the time required compared to a human engineer. However, in all cases, the agents resorted to shortcuts when implementation challenges surfaced and multiple prompts were required to force appropriate coding directions. Assessment of the generated implementations showed that no single model consistently produced the best port across all benchmarks, indicating that multi-agent ensemble strategies could mitigate challenges associated with quantum software. The effort resulted in publicly available, near-complete CUDA-Q support in the QED-C benchmarks along with model-generated skills designed to improve agent performance when implementing CUDA-Q applications. When tested on an unseen benchmark, these skills reduced the required model turns by up to 85% and token usage by up to 96%. We conclude by distilling lessons from the case study.",
+      "url": "https://arxiv.org/abs/2610.12187",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "monte carlo"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.11883",
+      "arxiv": "2610.11883",
+      "title": "legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents",
+      "authors": [
+        "Pierre Gentine",
+        "Dhruv Balwada",
+        "Aytaç Paçal",
+        "Linnia Hawkins",
+        "Alistair Adcroft",
+        "Hang Fan",
+        "Jianing Fang",
+        "Aya Lahlou",
+        "Kara D. Lamb",
+        "David M. Lawrence",
+        "Julien Le Sommer",
+        "Joseph Mouallem",
+        "Juan Nathaniel",
+        "Duncan Watson-Parris",
+        "Veronika Eyring"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Earth system models (ESMs) have grown tremendously in realism, yet key uncertainties persist in the climate response to greenhouse-gas forcing, particularly due to cloud radiative feedbacks. In addition, their software architecture was not designed for accelerator hardware or modern artificial intelligence (AI). Here we present legoESM, a composable, differentiable, multiscale ESM written in JAX. It builds on decades of community-developed parameterizations and numerical methods, recast in a unified framework by AI coding agents under a human-specified scientific contract and verified through benchmarking. Dynamical cores, physics schemes, grids, complexity levels and components are swappable like building blocks, and can use conventional physics or machine-learned emulators. A single code base spans metre-scale large-eddy simulation to global simulations and weather to climate. End-to-end differentiability enables gradient-based calibration, variational data assimilation and online training. legoESM modular architecture enables systematic evaluation of diverse model variants to explore structural uncertainty and test hypotheses. legoESM produces realistic simulations across scales, reduces land-surface temperature bias through gradient-based calibration, and scales efficiently on GPUs to kilometer-scale simulations. It offers an open, community infrastructure for hypothesis testing, research and teaching in Earth sciences and a template for multiscale physical systems.",
+      "url": "https://arxiv.org/abs/2610.11883",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.11480",
+      "arxiv": "2610.11480",
+      "title": "RoboAware: Learning to Coordinate Embodied Skills from Counterfactual Outcomes",
+      "authors": [
+        "Bohan Zhou",
+        "Xingbei Chen",
+        "Emily Huang",
+        "Weilin Ruan",
+        "Haojian Huang",
+        "Yehang Zhang",
+        "Zexi Li",
+        "Wenqian Li",
+        "Qize Yu",
+        "Zetian Song",
+        "Leyi Wu",
+        "Jinghao Li",
+        "Mingxuan Song",
+        "Xinrun Xu",
+        "Zongyang Qiu",
+        "Yangkai Wei",
+        "Tianyi Zhang",
+        "Kaiwen Zhou",
+        "Yinchuan Li",
+        "James Cheng"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Embodied coding agents can combine modular robot skills with frozen end-to-end policies, yet effective composition requires anticipating which policy family will succeed in the current physical state. We present RoboAware, which builds on coding agents' skill orchestration by learning only a state-conditioned responsibility coordinator from counterfactual outcomes. Inspired by the success of REPL, we propose the $P^5$ schema and formulate a hierarchical MDP based on it. $P^5$ organizes skills uniformly into five semantic stages, defining where responsibility can be compared. To address the lack of counterfactual branch outcomes in existing work, we introduce State-Locked Counterfactual Branching (SCB), which restores the same training state to generate and execute a code block from each admissible family, exposing outcomes that selected-branch experience leaves unobserved. Building on this, we propose Execution-Aware Learning (EAL), which combines Monte Carlo tree search with Q-learning to distill these outcomes into family-conditioned values. At deployment, the coordinator selects the policy family according to observable context, and the frozen coding agent generates the next local code block. Comprehensive single-episode evaluations on 100 tasks show that RoboAware reaches a 77.0% overall success rate, with SOTA averages of 90.0% on RoboSuite, 73.8% on diverse LIBERO-Pro task clusters, and 90.0% on challenging RoboTwin bimanual tasks, outperforming existing code-as-policy and VLA-harness baselines.",
+      "url": "https://arxiv.org/abs/2610.11480",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation",
+          "monte carlo"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.11447",
+      "arxiv": "2610.11447",
+      "title": "Closed-loop evaluation of LLM agents for embedded software development",
+      "authors": [
+        "Jorge García-Carrasco",
+        "Sergio García-Carrasco",
+        "Alejandro Maté",
+        "Juan Trujillo"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Large language models (LLMs) are increasingly deployed as coding agents that edit files, run builds and tests, inspect execution results, and repair software iteratively. Embedded firmware is a demanding target because correctness depends on closed-loop behavior under sensing, timing, and safety constraints, not only on static source quality. Yet embedded-agent evaluation remains limited and often emphasizes one-shot synthesis or offline correctness. We present a benchmark for closed-loop evaluation of embedded coding agents. Each task provides a plain-text engineering description, constrained workspace, and visible build-and-runtime surface. The agent must translate requirements into implementation and self-verification steps, then iterate until the required device behavior is achieved. The suite contains five embedded-control tasks and four feedback scenarios: one-shot generation, realistic self-verification, CI-style red/green feedback, and oracle-style detailed feedback. The implementation targets simulated ESP32 firmware for reproducibility. We evaluate seven GPT-family and Qwen-family configurations across five tasks and four scenarios, with three repetitions per condition for 420 runs. gpt-5.4 has the highest pass rate among evaluated configurations but does not saturate the benchmark; qwen3.5-27B is the strongest observed local model; and smaller local models degrade sharply in pass rate and search efficiency. These results suggest that capable local embedded coding agents are emerging.",
+      "url": "https://arxiv.org/abs/2610.11447",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "verification"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.11299",
+      "arxiv": "2610.11299",
+      "title": "DuplexAgent-RSI: Recursive Harness Improvement for Full-Duplex Voice Agent Collaboration",
+      "authors": [
+        "Yingda Shen",
+        "Yuxiang Wang",
+        "Kunyu Feng",
+        "Qinke Ni",
+        "Jiaqi Li",
+        "Minghao Hsu",
+        "Junan Zhang",
+        "Dekun Chen",
+        "Yutong Bian",
+        "Zhizheng Wu"
+      ],
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "abstract": "Voice agents are converging on a collaboration pattern: a full-duplex interaction model stays on the live channel as the entry to the conversation, while search, reasoning, and coding are handled through asynchronous delegation. A duplex model supports continuous listening and speaking, but complex reasoning and tool use may exceed its capabilities. A coding agent can plan and execute extended tasks, but its sequential interface is a poor fit for live conversation. Combining them requires a harness that coordinates task acceptance, progress, cancellation, replacement, and result delivery while keeping the conversation responsive. Existing harnesses often rely on coupled heuristics, making them difficult to improve systematically from evidence. We present DuplexAgent, a full-duplex collaboration system whose harness expresses this workflow as six editable modules, and Duplex-Harness-RSI, a closed loop that revises them from interaction traces. A simulator automatically generates timed test conversations, runs the system, and produces failure traces that identify the collaboration modules requiring repair. Reasoning LLMs and coding agents in the delegation pool also serve the improvement loop: the Exam Planner selects the next tests from observed weaknesses and the repair archive, and the Harness Editor proposes targeted module changes. The capabilities that serve the user thus also improve the system's coordination. Experiments on intelligence, agentic, and duplex benchmarks show that DuplexAgent combines continuous interaction with difficult reasoning and complex task execution, achieving stronger spoken-knowledge and executable-tool scores than the compared delegated systems while maintaining strong interruption response. A harness ablation further shows that this modular, verifiable loop outperforms the initial harness and repeated editing that lacks its diagnosis and repair archive.",
+      "url": "https://arxiv.org/abs/2610.11299",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.10479",
+      "arxiv": "2610.10479",
+      "title": "Agentic RSR: Real-to-Sim-to-Real through Scene Reconstruction and Execution-Grounded Robot Policies",
+      "authors": [
+        "Yihan Li",
+        "Yating Feng",
+        "Shengjiu Sun",
+        "Jianing Chen",
+        "Hao Ren",
+        "Bowen Yang",
+        "Weisheng Xu",
+        "Qiwei Wu",
+        "Hui Cheng",
+        "Renjing Xu"
+      ],
+      "published": "2026-10-07",
+      "updated": "2026-10-11",
+      "abstract": "A simulation of a real robot workspace must preserve task-relevant interactions, while policies developed in it must operate on observations available to the real robot. Yet scene reconstruction and policy development are often treated separately. We present Agentic Real-to-Sim-to-Real (Agentic RSR), a framework that links scene reconstruction, policy development, and real-robot execution through the same manipulation task. Given a workspace video, a task description, and a known robot model, an agent recovers metric scale, iteratively refines the scene using visual feedback, and checks task-relevant interactions in MuJoCo. A coding agent then develops an executable policy, progressing from privileged object poses to visual observations and randomized simulation. The policy can interleave multiple observations and actions within one invocation, while the agent uses execution feedback to continue, retry, or revise its approach. A shared task-level interface carries the policy and accumulated experience to the real robot, where fresh observations and safety checks guide execution. Using Claude Opus 5.5 through DeepSeek Harness (DSH), all 18 scenes across two robots pass the joint visual check; mean four-view Depth MAE against reference depth estimates is 0.0808 m, mean Lab $ΔE_{76}$ is 8.01, and mean grayscale SSIM is 0.7338. In real-robot experiments, the aggregate task success rate reaches 80% of the simulation task success rate, indicating substantial retention of simulated performance on hardware. Code and reconstructed scene data will be made publicly available.",
+      "url": "https://arxiv.org/abs/2610.10479",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "reconstruct",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.09307",
+      "arxiv": "2610.09307",
+      "title": "vLLM-Omni Technical Report: A Unified Serving Runtime for Omni-Modality Generation",
+      "authors": [
+        "vLLM-Omni Team"
+      ],
+      "published": "2026-10-07",
+      "updated": "2026-10-07",
+      "abstract": "Interaction with intelligent systems is expanding beyond text-centric chatbots and coding agents. Speech-native assistants, visual generation and editing, world-model environments, and robot action loops require models that emit text, audio, images, video, and actions. These models differ in execution pattern: multi-stage autoregressive omni and TTS pipelines, iterative diffusion or flow-matching generators, and longer-lived world-model or robot loops that carry state across steps. As a result, serving is no longer a single text decode loop, but a heterogeneous multi-stage workflow with cross-stage transfer, streaming, and session-shaped interaction. Existing inference stacks are typically optimized for one architecture family. LLM servers deepen autoregressive scheduling and KV management, while diffusion stacks deepen denoising and parallel generation. Neither provides a shared control plane for pipelines that emit speech, pixels, or actions through separate generators, so production deployments often fall back to ad-hoc composition across disjoint runtimes. We present vLLM-Omni, a unified serving runtime for omni-modality generation. vLLM-Omni organizes each workload as a multi-stage pipeline under a single orchestrator that admits requests, advances them across stages, and demultiplexes streaming outputs. Specialized engines and stage replicas provide compute; a connector carries heavy payloads on the data plane; and session-oriented control supports long-lived duplex, world-model, and robot workloads. This report covers the architecture (stage-level KV paths, replica pools, multi-hardware platforms, and efficiency stack) and OpenAI-compatible and OpenPI APIs for omni, TTS, image/video, world-model, robot, and duplex workloads. We evaluate on the multimodal nightly CI on H100 (TTS and MiniCPM-o on H200), focused on Qwen3-Omni.",
+      "url": "https://arxiv.org/abs/2610.09307",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "diffusion"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.07261",
+      "arxiv": "2610.07261",
+      "title": "Verifying Coordination in Parallel Coding Agents: NP-Bench and a Scheduling Planner",
+      "authors": [
+        "Sumanyu Muku"
+      ],
+      "published": "2026-10-05",
+      "updated": "2026-10-05",
+      "abstract": "A team of coding agents can look fine agent by agent yet fail as a team: each passes its own tests while the merged result is broken, and single-agent evaluation never catches it. As teams run several LLM coding agents in parallel on one codebase, the agents collide: two rewrite the same function, one codes against a contract a teammate just changed, and integration fails after the work is done. Most coordination tools react (watch for a conflict, then warn), but at agent speed the warning arrives after the wasted edit. We recast the problem as scheduling: take each work item's declared scope, partition the work into disjoint scopes, and order merges along the producer->consumer graph, all up front. We build this planner into Nerveplane and evaluate it with NP-Bench, an environment-grounded three-arm benchmark (no coordination; reactive detection; proactive planning) that verifies integration off a real git merge, both in a deterministic simulation and with live agents. The planner lifts clean-integration from 1/9 to 9/9 scenarios and cuts merge conflicts from 13 to 0, with a gap that grows in the number of agents. On a live breaking contract change it rescues an outcome both baselines miss on every seed: the clean-integration rate rises from 0 (no coordination and reactive detection) to 1.0 on a frontier model and 0.6 on a small one, while agents respect assigned scopes (0/5 leakage). A cross-session memory drops the repeated-mistake rate from 1.00 to 0.00 on strong and weak models alike. We also report a negative result: routing facts to agents does not rescue long-context accuracy at window-fitting scales; its value is cost and capacity, not attention. Across two capability tiers and two vendors, the benefit did not shrink as models got stronger, because it comes from how work is allocated, not model reasoning.",
+      "url": "https://arxiv.org/abs/2610.07261",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "planning",
+          "simulation"
+        ],
+        "relevance_score": 7,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.06044",
+      "arxiv": "2610.06044",
+      "title": "RocketAgent: A Long-Horizon Engineering Agent for Multidisciplinary Design of Liquid-Rocket Thrust Chambers",
+      "authors": [
+        "Junxiang He",
+        "Runze Mao",
+        "Kun He",
+        "Teng Zhang",
+        "Liming Zheng",
+        "Ke Xiao",
+        "Zhi X. Chen"
+      ],
+      "published": "2026-10-05",
+      "updated": "2026-10-21",
+      "abstract": "Liquid-rocket thrust-chamber design involves interdependent analyses in which downstream constraints can require earlier design decisions to be revisited. Managing these dependencies across heterogeneous tools requires consistent design information and coordinated updates throughout the workflow. We present RocketAgent, a long-horizon engineering agent for multidisciplinary preliminary design of liquid-rocket thrust chambers. A single plan-owning Coding Agent coordinates engineering skills for performance sizing, subsystem optimization, geometry generation, and multiphysics assessment. A provenance-aware knowledge graph supports method selection, while a typed Design Intermediate Representation maintains shared parameters, artifacts, and decisions. Revision-aware checks invalidate affected results and block superseded inputs, with consequential changes subject to engineering approval. In a representative simulation-based design, RocketAgent continued from an infeasible cooling search through an engineer-authorized operating-point revision, identified feasible subsystem designs, and coordinated subsequent geometry generation and multiphysics assessment to support final configuration selection. Separate module tests assessed surrogate predictions and nozzle adaptation. A two-configuration comparison across three controlled scenarios verified the expected dependency invalidations and superseded-input blocking before solver execution. The representative case demonstrates sustained coordination across a multidisciplinary design workflow, while the controlled tests establish the behavior of the revision mechanisms supporting that execution.",
+      "url": "https://arxiv.org/abs/2610.06044",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.05033",
+      "arxiv": "2610.05033",
+      "title": "Code2Games: Enabling Coding Agents for Gaming World Generation",
+      "authors": [
+        "Wei Wu",
+        "Ziyang Xu",
+        "Zeyu Zhang",
+        "Yang Zhao",
+        "Hao Tang"
+      ],
+      "published": "2026-10-04",
+      "updated": "2026-10-04",
+      "abstract": "Generating a high-quality gaming world from a natural-language game intent requires joint reasoning about scene structure, spatial layout, gameplay objectives, interactive entities, and executable gameplay logic. Existing coding agents can generate individual assets, scenes, or scripts, but often struggle to maintain consistency across these components. We propose Code2Games, an agentic framework that builds a structured gaming world upon a base Blender world generated from the same game intent. Code2Games coordinates scene analysis, gameplay planning, constrained gaming-world generation, and gaming-engine customization through a shared scene-gameplay representation with persistent element correspondence. After world generation, Code2Games adapts the generated world to Unreal Engine 5 and employs an execution-guided reconstruction process that uses compilation diagnostics, runtime feedback, and gameplay test results to resolve inconsistencies arising during engine adaptation. To systematically evaluate gaming-world generation, we introduce the GameCode4D benchmark, which comprises ten fixed game prompts spanning different levels of scene and gameplay complexity. We evaluate the generated results across four dimensions: visual quality, interactive fidelity, multimodal artifact quality, and playable-game quality. Experiments demonstrate that, compared with direct gaming-world generation by coding agents and existing baseline methods, Code2Games consistently improves the visual quality and interactive fidelity of generated gaming worlds, as well as the quality of the resulting games after engine adaptation.",
+      "url": "https://arxiv.org/abs/2610.05033",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "asset",
+          "benchmark",
+          "coding agent",
+          "gameplay",
+          "persistent",
+          "planning",
+          "playable",
+          "reconstruct"
+        ],
+        "relevance_score": 10,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.04940",
+      "arxiv": "2610.04940",
+      "title": "Software World Models: From Consequence Prediction to Decision Value",
+      "authors": [
+        "Tongli Su",
+        "Yuntong Hu",
+        "Liang Zhao",
+        "Bowen Zhu",
+        "JayaSai Somasundaram",
+        "Hasibul Haque"
+      ],
+      "published": "2026-10-04",
+      "updated": "2026-10-04",
+      "abstract": "A coding agent may safely modify one repository while silently breaking downstream services, libraries, or datastores that depend on it. Exhaustively running integration tests after every agent action is impractical, so the agent must predict these failures before executing them. Existing software world models predict the agent's own observations, while static change-impact analysis only identifies where a change may propagate. We instead introduce the Software World Model (SWM), which models the broader system affected by a code change and predicts its blast set: the components that the change will break. SWM follows three stages: explore, learn, and act. Explore executes candidate changes from restored system states, prioritizing regions where observed failures contradict the dependency graph. Learn fine-tunes a language model on these execution outcomes to predict downstream breakage. Act converts sampled predictions into per-consumer break probabilities for change ranking, proactive migration, and deciding when another execution is worth its cost. On held-out synthetic systems, SWM improves blast-set F1 from 0.431 for static reachability to $0.571\\pm0.037$, more than halves ranking regret, and improves migration return at all nine evaluation checkpoints. The two methods are complementary: reachability is stronger on dependencies represented in the graph, while SWM recovers failures caused by couplings the graph misses. Experiments on held-out real libraries further show that predicting structured failure outcomes, rather than only scalar risk, is important for downstream decision quality.",
+      "url": "https://arxiv.org/abs/2610.04940",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.04561",
+      "arxiv": "2610.04561",
+      "title": "Recursive Improvement of a Differentiable Scientific Software Ecosystem",
+      "authors": [
+        "Pengcheng Hou",
+        "Xiaojun Tan",
+        "Sihan Hu",
+        "Ruisi Wang",
+        "Shuo Chen",
+        "Lei Wang",
+        "Youjin Deng",
+        "Kun Chen"
+      ],
+      "published": "2026-10-03",
+      "updated": "2026-10-12",
+      "abstract": "Differentiable programming connects scientific computation with gradient-based inference, learning and design. Extending these capabilities across a heterogeneous software ecosystem requires specialized effort to implement derivatives, integrate interfaces and evaluate quality. AI coding agents can accelerate this transformation, but translating their capabilities into useful scientific software requires identifying research needs and evaluating how well implementations meet them. We present an environment for agent-driven evolution of differentiable scientific software that connects demand identification, development and quality evaluation. A unified differentiation interface exposes reusable derivative rules alongside existing numerical routines, allowing research tasks to share these capabilities. Research requirements guide development, with implementations assessed through independent derivative checks, workflow tests and performance evaluation. Validated software, research programs and tests become shared resources for subsequent studies. We construct and validate automatic differentiation extensions across 20 packages spanning physical, chemical and biological modeling, with research workflows demonstrating reuse across tasks. Benchmarks demonstrate computational savings over finite differences in gradient evaluation and complete parameter estimation. Research-driven revisions make previously unsupported workflows differentiable, correct derivatives of scientific observables and eliminate redundant computation. Quantum-control and thermal-design studies revise objectives in response to physical evaluation, improving designs while reusing existing derivatives. This work provides a practical approach to expanding differentiable programming across established scientific software and organizing AI agents around the recursive improvement of a shared computational ecosystem.",
+      "url": "https://arxiv.org/abs/2610.04561",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-10-24",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
       "id": "arxiv-2610.27797",
       "arxiv": "2610.27797",
       "title": "Toward Agentic AI for the 6G Physical Layer: From Algorithm Discovery to Verified Baseband Silicon",
