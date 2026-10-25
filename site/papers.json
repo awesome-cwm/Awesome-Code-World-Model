@@ -830,7 +830,12 @@
           "kind": "project",
           "url": "https://robosimstudio.github.io",
           "provenance": "https://arxiv.org/abs/2610.18835"
-        }
+        },
+       {
+         "kind": "code",
+         "url": "https://github.com/robosimstudio/robosimstudio",
+        "provenance": "https://github.com/robosimstudio/robosimstudio/blob/main/README.md"
+       }
       ],
       "verification": {
         "status": "verified",
@@ -1303,7 +1308,7 @@
           "physics"
         ],
         "feedback": [
-          "none"
+           "execution"
         ],
         "interaction": [
           "editable",
@@ -1311,6 +1316,7 @@
         ],
         "evaluation": [
           "execution",
+          "visual",
           "physical",
           "functional"
         ],
@@ -1321,7 +1327,7 @@
           "unknown"
         ]
       },
-      "summary": "Tests mechanism executability, composition of interacting mechanisms, and intent-driven world synthesis. Its organizing question is whether structural and causal understanding becomes working physical interaction.",
+      "summary": "Benchmarks Blender-code worlds through mechanism executability, compositional executability and intent-driven synthesis. Reports execution success, visual structure, motion/causal mechanisms and goal satisfaction, including a constrained execution-error repair stage for API outputs.",
       "type": "preprint",
       "date_basis": "arxiv_first_submission",
       "resources": [
@@ -1348,9 +1354,10 @@
       ],
       "verification": {
         "status": "verified",
-        "basis": "primary_abstract",
-        "checked": "2026-10-21",
-        "source": "https://arxiv.org/abs/2610.15166"
+        "basis": "full_text",
+        "checked": "2026-10-25",
+        "source":  "https://arxiv.org/html/2610.15166v1"
+}
       },
       "cross_categories": [
         "u_inverse"
@@ -1443,7 +1450,7 @@
           "streaming"
         ]
       },
-      "summary": "Different simulation backends expose a common neural-rendering interface; agents improve by distilling experience into inherited playbooks.",
+      "summary": "Different simulation backends expose a common neural-rendering interface; agents improve by distilling experience into inherited playbooks. The public repository currently releases renderer training and streaming inference; the interactive frontend, code worlds and agent practice loop remain listed as pending.",
       "type": "preprint",
       "date_basis": "arxiv_first_submission",
       "resources": [
@@ -1456,6 +1463,16 @@
           "kind": "project",
           "url": "https://mirros-lab.github.io/agent-garten",
           "provenance": "https://arxiv.org/abs/2610.12374"
+        },
+        {
+          "kind": "weights",
+          "url": "https://huggingface.co/MirroS-Lab/AgentGarten-renderer",
+          "provenance": "https://github.com/MirroS-Lab/AgentGarten/blob/main/README.md"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/MirroS-Lab/AgentGarten",
+          "provenance": "https://github.com/MirroS-Lab/AgentGarten/blob/main/README.md"
         }
       ],
       "verification": {
@@ -1473,9 +1490,10 @@
       "classic_note": "",
       "resource_status": {
         "status": "available",
-        "checked": "2026-10-21",
+        "checked": "2026-10-25",
         "evidence": [
-          "https://mirros-lab.github.io/agent-garten"
+          "https://mirros-lab.github.io/agent-garten",
+          "https://github.com/MirroS-Lab/AgentGarten"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
@@ -1517,9 +1535,7 @@
           "physics"
         ],
         "feedback": [
-          "execution",
-          "physical",
-          "visual"
+          "execution"
         ],
         "interaction": [
           "offline"
@@ -1536,7 +1552,7 @@
           "unknown"
         ]
       },
-      "summary": "Agents must implement numerical solvers inside fixed scaffolds. Executability, rendered behavior and physical plausibility are scored separately.",
+      "summary":"Agents implement numerical solvers inside frozen scaffolds, with compile checks and limited implementation-error corrections during generation. After submission, frozen solver code is executed, rendered and scored for executability, visual fidelity and physical plausibility; evaluation metrics are hidden from the generation agents.",
       "type": "preprint",
       "date_basis": "arxiv_first_submission",
       "resources": [
@@ -1553,9 +1569,9 @@
       ],
       "verification": {
         "status": "verified",
-        "basis": "primary_abstract",
-        "checked": "2026-10-21",
-        "source": "https://arxiv.org/abs/2610.08720"
+        "basis": "full_text",
+        "checked": "2026-10-25",
+        "source":  "https://arxiv.org/html/2610.08720v1"
       },
       "cross_categories": [
         "u_verification",
