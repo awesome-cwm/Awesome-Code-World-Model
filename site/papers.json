@@ -849,9 +849,10 @@
       "classic_note": "",
       "resource_status": {
         "status": "available",
-        "checked": "2026-10-21",
+        "checked": "2026-10-25",
         "evidence": [
-          "https://robosimstudio.github.io"
+          "https://robosimstudio.github.io",
+          "https://github.com/robosimstudio/robosimstudio"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
@@ -1357,7 +1358,6 @@
         "basis": "full_text",
         "checked": "2026-10-25",
         "source":  "https://arxiv.org/html/2610.15166v1"
-}
       },
       "cross_categories": [
         "u_inverse"
@@ -1493,7 +1493,8 @@
         "checked": "2026-10-25",
         "evidence": [
           "https://mirros-lab.github.io/agent-garten",
-          "https://github.com/MirroS-Lab/AgentGarten"
+          "https://github.com/MirroS-Lab/AgentGarten",
+          "https://huggingface.co/MirroS-Lab/AgentGarten-renderer"
         ],
         "basis": "Public-resource convention of the reference list: code, weights, data or official project. A paper alone does not qualify."
       },
