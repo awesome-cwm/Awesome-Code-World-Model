@@ -230,7 +230,7 @@ Can generated environments grow with an agent's capabilities?
 
 **[2023-11] ✅🌟(The propose–generate–learn loop for generative simulation) [RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation](https://arxiv.org/abs/2311.01455) · [Code](https://github.com/Genesis-Embodied-AI/RoboGen) · [Project](https://robogen-ai.github.io/)**
 
-[2026-10] ✅[AgentGarten: Code Worlds for Evolving Agents](https://arxiv.org/abs/2610.12374) · [Project](https://mirros-lab.github.io/agent-garten)
+[2026-10] ✅[AgentGarten: Code Worlds for Evolving Agents](https://arxiv.org/abs/2610.12374) · [Project](https://mirros-lab.github.io/agent-garten) · [Weights](https://huggingface.co/MirroS-Lab/AgentGarten-renderer) · [Code](https://github.com/MirroS-Lab/AgentGarten)
 
 [2026-05] ❌️[SimWorld Studio: Automatic Environment Generation with Evolving Coding Agent for Embodied Agent Learning](https://arxiv.org/abs/2605.09423)
 
@@ -258,7 +258,7 @@ Which program and parameters explain the observations?
 
 [2026-10] ❌️[LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica](https://arxiv.org/abs/2610.25019)
 
-[2026-10] ✅[RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks](https://arxiv.org/abs/2610.18835) · [Project](https://robosimstudio.github.io)
+[2026-10] ✅[RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks](https://arxiv.org/abs/2610.18835) · [Project](https://robosimstudio.github.io) · [Code](https://github.com/robosimstudio/robosimstudio)
 
 [2026-10] ✅[PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction](https://arxiv.org/abs/2610.17288) · [Code](https://github.com/ShaoShuai0605/PhysCodeGym) · [Data](https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym)
 
@@ -413,7 +413,7 @@ Streaming delivery does not establish real-time control. Public resources do not
 
 - **From code to pixels**: [VideoCoCo](https://arxiv.org/abs/2607.27380) → [Code World Model](https://arxiv.org/abs/2608.25927) → [Programmable World Model](https://arxiv.org/abs/2609.10540) → [Code Video Model](https://code-video-model.github.io/) → [SolarRenderer](https://arxiv.org/abs/2610.28630) → [Matrix-Game 4.0](https://arxiv.org/abs/2610.27999)
 - **From observation to mechanism**: [GIF-MCTS / CWMB](https://arxiv.org/abs/2405.15383) → [MPMWorlds](https://arxiv.org/abs/2606.01538) → [Code as Worlds](https://arxiv.org/abs/2608.27549) → [Video2World](https://arxiv.org/abs/2610.04432) → [NeoWorld-3](https://arxiv.org/abs/2610.27690)
-- **From plausible to executable**: [Code2Worlds](https://arxiv.org/abs/2602.11757) → [SimWorlds](https://arxiv.org/abs/2607.01766) → [Text2Sim](https://arxiv.org/abs/2609.36593) → [WorldAgent](https://arxiv.org/abs/2609.33208) → [Code2Worlds-2](https://arxiv.org/abs/2610.17651) → [WorldSolver](https://arxiv.org/abs/2610.08720)
+- **From plausible to executable**: [Code2Worlds](https://arxiv.org/abs/2602.11757) → [SimWorlds](https://arxiv.org/abs/2607.01766) → [Text2Sim](https://arxiv.org/abs/2609.36593) → [WorldAgent](https://arxiv.org/abs/2609.33208) → [Code2Worlds-2](https://arxiv.org/abs/2610.17651) → [WorldSolver](https://arxiv.org/html/2610.08720v1)
 - **Worlds that train agents**: [RoboGen](https://arxiv.org/abs/2311.01455) → [FactorSim](https://arxiv.org/abs/2409.17652) → [SimWorld Studio](https://arxiv.org/abs/2605.09423) → [AgentGarten](https://arxiv.org/abs/2610.12374)
 
 
