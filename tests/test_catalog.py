@@ -62,7 +62,7 @@ class CatalogTests(unittest.TestCase):
         expected=[('index.html','Home'),('papers.html','Papers'),('taxonomy.html','Taxonomy'),('research.html','Research notes'),('contributing.html','Contribute'),('readme.html','Repository guide')]
         outputs=build.outputs(self.catalog,self.taxonomy,'example/repository')
         documents={path:content for path,content in outputs.items() if path.suffix=='.html'}
-        documents.update({ROOT/f'site/{name}.html':(ROOT/f'site/{name}.html').read_text(encoding='utf-8') for name in ['index','papers']})
+        documents[ROOT/'site/papers.html']=(ROOT/'site/papers.html').read_text(encoding='utf-8')
         for path,document in documents.items():
             with self.subTest(page=path.name):
                 navigation=re.search(r'<nav aria-label="Main navigation">(.*?)</nav>',document,re.S).group(1)
@@ -72,6 +72,24 @@ class CatalogTests(unittest.TestCase):
                 if path.stem not in {'index','papers','taxonomy','research','contributing','readme'}:
                     self.assertNotIn('aria-current=',navigation)
                     self.assertIn(f'href="{path.name}" aria-current="page"',document)
+
+    def test_search_home_uses_catalog_taxonomy_and_footer_navigation(self):
+        import re
+        outputs=build.outputs(self.catalog,self.taxonomy,'')
+        payload=outputs[ROOT/'site/catalog.js'].removeprefix('window.CWM_CATALOG = ').removesuffix(';\n')
+        self.assertEqual(json.loads(payload)['taxonomy'],self.taxonomy)
+        self.assertNotIn(ROOT/'site/index.html',outputs)
+        document=(ROOT/'site/index.html').read_text(encoding='utf-8')
+        self.assertNotIn('aria-label="Main navigation"',document)
+        footer=document.split('<footer',1)[1]
+        for target in ['taxonomy.html','research.html','contributing.html','papers.bib','papers.csv']:
+            self.assertIn(f'href="{target}"',footer)
+        self.assertIn('id="github-link"',footer)
+        self.assertIn('aria-live="polite"',document)
+        for control in ['search','filter-dialog','completions','paper-list','month-nav','detail-dialog','compare-dialog']:
+            self.assertIn(f'id="{control}"',document)
+        scripts=re.findall(r'<script src="([^"]+)"',document)
+        self.assertEqual(scripts,['theme.js','catalog.js','app.js'])
 
     def test_long_documents_have_unique_linked_section_anchors(self):
         document=build.document_page('Example', '# Title\n\n## Same\n\n## Same\n\n## Third\n\n## Fourth\n', 'example')
