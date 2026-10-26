@@ -454,7 +454,9 @@
   function initCommandHome() {
     $('#catalog-count').innerHTML=`${papers.length} <span>worlds indexed</span>`;
     $('#checked-date').textContent=`// curated ${curated_at}`;
-    if(window.CWM_CATALOG.repository)$('#github-link').href=`https://github.com/${window.CWM_CATALOG.repository}`;
+    if(window.CWM_CATALOG.repository) {
+      for(const link of document.querySelectorAll('#github-link, #github-home-link'))link.href=`https://github.com/${window.CWM_CATALOG.repository}`;
+    }
     // Keep the curated track/category hierarchy; expose other facets in Filters.
     const groups=[
       {id:'resources',label:'Classic works and public code',tags:[

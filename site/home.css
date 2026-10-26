@@ -20,7 +20,8 @@
 .command-header h1 em:first-child { color:var(--green); }
 .command-header h1 em:last-child { color:var(--blue); }
 .header-count { font:14px/1.5 var(--mono); color:var(--muted); padding-left:16px; border-left:1px solid var(--line); white-space:nowrap; }
-.command-header .theme-toggle { margin-left:auto; flex-shrink:0; }
+.command-home .github-home { display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; margin-left:auto; min-height:40px; padding:8px 12px; border:1px solid var(--border-selected); border-radius:6px; background:var(--surface); color:var(--green); font:600 14px/1.5 var(--sans); white-space:nowrap; }
+.command-header .theme-toggle { flex-shrink:0; }
 .command-toolbar { position:sticky; top:0; z-index:20; background:var(--paper); border-block:1px solid var(--line); }
 .command-toolbar-inner { max-width:1264px; padding:18px 36px 14px; margin:auto; position:relative; }
 .search-label { display:block; margin-bottom:6px; font:600 14px/1.5 var(--sans); }
@@ -171,7 +172,7 @@
 @media(max-width:800px) {
   .command-header { height:76px; padding:0 24px; gap:12px; }
   .command-header h1 { font-size:23px; }
-  .header-count { padding-left:12px; }
+  .header-count { display:none; }
   .command-toolbar-inner { padding:14px 24px 12px; }
   .command-layout { padding:0 24px; }
   .browse-tags { padding:12px 24px; }
@@ -189,6 +190,7 @@
   .command-brand { display:grid; place-items:center; }
   .command-header .brand-mark { width:29px; height:29px; font-size:18px; }
   .command-header h1 { flex:1; font-size:19px; line-height:1.15; letter-spacing:-.4px; }
+  .command-home .github-home { padding:6px 8px; }
   .header-count { border:0; padding:0; font-size:14px; text-align:center; }
   .header-count span { display:none; }
   .command-header .theme-toggle { width:40px; min-height:40px; padding:6px; }
