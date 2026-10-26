@@ -3,40 +3,38 @@
 <p><b>Executable worlds, organized by the research questions they answer.</b></p>
 <img src="site/banner.svg" width="100%" alt="Awesome Code World Model research map: generation builds executable worlds; understanding infers and tests world programs. Scenes, physics, rendering, interaction, reasoning and verification surround a shared program representation.">
 <p><b>Code builds worlds. Code explains worlds.</b></p>
-<p><a href="site/index.html"><img src="site/browse.svg" width="270" alt="Browse Interactive Webpage"></a></p>
+<p><a href="https://awesome-cwm.github.io/Awesome-Code-World-Model/"><img src="site/browse.svg" width="270" alt="Browse Interactive Webpage"></a></p>
 <p>Search papers · Filter mechanisms · Compare work · Explore benchmarks</p>
-<p><b>58 papers &amp; projects</b> · <b>21 benchmark suites</b> · <b>8 comparison dimensions</b><br>Sources checked 2026-10-21</p>
-<p><a href="#start-here">Start here</a> · <a href="#overview">Research map</a> · <a href="#benchmarks">Benchmark atlas</a> · <a href="docs/TAXONOMY.md">Taxonomy</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+<p><b>60 papers &amp; projects</b> · <b>23 benchmark suites</b> · <b>8 comparison dimensions</b><br>Sources checked 2026-10-23</p>
+<p><a href="#overview">Research map</a> · <a href="#benchmarks">Benchmark atlas</a> · <a href="docs/TAXONOMY.md">Taxonomy</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
 </div>
 
+---
 
-<a id="start-here"></a>
+<table width="100%">
+<tr>
+<td align="center">🌟 <b>Representative</b></td>
+<td align="center">✅ <b>Public resources</b></td>
+<td align="center">❌️ <b>Resources not found</b></td>
+</tr>
+</table>
 
-## 🧭 Start Here
+**Legend.** 🌟 Representative work appears first and in bold. ✅ links public code, data, weights or a project page; it does not certify an open-source license. Category dates use first submission; Recent Paper Updates may use collection-update dates. Unknown releases remain `Date TBC`.
 
-A **code world model** uses an executable program to represent a world's state, transition rules, physical mechanisms, or action-conditioned observations. This collection follows two complementary directions: **generation** turns intent into an executable world; **understanding** turns observations into programs that can be run, tested, and revised.
-
-| Research goal | Start with |
-| --- | --- |
-| Build persistent or playable worlds | [Code World Model · Generation](#code-world-model) |
-| Infer dynamics, rules, or scene programs | [Code as Model · Understanding](#code-as-model) |
-| Compare evaluation protocols | [Benchmarks & Evaluation](#benchmarks) |
-| Find datasets, harnesses, and streaming systems | [Datasets & Systems](#infrastructure) |
-| Understand classification boundaries | [Taxonomy & scope notes](docs/TAXONOMY.md) |
-
-**Scope boundary.** Generic coding agents, ordinary code-generation benchmarks, purely pixel/latent world models, and static graphics generation are excluded unless they make an explicit executable-world contribution.
-
+---
 
 <a id="news-updates"></a>
 
 ## 🚩 News & Updates
 
-🧭 **[2026-10-23] Research Map & README Refresh** — Separated interaction from streaming delivery; narrowed executable verification to methods, with benchmarks indexed by task. Refreshed the visual research map and compact reading index. All 58 records are retained.
+📚 **[2026-10-23] Two New Papers** — Added HARMONY for single-image scene reconstruction and VibeWorlding for 3D world construction.
 
-📊 **[2026-10-21] Benchmark Atlas & Infrastructure** — Added 14 works, including 4DCodeBench, BVB, BlenderWorld, PhysCodeGym, PhySimCode, ExeWorldBench, WorldStream and H3 Streaming VAE Decoder. Named benchmark suites now have task, artifact and evaluation indexes; 3DCodeVerse data and harness resources are linked.
+🧭 **[2026-10-23] Research Map & README Refresh** — Separated interaction from streaming delivery; narrowed executable verification to methods, with benchmarks indexed by task. Refreshed the visual research map and compact reading index. All 58 records are retained.
 
 <details>
 <summary>Earlier collection updates</summary>
+
+📊 **[2026-10-21] Benchmark Atlas & Infrastructure** — Added 14 works, including 4DCodeBench, BVB, BlenderWorld, PhysCodeGym, PhySimCode, ExeWorldBench, WorldStream and H3 Streaming VAE Decoder. Named benchmark suites now have task, artifact and evaluation indexes; 3DCodeVerse data and harness resources are linked.
 
 🔥 **[2026-10-21] Initial Collection** — 44 papers and projects covering Code World Model (generation) and Code as Model (understanding), including earlier foundations and the latest October releases.
 
@@ -158,7 +156,7 @@ Who owns state, rules and consequences outside the current frame?
 
 [2026-09] ✅[Programmable World Model](https://arxiv.org/abs/2609.10540) · [Project](https://alaya-lab.github.io/pwm) · [Code](https://github.com/AlayaLab/pwm)
 
-[Date TBC] ✅[WorldStream: Building 3D Worlds as You Explore](https://krennic999.github.io/WorldStream/blog/) · [Repository](https://github.com/krennic999/WorldStream) · [Project](https://krennic999.github.io/WorldStream/)
+[Date TBC] ✅[WorldStream: Building 3D Worlds as You Explore](https://krennic999.github.io/WorldStream/blog/) · [Project](https://github.com/krennic999/WorldStream) · [Project](https://krennic999.github.io/WorldStream/)
 
 
 <a id="g-rendering"></a>
@@ -188,7 +186,7 @@ Does generated code instantiate working physical mechanisms?
 
 [2026-10] ✅[Code2Worlds-2: Physically Plausible Agent Harness for Embodied World Simulation](https://arxiv.org/abs/2610.17651) · [Code](https://github.com/AIGeeksGroup/Code2Worlds-2) · [Project](https://aigeeksgroup.github.io/Code2Worlds-2)
 
-[2026-10] ✅[ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling](https://arxiv.org/abs/2610.15166) · [Project](https://helen1p.github.io/ExeWorldBench/) · [Repository](https://github.com/Helen1p/ExeWorldBench) · [Data](https://huggingface.co/datasets/HelenPeng/ExeWorldBench)
+[2026-10] ✅[ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling](https://arxiv.org/abs/2610.15166) · [Project](https://helen1p.github.io/ExeWorldBench/) · [Project](https://github.com/Helen1p/ExeWorldBench) · [Data](https://huggingface.co/datasets/HelenPeng/ExeWorldBench)
 
 [2026-09] ❌️[Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise](https://arxiv.org/abs/2609.36593)
 
@@ -213,6 +211,8 @@ Can a scene be edited, composed and loaded into a simulator?
 
 [2026-09] ✅[Code4Scene: Benchmarking Coding Agents for Constructing and Editing 3D Scenes](https://arxiv.org/abs/2609.36777) · [Code](https://github.com/SimWorld-AI/Code4Scene) · [Project](https://simworld-ai-code4scene.static.hf.space)
 
+[2026-08] ✅[VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?](https://arxiv.org/abs/2608.15265) · [Project](https://usail-hkust.github.io/VibeWorlding-Gym/) · [Code](https://github.com/usail-hkust/VibeWorlding-Gym) · [Data](https://huggingface.co/datasets/usail-hkust/VWE-Bench) · [Weights](https://huggingface.co/collections/usail-hkust/vibeworlder)
+
 [2026-05] ✅[3DCodeBench: Benchmarking Agentic Procedural 3D Modeling Via Code](https://arxiv.org/abs/2606.01057) · [Code](https://github.com/gaoypeng/3dcodebench) · [Project](https://www.3dcodebench.com/) · [Data](https://huggingface.co/datasets/YipengGao/3DCode)
 
 [2026-05] ✅[SceneCode: Executable World Programs for Editable Indoor Scenes with Articulated Objects](https://arxiv.org/abs/2605.19587) · [Project](https://scene-code.github.io/)
@@ -230,7 +230,7 @@ Can generated environments grow with an agent's capabilities?
 
 **[2023-11] ✅🌟(The propose–generate–learn loop for generative simulation) [RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation](https://arxiv.org/abs/2311.01455) · [Code](https://github.com/Genesis-Embodied-AI/RoboGen) · [Project](https://robogen-ai.github.io/)**
 
-[2026-10] ✅[AgentGarten: Code Worlds for Evolving Agents](https://arxiv.org/abs/2610.12374) · [Project](https://mirros-lab.github.io/agent-garten)
+[2026-10] ✅[AgentGarten: Code Worlds for Evolving Agents](https://arxiv.org/abs/2610.12374) · [Project](https://mirros-lab.github.io/agent-garten) · [Weights](https://huggingface.co/MirroS-Lab/AgentGarten-renderer) · [Code](https://github.com/MirroS-Lab/AgentGarten)
 
 [2026-05] ❌️[SimWorld Studio: Automatic Environment Generation with Evolving Coding Agent for Embodied Agent Learning](https://arxiv.org/abs/2605.09423)
 
@@ -258,7 +258,7 @@ Which program and parameters explain the observations?
 
 [2026-10] ❌️[LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica](https://arxiv.org/abs/2610.25019)
 
-[2026-10] ✅[RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks](https://arxiv.org/abs/2610.18835) · [Project](https://robosimstudio.github.io)
+[2026-10] ✅[RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks](https://arxiv.org/abs/2610.18835) · [Project](https://robosimstudio.github.io) · [Code](https://github.com/robosimstudio/robosimstudio)
 
 [2026-10] ✅[PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction](https://arxiv.org/abs/2610.17288) · [Code](https://github.com/ShaoShuai0605/PhysCodeGym) · [Data](https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym)
 
@@ -267,6 +267,8 @@ Which program and parameters explain the observations?
 [2026-10] ✅[Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos](https://arxiv.org/abs/2610.04432) · [Project](https://aetherlabsai.github.io/Video2World) · [Code](https://github.com/AetherLabsAI/Video2World) · [Data](https://huggingface.co/datasets/AetherLabs-AI/Video2World)
 
 [2026-10] ✅[4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes](https://arxiv.org/abs/2610.03715) · [Code](https://github.com/4DCodeBench/4DCodeBench) · [Project](https://4dcodebench.com/) · [Data](https://huggingface.co/datasets/4DCodeBench/Dataset-Real-World) · [Data](https://huggingface.co/datasets/4DCodeBench/Dataset-Synthetic)
+
+[2026-09] ✅[HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis](https://arxiv.org/abs/2609.26793) · [Project](https://cwchenwang.github.io/harmony/) · [Code](https://github.com/ShufanSun/harmony-release) · [Data](https://huggingface.co/datasets/ShufanSun/harmony)
 
 [2026-09] ✅[BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender](https://arxiv.org/abs/2609.15478) · [Code](https://github.com/yunlong10/BVB) · [Project](https://yoloytang.me/BVB/)
 
@@ -321,7 +323,7 @@ Compare the task, submitted artifact and evidence of success. These suites test 
 | Research task | Suites / resources |
 | --- | --- |
 | Video reconstruction & inverse graphics | [PhysCodeGym](https://github.com/ShaoShuai0605/PhysCodeGym) · [Video2World](https://aetherlabsai.github.io/Video2World) · [4DCodeBench](https://github.com/4DCodeBench/4DCodeBench) · [BVB / Blender-VideoBench](https://yoloytang.me/BVB/) |
-| Procedural 3D creation & scene editing | [Code4D](https://arxiv.org/abs/2602.11757) · [BlenderWorld](https://github.com/QwenLM/BlenderWorld) · [Code4Scene](https://arxiv.org/html/2609.36777v1) · [4DBuildBench](https://arxiv.org/abs/2607.01766) · [3DCodeBench / 3DCodeArena](https://www.3dcodebench.com/) · [BlenderGym](https://arxiv.org/html/2504.01786v1) |
+| Procedural 3D creation & scene editing | [Code4D](https://arxiv.org/abs/2602.11757) · [BlenderWorld](https://github.com/QwenLM/BlenderWorld) · [Code4Scene](https://arxiv.org/html/2609.36777v1) · [HARMONY300](https://github.com/ShufanSun/harmony-release#evaluation) · [VWE-Bench](https://arxiv.org/html/2608.15265v2) · [4DBuildBench](https://arxiv.org/abs/2607.01766) · [3DCodeBench / 3DCodeArena](https://www.3dcodebench.com/) · [BlenderGym](https://arxiv.org/html/2504.01786v1) |
 | Physical mechanisms, parameters & solvers | [MPMWorlds](https://arxiv.org/abs/2606.01538) · [PhysCodeGym](https://github.com/ShaoShuai0605/PhysCodeGym) · [PhySimCode](https://github.com/SourajaKundu/PhySimCode) · [ExeWorldBench](https://arxiv.org/abs/2610.15166) · [WorldSolver](https://arxiv.org/abs/2610.08720) · [GPUPhysBench](https://arxiv.org/html/2609.35639v1) · [4DBuildBench](https://arxiv.org/abs/2607.01766) |
 | Executable interaction, state & intervention | [Code World Models Benchmark (CWMB)](https://arxiv.org/abs/2405.15383) · [CEGame-Bench](https://arxiv.org/abs/2610.26098) · [SimCode4D](https://arxiv.org/abs/2610.17651) · [ExeWorldBench](https://arxiv.org/abs/2610.15166) · [Video2World](https://aetherlabsai.github.io/Video2World) · [IGMBench](https://vinesmsuic.github.io/IGMWorld/) · [CombatStateBench](https://arxiv.org/abs/2609.10540) |
 | Code-guided video generation | [CodeVideoBench](https://code-video-model.github.io/) |
@@ -338,7 +340,7 @@ Reusable code corpora, construction workflows and systems that deliver persisten
 | Research task | Suites / resources |
 | --- | --- |
 | Executable code & simulation corpora | [MPMWorlds](https://arxiv.org/abs/2606.01538) · [3DCodeVerse](https://3dcodeverse.com/) · [PhySimCode](https://github.com/SourajaKundu/PhySimCode) · [3DCodeBench / 3DCodeArena](https://www.3dcodebench.com/) |
-| Construction & verification harnesses | [3DCodeVerse](https://3dcodeverse.com/) · [Code2Worlds-2](https://arxiv.org/abs/2610.17651) · [AgentGarten](https://arxiv.org/abs/2610.12374) · [Text2Sim](https://arxiv.org/abs/2609.36593) · [WorldAgent](https://arxiv.org/abs/2609.33208) · [VeriPhy](https://arxiv.org/abs/2609.03153) · [SimWorlds](https://arxiv.org/abs/2607.01766) |
+| Construction & verification harnesses | [3DCodeVerse](https://3dcodeverse.com/) · [Code2Worlds-2](https://arxiv.org/abs/2610.17651) · [AgentGarten](https://arxiv.org/abs/2610.12374) · [Text2Sim](https://arxiv.org/abs/2609.36593) · [WorldAgent](https://arxiv.org/abs/2609.33208) · [HARMONY](https://cwchenwang.github.io/harmony/) · [VeriPhy](https://arxiv.org/abs/2609.03153) · [VibeWorlding](https://github.com/usail-hkust/VibeWorlding-Gym) · [SimWorlds](https://arxiv.org/abs/2607.01766) |
 | Streaming worlds, renderers & decoders | [SolarRenderer](https://arxiv.org/abs/2610.28630) · [Matrix-Game 4.0](https://arxiv.org/abs/2610.27999) · [WorldStream](https://krennic999.github.io/WorldStream/blog/) · [StreamRender-H3](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Streaming Code World Model](https://github.com/TingtingLiao/streaming-code-world-model) · [H3 Streaming VAE Decoder](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) |
 
 
@@ -411,7 +413,7 @@ Streaming delivery does not establish real-time control. Public resources do not
 
 - **From code to pixels**: [VideoCoCo](https://arxiv.org/abs/2607.27380) → [Code World Model](https://arxiv.org/abs/2608.25927) → [Programmable World Model](https://arxiv.org/abs/2609.10540) → [Code Video Model](https://code-video-model.github.io/) → [SolarRenderer](https://arxiv.org/abs/2610.28630) → [Matrix-Game 4.0](https://arxiv.org/abs/2610.27999)
 - **From observation to mechanism**: [GIF-MCTS / CWMB](https://arxiv.org/abs/2405.15383) → [MPMWorlds](https://arxiv.org/abs/2606.01538) → [Code as Worlds](https://arxiv.org/abs/2608.27549) → [Video2World](https://arxiv.org/abs/2610.04432) → [NeoWorld-3](https://arxiv.org/abs/2610.27690)
-- **From plausible to executable**: [Code2Worlds](https://arxiv.org/abs/2602.11757) → [SimWorlds](https://arxiv.org/abs/2607.01766) → [Text2Sim](https://arxiv.org/abs/2609.36593) → [WorldAgent](https://arxiv.org/abs/2609.33208) → [Code2Worlds-2](https://arxiv.org/abs/2610.17651) → [WorldSolver](https://arxiv.org/abs/2610.08720)
+- **From plausible to executable**: [Code2Worlds](https://arxiv.org/abs/2602.11757) → [SimWorlds](https://arxiv.org/abs/2607.01766) → [Text2Sim](https://arxiv.org/abs/2609.36593) → [WorldAgent](https://arxiv.org/abs/2609.33208) → [Code2Worlds-2](https://arxiv.org/abs/2610.17651) → [WorldSolver](https://arxiv.org/html/2610.08720v1)
 - **Worlds that train agents**: [RoboGen](https://arxiv.org/abs/2311.01455) → [FactorSim](https://arxiv.org/abs/2409.17652) → [SimWorld Studio](https://arxiv.org/abs/2605.09423) → [AgentGarten](https://arxiv.org/abs/2610.12374)
 
 

@@ -1,111 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720" role="img" aria-labelledby="title desc">
-  <title id="title">Awesome Code World Model taxonomy map</title>
-  <desc id="desc">A compact taxonomy map. Generation covers persistent worlds, rendering, simulation, scene programs and agent learning. Understanding covers reconstruction, reasoning, planning and verification. Both meet at an executable world program.</desc>
-  <defs>
-    <style>@font-face{font-family:'VT323';src:url('data:font/woff2;base64,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') format('woff2');font-style:normal;font-weight:400}</style>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020708"/><stop offset="0.54" stop-color="#061216"/><stop offset="1" stop-color="#041a1d"/></linearGradient>
-    <linearGradient id="titleInk" x1="0" x2="1"><stop stop-color="#efffff"/><stop offset="0.52" stop-color="#bcecff"/><stop offset="1" stop-color="#71f4d1"/></linearGradient>
-    <linearGradient id="worldInk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8274f4"/><stop offset="0.5" stop-color="#4da7e8"/><stop offset="1" stop-color="#39d0b7"/></linearGradient>
-    <radialGradient id="halo"><stop stop-color="#55c5dc" stop-opacity="0.34"/><stop offset="1" stop-color="#55c5dc" stop-opacity="0"/></radialGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#75ffd1" stroke-opacity="0.035"/></pattern>
-    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 1.5H1440" stroke="#c8ffff" stroke-opacity="0.025"/></pattern>
-    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V10" stroke="#75f5d2" stroke-opacity="0.08"/></pattern>
-    <filter id="shadow" x="-30%" y="-40%" width="160%" height="190%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#020817" flood-opacity="0.45"/></filter>
-    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="14"/></filter>
-    <filter id="neon" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur in="SourceGraphic" stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="thinNeon" x="-30%" y="-60%" width="160%" height="220%"><feMorphology in="SourceAlpha" operator="erode" radius="0.5" result="thin"/><feGaussianBlur in="thin" stdDeviation="1.1" result="blur"/><feFlood flood-color="#8fffea" flood-opacity="0.38" result="glowColor"/><feComposite in="glowColor" in2="blur" operator="in" result="glow"/><feFlood flood-color="#f1ffff" result="textColor"/><feComposite in="textColor" in2="thin" operator="in" result="glyph"/><feMerge><feMergeNode in="glow"/><feMergeNode in="glyph"/></feMerge></filter>
-    <clipPath id="worldClip"><circle cx="720" cy="455" r="109"/></clipPath>
-    <g id="cube" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m0-11 10 6v12L0 13-10 7V-5Z M-10-5 0 1 10-5M0 1v12"/></g>
-    <g id="node"><circle r="8" fill="currentColor" fill-opacity="0.2"/><circle r="3" fill="currentColor"/></g>
-    <g id="plate"><path d="M12 0H268L280 12V38L268 50H12L0 38V12Z" fill="currentColor" fill-opacity="0.13" stroke="currentColor" stroke-opacity="0.72"/><path d="M12 5H39M241 45h27" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/></g>
-    <g id="bolt"><circle r="5" fill="#071317" stroke="#65dac8" stroke-opacity="0.55"/><circle r="1.5" fill="#87ffe3"/></g>
-  </defs>
-
-  <rect width="1440" height="720" rx="28" fill="url(#bg)"/>
-  <rect width="1440" height="720" rx="28" fill="url(#grid)"/>
-  <rect width="1440" height="720" rx="28" fill="url(#scanlines)"/>
-  <ellipse cx="720" cy="440" rx="430" ry="280" fill="url(#halo)"/>
-  <circle cx="96" cy="92" r="2" fill="#61dfc8"/><circle cx="1330" cy="104" r="3" fill="#8d7cff" opacity="0.75"/>
-
-  <g font-family="Consolas,ui-monospace,monospace" font-size="12" fill="#74ff9f" opacity="0.23">
-    <text x="34" y="62">world = compile(spec)</text><text x="34" y="80">state = world.reset()</text><text x="34" y="98">while agent.active:</text><text x="48" y="116">obs = render(state)</text><text x="48" y="134">action = policy(obs)</text><text x="48" y="152">state = world.step(action)</text>
-    <text x="1215" y="78">if hypothesis.run():</text><text x="1232" y="96">verify(trace)</text><text x="1215" y="114">else:</text><text x="1232" y="132">revise(program)</text>
-  </g>
-  <g fill="none" stroke="#63f5d1" stroke-opacity="0.2" stroke-width="1.2">
-    <path d="M27 205V28h178M1413 174V28h-178M27 515v177h178M1413 515v177h-178"/>
-    <path d="M27 242h42l14 14h72M1413 224h-48l-14 14h-68"/>
-  </g>
-
-  <g opacity="0.34" fill="url(#hatch)" stroke="#56d7d1" stroke-opacity="0.35" stroke-width="1.2">
-    <path d="M40 276H377L407 306V626L383 650H40L25 635V291Z"/>
-    <path d="M1400 276H1063L1033 306V626L1057 650H1400L1415 635V291Z"/>
-  </g>
-  <g fill="none" stroke="#64e8d2" stroke-opacity="0.22">
-    <circle cx="720" cy="455" r="135" stroke-width="3" stroke-dasharray="3 12"/>
-    <circle cx="720" cy="455" r="151" stroke-width="1.5" stroke-dasharray="28 8 5 8"/>
-    <circle cx="242" cy="553" r="74" stroke-width="2" stroke-dasharray="7 10"/>
-    <circle cx="1198" cy="553" r="74" stroke-width="2" stroke-dasharray="7 10"/>
-    <path d="M421 292h92l18 18h70M1019 292h-92l-18 18h-70M382 649h92l16-16h76M1058 649h-92l-16-16h-76"/>
-  </g>
-  <g><use href="#bolt" x="42" y="294"/><use href="#bolt" x="42" y="632"/><use href="#bolt" x="1398" y="294"/><use href="#bolt" x="1398" y="632"/><use href="#bolt" x="720" y="292"/><use href="#bolt" x="720" y="650"/></g>
-
-  <g fill="none" stroke="#56d7d1" stroke-opacity="0.25" stroke-width="1.1">
-    <path d="M0 653 170 600 310 625 460 568 610 621 760 558 910 616 1070 557 1230 605 1440 548"/>
-    <path d="M0 684 180 631 327 658 468 601 618 653 769 591 918 648 1078 590 1238 640 1440 581"/>
-    <path d="M0 711 191 664 341 690 482 635 631 685 784 624 934 679 1093 623 1252 672 1440 617"/>
-    <path d="M1020 598v-94h35v76M1068 577v-132h42v112M1120 558v-73h34v61M1170 538v-163h48v144M1228 515v-108h38v93M1280 492v-151h45v135M1340 470v-88h34v78"/>
-    <path d="M1009 504h57M1058 445h63M1161 375h68M1270 341h66"/>
-  </g>
-
-  <g font-family="Bahnschrift SemiCondensed,DIN Alternate,Arial Narrow,Segoe UI,sans-serif" text-anchor="middle">
-    <text x="720" y="64" font-size="16" font-weight="700" letter-spacing="5" fill="#7e94b8">A MAP OF EXECUTABLE INTELLIGENCE</text>
-    <text x="720" y="132" font-family="VT323,monospace" font-size="72" letter-spacing="8" fill="#efffff" filter="url(#thinNeon)">Awesome</text>
-    <text x="723" y="220" font-family="VT323,monospace" font-size="94" letter-spacing="5" fill="#55ead5" opacity="0.18">Code World Model</text>
-    <text x="720" y="218" font-family="VT323,monospace" font-size="94" letter-spacing="5" fill="#f0fbfb" filter="url(#thinNeon)">Code World Model</text>
-    <text x="720" y="257" font-size="21" fill="#a9b8d2">Build worlds · Infer rules · Execute hypotheses</text>
-  </g>
-  <g opacity="0.72"><rect x="459" y="232" width="88" height="3" fill="#72f6d4"/><rect x="558" y="232" width="26" height="3" fill="#9a82ff"/><rect x="868" y="232" width="104" height="3" fill="#72f6d4"/><rect x="978" y="232" width="21" height="3" fill="#9a82ff"/></g>
-
-  <g font-family="Inter,Segoe UI,Arial,sans-serif">
-    <text x="90" y="302" font-size="15" font-weight="750" letter-spacing="2.5" fill="#a093ff">GENERATION</text>
-    <text x="90" y="339" font-family="VT323,monospace" font-size="46" font-weight="500" fill="#f1f3ff">Code builds worlds</text>
-    <text x="1350" y="302" text-anchor="end" font-size="15" font-weight="750" letter-spacing="2.5" fill="#62ddc9">UNDERSTANDING</text>
-    <text x="1350" y="339" text-anchor="end" font-family="VT323,monospace" font-size="46" font-weight="500" fill="#effffb">Code explains worlds</text>
-  </g>
-
-  <g fill="none" stroke-linecap="round" stroke-width="1.6">
-    <path d="M252 386C430 352 532 372 616 423M262 453C425 437 521 441 607 450M248 520C420 516 524 496 612 474M338 584C469 557 555 516 628 494M486 620C555 574 619 531 670 515" stroke="#8074ef" stroke-opacity="0.42"/>
-    <path d="M1188 386C1010 352 908 372 824 423M1178 453C1015 437 919 441 833 450M1192 520C1020 516 916 496 828 474M1102 584C971 557 885 516 812 494" stroke="#46cbb8" stroke-opacity="0.42"/>
-  </g>
-
-  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="680" filter="url(#shadow)">
-    <g color="#8e82f5" transform="translate(70 360)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eef0ff">Persistent worlds</text></g>
-    <g color="#8e82f5" transform="translate(90 425)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eef0ff">Rendering</text></g>
-    <g color="#8e82f5" transform="translate(65 490)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eef0ff">Simulation</text></g>
-    <g color="#8e82f5" transform="translate(130 555)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eef0ff">Scene programs</text></g>
-    <g color="#8e82f5" transform="translate(320 610)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eef0ff">Agent learning</text></g>
-
-    <g color="#48d0bc" transform="translate(1090 360)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eafffa">Reconstruction</text></g>
-    <g color="#48d0bc" transform="translate(1100 425)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eafffa">Reasoning</text></g>
-    <g color="#48d0bc" transform="translate(1115 490)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eafffa">Planning</text></g>
-    <g color="#48d0bc" transform="translate(1030 555)"><use href="#plate"/><use href="#node" x="25" y="25"/><text x="49" y="32" fill="#eafffa">Verification</text></g>
-  </g>
-
-  <circle cx="720" cy="455" r="142" fill="none" stroke="#64bed7" stroke-opacity="0.17" stroke-width="28" filter="url(#glow)"/>
-  <circle cx="720" cy="455" r="116" fill="#102541" stroke="url(#worldInk)" stroke-width="4"/>
-  <g clip-path="url(#worldClip)" fill="none" stroke="#79cfe1" stroke-opacity="0.45">
-    <ellipse cx="720" cy="455" rx="72" ry="108"/><ellipse cx="720" cy="455" rx="30" ry="108"/><ellipse cx="720" cy="455" rx="109" ry="66"/><ellipse cx="720" cy="455" rx="109" ry="27"/><path d="M611 455h218M720 347v216"/>
-  </g>
-  <g clip-path="url(#worldClip)" fill="url(#worldInk)" opacity="0.38"><path d="m638 389 34-18 28 11 8 23-20 8 7 25-19 17-25-9-5-27-22-10Z"/><path d="m738 374 40 10 7 20 33 17 9 26-22 15-24-8-16 28-24-13 4-27-18-18Z"/><path d="m695 481 30 6 19 28-13 33-25-8-7-25-16-17Z"/></g>
-  <g color="#b5c9e8" transform="translate(720 455) scale(1.35)"><use href="#cube"/></g>
-  <g font-family="Inter,Segoe UI,Arial,sans-serif" text-anchor="middle">
-    <text x="720" y="592" font-size="14" font-weight="750" letter-spacing="2.2" fill="#7891b8">EXECUTABLE WORLD PROGRAM</text>
-    <text x="720" y="617" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="17" fill="#78dfcf">world.step(action)</text>
-  </g>
-
-  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">
-    <path d="M448 670h154l10 10v20l-10 10H448l-10-10v-20Z" fill="#161f3c" stroke="#65749b" stroke-opacity="0.75"/><text x="525" y="694" fill="#c9d2e5">BENCHMARKS</text>
-    <path d="M620 670h200l10 10v20l-10 10H620l-10-10v-20Z" fill="#12263c" stroke="#5d8198" stroke-opacity="0.75"/><text x="720" y="694" fill="#c4d9e3">DATA &amp; SYSTEMS</text>
-    <path d="M838 670h154l10 10v20l-10 10H838l-10-10v-20Z" fill="#102d38" stroke="#568d8d" stroke-opacity="0.75"/><text x="915" y="694" fill="#c3dddb">RELATED WORK</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="660" viewBox="0 0 1440 660" role="img" aria-labelledby="title desc">
+<title id="title">Awesome Code World Model — an executable world research map</title>
+<desc id="desc">Scene programs, physical simulation, neural rendering, persistent worlds, reconstruction, reasoning, planning and verification surround a shared executable world. Generation builds a world from intent; understanding infers a program from observations.</desc>
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f5f7ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#eaf9f6"/></linearGradient>
+  <linearGradient id="ink"><stop stop-color="#5155d9"/><stop offset=".55" stop-color="#3878b9"/><stop offset="1" stop-color="#1ba698"/></linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e6f3ff"/><stop offset="1" stop-color="#8493ec"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#d6e8ff" stop-opacity=".65"/><stop offset="1" stop-color="#edf4ff" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#c6d3eb" opacity=".4"/></pattern>
+  <clipPath id="globe"><ellipse cx="720" cy="552" rx="296" ry="175"/></clipPath>
+  <g id="node"><circle r="29" fill="#fff" stroke="#d4dcf3" stroke-width="2"/><circle r="23" fill="currentColor" opacity=".1"/></g>
+  <g id="cube" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="m0-15 14 8v16L0 17-14 9V-7Z M-14-7 0 1 14-7M0 1v16"/></g>
+</defs>
+<rect width="1440" height="660" rx="24" fill="url(#bg)"/>
+<rect width="1440" height="660" rx="24" fill="url(#dots)"/>
+<ellipse cx="720" cy="312" rx="600" ry="300" fill="url(#halo)"/>
+<path d="M154 355C172 18 1252 10 1290 355" fill="none" stroke="#aebdea" stroke-width="1.7" stroke-dasharray="6 7"/>
+<path d="M154 355C222 542 1190 542 1290 355" fill="none" stroke="#a6d5e3" stroke-width="1.7" stroke-dasharray="6 7"/>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+  <g transform="translate(158 318)" color="#5972d7"><use href="#node"/><use href="#cube"/><text y="52" fill="#263c70" font-size="19">Scene programs</text></g>
+  <g transform="translate(274 170)" color="#6960d4"><use href="#node"/><path d="M-15 6Q-6-21 4 1T17-9M-18 12H18" fill="none" stroke="currentColor" stroke-width="2.5"/><text y="52" fill="#263c70" font-size="19">Physical simulation</text></g>
+  <g transform="translate(480 91)" color="#5a73d7"><use href="#node"/><rect x="-16" y="-11" width="32" height="23" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m-5-6 12 7-12 7Z" fill="currentColor"/><text y="52" fill="#263c70" font-size="19">Code-guided rendering</text></g>
+  <g transform="translate(720 66)" color="#329aa1"><use href="#node"/><path d="M-13 10V-9H13V10M-17 1H17M-5-15V16M5-15V16" fill="none" stroke="currentColor" stroke-width="2"/><text y="52" fill="#263c70" font-size="19">Persistent worlds</text></g>
+  <g transform="translate(960 91)" color="#329aa1"><use href="#node"/><use href="#cube"/><path d="M-20 0a20 20 0 0 1 27-19M7-23v7h7" fill="none" stroke="currentColor" stroke-width="2"/><text y="52" fill="#263c70" font-size="19">Inverse reconstruction</text></g>
+  <g transform="translate(1166 170)" color="#4e83be"><use href="#node"/><path d="m-17-1 9-7 8 12 15-17M-17 15h34" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="0" cy="4" r="3" fill="currentColor"/><text y="52" fill="#263c70" font-size="19">Reasoning &amp; planning</text></g>
+  <g transform="translate(1285 318)" color="#7661cd"><use href="#node"/><path d="M0-16 14-10v12C13 9 5 14 0 17-5 14-13 9-14 2v-12Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m-7 0 5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.5"/><text y="52" fill="#263c70" font-size="19">Verification</text></g>
+  <text x="720" y="217" font-size="16" letter-spacing="5" fill="#6979a0">A MAP OF EXECUTABLE INTELLIGENCE</text>
+  <text x="720" y="284" font-size="65" font-weight="700" fill="#16274f">Awesome</text>
+  <text x="720" y="359" font-size="72" font-weight="700" fill="url(#ink)">Code World Model</text>
+  <text x="720" y="401" font-size="24" fill="#687fa5">Build a world. Infer a program. Test what follows.</text>
+</g>
+<g clip-path="url(#globe)" transform="translate(0 48)">
+  <ellipse cx="720" cy="552" rx="296" ry="175" fill="url(#sea)" stroke="#9cb8e8" stroke-width="2"/>
+  <g fill="none" stroke="#fff" opacity=".65"><ellipse cx="720" cy="552" rx="202" ry="175"/><ellipse cx="720" cy="552" rx="91" ry="175"/><ellipse cx="720" cy="552" rx="296" ry="91"/><ellipse cx="720" cy="552" rx="296" ry="37"/><path d="M424 552h592M720 377v350"/></g>
+  <path d="m523 446 61-24 37 9 18 26-24 12 17 27-34 24-6 40-26 10-18-42-35-14 13-32-26-14Z M761 415l63 1 24 28 61 11 30 32-14 25-48-11-17 38-29 5-18-39-37 7-26-36-32-12Z M684 510l32 12 23 40-16 39-28-14-4-28-22-24Z" fill="#43aba9" opacity=".3"/>
+</g>
+<path d="M0 464 80 418l51 16 57-62 53 61 80 63-36 60H0Z" fill="#e6eafb"/>
+<path d="m0 496 79-40 45 31 70-52 119 99v68H0Z" fill="#d3def8"/>
+<path d="m1120 527 93-82 38 18 75-93 44 47 70 50v135h-320Z" fill="#dcecf8"/>
+<path d="m1130 561 119-61 29 20 75-61 87 49v94h-310Z" fill="#c6e3ec"/>
+<g font-family="Arial,Helvetica,sans-serif">
+  <rect x="70" y="468" width="382" height="139" rx="16" fill="#fff" stroke="#d6dff4"/>
+  <text x="95" y="501" font-size="14" letter-spacing="2" fill="#626bd0">01 / GENERATION</text>
+  <text x="95" y="539" font-size="25" font-weight="700" fill="#273e74">Code builds worlds</text>
+  <text x="95" y="575" font-size="19" fill="#657697">Intent → program → interaction</text>
+  <rect x="988" y="468" width="382" height="139" rx="16" fill="#fff" stroke="#cce6e5"/>
+  <text x="1013" y="501" font-size="14" letter-spacing="2" fill="#318f99">02 / UNDERSTANDING</text>
+  <text x="1013" y="539" font-size="25" font-weight="700" fill="#273e74">Code explains worlds</text>
+  <text x="1013" y="575" font-size="19" fill="#657697">Observe → infer → test</text>
+  <rect x="569" y="469" width="302" height="102" rx="14" fill="#23375e"/>
+  <g font-family="monospace" font-size="18"><text x="592" y="503" fill="#c5b7ff">world.step(action)</text><text x="592" y="537" fill="#96e1d9">→ state, observation</text></g>
+  <text x="720" y="636" text-anchor="middle" font-size="16" letter-spacing="2" fill="#536f97">PROGRAM · EXECUTE · OBSERVE · VERIFY</text>
+</g>
 </svg>
