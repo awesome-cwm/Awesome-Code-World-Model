@@ -13,9 +13,7 @@ We welcome papers, official projects, classification corrections and missing ear
 7. Set `collections` and `benchmarks` (empty arrays when not applicable). A named benchmark protocol records `name`, `input`, `artifact`, `checks`, `caveat` and a primary `source`. Benchmark names within method papers are aliases, not additional paper records. Keep collection membership aligned with the protocol and identify differences between paper and public-release versions.
 8. Run `python3 scripts/build.py` and `python3 -m unittest discover -s tests -v`; include generated files in the PR.
 
-Do not edit `site/catalog.js`, exported files, `docs/BENCHMARKS.md`, the generated README or HTML document pages directly. Edit `docs/README.template.md` for introductory copy and `scripts/build.py` (`document_page()`) for document navigation and layout, then regenerate with `python -X utf8 scripts/build.py`.
-
-For the frontend, edit `site/index.html` + `site/home.js` for the homepage, `site/papers.html` + `site/app.js` for the paper library, `site/style.css` for shared document styles, `site/theme.css` / `site/pages.css` for shared theme and page-specific styles, and `site/theme.js` for theme controls. See [docs/FRONTEND.md](docs/FRONTEND.md) for the full file responsibilities and browser checks.
+Do not edit `site/catalog.js`, exported files, `docs/BENCHMARKS.md` or the generated README directly. Edit `docs/README.template.md` for introductory copy. Edit `site/index.html`, `site/style.css` and `site/app.js` for the frontend.
 
 Add collection announcements to `data/updates.json`. Categories list representative works first and then other papers by first submission date, including cross-listed contributions.
 
