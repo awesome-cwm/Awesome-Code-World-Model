@@ -128,10 +128,8 @@ def render_benchmarks(catalog, taxonomy):
     return '\n'.join(parts)
 
 
-def readme_entry(p, recent=False, update_date=None):
+def readme_entry(p, recent=False):
     stamp = (p['published'] if recent else p['published'][:7]) if p['published'] else 'Date TBC'
-    if recent and update_date:
-        stamp = update_date
     availability = '✅' if p['resource_status']['status'] == 'available' else '❌️'
     primary = next((r['url'] for r in p['resources'] if r['kind'] == 'paper'), p['verification']['source'])
     title = p['title'].replace('[', r'\[').replace(']', r'\]')
@@ -139,7 +137,14 @@ def readme_entry(p, recent=False, update_date=None):
         return f'[{stamp}] {availability}[{title}]({primary})'
     star = f"🌟({p['classic_note']}) " if p['classic'] else ''
     line = f'[{stamp}] {availability}{star}[{title}]({primary})'
-    extras = [f"[{r['kind'].title()}]({r['url']})" for r in p['resources'] if r['kind'] != 'paper' and r['url'] != primary]
+    extras = []
+    for resource in p['resources']:
+        if resource['kind'] == 'paper' or resource['url'] == primary:
+            continue
+        label = resource['kind'].title()
+        if resource['kind'] == 'project' and urlparse(resource['url']).hostname == 'github.com':
+            label = 'Repository'
+        extras.append(f"[{label}]({resource['url']})")
     if extras:
         line += ' · ' + ' · '.join(extras)
     return f'**{line}**' if p['classic'] else line
@@ -147,25 +152,23 @@ def readme_entry(p, recent=False, update_date=None):
 
 def render_readme(catalog, taxonomy, repository):
     papers = catalog['papers']
-    updates = json.loads((ROOT / 'data/updates.json').read_text())
-    news = updates['news']
-    paper_updates = updates.get('paper_updates', {})
+    news = json.loads((ROOT / 'data/updates.json').read_text(encoding='utf-8'))['news']
     site_url = 'site/index.html'
     if repository:
         owner, repo = repository.split('/')
         site_url = f'https://{owner}.github.io/{repo}/'
     benchmarks = sum(len(p['benchmarks']) for p in papers)
-    intro = (ROOT / 'docs/README.template.md').read_text()
+    intro = (ROOT / 'docs/README.template.md').read_text(encoding='utf-8')
     intro = intro.replace('{{SITE_URL}}', site_url)
     intro = intro.replace('{{STATS}}', f"<b>{len(papers)} papers &amp; projects</b> · <b>{benchmarks} benchmark suites</b> · <b>{len(taxonomy['dimensions'])} comparison dimensions</b><br>Sources checked {catalog['curated_at']}")
     news_line = lambda n: f"{n['icon']} **[{n['date']}] {n['title']}** — {n['body']}"
     news_text = '\n\n'.join(news_line(n) for n in news[:2])
     news_text += '\n\n<details>\n<summary>Earlier collection updates</summary>\n\n' + '\n\n'.join(news_line(n) for n in news[2:]) + '\n\n</details>'
     parts = [intro.replace('{{NEWS}}', news_text), '\n<a id="recent-paper-updates"></a>\n## 🔥 Recent Paper Updates\n']
-    recent = sorted([p for p in papers if p['published']], key=lambda p:(paper_updates.get(p['id'], p['published']),p['id']), reverse=True)[:20]
-    parts.extend(readme_entry(p, recent=True, update_date=paper_updates.get(p['id']))+'\n' for p in recent[:6])
+    recent = sorted([p for p in papers if p['published']], key=lambda p:(p['published'],p['id']), reverse=True)[:20]
+    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[:6])
     parts.append('<details>\n<summary>More recent papers & projects with unconfirmed dates</summary>\n')
-    parts.extend(readme_entry(p, recent=True, update_date=paper_updates.get(p['id']))+'\n' for p in recent[6:])
+    parts.extend(readme_entry(p, recent=True)+'\n' for p in recent[6:])
     parts.append('**Official projects with unconfirmed first-release dates**\n')
     parts.extend(readme_entry(p, recent=True)+'\n' for p in papers if not p['published'])
     parts.append('</details>\n\n---\n\n<a id="overview"></a>\n## 🧭 Overview\n')
@@ -250,8 +253,8 @@ Repository code and original editorial content: [MIT](LICENSE). Papers and exter
 
 
 def web_link(url):
-    links={'docs/TAXONOMY.md':'taxonomy.html','TAXONOMY.md':'taxonomy.html','docs/TOPIC_REVIEW.md':'topic-review.html','TOPIC_REVIEW.md':'topic-review.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
-           'docs/DEPLOYMENT.md':'deployment.html','docs/FRONTEND.md':'frontend.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
+    links={'docs/TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
+           'docs/DEPLOYMENT.md':'deployment.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
            'docs/BENCHMARKS.md':'benchmarks.html','BENCHMARKS.md':'benchmarks.html','site/index.html':'./','data/papers.json':'papers.json','site/papers.bib':'papers.bib','site/papers.csv':'papers.csv','LICENSE':'LICENSE'}
     return links.get(url, url[5:] if url.startswith('site/') else url)
 
@@ -349,85 +352,27 @@ def markdown_body(content):
     return '\n'.join(out)
 
 
-def document_page(title, content, filename):
-    navigation = [('index', 'Home'), ('papers', 'Papers'), ('taxonomy', 'Taxonomy'), ('research', 'Research notes'), ('contributing', 'Contribute'), ('readme', 'Repository guide')]
-    links = ''.join(
-        f'<a href="{name}.html"'
-        + (' aria-current="page"' if name == filename else '')
-        + (' id="source-link" class="source-link"' if name == 'readme' else ' class="nav-secondary"' if name not in {'index', 'papers'} else '')
-        + f'>{label}</a>'
-        for name, label in navigation
-    )
-    # Supplemental documents identify themselves in the breadcrumb, not a changing main menu.
-    context_title = html.escape(title.split(' / ')[0])
-    current = (f'<a class="document-current" href="{html.escape(filename, quote=True)}.html" aria-current="page">{context_title}</a>'
-               if filename not in {name for name, _ in navigation} else f'<span>{context_title}</span>')
-    body = markdown_body(content)
-    headings = []
-    used_ids = set(re.findall(r'\bid="([^"]+)"', body))
-
-    def heading_anchor(match):
-        label = html.unescape(re.sub(r'<[^>]+>', '', match[1]))
-        slug = re.sub(r'[^\w-]+', '-', label.lower()).strip('-') or 'section'
-        anchor = slug
-        number = 2
-        while anchor in used_ids:
-            anchor = f'{slug}-{number}'
-            number += 1
-        used_ids.add(anchor)
-        headings.append((anchor, label))
-        return f'<h2 id="{anchor}">{match[1]}</h2>'
-
-    body = re.sub(r'<h2>(.*?)</h2>', heading_anchor, body)
-    toc = ''
-    if len(headings) >= 4:
-        entries = ''.join(f'<a href="#{html.escape(anchor, quote=True)}">{html.escape(label)}</a>' for anchor, label in headings)
-        toc = f'''<aside class="document-toc" aria-label="Table of contents">
-<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections">{entries}</nav></div>
-<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections">{entries}</nav></details>
-</aside>'''
-    return f'''<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5f4ef">
-<title>{html.escape(title)} — Awesome Code World Model</title>
-<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
-</head>
-<body class="document-page">
-<a class="skip-link" href="#document-content">Skip to content</a>
-<header class="header wrap">
-<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{{w}}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
-<nav aria-label="Main navigation">{links}</nav>
-</header>
-<main class="document{' has-toc' if toc else ''}">
-<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span>{current}</nav>
-{toc}
-<article class="prose" id="document-content">{body}</article>
-</main>
-</body></html>
-'''
+def document_page(title, content):
+    return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose">{markdown_body(content)}</article></main></html>\n'''
 
 
 def outputs(catalog, taxonomy, repository):
     validate(catalog, taxonomy)
     if repository:
         assert re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository), 'repository 格式应为 owner/name'
-    updates = json.loads((ROOT/'data/updates.json').read_text())
+    updates = json.loads((ROOT/'data/updates.json').read_text(encoding='utf-8'))
     payload = {**catalog, 'taxonomy': taxonomy, 'repository': repository, 'news': updates['news']}
     readme = render_readme(catalog, taxonomy, repository)
     benchmark_guide = render_benchmarks(catalog, taxonomy)
     out = {
         ROOT/'README.md': readme,
         ROOT/'docs/BENCHMARKS.md': benchmark_guide,
-        ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide, 'benchmarks'),
+        ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide),
         ROOT/'site/catalog.js': 'window.CWM_CATALOG = '+json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')+';\n',
         ROOT/'site/papers.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n',
         ROOT/'site/papers.bib': '\n\n'.join(bibtex(p) for p in catalog['papers'])+'\n',
         ROOT/'site/.nojekyll': '',
-        ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(),
+        ROOT/'site/LICENSE': (ROOT/'LICENSE').read_text(encoding='utf-8'),
     }
     buf=io.StringIO(newline='')
     fields=['id','title','published','date_basis','type','track','category','scope','collections','benchmark_names','benchmark_protocols']+[d['id'] for d in taxonomy['dimensions']]+['source','summary']
@@ -444,10 +389,8 @@ def outputs(catalog, taxonomy, repository):
         writer.writerow({k:("'"+v if isinstance(v,str) and v.startswith(('=','+','-','@')) else v) for k,v in row.items()})
     out[ROOT/'site/papers.csv']=buf.getvalue()
     for filename,title,source in [('taxonomy','Taxonomy / 分类说明',ROOT/'docs/TAXONOMY.md'),('research','Research scope / 核验记录',ROOT/'docs/RESEARCH.md'),('contributing','Contributing / 参与维护',ROOT/'CONTRIBUTING.md'),('deployment','Deployment / 部署',ROOT/'docs/DEPLOYMENT.md'),('crawler','Crawler / 爬虫交接',ROOT/'docs/CRAWLER_HANDOFF.md'),('agent-review','Agent review prompt',ROOT/'docs/AGENT_REVIEW_PROMPT.md')]:
-        out[ROOT/f'site/{filename}.html']=document_page(title, source.read_text(), filename)
-    out[ROOT/'site/topic-review.html']=document_page('Per-paper topic review', (ROOT/'docs/TOPIC_REVIEW.md').read_text(), 'topic-review')
-    out[ROOT/'site/frontend.html']=document_page('Web frontend maintenance / 前端维护', (ROOT/'docs/FRONTEND.md').read_text(), 'frontend')
-    out[ROOT/'site/readme.html']=document_page('Repository guide',readme, 'readme')
+        out[ROOT/f'site/{filename}.html']=document_page(title, source.read_text(encoding='utf-8'))
+    out[ROOT/'site/readme.html']=document_page('Repository guide',readme)
     return out
 
 
@@ -456,13 +399,13 @@ def main():
     parser.add_argument('--check', action='store_true', help='只检查生成结果是否同步')
     parser.add_argument('--repository', default='', help='GitHub owner/repository，用于生成公开链接')
     args=parser.parse_args()
-    catalog=json.loads((ROOT/'data/papers.json').read_text())
-    taxonomy=json.loads((ROOT/'data/taxonomy.json').read_text())
+    catalog=json.loads((ROOT/'data/papers.json').read_text(encoding='utf-8'))
+    taxonomy=json.loads((ROOT/'data/taxonomy.json').read_text(encoding='utf-8'))
     stale=[]
     for path, content in outputs(catalog,taxonomy,args.repository).items():
         if args.check:
             # newline='' 保留 CSV 的标准 CRLF 行尾。
-            if not path.exists() or path.open(newline='').read()!=content: stale.append(str(path.relative_to(ROOT)))
+            if not path.exists() or path.open(encoding='utf-8', newline='').read()!=content: stale.append(str(path.relative_to(ROOT)))
         else:
             path.write_bytes(content.encode('utf-8'))
     if stale:
