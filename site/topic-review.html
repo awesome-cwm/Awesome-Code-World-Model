@@ -1,7 +1,29 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Per-paper topic review — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>Per-paper Topic Review</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Per-paper topic review — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document has-toc">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><a class="document-current" href="topic-review.html" aria-current="page">Per-paper topic review</a></nav>
+<aside class="document-toc" aria-label="Table of contents">
+<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections"><a href="#solarrenderer">SolarRenderer</a><a href="#neoworld-3">NeoWorld-3</a><a href="#matrix-game-4-0">Matrix-Game 4.0</a><a href="#cegame-bench">CEGame-Bench</a><a href="#physical-system-models-in-modelica">Physical System Models in Modelica</a><a href="#mallea">Mallea</a><a href="#3dcodeverse">3DCodeVerse</a><a href="#blenderworld">BlenderWorld</a><a href="#robosimstudio">RoboSimStudio</a><a href="#code2worlds-2">Code2Worlds-2</a><a href="#physcodegym">PhysCodeGym</a><a href="#physimcode">PhySimCode</a><a href="#ante">ANTE</a><a href="#exeworldbench">ExeWorldBench</a><a href="#agentgarten">AgentGarten</a><a href="#worldsolver">WorldSolver</a><a href="#video2world">Video2World</a><a href="#4dcodebench">4DCodeBench</a><a href="#igmworld-igmbench">IGMWorld / IGMBench</a><a href="#physis-lang">Physis-Lang</a><a href="#text2sim">Text2Sim</a><a href="#code4scene">Code4Scene</a><a href="#gpuphysbench">GPUPhysBench</a><a href="#worldagent">WorldAgent</a><a href="#gamedirector">GameDirector</a><a href="#coder">CoDeR</a><a href="#bvb-blender-videobench">BVB / Blender-VideoBench</a><a href="#recursive-code-world-models">Recursive Code World Models</a><a href="#programmable-world-model">Programmable World Model</a><a href="#veriphy">VeriPhy</a><a href="#code-as-worlds">Code as Worlds</a><a href="#code-world-model">Code World Model</a><a href="#videococo">VideoCoCo</a><a href="#visualpatchworld">VisualPatchWorld</a><a href="#gs-agent">GS-Agent</a><a href="#simworlds">SimWorlds</a><a href="#mpmworlds">MPMWorlds</a><a href="#3dcodebench-3dcodearena">3DCodeBench / 3DCodeArena</a><a href="#scenecode">SceneCode</a><a href="#simworld-studio">SimWorld Studio</a><a href="#code2worlds">Code2Worlds</a><a href="#debugging-code-world-models">Debugging Code World Models</a><a href="#swe-world">SWE-World</a><a href="#code-world-models-for-general-game-playing">Code World Models for General Game Playing</a><a href="#cwm-meta">CWM (Meta)</a><a href="#blendergym">BlenderGym</a><a href="#factorsim">FactorSim</a><a href="#gif-mcts-cwmb">GIF-MCTS / CWMB</a><a href="#physdreamer">PhysDreamer</a><a href="#scenecraft-blender-code">SceneCraft (Blender code)</a><a href="#holodeck">Holodeck</a><a href="#robogen">RoboGen</a><a href="#world-programs">World Programs</a><a href="#worldstream">WorldStream</a><a href="#streamrender-h3">StreamRender-H3</a><a href="#streaming-code-world-model">Streaming Code World Model</a><a href="#h3-streaming-vae-decoder">H3 Streaming VAE Decoder</a><a href="#code-video-model">Code Video Model</a></nav></div>
+<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections"><a href="#solarrenderer">SolarRenderer</a><a href="#neoworld-3">NeoWorld-3</a><a href="#matrix-game-4-0">Matrix-Game 4.0</a><a href="#cegame-bench">CEGame-Bench</a><a href="#physical-system-models-in-modelica">Physical System Models in Modelica</a><a href="#mallea">Mallea</a><a href="#3dcodeverse">3DCodeVerse</a><a href="#blenderworld">BlenderWorld</a><a href="#robosimstudio">RoboSimStudio</a><a href="#code2worlds-2">Code2Worlds-2</a><a href="#physcodegym">PhysCodeGym</a><a href="#physimcode">PhySimCode</a><a href="#ante">ANTE</a><a href="#exeworldbench">ExeWorldBench</a><a href="#agentgarten">AgentGarten</a><a href="#worldsolver">WorldSolver</a><a href="#video2world">Video2World</a><a href="#4dcodebench">4DCodeBench</a><a href="#igmworld-igmbench">IGMWorld / IGMBench</a><a href="#physis-lang">Physis-Lang</a><a href="#text2sim">Text2Sim</a><a href="#code4scene">Code4Scene</a><a href="#gpuphysbench">GPUPhysBench</a><a href="#worldagent">WorldAgent</a><a href="#gamedirector">GameDirector</a><a href="#coder">CoDeR</a><a href="#bvb-blender-videobench">BVB / Blender-VideoBench</a><a href="#recursive-code-world-models">Recursive Code World Models</a><a href="#programmable-world-model">Programmable World Model</a><a href="#veriphy">VeriPhy</a><a href="#code-as-worlds">Code as Worlds</a><a href="#code-world-model">Code World Model</a><a href="#videococo">VideoCoCo</a><a href="#visualpatchworld">VisualPatchWorld</a><a href="#gs-agent">GS-Agent</a><a href="#simworlds">SimWorlds</a><a href="#mpmworlds">MPMWorlds</a><a href="#3dcodebench-3dcodearena">3DCodeBench / 3DCodeArena</a><a href="#scenecode">SceneCode</a><a href="#simworld-studio">SimWorld Studio</a><a href="#code2worlds">Code2Worlds</a><a href="#debugging-code-world-models">Debugging Code World Models</a><a href="#swe-world">SWE-World</a><a href="#code-world-models-for-general-game-playing">Code World Models for General Game Playing</a><a href="#cwm-meta">CWM (Meta)</a><a href="#blendergym">BlenderGym</a><a href="#factorsim">FactorSim</a><a href="#gif-mcts-cwmb">GIF-MCTS / CWMB</a><a href="#physdreamer">PhysDreamer</a><a href="#scenecraft-blender-code">SceneCraft (Blender code)</a><a href="#holodeck">Holodeck</a><a href="#robogen">RoboGen</a><a href="#world-programs">World Programs</a><a href="#worldstream">WorldStream</a><a href="#streamrender-h3">StreamRender-H3</a><a href="#streaming-code-world-model">Streaming Code World Model</a><a href="#h3-streaming-vae-decoder">H3 Streaming VAE Decoder</a><a href="#code-video-model">Code Video Model</a></nav></details>
+</aside>
+<article class="prose" id="document-content"><h1>Per-paper Topic Review</h1>
 <p>Every record was individually checked against the primary sources linked below. README placement is an editorial choice based on the main contribution; website topics overlap. Reading scope is stated per source. No independent reproduction is claimed.</p>
 <p>The topic vocabulary is defined in <a href="taxonomy.html">the topic guide</a>. Reasons and source links are also available in <code>data/papers.json</code>.</p>
-<h2>SolarRenderer</h2>
+<h2 id="solarrenderer">SolarRenderer</h2>
 <ul>
 <li><strong>Record:</strong> <code>solarrenderer</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -27,7 +49,7 @@
 <ul>
 <li>The 28 FPS claim concerns the causal renderer; it is not an end-to-end user-input latency measurement. Hardware was not specified beside that claim in the read section.</li>
 </ul>
-<h2>NeoWorld-3</h2>
+<h2 id="neoworld-3">NeoWorld-3</h2>
 <ul>
 <li><strong>Record:</strong> <code>neoworld-3</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -45,7 +67,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.27690">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>Matrix-Game 4.0</h2>
+<h2 id="matrix-game-4-0">Matrix-Game 4.0</h2>
 <ul>
 <li><strong>Record:</strong> <code>matrix-game-4</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -77,7 +99,7 @@
 <li>General World Model denotes an integrated framework, not universal zero-shot gameplay: section 4.2 trains one renderer per game.</li>
 <li>No Long Video Generation tag: sustained gameplay is motivated, but a distinct long-duration video evaluation was not found in the read sections.</li>
 </ul>
-<h2>CEGame-Bench</h2>
+<h2 id="cegame-bench">CEGame-Bench</h2>
 <ul>
 <li><strong>Record:</strong> <code>cegame-bench</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -95,7 +117,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.26098">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>Physical System Models in Modelica</h2>
+<h2 id="physical-system-models-in-modelica">Physical System Models in Modelica</h2>
 <ul>
 <li><strong>Record:</strong> <code>modelica-agents</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -118,7 +140,7 @@
 <ul>
 <li>This is an empirical calibration and acceptance study, not a newly introduced standardized public benchmark.</li>
 </ul>
-<h2>Mallea</h2>
+<h2 id="mallea">Mallea</h2>
 <ul>
 <li><strong>Record:</strong> <code>mallea</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -146,7 +168,7 @@
 <li>Only qualitative examples are currently presented; memory ablations and long-horizon revisit benchmarks are announced for later release.</li>
 <li>No Real-Time or Long Video Generation tag: the read paper does not establish measured real-time performance or a demonstrated long-duration video result.</li>
 </ul>
-<h2>3DCodeVerse</h2>
+<h2 id="3dcodeverse">3DCodeVerse</h2>
 <ul>
 <li><strong>Record:</strong> <code>3dcodeverse</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -170,7 +192,7 @@
 <li>The harness uses several coding agents; that does not warrant Multi-Agent, which is reserved for agents interacting inside a simulated world.</li>
 <li>No separate Benchmark tag: 3DCodeBench is a held-out evaluation suite and a separate catalog paper, rather than the main contribution here.</li>
 </ul>
-<h2>BlenderWorld</h2>
+<h2 id="blenderworld">BlenderWorld</h2>
 <ul>
 <li><strong>Record:</strong> <code>blenderworld</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -194,7 +216,7 @@
 <ul>
 <li>Interactive and parametric evaluation is listed as future work; do not tag Interactive solely because the deliverables are editable Blender files.</li>
 </ul>
-<h2>RoboSimStudio</h2>
+<h2 id="robosimstudio">RoboSimStudio</h2>
 <ul>
 <li><strong>Record:</strong> <code>robosimstudio</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -214,7 +236,7 @@
 <li><a href="https://arxiv.org/abs/2610.18835">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 <li><a href="https://arxiv.org/html/2610.18835v2">Source 2</a> — <code>full_text</code>. Read sections 1, 3 and case studies: scene-level physics choices remain explicit and editable without rewriting the task.</li>
 </ul>
-<h2>Code2Worlds-2</h2>
+<h2 id="code2worlds-2">Code2Worlds-2</h2>
 <ul>
 <li><strong>Record:</strong> <code>code2worlds-2</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -234,7 +256,7 @@
 <li><a href="https://arxiv.org/abs/2610.17651">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 <li><a href="https://arxiv.org/html/2610.17651v1#S4">Source 2</a> — <code>full_text</code>. Read introduction contributions and section IV-A?IV-C: SimCode4D specifies frozen cases, input/output contracts, build gates, physical admissibility and task-completion checks.</li>
 </ul>
-<h2>PhysCodeGym</h2>
+<h2 id="physcodegym">PhysCodeGym</h2>
 <ul>
 <li><strong>Record:</strong> <code>physcodegym</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -252,7 +274,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.17288">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>PhySimCode</h2>
+<h2 id="physimcode">PhySimCode</h2>
 <ul>
 <li><strong>Record:</strong> <code>physimcode</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -275,7 +297,7 @@
 <ul>
 <li>The paper&#x27;s 160.6K generated samples and public 2,430-video evaluation release are different resource scopes; do not present the larger count as the linked public release.</li>
 </ul>
-<h2>ANTE</h2>
+<h2 id="ante">ANTE</h2>
 <ul>
 <li><strong>Record:</strong> <code>ante</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -300,7 +322,7 @@
 <li>Planning here means forecast-based action selection, not a claim of multi-step tree search.</li>
 <li>No Memory tag: a belief state is used, but explicit long-term memory is not the studied mechanism.</li>
 </ul>
-<h2>ExeWorldBench</h2>
+<h2 id="exeworldbench">ExeWorldBench</h2>
 <ul>
 <li><strong>Record:</strong> <code>exeworldbench</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -319,7 +341,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.15166">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>AgentGarten</h2>
+<h2 id="agentgarten">AgentGarten</h2>
 <ul>
 <li><strong>Record:</strong> <code>agentgarten</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -351,7 +373,7 @@
 <li>The learning comparison uses pretrained agents and written playbooks; its rounds are not directly comparable to tabula-rasa RL episodes.</li>
 <li>The reported FPS is generation throughput, not a measured key-to-display latency.</li>
 </ul>
-<h2>WorldSolver</h2>
+<h2 id="worldsolver">WorldSolver</h2>
 <ul>
 <li><strong>Record:</strong> <code>worldsolver</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -368,7 +390,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.08720">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>Video2World</h2>
+<h2 id="video2world">Video2World</h2>
 <ul>
 <li><strong>Record:</strong> <code>video2world</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -387,7 +409,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.04432">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>4DCodeBench</h2>
+<h2 id="4dcodebench">4DCodeBench</h2>
 <ul>
 <li><strong>Record:</strong> <code>4dcodebench</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -405,7 +427,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2610.03715">Source 1</a> — <code>primary_abstract</code>. Read the author abstract; the paper identity matches the catalog.</li>
 </ul>
-<h2>IGMWorld / IGMBench</h2>
+<h2 id="igmworld-igmbench">IGMWorld / IGMBench</h2>
 <ul>
 <li><strong>Record:</strong> <code>igmworld</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -426,7 +448,7 @@
 <ul>
 <li>The source explicitly distinguishes world editing from world interaction; playing an existing game does not by itself justify an Interactive tag.</li>
 </ul>
-<h2>Physis-Lang</h2>
+<h2 id="physis-lang">Physis-Lang</h2>
 <ul>
 <li><strong>Record:</strong> <code>physis-lang</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -449,7 +471,7 @@
 <ul>
 <li>The method does not synthesize executable world code.</li>
 </ul>
-<h2>Text2Sim</h2>
+<h2 id="text2sim">Text2Sim</h2>
 <ul>
 <li><strong>Record:</strong> <code>text2sim</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -471,7 +493,7 @@
 <ul>
 <li>Dataset construction is an application and the abstract promises releases; no Dataset or Post-Training tag is inferred from these statements.</li>
 </ul>
-<h2>Code4Scene</h2>
+<h2 id="code4scene">Code4Scene</h2>
 <ul>
 <li><strong>Record:</strong> <code>code4scene</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -490,7 +512,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2609.36777">Source 1</a> — <code>primary_abstract</code>. Read the author abstract online; matches the catalog identity.</li>
 </ul>
-<h2>GPUPhysBench</h2>
+<h2 id="gpuphysbench">GPUPhysBench</h2>
 <ul>
 <li><strong>Record:</strong> <code>gpuphysbench</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -512,7 +534,7 @@
 <ul>
 <li>Efficient GPU code is not sufficient evidence of real-time end-to-end operation; Real-Time is omitted.</li>
 </ul>
-<h2>WorldAgent</h2>
+<h2 id="worldagent">WorldAgent</h2>
 <ul>
 <li><strong>Record:</strong> <code>worldagent</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -535,7 +557,7 @@
 <ul>
 <li>Benchmark is an additional website relationship; the README retains World Generation as the dominant method contribution.</li>
 </ul>
-<h2>GameDirector</h2>
+<h2 id="gamedirector">GameDirector</h2>
 <ul>
 <li><strong>Record:</strong> <code>game-director</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -565,7 +587,7 @@
 <ul>
 <li>Reported frame rate was not reproduced; inference hardware was not specified in the passages read.</li>
 </ul>
-<h2>CoDeR</h2>
+<h2 id="coder">CoDeR</h2>
 <ul>
 <li><strong>Record:</strong> <code>coder</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -594,7 +616,7 @@
 <ul>
 <li>No Real-Time claim is inferred from persistent interaction. Long rollouts explicitly accumulate visual errors.</li>
 </ul>
-<h2>BVB / Blender-VideoBench</h2>
+<h2 id="bvb-blender-videobench">BVB / Blender-VideoBench</h2>
 <ul>
 <li><strong>Record:</strong> <code>bvb</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -611,7 +633,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2609.15478">Source 1</a> — <code>primary_abstract</code>. Read the current v3 author abstract, including the reconstruction task and evaluation setup.</li>
 </ul>
-<h2>Recursive Code World Models</h2>
+<h2 id="recursive-code-world-models">Recursive Code World Models</h2>
 <ul>
 <li><strong>Record:</strong> <code>recursive-cwm</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -631,7 +653,7 @@
 <ul>
 <li>Perception/editing loops refine the reconstruction; they are not by themselves evidence of a separate user-facing World Editing contribution.</li>
 </ul>
-<h2>Programmable World Model</h2>
+<h2 id="programmable-world-model">Programmable World Model</h2>
 <ul>
 <li><strong>Record:</strong> <code>programmable-world-model</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -660,7 +682,7 @@
 <ul>
 <li>Chunk-causal rendering alone is not treated as sufficient proof of a dedicated streaming implementation or real-time operation. CombatStateBench does not replace the method&#x27;s README category.</li>
 </ul>
-<h2>VeriPhy</h2>
+<h2 id="veriphy">VeriPhy</h2>
 <ul>
 <li><strong>Record:</strong> <code>veriphy</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -682,7 +704,7 @@
 <ul>
 <li>The refinement loop improves its triggering metric but the reported independent rater shows no change; this is not evidence of a generally improved generator or a Post-Training method.</li>
 </ul>
-<h2>Code as Worlds</h2>
+<h2 id="code-as-worlds">Code as Worlds</h2>
 <ul>
 <li><strong>Record:</strong> <code>code-as-worlds</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -706,7 +728,7 @@
 <ul>
 <li>Training a visual physical-reasoning model is not automatically Agent Learning, which is reserved for policy or acting-agent improvement.</li>
 </ul>
-<h2>Code World Model</h2>
+<h2 id="code-world-model">Code World Model</h2>
 <ul>
 <li><strong>Record:</strong> <code>code-world-model</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -734,7 +756,7 @@
 <ul>
 <li>Section 5 explicitly says autoregressive real-time generation is not implemented. Complete autonomous open-world construction remains future work.</li>
 </ul>
-<h2>VideoCoCo</h2>
+<h2 id="videococo">VideoCoCo</h2>
 <ul>
 <li><strong>Record:</strong> <code>videococo</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -759,7 +781,7 @@
 <ul>
 <li>Full VideoCoCo-3K public release is not established. Dataset describes the named data contribution and available toy sample, not a claim that all 3,000 training triplets can be downloaded.</li>
 </ul>
-<h2>VisualPatchWorld</h2>
+<h2 id="visualpatchworld">VisualPatchWorld</h2>
 <ul>
 <li><strong>Record:</strong> <code>visualpatchworld</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -777,7 +799,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2607.25236">Source 1</a> — <code>primary_abstract</code>. Read the author abstract, including identification procedure and planning experiments.</li>
 </ul>
-<h2>GS-Agent</h2>
+<h2 id="gs-agent">GS-Agent</h2>
 <ul>
 <li><strong>Record:</strong> <code>gs-agent</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -798,7 +820,7 @@
 <ul>
 <li>Multi-agent refers to specialized authoring agents, so the world-inhabitant Multi-Agent topic is omitted.</li>
 </ul>
-<h2>SimWorlds</h2>
+<h2 id="simworlds">SimWorlds</h2>
 <ul>
 <li><strong>Record:</strong> <code>simworlds</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -822,7 +844,7 @@
 <ul>
 <li>The multi-agent title describes scene-authoring agents rather than autonomous inhabitants. Benchmark records the new 4DBuildBench, not mere reuse of BlenderBench; the README remains World Generation.</li>
 </ul>
-<h2>MPMWorlds</h2>
+<h2 id="mpmworlds">MPMWorlds</h2>
 <ul>
 <li><strong>Record:</strong> <code>mpmworlds</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -846,7 +868,7 @@
 <ul>
 <li>Simulations last ten seconds; longer-horizon physical extrapolation is not sufficient to assign Long Video Generation. Ordinary fine-tuning of comparison baselines is not treated as a separate Post-Training contribution.</li>
 </ul>
-<h2>3DCodeBench / 3DCodeArena</h2>
+<h2 id="3dcodebench-3dcodearena">3DCodeBench / 3DCodeArena</h2>
 <ul>
 <li><strong>Record:</strong> <code>3dcodebench</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -864,7 +886,7 @@
 <ul>
 <li><a href="https://arxiv.org/abs/2606.01057">Source 1</a> — <code>primary_abstract</code>. Read the author abstract including benchmark, arena, and released multimodal triplets.</li>
 </ul>
-<h2>SceneCode</h2>
+<h2 id="scenecode">SceneCode</h2>
 <ul>
 <li><strong>Record:</strong> <code>scene-code</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -888,7 +910,7 @@
 <ul>
 <li>A persistent construction registry is not treated as a world-memory research contribution.</li>
 </ul>
-<h2>SimWorld Studio</h2>
+<h2 id="simworld-studio">SimWorld Studio</h2>
 <ul>
 <li><strong>Record:</strong> <code>simworld-studio</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -910,7 +932,7 @@
 <ul>
 <li>Self-evolving skills are not evidence of world-model parameter post-training.</li>
 </ul>
-<h2>Code2Worlds</h2>
+<h2 id="code2worlds">Code2Worlds</h2>
 <ul>
 <li><strong>Record:</strong> <code>code2worlds</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -933,7 +955,7 @@
 <ul>
 <li>Code4D is introduced by this paper; full benchmark prompts and scripts are promised upon acceptance, not independently verified as released.</li>
 </ul>
-<h2>Debugging Code World Models</h2>
+<h2 id="debugging-code-world-models">Debugging Code World Models</h2>
 <ul>
 <li><strong>Record:</strong> <code>debugging-cwm</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -956,7 +978,7 @@
 <ul>
 <li>The permutation task adapts an existing benchmark; this analysis is not classified as a new benchmark release.</li>
 </ul>
-<h2>SWE-World</h2>
+<h2 id="swe-world">SWE-World</h2>
 <ul>
 <li><strong>Record:</strong> <code>swe-world</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -979,7 +1001,7 @@
 <li>This is a computational environment model, not a physical-world simulator.</li>
 <li>Container removal is not sufficient evidence of measured real-time execution or an inference acceleration contribution.</li>
 </ul>
-<h2>Code World Models for General Game Playing</h2>
+<h2 id="code-world-models-for-general-game-playing">Code World Models for General Game Playing</h2>
 <ul>
 <li><strong>Record:</strong> <code>general-game-playing</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1004,7 +1026,7 @@
 <li>No Benchmark tag: four new games support the method experiments, but the paper does not introduce a named benchmark suite as a research contribution.</li>
 <li>Code Execution is reserved for execution semantics research, not ordinary simulator rollouts.</li>
 </ul>
-<h2>CWM (Meta)</h2>
+<h2 id="cwm-meta">CWM (Meta)</h2>
 <ul>
 <li><strong>Record:</strong> <code>cwm-meta</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1028,7 +1050,7 @@
 <li>The report treats robust planning with the model largely as future research, so Planning is not assigned.</li>
 <li>General World Model is withheld because the contribution is a domain-specific coding model rather than a complete general interactive-world framework.</li>
 </ul>
-<h2>BlenderGym</h2>
+<h2 id="blendergym">BlenderGym</h2>
 <ul>
 <li><strong>Record:</strong> <code>blendergym</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1051,7 +1073,7 @@
 <ul>
 <li>Inference scaling allocates more computation; it is not automatically inference acceleration.</li>
 </ul>
-<h2>FactorSim</h2>
+<h2 id="factorsim">FactorSim</h2>
 <ul>
 <li><strong>Record:</strong> <code>factorsim</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1076,7 +1098,7 @@
 <li>Factorization reduces generation context; this does not establish real-time inference.</li>
 <li>Generated agents or enemies do not make multi-agent reasoning the paper&#x27;s research focus.</li>
 </ul>
-<h2>GIF-MCTS / CWMB</h2>
+<h2 id="gif-mcts-cwmb">GIF-MCTS / CWMB</h2>
 <ul>
 <li><strong>Record:</strong> <code>gif-mcts</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1101,7 +1123,7 @@
 <li>No Real-Time tag: relative inference-speed gains do not establish a real-time deployment budget.</li>
 <li>Search over candidate programs is not multi-agent world dynamics.</li>
 </ul>
-<h2>PhysDreamer</h2>
+<h2 id="physdreamer">PhysDreamer</h2>
 <ul>
 <li><strong>Record:</strong> <code>physdreamer</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1124,7 +1146,7 @@
 <li>Distilling video priors into material parameters is not necessarily post-training the video model.</li>
 <li>This inverse-physics neighbor does not itself synthesize symbolic world programs.</li>
 </ul>
-<h2>SceneCraft (Blender code)</h2>
+<h2 id="scenecraft-blender-code">SceneCraft (Blender code)</h2>
 <ul>
 <li><strong>Record:</strong> <code>scenecraft</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1147,7 +1169,7 @@
 <li>Reusable script-library learning is not persistent world-state memory or weight post-training.</li>
 <li>Spatial layout planning is not automatically action planning for an agent.</li>
 </ul>
-<h2>Holodeck</h2>
+<h2 id="holodeck">Holodeck</h2>
 <ul>
 <li><strong>Record:</strong> <code>holodeck</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1168,7 +1190,7 @@
 <ul>
 <li>Scene layout generation alone is not a complete general-purpose world model.</li>
 </ul>
-<h2>RoboGen</h2>
+<h2 id="robogen">RoboGen</h2>
 <ul>
 <li><strong>Record:</strong> <code>robogen</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1191,7 +1213,7 @@
 <li>An endless stream of skill demonstrations is data generation, not streaming video generation.</li>
 <li>Training robot policies is covered by Agent Learning; no separate world-model post-training is claimed.</li>
 </ul>
-<h2>World Programs</h2>
+<h2 id="world-programs">World Programs</h2>
 <ul>
 <li><strong>Record:</strong> <code>world-programs</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1215,7 +1237,7 @@
 <li>The paper proposes a future community challenge, not a newly released benchmark suite.</li>
 <li>Graph rewriting and chemical reactions are not evidence of physics simulation.</li>
 </ul>
-<h2>WorldStream</h2>
+<h2 id="worldstream">WorldStream</h2>
 <ul>
 <li><strong>Record:</strong> <code>worldstream</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1241,7 +1263,7 @@
 <li>Warm-cache plan-to-visible latency is estimated at 2.3 seconds without sufficient hardware detail for an independent Real-Time claim.</li>
 <li>The article describes a procedural prototype; neural video integration is future work.</li>
 </ul>
-<h2>StreamRender-H3</h2>
+<h2 id="streamrender-h3">StreamRender-H3</h2>
 <ul>
 <li><strong>Record:</strong> <code>streamrender-h3</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1271,7 +1293,7 @@
 <ul>
 <li>Real-time figures depend on the reported multi-GPU deployment; decoder-only timings use one GB200.</li>
 </ul>
-<h2>Streaming Code World Model</h2>
+<h2 id="streaming-code-world-model">Streaming Code World Model</h2>
 <ul>
 <li><strong>Record:</strong> <code>streaming-cwm</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1297,7 +1319,7 @@
 <li>This is a community extension, not an additional paper or the original Code World Model.</li>
 <li>Causal past-frame conditioning alone is not labeled a dedicated world-memory contribution.</li>
 </ul>
-<h2>H3 Streaming VAE Decoder</h2>
+<h2 id="h3-streaming-vae-decoder">H3 Streaming VAE Decoder</h2>
 <ul>
 <li><strong>Record:</strong> <code>h3-streaming-vae</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1321,7 +1343,7 @@
 <li>No Post-Training tag: it supports NVIDIA&#x27;s separately distilled checkpoint, which is not trained in this repository.</li>
 <li>No standalone world state or action dynamics; no complete-world, interaction or real-time-throughput claim is inferred.</li>
 </ul>
-<h2>Code Video Model</h2>
+<h2 id="code-video-model">Code Video Model</h2>
 <ul>
 <li><strong>Record:</strong> <code>code-video-model</code></li>
 <li><strong>Reviewed:</strong> 2026-10-22</li>
@@ -1348,4 +1370,6 @@
 <li>The linked technical-report PDF exceeded the web tool&#x27;s fetch-size limit; classification uses the successfully read official project and repository.</li>
 <li>The method is explicitly training-free; no Post-Training tag.</li>
 <li>Offline proxy-conditioned clips do not establish live interaction, streaming, real-time performance or long-video generation.</li>
-</ul></article></main></html>
+</ul></article>
+</main>
+</body></html>

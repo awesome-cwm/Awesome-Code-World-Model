@@ -250,8 +250,8 @@ Repository code and original editorial content: [MIT](LICENSE). Papers and exter
 
 
 def web_link(url):
-    links={'docs/TAXONOMY.md':'taxonomy.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
-           'docs/DEPLOYMENT.md':'deployment.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
+    links={'docs/TAXONOMY.md':'taxonomy.html','TAXONOMY.md':'taxonomy.html','docs/TOPIC_REVIEW.md':'topic-review.html','TOPIC_REVIEW.md':'topic-review.html','docs/RESEARCH.md':'research.html','CONTRIBUTING.md':'contributing.html',
+           'docs/DEPLOYMENT.md':'deployment.html','docs/FRONTEND.md':'frontend.html','docs/CRAWLER_HANDOFF.md':'crawler.html','docs/AGENT_REVIEW_PROMPT.md':'agent-review.html',
            'docs/BENCHMARKS.md':'benchmarks.html','BENCHMARKS.md':'benchmarks.html','site/index.html':'./','data/papers.json':'papers.json','site/papers.bib':'papers.bib','site/papers.csv':'papers.csv','LICENSE':'LICENSE'}
     return links.get(url, url[5:] if url.startswith('site/') else url)
 
@@ -349,8 +349,66 @@ def markdown_body(content):
     return '\n'.join(out)
 
 
-def document_page(title, content):
-    return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose">{markdown_body(content)}</article></main></html>\n'''
+def document_page(title, content, filename):
+    navigation = [('index', 'Home'), ('papers', 'Papers'), ('taxonomy', 'Taxonomy'), ('research', 'Research notes'), ('contributing', 'Contribute'), ('readme', 'Repository guide')]
+    links = ''.join(
+        f'<a href="{name}.html"'
+        + (' aria-current="page"' if name == filename else '')
+        + (' id="source-link" class="source-link"' if name == 'readme' else ' class="nav-secondary"' if name not in {'index', 'papers'} else '')
+        + f'>{label}</a>'
+        for name, label in navigation
+    )
+    # Supplemental documents identify themselves in the breadcrumb, not a changing main menu.
+    context_title = html.escape(title.split(' / ')[0])
+    current = (f'<a class="document-current" href="{html.escape(filename, quote=True)}.html" aria-current="page">{context_title}</a>'
+               if filename not in {name for name, _ in navigation} else f'<span>{context_title}</span>')
+    body = markdown_body(content)
+    headings = []
+    used_ids = set(re.findall(r'\bid="([^"]+)"', body))
+
+    def heading_anchor(match):
+        label = html.unescape(re.sub(r'<[^>]+>', '', match[1]))
+        slug = re.sub(r'[^\w-]+', '-', label.lower()).strip('-') or 'section'
+        anchor = slug
+        number = 2
+        while anchor in used_ids:
+            anchor = f'{slug}-{number}'
+            number += 1
+        used_ids.add(anchor)
+        headings.append((anchor, label))
+        return f'<h2 id="{anchor}">{match[1]}</h2>'
+
+    body = re.sub(r'<h2>(.*?)</h2>', heading_anchor, body)
+    toc = ''
+    if len(headings) >= 4:
+        entries = ''.join(f'<a href="#{html.escape(anchor, quote=True)}">{html.escape(label)}</a>' for anchor, label in headings)
+        toc = f'''<aside class="document-toc" aria-label="Table of contents">
+<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections">{entries}</nav></div>
+<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections">{entries}</nav></details>
+</aside>'''
+    return f'''<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>{html.escape(title)} — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{{w}}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation">{links}</nav>
+</header>
+<main class="document{' has-toc' if toc else ''}">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span>{current}</nav>
+{toc}
+<article class="prose" id="document-content">{body}</article>
+</main>
+</body></html>
+'''
 
 
 def outputs(catalog, taxonomy, repository):
@@ -364,7 +422,7 @@ def outputs(catalog, taxonomy, repository):
     out = {
         ROOT/'README.md': readme,
         ROOT/'docs/BENCHMARKS.md': benchmark_guide,
-        ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide),
+        ROOT/'site/benchmarks.html': document_page('Benchmark Atlas / 基准索引', benchmark_guide, 'benchmarks'),
         ROOT/'site/catalog.js': 'window.CWM_CATALOG = '+json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')+';\n',
         ROOT/'site/papers.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n',
         ROOT/'site/papers.bib': '\n\n'.join(bibtex(p) for p in catalog['papers'])+'\n',
@@ -386,8 +444,10 @@ def outputs(catalog, taxonomy, repository):
         writer.writerow({k:("'"+v if isinstance(v,str) and v.startswith(('=','+','-','@')) else v) for k,v in row.items()})
     out[ROOT/'site/papers.csv']=buf.getvalue()
     for filename,title,source in [('taxonomy','Taxonomy / 分类说明',ROOT/'docs/TAXONOMY.md'),('research','Research scope / 核验记录',ROOT/'docs/RESEARCH.md'),('contributing','Contributing / 参与维护',ROOT/'CONTRIBUTING.md'),('deployment','Deployment / 部署',ROOT/'docs/DEPLOYMENT.md'),('crawler','Crawler / 爬虫交接',ROOT/'docs/CRAWLER_HANDOFF.md'),('agent-review','Agent review prompt',ROOT/'docs/AGENT_REVIEW_PROMPT.md')]:
-        out[ROOT/f'site/{filename}.html']=document_page(title, source.read_text())
-    out[ROOT/'site/readme.html']=document_page('Repository guide',readme)
+        out[ROOT/f'site/{filename}.html']=document_page(title, source.read_text(), filename)
+    out[ROOT/'site/topic-review.html']=document_page('Per-paper topic review', (ROOT/'docs/TOPIC_REVIEW.md').read_text(), 'topic-review')
+    out[ROOT/'site/frontend.html']=document_page('Web frontend maintenance / 前端维护', (ROOT/'docs/FRONTEND.md').read_text(), 'frontend')
+    out[ROOT/'site/readme.html']=document_page('Repository guide',readme, 'readme')
     return out
 
 

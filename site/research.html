@@ -1,6 +1,28 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research scope / 核验记录 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>核验记录与范围</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Research scope / 核验记录 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" aria-current="page" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document has-toc">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><span>Research scope</span></nav>
+<aside class="document-toc" aria-label="Table of contents">
+<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections"><a href="#benchmark-与基础组件补充">Benchmark 与基础组件补充</a><a href="#用户提供的条目">用户提供的条目</a><a href="#额外补充">额外补充</a><a href="#检索来源和边界">检索来源和边界</a><a href="#资源和声明的证据级别">资源和声明的证据级别</a><a href="#参考">参考</a></nav></div>
+<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections"><a href="#benchmark-与基础组件补充">Benchmark 与基础组件补充</a><a href="#用户提供的条目">用户提供的条目</a><a href="#额外补充">额外补充</a><a href="#检索来源和边界">检索来源和边界</a><a href="#资源和声明的证据级别">资源和声明的证据级别</a><a href="#参考">参考</a></nav></details>
+</aside>
+<article class="prose" id="document-content"><h1>核验记录与范围</h1>
 <p>来源核验日期：<strong>2026-10-21</strong>。本轮精修后目录共 <strong>58</strong> 条，包括 <strong>53</strong> 篇 arXiv 工作与 <strong>5</strong> 项官方报告／项目，保留首版全部 44 条。主要阅读粒度是 arXiv 元数据、摘要和官方项目说明；对部分基准阅读了全文中的任务与评测章节，未声称完成全部论文全文审核或独立实验复现。</p>
-<h2>Benchmark 与基础组件补充</h2>
+<h2 id="benchmark-与基础组件补充">Benchmark 与基础组件补充</h2>
 <p>新增 14 项，建立 21 个具名 Benchmark 协议的横向索引。Video2World 和 3DCodeVerse 原已收录，本轮补充其代码／数据集链接、评测入口和数据规模说明，不重复添加。</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>新条目</th><th>已读取的一手来源</th><th>分类与核验重点</th></tr></thead><tbody>
 <tr><td>4DCodeBench</td><td><a href="https://arxiv.org/abs/2610.03715">arXiv</a>、<a href="https://github.com/4DCodeBench/4DCodeBench">README</a></td><td>100 真实＋100 合成视频；外观、几何、2D／3D 动态分开评分</td></tr>
@@ -21,7 +43,7 @@
 <p>WorldStream 博客明确：模型输出结构化语义计划，行为执行由本地能力模块负责；并未声称实时合成任意物理或动画代码。预取和缓存支持持续探索，所报约 2.3 秒是 warm-cache 的 plan-to-scene 估计。与它同名的信号数据集、普通游戏地图插件及 LeRobot loader 不收入本条目。</p>
 <p>H3 解码博客只明确到 2026 年 10 月，保留日级日期未知。其解码耗时从 latent 到达后计算，不能与 StreamRender-H3 的 diffusion step 或整条按键到显示链路混用。支持 NVIDIA 学生权重也不等于该仓库训练了同一个模型。</p>
 <p>本轮检索使用 arXiv 的标题检索、两组扩展检索（分别最多 80、150 条）、前序工作的具名检索，以及 GitHub 官方仓库和项目页交叉核对。扩展检索不是穷尽目录：排除仅输出问答、纯视频扩散、一般软件编程和其他领域同名项。重要的未采纳例子包括 SceneBench 的空间问答、同名 SceneCraft 的 NeRF 路线，以及与代码世界表示无关的 WorldStream 信号编码论文。</p>
-<h2>用户提供的条目</h2>
+<h2 id="用户提供的条目">用户提供的条目</h2>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>输入简称</th><th>规范条目 / 核验来源</th><th>处理</th></tr></thead><tbody>
 <tr><td>Code World Model</td><td><a href="https://arxiv.org/abs/2608.25927">Coding Agent as World Brain</a></td><td>持续可交互世界</td></tr>
 <tr><td>SolarRenderer</td><td><a href="https://arxiv.org/abs/2610.28630">SolarRenderer</a></td><td>结构条件神经渲染</td></tr>
@@ -45,11 +67,11 @@
 <tr><td>mpmworlds</td><td><a href="https://arxiv.org/abs/2606.01538">MPMWorlds</a></td><td>视频逆向物理与外推</td></tr>
 <tr><td>VideoCoCo</td><td><a href="https://arxiv.org/abs/2607.27380">VideoCoCo</a></td><td>前序代码预演与视频生成</td></tr>
 </tbody></table></div>
-<h2>额外补充</h2>
+<h2 id="额外补充">额外补充</h2>
 <p>近期新增包括 <a href="https://arxiv.org/abs/2610.27690">NeoWorld-3</a>、<a href="https://arxiv.org/abs/2610.26098">CEGame-Bench</a>、<a href="https://arxiv.org/abs/2610.25019">Modelica 系统辨识</a>、<a href="https://arxiv.org/abs/2610.22341">3DCodeVerse</a>、<a href="https://arxiv.org/abs/2610.21283">Mallea</a>、<a href="https://arxiv.org/abs/2610.18835">RoboSimStudio</a> 和软件世界方向的 <a href="https://arxiv.org/abs/2610.15368">ANTE</a>。</p>
 <p>研究脉络还补充 Recursive Code World Models、GameDirector、VisualPatchWorld、SimWorlds、SceneCode、SimWorld Studio、GS-Agent、Code2Worlds、General Game Playing、Debugging Code World Models、World Programs、RoboGen、Holodeck、GIF-MCTS、PhysDreamer 和 FactorSim。所有条目的原始标题、首次提交日期和作者来自其 arXiv 记录。</p>
 <p>没有把 EmbodiedEvo 仅凭 coding agent 关键词收入核心目录：其主要代码职责是控制策略与技能积累，而非构建世界或推断世界机制。没有将所有普通 3D／视频生成、机器人 code policy 和 Matrix-Game 早期版本自动纳入核心。</p>
-<h2>检索来源和边界</h2>
+<h2 id="检索来源和边界">检索来源和边界</h2>
 <ol>
 <li>阅读参考仓库及网页，关注问题驱动分类、月份导航与检索方式。</li>
 <li>通过 arXiv API 检索 Code World Model 及用户指定标题；扩大至 executable worlds、simulation、world programs、rendering 等邻近词。</li>
@@ -59,7 +81,7 @@
 </ol>
 <p>首轮近期广义查询按提交时间返回最新 80 条，命中范围停留在 10 月 13 日左右；其更早部分由命名检索和 Code World Model 检索补充。这不是全库穷尽搜索。后续每日爬虫会报告查询结果截断，并交给维护者复核覆盖率。</p>
 <p>网页上的最近列表使用首次提交日期，避免把 arXiv ID 月份直接当成日期。尤其 CWM 的编号为 2510.02387，而元数据首次提交是 <strong>2025-09-30</strong>。</p>
-<h2>资源和声明的证据级别</h2>
+<h2 id="资源和声明的证据级别">资源和声明的证据级别</h2>
 <ul>
 <li><code>primary_abstract</code>：身份、日期、作者及摘要已检查；机制标签是摘要层面的编辑判断。</li>
 <li><code>official_project</code>：核对官方项目页／README 的内容与资源指向。</li>
@@ -68,10 +90,12 @@
 <p>参考排版修订版采用原参考目录的徽标约定：<code>🌟 Classic</code> 表示编辑选取的类别代表作；<code>✅ Open Source</code> 表示已找到代码、权重、数据或官方项目页；<code>❌️ Not Open Source</code> 表示已检查来源中暂未找到这类公开资源。它们是资源发现标签，不是许可证或复现完整性认证。“Paper / Code / Project / Data / Weights”链接仍分别显示实际资源类型；仅有论文链接不会得到 ✅。</p>
 <p>上一轮从 arXiv 元数据的 comment 字段及已核验官方仓库补充 23 个资源链接，覆盖 SolarRenderer、Matrix-Game 4.0、AgentGarten、Video2World、Code as Worlds、VideoCoCo 等。当时 31 条记录有公开资源，13 条暂未找到。本轮继续补充新基准和数据链接；最新状态以每条记录的 <code>resource_status</code> 为准。</p>
 <p>八篇 🌟 代表作是 Code World Model、VideoCoCo、Code2Worlds、RoboGen、Code as Worlds、MPMWorlds、GIF-MCTS 和 World Programs。它们分别代表持续代码世界、代码预演、动态模拟生成、生成式环境学习、可执行物理假设、逆物理外推、转移程序搜索和早期世界程序。此选择不表示引用量排名，也不把近期工作宣称为历史经典。</p>
-<h2>参考</h2>
+<h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://github.com/EasonTuT/Awesome-Interactive-World-Model">Awesome Interactive World Model</a></li>
 <li><a href="https://info.arxiv.org/help/api/user-manual.html">arXiv API 用户手册</a></li>
 <li><a href="https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/">StreamRender-H3 官方博客</a></li>
 <li><a href="https://code-video-model.github.io/tech_report.pdf">Code Video Model 官方报告</a></li>
-</ul></article></main></html>
+</ul></article>
+</main>
+</body></html>

@@ -19,3 +19,5 @@ jobs:
         with:
           node-version: '22'
       - run: node --check site/app.js
+      - run: node --check site/home.js
+      - run: node --check site/theme.js

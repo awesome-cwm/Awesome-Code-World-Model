@@ -1,6 +1,28 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Taxonomy / 分类说明 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>分类设计：Code World Model 与 Code as Model</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Taxonomy / 分类说明 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" aria-current="page" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document has-toc">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><span>Taxonomy</span></nav>
+<aside class="document-toc" aria-label="Table of contents">
+<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections"><a href="#本轮判断与调整-2026-10-23">本轮判断与调整（2026-10-23）</a><a href="#1-两条主线-按问题的方向分类">1. 两条主线：按问题的方向分类</a><a href="#2-细分类-每类对应一个研究瓶颈">2. 细分类：每类对应一个研究瓶颈</a><a href="#3-八个比较维度">3. 八个比较维度</a><a href="#4-目录应当揭示的几个问题">4. 目录应当揭示的几个问题</a><a href="#5-名称边界与前序工作">5. 名称边界与前序工作</a><a href="#6-扩展规则">6. 扩展规则</a></nav></div>
+<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections"><a href="#本轮判断与调整-2026-10-23">本轮判断与调整（2026-10-23）</a><a href="#1-两条主线-按问题的方向分类">1. 两条主线：按问题的方向分类</a><a href="#2-细分类-每类对应一个研究瓶颈">2. 细分类：每类对应一个研究瓶颈</a><a href="#3-八个比较维度">3. 八个比较维度</a><a href="#4-目录应当揭示的几个问题">4. 目录应当揭示的几个问题</a><a href="#5-名称边界与前序工作">5. 名称边界与前序工作</a><a href="#6-扩展规则">6. 扩展规则</a></nav></details>
+</aside>
+<article class="prose" id="document-content"><h1>分类设计：Code World Model 与 Code as Model</h1>
 <p>这份目录以“代码在认识和构建世界中承担什么职责”为中心。分类单位是研究贡献，不是论文标题里的关键词。参考 Awesome Interactive World Model 的研究问题组织方式，进一步区分目标、机制和验证依据。</p>
-<h2>本轮判断与调整（2026-10-23）</h2>
+<h2 id="本轮判断与调整-2026-10-23">本轮判断与调整（2026-10-23）</h2>
 <p><strong>两条主线合理，九个研究问题可保留；原来的七个维度还不能称为严格正交。</strong> 生成／理解按主要验证目标划分，比按“是否生成代码”划分更有解释力。<code>Worlds for agent learning</code> 属于用途导向的研究问题，与机制类别存在交叉，因此采用主贡献＋多标签，而不是互斥分类树。</p>
 <ul>
 <li><strong>研究问题、资源类型、比较维度分层。</strong> Benchmark 与 Dataset 属于横向资源索引。<code>Verification &amp; evaluation</code> 收窄为 <code>Executable verification</code>，只有验证方法本身构成贡献时才归入该类；普通 benchmark 不再自动交叉列入。</li>
@@ -10,12 +32,12 @@
 <li><strong>澄清关联维度。</strong> Code role 回答代码职责，Representation 回答信息载体，二者有关联但不是同一问题。Construction feedback 改名 Refinement signal，容纳原有 training 标签，同时明确训练目标不等于构建时反馈。</li>
 </ul>
 <p>README 每项只在主研究清单中完整出现一次，网站保留交叉检索。评测协议移到独立 Atlas，README 用紧凑索引呈现。58 条记录全部保留。</p>
-<h2>1. 两条主线：按问题的方向分类</h2>
+<h2 id="1-两条主线-按问题的方向分类">1. 两条主线：按问题的方向分类</h2>
 <p><strong>Code World Model / 生成：</strong> 从意图、任务或场景规格出发，构造可执行的状态、规则、物理过程或渲染条件。核心问题是“希望什么世界存在，怎样让它运行起来”。</p>
 <p><strong>Code as Model / 理解：</strong> 从图像、视频、轨迹、规则描述等证据出发，推断一个可执行解释，并通过预测、干预、规划或验证判断解释是否有用。核心问题是“什么机制能够解释观测”。</p>
 <p>“生成代码”不自动意味着属于生成主线。Video2World、NeoWorld-3 和 Recursive Code World Models 都生成程序，但主要验证的是从视觉证据重建世界，因此归入理解。Code as Worlds 同时构造模拟器、进行物理推理并产生监督，其主分类是可执行物理推理，交叉关联逆向重建和模拟生成。</p>
 <p>两条主线可形成闭环：生成程序 → 执行 → 观测 → 验证解释 → 修正程序。目录保留一个主分类和若干交叉类别，避免重复计算论文数。网页类别筛选包含交叉类别；主线筛选采用主贡献归属。</p>
-<h2>2. 细分类：每类对应一个研究瓶颈</h2>
+<h2 id="2-细分类-每类对应一个研究瓶颈">2. 细分类：每类对应一个研究瓶颈</h2>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>主线</th><th>细分类</th><th>核心研究问题</th><th>代表工作</th></tr></thead><tbody>
 <tr><td>生成</td><td>Scene &amp; asset programs</td><td>场景是否具有可编辑、可组合、可编译的结构？</td><td>SceneCode、3DCodeVerse</td></tr>
 <tr><td>生成</td><td>Physical simulation synthesis</td><td>生成的是运动外观，还是可运行的物理机制？</td><td>Code2Worlds、GS-Agent、SimWorlds、Text2Sim、WorldAgent、Code2Worlds-2</td></tr>
@@ -40,7 +62,7 @@
 <p>完整的输入、产物、评分证据与边界见 <a href="benchmarks.html">Benchmark Atlas</a>。同一论文提出的基准以具名协议保存，如 Code2Worlds-2 → SimCode4D；不为每个别名单独增加论文计数。仅使用现成 benchmark 或报告实验指标，不足以自动认定提出了一个新 benchmark。</p>
 <p>数据与组件再分为三组：<strong>Executable code &amp; simulation corpora</strong>、<strong>Construction &amp; verification harnesses</strong>、<strong>Streaming worlds, renderers &amp; decoders</strong>。3DCodeVerse 主要是数据与 harness；3DCodeBench 是相关的评测工作。PhySimCode 的 160,614 条完整生成语料与公开的 2,430 条评测子集不能混为一个发布规模。</p>
 <p>流式系统尤其需要分层：WorldStream 按需扩展程序化世界，StreamRender-H3 根据引擎条件生成像素，H3 Streaming VAE Decoder 把已生成 latent 解码为帧。前者的空间扩展在 <code>delivery</code> 维度记作 <code>world_streaming</code>，后两者的因果视频输出记作 <code>streaming</code>；不再混入 <code>interaction</code>。三者的速度指标对应不同阶段。</p>
-<h2>3. 八个比较维度</h2>
+<h2 id="3-八个比较维度">3. 八个比较维度</h2>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>维度</th><th>应当回答的问题</th><th>典型取值</th></tr></thead><tbody>
 <tr><td>Code role</td><td>代码具体负责什么？</td><td>场景构造、状态转移、物理求解、视觉代理、可执行假设、验证器、学习环境、被预测的执行对象</td></tr>
 <tr><td>World representation</td><td>可检查的世界信息存在哪里？</td><td>场景程序、状态＋规则、物理程序＋参数、proxy 视频、世界转移程序、执行轨迹、语言</td></tr>
@@ -52,7 +74,7 @@
 <tr><td>Domain</td><td>被模拟或解释的是哪类世界？</td><td>物理现象、具身机器人、游戏、视频、通用世界、计算软件环境</td></tr>
 </tbody></table></div>
 <p>维度标签描述来源中的机制和评价目标。<strong>Physical fidelity 标签不表示物理正确性已经得到认证。</strong> 默认记录摘要或官方项目页可支持的信息，不把没有观察到的能力写成已具备。训练目标与构建时运行反馈也分开记录。</p>
-<h2>4. 目录应当揭示的几个问题</h2>
+<h2 id="4-目录应当揭示的几个问题">4. 目录应当揭示的几个问题</h2>
 <h3>4.1 世界的状态和图像的记忆不是同一个问题</h3>
 <p>程序可以保证一个对象的生命值或位置持续存在，但不能单独保证神经渲染器再次看到该对象时保持相同外观。反过来，视频外观稳定也不能证明离屏状态、规则和因果后果正确。Mallea 的对象纹理记忆，以及 Programmable World Model 的非视觉状态，是理解两种持久性的重要对照。</p>
 <h3>4.2 可执行程序还可以分为“组织状态”与“解释机制”</h3>
@@ -71,7 +93,7 @@
 <p>同一段视频可能对应多个可行参数或程序。能复现观察窗口不保证外推或干预正确。MPMWorlds 区分视觉参数推断和稳定外推；Modelica 工作说明低残差模型也可能违背能量约束；VeriPhy 保留证据不足时的 abstain。未来可以增设明确的 uncertainty 字段，但不能在首版凭空给所有论文打分。</p>
 <h3>4.6 世界必须通过它被构造来支持的任务来评价</h3>
 <p>Video2World 的功能正确性、CEGame-Bench 的真实输入通关测试，以及 AgentGarten 的学习用途，说明“看着像”“构建通过”和“能支撑任务”分别需要证据。目录以多维比较代替没有共同实验条件的总榜。</p>
-<h2>5. 名称边界与前序工作</h2>
+<h2 id="5-名称边界与前序工作">5. 名称边界与前序工作</h2>
 <ul>
 <li><strong>Code World Model: Coding Agent as World Brain</strong>：代码显式维护物理／交互世界；<strong>CWM (Meta)</strong>：模型学习预测软件执行世界。两者同名但研究对象不同。</li>
 <li><strong>Code2Worlds</strong> 与 <strong>Code2Worlds-2</strong> 是不同工作；不要与 GUI 方向的 Code2World 混为一项。</li>
@@ -81,5 +103,7 @@
 <li>本轮增加 SceneCraft（2024，Blender code 版本）、BlenderGym（2025）和 3DCodeBench（2026-05 首次提交）。SceneCraft 已将代码场景作为视频生成中间控制；它与同名 Layout-Guided 3D Scene Generation 论文是不同工作。</li>
 <li>Holodeck 和 PhysDreamer 为场景生成和逆物理提供参照，但未被标成代码转移函数生成方法。</li>
 </ul>
-<h2>6. 扩展规则</h2>
-<p>新类别必须对应现有维度无法表达的研究问题；新论文通常先使用已有类别。论文以主要实验目标决定主分类，其他能力采用交叉类别和维度。分类争议记录在 PR 中，附具体摘要、章节或官方文档依据。不得只依据标题自动把候选提升为正式收录。</p></article></main></html>
+<h2 id="6-扩展规则">6. 扩展规则</h2>
+<p>新类别必须对应现有维度无法表达的研究问题；新论文通常先使用已有类别。论文以主要实验目标决定主分类，其他能力采用交叉类别和维度。分类争议记录在 PR 中，附具体摘要、章节或官方文档依据。不得只依据标题自动把候选提升为正式收录。</p></article>
+</main>
+</body></html>

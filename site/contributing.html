@@ -1,6 +1,25 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contributing / 参与维护 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>Contributing</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Contributing / 参与维护 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" aria-current="page" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><span>Contributing</span></nav>
+
+<article class="prose" id="document-content"><h1>Contributing</h1>
 <p>We welcome papers, official projects, classification corrections and missing earlier work. The collection focuses on executable representations of worlds, with a separately labeled boundary for software execution models and alternative representations.</p>
-<h2>Add a record</h2>
+<h2 id="add-a-record">Add a record</h2>
 <ol>
 <li>Provide a primary source: arXiv, publisher, official technical report or author-maintained project.</li>
 <li>Check the exact title, authors and first submission date. Leave publication date null if unconfirmed. Do not infer a release date from repository creation.</li>
@@ -11,11 +30,12 @@
 <li>Set <code>collections</code> and <code>benchmarks</code> (empty arrays when not applicable). A named benchmark protocol records <code>name</code>, <code>input</code>, <code>artifact</code>, <code>checks</code>, <code>caveat</code> and a primary <code>source</code>. Benchmark names within method papers are aliases, not additional paper records. Keep collection membership aligned with the protocol and identify differences between paper and public-release versions.</li>
 <li>Run <code>python3 scripts/build.py</code> and <code>python3 -m unittest discover -s tests -v</code>; include generated files in the PR.</li>
 </ol>
-<p>Do not edit <code>site/catalog.js</code>, exported files, <code>docs/BENCHMARKS.md</code> or the generated README directly. Edit <code>docs/README.template.md</code> for introductory copy. Edit <code>site/index.html</code>, <code>site/style.css</code> and <code>site/app.js</code> for the frontend.</p>
+<p>Do not edit <code>site/catalog.js</code>, exported files, <code>docs/BENCHMARKS.md</code>, the generated README or HTML document pages directly. Edit <code>docs/README.template.md</code> for introductory copy and <code>scripts/build.py</code> (<code>document_page()</code>) for document navigation and layout, then regenerate with <code>python -X utf8 scripts/build.py</code>.</p>
+<p>For the frontend, edit <code>site/index.html</code> + <code>site/home.js</code> for the homepage, <code>site/papers.html</code> + <code>site/app.js</code> for the paper library, <code>site/style.css</code> for shared document styles, <code>site/theme.css</code> / <code>site/pages.css</code> for shared theme and page-specific styles, and <code>site/theme.js</code> for theme controls. See <a href="frontend.html">docs/FRONTEND.md</a> for the full file responsibilities and browser checks.</p>
 <p>Add collection announcements to <code>data/updates.json</code>. Categories list representative works first and then other papers by first submission date, including cross-listed contributions.</p>
-<h2>Promote a crawler candidate</h2>
+<h2 id="promote-a-crawler-candidate">Promote a crawler candidate</h2>
 <p>Candidates live in <code>data/inbox.json</code>, outside the public curated index. Read the source and create a complete record before promotion; the crawler&#x27;s suggested category is not sufficient evidence. After adding the curated record, set the candidate&#x27;s status to <code>accepted</code>. Set <code>rejected</code> with a reason for irrelevant or duplicate results. Keep decision records so later daily runs do not reopen the same candidate.</p>
-<h2>Review checklist</h2>
+<h2 id="review-checklist">Review checklist</h2>
 <ul>
 <li>Is code the world representation, a controller, a rendering condition, or the object being predicted?</li>
 <li>Is this generated motion, an engine-stepped physical simulation, or a learned transition?</li>
@@ -24,4 +44,6 @@
 <li>Is the main contribution generation or understanding, with useful cross-links?</li>
 <li>Are code links distinguished from project, data and weight links?</li>
 </ul>
-<p>原始分类理由可以使用中文。代码注释和维护提交默认使用中文。英文主目录面向国际读者；中文深度分类说明在 <code>docs/TAXONOMY.md</code>。</p></article></main></html>
+<p>原始分类理由可以使用中文。代码注释和维护提交默认使用中文。英文主目录面向国际读者；中文深度分类说明在 <code>docs/TAXONOMY.md</code>。</p></article>
+</main>
+</body></html>

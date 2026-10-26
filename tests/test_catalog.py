@@ -45,6 +45,43 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(a[ROOT/'site/papers.bib'].count('@misc{'),len(self.catalog['papers']))
         self.assertEqual(len(json.loads(a[ROOT/'site/papers.json'])['papers']),len(self.catalog['papers']))
 
+    def test_generated_documents_identify_their_current_page(self):
+        outputs=build.outputs(self.catalog,self.taxonomy,'')
+        for name in ['taxonomy','research','contributing','benchmarks','readme','topic-review','frontend']:
+            with self.subTest(page=name):
+                document=outputs[ROOT/f'site/{name}.html']
+                self.assertEqual(document.count('aria-current="page"'),1)
+                self.assertIn(f'href="{name}.html" aria-current="page"',document)
+                self.assertIn('href="papers.html">',document)
+                self.assertIn('<a href="index.html">Home</a>',document)
+        self.assertIn('href="taxonomy.html">the topic guide',outputs[ROOT/'site/topic-review.html'])
+        self.assertIn('href="frontend.html"',outputs[ROOT/'site/contributing.html'])
+
+    def test_main_navigation_is_stable_across_entries_and_generated_documents(self):
+        import re
+        expected=[('index.html','Home'),('papers.html','Papers'),('taxonomy.html','Taxonomy'),('research.html','Research notes'),('contributing.html','Contribute'),('readme.html','Repository guide')]
+        outputs=build.outputs(self.catalog,self.taxonomy,'example/repository')
+        documents={path:content for path,content in outputs.items() if path.suffix=='.html'}
+        documents.update({ROOT/f'site/{name}.html':(ROOT/f'site/{name}.html').read_text(encoding='utf-8') for name in ['index','papers']})
+        for path,document in documents.items():
+            with self.subTest(page=path.name):
+                navigation=re.search(r'<nav aria-label="Main navigation">(.*?)</nav>',document,re.S).group(1)
+                links=re.findall(r'<a href="([^"]+)"[^>]*>([^<]+)</a>',navigation)
+                self.assertEqual(links,expected)
+                self.assertEqual(navigation.count('id="source-link" class="source-link"'),1)
+                if path.stem not in {'index','papers','taxonomy','research','contributing','readme'}:
+                    self.assertNotIn('aria-current=',navigation)
+                    self.assertIn(f'href="{path.name}" aria-current="page"',document)
+
+    def test_long_documents_have_unique_linked_section_anchors(self):
+        document=build.document_page('Example', '# Title\n\n## Same\n\n## Same\n\n## Third\n\n## Fourth\n', 'example')
+        for anchor in ['same','same-2','third','fourth']:
+            self.assertEqual(document.count(f'id="{anchor}"'),1)
+            self.assertEqual(document.count(f'href="#{anchor}"'),2)
+        self.assertIn('class="toc-mobile"',document)
+        short=build.document_page('Short', '## One heading\n', 'short')
+        self.assertNotIn('class="document-toc"',short)
+
     def test_unknown_date_is_not_invented(self):
         p=next(p for p in self.catalog['papers'] if p['id']=='streaming-cwm')
         self.assertIsNone(p['published'])

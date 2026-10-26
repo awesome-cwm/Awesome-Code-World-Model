@@ -1,6 +1,28 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Benchmark Atlas / 基准索引 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>Benchmark Atlas / 基准索引</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Benchmark Atlas / 基准索引 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document has-toc">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><a class="document-current" href="benchmarks.html" aria-current="page">Benchmark Atlas</a></nav>
+<aside class="document-toc" aria-label="Table of contents">
+<div class="toc-desktop"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Sections"><a href="#video-reconstruction-inverse-graphics">Video reconstruction &amp; inverse graphics</a><a href="#procedural-3d-creation-scene-editing">Procedural 3D creation &amp; scene editing</a><a href="#physical-mechanisms-parameters-solvers">Physical mechanisms, parameters &amp; solvers</a><a href="#executable-interaction-state-intervention">Executable interaction, state &amp; intervention</a><a href="#code-guided-video-generation">Code-guided video generation</a><a href="#阅读建议">阅读建议</a></nav></div>
+<details class="toc-mobile"><summary>On this page</summary><nav aria-label="Sections"><a href="#video-reconstruction-inverse-graphics">Video reconstruction &amp; inverse graphics</a><a href="#procedural-3d-creation-scene-editing">Procedural 3D creation &amp; scene editing</a><a href="#physical-mechanisms-parameters-solvers">Physical mechanisms, parameters &amp; solvers</a><a href="#executable-interaction-state-intervention">Executable interaction, state &amp; intervention</a><a href="#code-guided-video-generation">Code-guided video generation</a><a href="#阅读建议">阅读建议</a></nav></details>
+</aside>
+<article class="prose" id="document-content"><h1>Benchmark Atlas / 基准索引</h1>
 <p>基准按任务、提交产物、评分证据与适用边界比较。任务设定与评测对象不同，分数不能跨基准直接排名。同一论文的配套 benchmark 作为具名协议索引，不重复计为新论文。</p>
-<h2>Video reconstruction &amp; inverse graphics</h2>
+<h2 id="video-reconstruction-inverse-graphics">Video reconstruction &amp; inverse graphics</h2>
 <p>What observable scene structure and motion survive video-to-code reconstruction?</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>Benchmark / Paper</th><th>Input</th><th>Submitted artifact</th><th>Evaluation evidence</th><th>Boundary / version</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/ShaoShuai0605/PhysCodeGym">PhysCodeGym</a></td><td>156 videos across rigid, liquid, deformable and wind-driven motion</td><td>Executable Blender simulation</td><td>Visual metrics, object/event rubrics, native physical measurements; 43 tasks with counterfactual checks</td><td>Counterfactual coverage is a subset, not a guarantee over arbitrary interventions.</td></tr>
@@ -8,7 +30,7 @@
 <tr><td><a href="https://github.com/4DCodeBench/4DCodeBench">4DCodeBench</a></td><td>100 real + 100 synthetic videos</td><td>Executable dynamic graphics program</td><td>Appearance, 2D/3D geometry and motion; synthetic reference-world comparisons</td><td>Matching observed dynamics does not uniquely identify the governing mechanism.</td></tr>
 <tr><td><a href="https://yoloytang.me/BVB/">BVB / Blender-VideoBench</a></td><td>288 indoor videos; agent sees video frames only</td><td>Animated Blender scene + camera</td><td>Dual VQA for retained facts; V-JEPA latent similarity for layout/motion</td><td>Video reconstruction scores do not establish contact physics or embodied task success.</td></tr>
 </tbody></table></div>
-<h2>Procedural 3D creation &amp; scene editing</h2>
+<h2 id="procedural-3d-creation-scene-editing">Procedural 3D creation &amp; scene editing</h2>
 <p>Does the delivered native scene satisfy the reference and preserve the intended structure?</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>Benchmark / Paper</th><th>Input</th><th>Submitted artifact</th><th>Evaluation evidence</th><th>Boundary / version</th></tr></thead><tbody>
 <tr><td><a href="https://arxiv.org/abs/2602.11757">Code4D</a></td><td>Text descriptions of 4D worlds</td><td>Generated scene code with scripted dynamics</td><td>Scene generation quality, richness and dynamic fidelity</td><td>Visual motion critique is not equivalent to simulator-enforced contact physics.</td></tr>
@@ -20,7 +42,7 @@
 <tr><td><a href="https://www.3dcodebench.com/">3DCodeBench / 3DCodeArena</a></td><td>Text and image references</td><td>Procedural 3D modeling code</td><td>Execution and 3D output quality; pairwise human preference in 3DCodeArena</td><td>Static asset quality does not by itself establish executable physical dynamics.</td></tr>
 <tr><td><a href="https://arxiv.org/html/2504.01786v1">BlenderGym</a></td><td>Starting scene script + start/goal images; five editing families</td><td>Edited Blender Python script</td><td>Image/perceptual metrics and geometry distances against the target</td><td>Graphics editing and verifier scaling; not a video-to-physical-simulation benchmark.</td></tr>
 </tbody></table></div>
-<h2>Physical mechanisms, parameters &amp; solvers</h2>
+<h2 id="physical-mechanisms-parameters-solvers">Physical mechanisms, parameters &amp; solvers</h2>
 <p>Does code recover the mechanism, satisfy physical checks and generalize beyond the observed motion?</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>Benchmark / Paper</th><th>Input</th><th>Submitted artifact</th><th>Evaluation evidence</th><th>Boundary / version</th></tr></thead><tbody>
 <tr><td><a href="https://arxiv.org/abs/2606.01538">MPMWorlds</a></td><td>2D MPM simulation videos with varying physical side information</td><td>Inferred simulation code or video-model continuation</td><td>Parameter/geometry inference and future physical extrapolation</td><td>Inference and extrapolation are distinct; the comparisons concern the stated 2D MPM setting.</td></tr>
@@ -31,7 +53,7 @@
 <tr><td><a href="https://arxiv.org/html/2609.35639v1">GPUPhysBench</a></td><td>50 specified GPU physics operators/simulators</td><td>GPU solver implementation</td><td>Numerical acceptance checks + runtime relative to expert implementations</td><td>Measures implementation correctness and efficiency, not physical-law discovery from observations.</td></tr>
 <tr><td><a href="https://arxiv.org/abs/2607.01766">4DBuildBench</a></td><td>Text prompts for dynamic procedural scenes</td><td>Editable Blender 4D scene</td><td>Visual fidelity and physical consistency</td><td>Text-to-world construction, not inverse reconstruction from source video.</td></tr>
 </tbody></table></div>
-<h2>Executable interaction, state &amp; intervention</h2>
+<h2 id="executable-interaction-state-intervention">Executable interaction, state &amp; intervention</h2>
 <p>Can the world complete tasks, preserve state and behave correctly after an edit?</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>Benchmark / Paper</th><th>Input</th><th>Submitted artifact</th><th>Evaluation evidence</th><th>Boundary / version</th></tr></thead><tbody>
 <tr><td><a href="https://arxiv.org/abs/2405.15383">Code World Models Benchmark (CWMB)</a></td><td>18 RL environments with descriptions and curated trajectories</td><td>Python transition/world model</td><td>Program synthesis and downstream model-based planning</td><td>Transition-model utility is evaluated separately from visual rendering.</td></tr>
@@ -42,13 +64,15 @@
 <tr><td><a href="https://vinesmsuic.github.io/IGMWorld/">IGMBench</a></td><td>110 Minecraft/Terraria editing tasks at four intervention depths</td><td>Executable game modification</td><td>Build/load, behavior, preservation and visual checks; over 1.1K criteria</td><td>Successful loading does not imply correct behavior or preservation of unaffected state.</td></tr>
 <tr><td><a href="https://arxiv.org/abs/2609.10540">CombatStateBench</a></td><td>Programmable combat worlds</td><td>State-driven interactive visual world</td><td>Entity count and state accuracy</td><td>Count/state fidelity does not exhaust general world intelligence or physical correctness.</td></tr>
 </tbody></table></div>
-<h2>Code-guided video generation</h2>
+<h2 id="code-guided-video-generation">Code-guided video generation</h2>
 <p>How well does the rendered video follow the code-built spatial and temporal plan?</p>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>Benchmark / Paper</th><th>Input</th><th>Submitted artifact</th><th>Evaluation evidence</th><th>Boundary / version</th></tr></thead><tbody>
 <tr><td><a href="https://code-video-model.github.io/">CodeVideoBench</a></td><td>Complex video-generation requests</td><td>Code-built previs followed by diffusion video</td><td>Composition, motion and spatiotemporal control in generated video</td><td>Video-generation evaluation does not establish a persistent interactive state machine.</td></tr>
 </tbody></table></div>
-<h2>阅读建议</h2>
+<h2 id="阅读建议">阅读建议</h2>
 <p>BVB → 4DCodeBench → PhysCodeGym → Video2World：依次关注时空事实、动态几何、物理机制与干预、具身任务。这个顺序是阅读路线，不是作者之间的继承关系。</p>
 <p>BlenderGym → 3DCodeBench → BlenderWorld / Code4Scene：从受约束的目标匹配，走向程序化资产、开放创作和原生场景状态检查。3DCodeVerse 在这条线上提供数据与 harness；使用 3DCodeBench 评测不等于二者是同一 benchmark。</p>
 <p>WorldSolver 与 GPUPhysBench 关注求解器实现；PhySimCode 还要求从视频识别规律和参数；ExeWorldBench 关注机制组合能否实际运行。</p>
-<p>Code4Scene 的 arXiv 论文与仓库 README 当前描述不同版本，表内分别保留。PhySimCode 的完整生成语料规模和公开评测子集规模也分别记录。每项来源链接与核验日期保存在统一文献数据中。</p></article></main></html>
+<p>Code4Scene 的 arXiv 论文与仓库 README 当前描述不同版本，表内分别保留。PhySimCode 的完整生成语料规模和公开评测子集规模也分别记录。每项来源链接与核验日期保存在统一文献数据中。</p></article>
+</main>
+</body></html>

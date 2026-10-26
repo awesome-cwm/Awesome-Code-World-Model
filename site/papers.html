@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search and filter code world model papers, projects, benchmarks and datasets. Compare mechanisms, explore timelines and export citations.">
+  <meta name="theme-color" content="#f5f4ef">
+  <title>Papers &amp; Projects - Awesome Code World Model</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="pages.css">
+  <script src="catalog.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="split-page papers-page">
+  <a class="skip-link" href="#library">Skip to research library</a>
+  <header class="header wrap">
+    <a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html" aria-current="page">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+  </header>
+  <main>
+    <section class="library wrap" id="library" aria-labelledby="library-title">
+      <div class="library-heading"><div><p class="eyebrow">THE RESEARCH LIBRARY</p><h1 id="library-title">Papers &amp; projects.</h1><p class="library-description">Find the work. Follow the mechanisms. Compare the evidence.</p></div><div class="library-tools"><a href="papers.bib" download>BibTeX ↓</a><a href="papers.json" download>JSON ↓</a><a href="papers.csv" download>CSV ↓</a></div></div>
+      <div class="search-row"><label class="search-box"><span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span><span class="sr-only">Search papers, authors or ideas</span><input id="search" type="search" placeholder="Search papers, authors, mechanisms…" autocomplete="off"><kbd>/</kbd></label><label class="quick-filter"><span>Published month</span><select id="month" aria-label="Filter by published month"><option value="all">All dates</option></select></label><label class="sort-label"><span>Sort by</span><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></label></div>
+      <div class="library-layout">
+        <details class="library-options" open>
+          <summary id="mobile-filters">
+            <span id="filter-label" aria-live="polite">Filters</span><span class="filter-indicator" aria-hidden="true">+</span>
+          </summary>
+        <aside id="research-filters" class="filters" aria-label="Research filters">
+          <div id="mobile-resource-filters"></div>
+          <div class="filter-heading"><h3>RESEARCH AREAS</h3><button id="clear" class="reset">Reset ↺</button></div>
+          <button id="all-research" class="category-button category-global" data-category="all" aria-pressed="true" aria-describedby="category-status"><span>All research</span><span id="research-total"></span></button>
+          <p id="category-status" class="category-status" aria-live="polite"></p>
+          <div id="categories"></div>
+          <div id="collection-filters"></div>
+          <div class="facet-group"><h3>COLLECTION SCOPE</h3><label><span class="sr-only">Collection scope</span><select id="scope"><option value="all">All scopes</option><option value="core">Core collection</option><option value="foundation">Earlier foundations</option><option value="adjacent">Related / enabling</option></select></label></div>
+          <details class="facet-group"><summary>COMPARE MECHANISMS</summary><div id="dimension-filters"></div></details>
+          <div class="sidebar-note"><span>CURATION NOTE</span><p>Primary sources checked. Categories are editorial judgments; reported results are not independent replications.</p><a href="research.html">Sources & boundaries ↗</a></div>
+          <nav id="benchmark-entry" class="collection-entry" aria-label="Specialized research indexes">
+            <h3>EXPLORE COLLECTIONS</h3>
+            <a href="papers.html?collection=benchmarks&amp;view=benchmarks">Benchmark atlas &#8599;</a>
+            <a href="papers.html?collection=d_corpora">Datasets &amp; corpora &#8599;</a>
+            <a href="papers.html?collection=d_streaming">Streaming systems &#8599;</a>
+          </nav>
+        </aside>
+        </details>
+        <div class="results">
+          <section id="result-context" class="result-context" aria-label="Current reading path" hidden></section>
+          <div class="results-toolbar"><p id="result-count" aria-live="polite"></p><div class="view-switch" role="group" aria-label="Display format"><button data-view="list" aria-pressed="true">List</button><button data-view="categories" aria-pressed="false">Categories</button><button data-view="benchmarks" aria-pressed="false">Benchmarks</button><button data-view="matrix" aria-pressed="false">Matrix</button><button data-view="timeline" aria-pressed="false">Timeline</button></div></div>
+          <div id="desktop-resource-filters">
+      <div class="library-badges">
+      <div class="badge-legend resource-filters" role="group" aria-label="Filter by paper badge"><button data-tag="all" aria-pressed="true">All papers</button><button data-tag="classic" aria-pressed="false"><svg class="status-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/></svg> Representative</button><button data-tag="available" aria-pressed="false"><svg class="status-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Public resources</button><button data-tag="not_found" aria-pressed="false"><svg class="status-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg> Resources not found</button></div>
+        <a class="resource-guide-link" href="research.html" title="Public resources include code, weights, data or official projects; they do not certify an open-source implementation.">About resource badges &#8599;</a>
+      </div>
+          </div>
+          <div id="active-filters"></div>
+          <div id="paper-list" aria-live="polite"><p class="loading">Loading the research collection…</p></div>
+          <noscript><p>JavaScript enables search and comparison. The complete static collection is available in the <a href="readme.html">repository guide</a>.</p></noscript>
+          <div class="catalog-end"><span>✳</span> A map of mechanisms, not a leaderboard.<a href="contributing.html">Suggest a paper ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="index.html"><span class="brand-mark">{w}</span><strong>Awesome Code World Model</strong></a><p>Curated in the open. Built around executable ideas.</p><div><a href="taxonomy.html">分类说明 / Taxonomy</a><a href="contributing.html">Contribute</a><span id="checked-date"></span></div></footer>
+  <div id="compare-tray" class="compare-tray" hidden><span id="compare-count"></span><button id="compare-open" class="button primary">Compare selected →</button><button id="compare-clear" class="text-link">Clear</button></div>
+  <dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">RESEARCH RECORD</span><button class="close-dialog" aria-label="Close paper details">✕</button></div><div id="detail-content"></div></dialog>
+  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-title"><div class="dialog-top"><h2 id="compare-title">Compare the mechanisms.</h2><button class="close-dialog" aria-label="Close comparison">✕</button></div><div id="compare-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

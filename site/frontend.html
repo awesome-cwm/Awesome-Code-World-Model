@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Web frontend maintenance / 前端维护 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><a class="document-current" href="frontend.html" aria-current="page">Web frontend maintenance</a></nav>
+
+<article class="prose" id="document-content"><h1>Web 前端维护</h1>
+<p>网站使用两个静态入口，共享 <code>catalog.js</code> 中的目录数据：</p>
+<ul>
+<li><code>site/index.html</code> + <code>site/home.js</code>：项目介绍、研究方向、新闻、近期论文和阅读路径。</li>
+<li><code>site/papers.html</code> + <code>site/app.js</code>：搜索、筛选、五种目录视图、论文详情、引用和对比。</li>
+<li><code>site/style.css</code>：既有公共样式，也供自动生成的文档页使用。</li>
+<li><code>site/pages.css</code>：两个入口的布局样式，通过页面 class 限定作用范围。</li>
+<li><code>site/theme.css</code>：共用的颜色、字号、间距、圆角、阴影和交互状态；深浅主题集中维护。</li>
+<li><code>site/theme.js</code>：页面绘制前恢复主题偏好，并在导航中提供 System → Light → Dark 三态 SVG 图标按钮（显示器／太阳／月亮）。按钮保留完整 <code>aria-label</code> 和 <code>title</code>，默认跟随系统，手动选择保存在本地；所有入口与生成文档共用。</li>
+<li><code>site/fonts/</code>：随站点发布的 Newsreader（标题）、Source Sans 3（正文）、IBM Plex Mono（代码）字体及各自的 OFL 许可证。字体仅包含拉丁字形，中文使用系统衬线／无衬线字体回退，无运行时外部字体请求。</li>
+</ul>
+<p>论文、分类及新闻继续在 <code>data/</code> 中维护。<code>catalog.js</code> 与导出文件由原有构建脚本生成，不手动编辑。新增论文无需同时维护两份页面内容。</p>
+<p>首页通过 <code>papers.html?track=...</code>、<code>?path=...</code> 和 <code>?paper=...</code> 链接论文库。旧首页上的筛选参数及 <code>#library</code>、<code>#benchmark-entry</code> 锚点会跳转到论文库，保留查询参数和锚点。仅带跟踪参数的首页链接仍显示首页。</p>
+<p>文档页统一由 <code>scripts/build.py</code> 的 <code>document_page()</code> 生成，包括 <code>docs/TOPIC_REVIEW.md</code> 对应的 <code>site/topic-review.html</code>，以及本说明对应的 <code>site/frontend.html</code>。修改 Markdown 源文档或模板后运行构建，不直接编辑生成的 HTML。导航以 <code>aria-current=&quot;page&quot;</code> 标出当前文档，并使用与首页一致的主题强调色和下划线。</p>
+<p>两个入口和所有文档的主导航固定为 Home、Papers、Taxonomy、Research notes、Contribute、Repository guide，顺序与本地目标一致。Repository guide 始终链接 <code>readme.html</code>，不因配置 GitHub 仓库地址而改变。未列入主导航的辅助文档在正文上方的面包屑中标记当前页，不向顶部菜单临时增删条目。</p>
+<h2 id="离线主题与深链接">离线主题与深链接</h2>
+<p><code>file://</code> 访问仍使用本地字体与脚本，不需要服务器或网络。主题默认跟随系统，手动选择保存在 <code>localStorage</code>。HTTP 同源页面共享该选择；浏览器并未统一保证 <code>file://</code> 的跨文件存储行为，隐私设置也可能禁止存储。在不共享存储的环境中，新页面会回到系统主题，可在当前页重新选择，或通过本地 HTTP 服务获得稳定的跨页记忆。存储不可用不影响阅读与当前页主题切换。</p>
+<p>离线复现记录（2026-10-26）：开始视觉升级前，Chrome 155.0.8059.85 和 Edge 156.0.4314.42 在已有修复的工作区中通过 Dark 导航、当前页高亮和绕过缓存刷新；未复现颜色不更新。升级后再使用这两款浏览器和 Playwright Firefox 157.0 验证上述场景，均保持暗色，Taxonomy 具有绿色下划线。Firefox 首次运行时缺少测试浏览器，安装后已补测通过。完整结果写入 <code>test-results/file-browser-results.json</code>。这表示当前版本通过验证，不表示所有浏览器的离线存储行为都相同。</p>
+<p><code>#benchmark-entry</code> 会在手机端自动展开集合面板并定位；关闭 <code>?paper=ID</code> 打开的详情时删除 <code>paper</code> 参数，保留其余查询参数与锚点，刷新不会再次打开已关闭的详情。首页 brand 与 Home 链接均使用 <code>index.html</code>，不会在离线浏览时进入目录列表。</p>
+<h2 id="视觉升级与性能边界">视觉升级与性能边界</h2>
+<p>所有页面使用同一套吸顶 header，支持时以半透明背景和 <code>backdrop-filter</code> 模糊增强；不支持时保留实色背景。文档页的 header 与目录通过 <code>document_page()</code> 生成，不增加运行时目录脚本。含至少四个二级标题的文档自动生成去重锚点和目录：1100px 以上为吸顶侧栏，较窄屏幕为原生折叠面板。正文始终为 16px。</p>
+<p>首页 SVG、光斑、两张方向卡片和论文卡片使用 <code>theme.css</code> 的深浅主题变量。首页和论文库以及生成文档预加载 Newsreader 正体和 Source Sans 3；字体仍使用 <code>font-display:swap</code>，离线失败时可以回退到本机字体。代码框改为图下正常文档流，避免压住立方体。资源图标为内联 SVG，并保留可读文字。</p>
+<p>首页计数只运行一次，卡片鼠标光晕通过 <code>requestAnimationFrame</code> 每帧最多写一次 <code>--x</code> / <code>--y</code>；减少动画模式下禁用计数和跟随效果。进场动画只在支持 <code>animation-timeline:view()</code> 时启用，基础样式始终显示内容。切换主题时若支持 View Transitions，则使用独立圆形快照从按钮位置扩散，并配合页面淡入；动画只改变 <code>transform</code> / <code>opacity</code>，文字不会随圆形缩放。未支持或开启减少动画时直接切换。SVG 虚线路径按设计使用 <code>stroke-dashoffset</code>，这是局部 SVG 重绘的特例；同样在减少动画模式下停用。论文卡片使用 <code>content-visibility:auto</code> 与估算高度，打印时恢复完整渲染。</p>
+<p>浏览器测试输出 <code>theme-{light|dark}-{index|papers|taxonomy}.html-{1440|1024|768|390}.png</code>，共 24 张；额外检查 320px 不溢出、目录链接、吸顶位置、主题降级、减少动画和 <code>file://</code>。<code>test-results/</code> 已忽略，不提交截图和临时检查产物。</p>
+<h2 id="本地验证">本地验证</h2>
+<p>在仓库根目录运行：</p>
+<pre><code>python -X utf8 -m unittest discover -s tests -v
+python -X utf8 scripts/build.py --check
+node --check site/app.js
+node --check site/home.js
+node --check site/theme.js
+python -m http.server 8000 --bind 127.0.0.1 --directory site</code></pre>
+<p>首页为 <code>http://127.0.0.1:8000/</code>，论文库为 <code>http://127.0.0.1:8000/papers.html</code>。也可直接打开两个 HTML 文件，继续支持离线浏览。</p>
+<p>安装可选的 Playwright 与 Chromium 后，在另一个终端运行 <code>python -X utf8 tests/browser_smoke.py</code>。也可用环境变量 <code>CWM_BROWSER_PATH</code> 指定已安装的 Chromium 浏览器，<code>CWM_TEST_URL</code> 指定站点根地址。测试覆盖两个入口、旧链接、详情、筛选、对比和四种屏幕宽度；截图输出到已忽略的 <code>test-results/</code>。</p>
+<p>PowerShell 使用本机 Chrome 的示例（服务器需先启动）：</p>
+<pre><code>$env:CWM_BROWSER_PATH = &#x27;C:/Program Files/Google/Chrome/Application/chrome.exe&#x27;
+python -X utf8 tests/browser_smoke.py</code></pre>
+<p>离线主题检查会使用已安装的 Chrome、Edge 和 Playwright Firefox；可用 <code>CWM_EDGE_PATH</code> / <code>CWM_FIREFOX_PATH</code> 指定路径。未安装的浏览器会明确报告 skipped，而不会算作通过。浏览器仅为可选测试工具，不属于站点依赖。</p>
+<p>部署继续使用仓库原有 GitHub Pages 工作流，无新增构建依赖。</p></article>
+</main>
+</body></html>

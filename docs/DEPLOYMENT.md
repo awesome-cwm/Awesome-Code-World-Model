@@ -10,7 +10,7 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
 ```
 
-打开 http://localhost:8000。也可以直接打开 `site/index.html`，搜索与对比使用本地 `catalog.js`，不依赖 fetch。
+打开 http://localhost:8000 查看项目首页，进入 `/papers.html` 搜索和浏览论文。也可以直接打开 `site/index.html` 或 `site/papers.html`；搜索与对比使用本地 `catalog.js`，不依赖 fetch。前端结构与验证步骤见 `docs/FRONTEND.md`。
 
 ## 发布
 

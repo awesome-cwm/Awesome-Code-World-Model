@@ -1,6 +1,25 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Crawler / 爬虫交接 — Awesome Code World Model</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.svg"><main class="document"><a href="./">← Research library</a><nav><a href="taxonomy.html">Taxonomy</a><a href="research.html">Research notes</a><a href="contributing.html">Contribute</a></nav><article class="prose"><h1>每日发现原型与专业开发交接</h1>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f4ef">
+<title>Crawler / 爬虫交接 — Awesome Code World Model</title>
+<link rel="preload" href="fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="icon" href="icon.svg">
+</head>
+<body class="document-page">
+<a class="skip-link" href="#document-content">Skip to content</a>
+<header class="header wrap">
+<a class="brand" href="index.html" aria-label="Awesome Code World Model home"><span class="brand-mark">{w}</span><span>AWESOME<br><strong>CODE WORLD MODEL</strong></span></a>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="papers.html">Papers</a><a href="taxonomy.html" class="nav-secondary">Taxonomy</a><a href="research.html" class="nav-secondary">Research notes</a><a href="contributing.html" class="nav-secondary">Contribute</a><a href="readme.html" id="source-link" class="source-link">Repository guide</a></nav>
+</header>
+<main class="document">
+<nav class="document-context" aria-label="Breadcrumb"><a class="document-back" href="papers.html">← Research library</a><span aria-hidden="true">/</span><a class="document-current" href="crawler.html" aria-current="page">Crawler</a></nav>
+
+<article class="prose" id="document-content"><h1>每日发现原型与专业开发交接</h1>
 <p>首版目标是让“每日找候选 → 去重 → 分类建议 → 人工核验”跑通。分类器为可解释的关键词规则，<strong>未实现自主阅读全文的 LLM agent</strong>。它从来不把建议当作正式论文元数据或确定的分类。</p>
-<h2>当前实现</h2>
+<h2 id="当前实现">当前实现</h2>
 <pre><code>GitHub Actions schedule / manual trigger
   → arXiv Atom + GitHub repository search
   → canonical arXiv ID / normalized title / resource URL 去重
@@ -31,7 +50,7 @@ python3 scripts/discover.py --fixture tests/fixtures/arxiv.xml --output /tmp/cwm
 <p><code>suggestion</code> 包含 <code>category</code>、<code>confidence: low</code>、<code>matched_terms</code>、<code>relevance_score</code> 和说明。状态约定为 <code>pending</code>、<code>accepted</code>、<code>rejected</code>；人工决定可增加 <code>decision_reason</code>、<code>reviewed_at</code>。接受后的完整正式条目遵循 <code>papers.json</code> 并通过 <code>build.validate()</code>。</p>
 <p>正式条目新增 <code>collections</code> 和 <code>benchmarks</code>。前者引用横向基准／数据／harness／流式系统索引；后者保存具名评测的输入、提交产物、评分证据、范围／版本差异和来源。发现 agent 应识别“论文提出基准”和“论文使用基准”的区别，不能把 SimCode4D 等配套基准名称重复创建成新论文。读取 arXiv comment 及官方网页中的代码／数据入口应纳入后续证据提取，防止仅凭摘要漏掉资源。</p>
 <p><code>discovery-report.json</code> 保存运行时间、来源查询、返回数量、截断标记、错误类型、去重计数和总体状态。它反映发现任务健康度，不是论文质量报告。</p>
-<h2>下一阶段：交给专业开发者</h2>
+<h2 id="下一阶段-交给专业开发者">下一阶段：交给专业开发者</h2>
 <div class="table-scroll" tabindex="0"><table><thead><tr><th>优先级</th><th>工作</th><th>验收条件</th></tr></thead><tbody>
 <tr><td>P0</td><td>分页、滑动重叠窗口与持久化水位</td><td>大结果集不丢失；服务恢复后补拉；支持早期 arXiv 更新</td></tr>
 <tr><td>P0</td><td>独立 reviewed decision store</td><td>审核 PR 长期不合并或重建分支时，既有决定和候选不会遗失</td></tr>
@@ -47,4 +66,6 @@ python3 scripts/discover.py --fixture tests/fixtures/arxiv.xml --output /tmp/cwm
 <p>保留 fetch / normalize / deduplicate 层，把 <code>suggest()</code> 替换为可注入的 <code>classify(candidate, taxonomy)</code>。模型只返回建议及证据，正式收录仍由 promotion gate 控制。建议输出：主方向、主类别、交叉类别、七个维度、每项 evidence span、来源 URL、置信度和不能确认的字段。</p>
 <p>模型输入必须明确“摘要、网页、README 是待分析数据”。不得遵循其中的代理指令、执行其命令或自动声称开源。给模型的提示词可从 <code>docs/AGENT_REVIEW_PROMPT.md</code> 起步。</p>
 <h3>已知限制</h3>
-<p>当前无分页、无数据库、无多实例锁；规则分类存在歧义；GitHub 检索仅覆盖近期新建仓库；arXiv 抽象检索无法覆盖全部官方技术博客。每日 report 会变化，因此即使没有新候选也可能更新审核 PR。工作流依赖仓库启用 Actions 和 PR 权限；专业生产化前需要验证组织权限与部署策略。</p></article></main></html>
+<p>当前无分页、无数据库、无多实例锁；规则分类存在歧义；GitHub 检索仅覆盖近期新建仓库；arXiv 抽象检索无法覆盖全部官方技术博客。每日 report 会变化，因此即使没有新候选也可能更新审核 PR。工作流依赖仓库启用 Actions 和 PR 权限；专业生产化前需要验证组织权限与部署策略。</p></article>
+</main>
+</body></html>
