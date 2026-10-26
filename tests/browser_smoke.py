@@ -3,10 +3,103 @@ import asyncio
 import json
 import os
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 from playwright.async_api import async_playwright
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE=os.environ.get('CWM_TEST_URL','http://127.0.0.1:8000')
+
+
+async def check_research_navigation(page, records, taxonomy, out):
+    sidebar=page.locator('#research-filters')
+    month_filter=page.locator('#month')
+    assert await month_filter.locator('xpath=..').get_attribute('class')=='quick-filter'
+    assert await month_filter.get_attribute('aria-label')=='Filter by published month'
+    await month_filter.select_option('2026-10')
+    assert '2026-10' in await page.locator('#active-filters').inner_text()
+    await page.locator('#clear').click()
+    assert await month_filter.input_value()=='all'
+    all_research=sidebar.locator('[data-category="all"]')
+    assert await sidebar.locator('.category-button').first.get_attribute('data-category')=='all'
+    assert await all_research.count()==1
+    assert await all_research.get_attribute('aria-pressed')=='true'
+    assert await page.locator('#research-total').inner_text()==str(len(records))
+    assert 'Other filters' not in await page.locator('#category-status').inner_text()
+    for track in taxonomy['tracks']:
+        button=sidebar.locator(f'[data-track="{track["id"]}"]')
+        await button.click()
+        assert await page.locator('.paper-card').count()==sum(p['track']==track['id'] for p in records)
+        assert await button.get_attribute('aria-pressed')=='true'
+        assert await all_research.get_attribute('aria-pressed')=='false'
+        assert await sidebar.locator('.category-button[aria-pressed="true"]').count()==1
+    for category in taxonomy['categories']:
+        button=sidebar.locator(f'[data-category="{category["id"]}"]')
+        expected=sum(p['category']==category['id'] or category['id'] in p['cross_categories'] for p in records)
+        assert await button.locator('span').last.inner_text()==str(expected)
+        await button.click()
+        assert await page.locator('.paper-card').count()==expected
+        assert await sidebar.locator('.category-button[aria-pressed="true"]').count()==1
+
+    # All research resets direction/category/path, while independent filters remain.
+    query='?q=physics&track=generation&month=2026-10&tag=available&scope=core&interaction=offline&sort=title'
+    await page.goto(BASE+'/'+query.replace('&track=generation',''),wait_until='networkidle')
+    expected_ids=await page.locator('.paper-card').evaluate_all('(els) => els.map(el => el.dataset.paper)')
+    assert expected_ids
+    await page.goto(BASE+'/'+query+'&path=render',wait_until='networkidle')
+    await all_research.focus()
+    assert await all_research.evaluate('(el) => getComputedStyle(el).outlineStyle')=='solid'
+    await page.keyboard.press('Enter')
+    params=parse_qs(urlsplit(page.url).query)
+    assert params=={'q':['physics'],'month':['2026-10'],'tag':['available'],'scope':['core'],'interaction':['offline'],'sort':['title']}
+    assert 'Other filters also apply' in await page.locator('#category-status').inner_text()
+    assert await page.locator('.paper-card').evaluate_all('(els) => els.map(el => el.dataset.paper)')==expected_ids
+    await page.reload(wait_until='networkidle')
+    assert await all_research.get_attribute('aria-pressed')=='true'
+    assert 'Other filters also apply' in await page.locator('#category-status').inner_text()
+    await page.locator('#clear').click()
+    assert await page.locator('.paper-card').count()==len(records)
+
+    await sidebar.locator('[data-collection="d_streaming"]').click()
+    await sidebar.locator('[data-track="generation"]').click()
+    await all_research.click()
+    assert parse_qs(urlsplit(page.url).query)=={'collection':['d_streaming']}
+    assert await sidebar.locator('[data-collection="d_streaming"]').get_attribute('aria-pressed')=='true'
+    assert 'Other filters also apply' in await page.locator('#category-status').inner_text()
+
+    await page.goto(BASE+'/',wait_until='networkidle')
+    await page.goto(BASE+'/?track=generation',wait_until='networkidle')
+    await page.go_back(wait_until='networkidle')
+    assert await all_research.get_attribute('aria-pressed')=='true'
+    await page.go_forward(wait_until='networkidle')
+    assert await sidebar.locator('[data-track="generation"]').get_attribute('aria-pressed')=='true'
+    # Exercise the popstate listener without a document reload.
+    await page.evaluate("history.pushState(null,'','?category=g_simulation');dispatchEvent(new PopStateEvent('popstate'))")
+    assert await sidebar.locator('[data-category="g_simulation"]').get_attribute('aria-pressed')=='true'
+    await page.go_back()
+    assert await sidebar.locator('[data-track="generation"]').get_attribute('aria-pressed')=='true'
+    await page.locator('#clear').click()
+
+    for width in [1440,1024,768,390]:
+        await page.set_viewport_size({'width':width,'height':1000})
+        if width<=800:
+            assert not await sidebar.is_visible()
+            await page.locator('#mobile-filters').click()
+            assert await sidebar.is_visible()
+            assert await page.locator('#mobile-filters').get_attribute('aria-expanded')=='true'
+        assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+        assert await sidebar.locator('.category-button').evaluate_all('(els) => els.every(el => el.getBoundingClientRect().height >= 44)')
+        assert await sidebar.locator('.category-button').evaluate_all('''(els) => els.every(el => {
+            const name=el.firstElementChild.getBoundingClientRect(), count=el.lastElementChild.getBoundingClientRect();
+            return name.right<=count.left && count.right<=el.getBoundingClientRect().right;
+        })''')
+        await page.evaluate("document.querySelector('#library').scrollIntoView({behavior:'instant'})")
+        await page.mouse.move(0,0)
+        await page.screenshot(path=str(out/f'navigation-{width}.png'))
+        if width==1440:
+            await page.locator('#categories').screenshot(path=str(out/'navigation-directions.png'))
+        if width<=800:
+            await page.locator('#mobile-filters').click()
+    await page.set_viewport_size({'width':1440,'height':1100})
 
 
 async def main():
@@ -27,6 +120,8 @@ async def main():
         assert await page.locator('.paper-card').count()==count
         results.append(f'首屏完整加载 {count} 条记录')
         out=ROOT/'test-results';out.mkdir(exist_ok=True)
+        await check_research_navigation(page,records,taxonomy,out)
+        results.append('分类导航层级、方向与子类计数、组合筛选、URL 恢复、键盘操作及四种屏幕宽度')
         await page.screenshot(path=str(out/'desktop.png'))
         await page.locator('#library').scroll_into_view_if_needed()
         await page.evaluate("document.querySelector('#library').scrollIntoView({behavior:'instant'})")

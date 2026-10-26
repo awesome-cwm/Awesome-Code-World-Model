@@ -62,7 +62,7 @@
     </section>
     <section class="library wrap" id="library" aria-labelledby="library-title">
       <div class="library-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="library-title">Follow the ideas.</h2></div><div class="library-tools"><a href="papers.bib" download>BibTeX ↓</a><a href="papers.json" download>JSON ↓</a><a href="papers.csv" download>CSV ↓</a></div></div>
-      <div class="search-row"><label class="search-box"><span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span><span class="sr-only">Search papers, authors or ideas</span><input id="search" type="search" placeholder="Search papers, authors, mechanisms…" autocomplete="off"><kbd>/</kbd></label><label class="sort-label"><span class="sr-only">Sort papers</span><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></label></div>
+      <div class="search-row"><label class="search-box"><span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span><span class="sr-only">Search papers, authors or ideas</span><input id="search" type="search" placeholder="Search papers, authors, mechanisms…" autocomplete="off"><kbd>/</kbd></label><label class="quick-filter"><span>Published month</span><select id="month" aria-label="Filter by published month"><option value="all">All dates</option></select></label><label class="sort-label"><span>Sort by</span><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></label></div>
       <div id="benchmark-entry" class="collection-entry" aria-label="Specialized research indexes">
         <button data-collection="benchmarks"><span class="eyebrow">BENCHMARK ATLAS · <span id="benchmark-total"></span> SUITES</span><strong>What counts as a working world? ↗</strong><span>Inputs → artifacts → evaluation evidence</span></button>
         <button data-collection="d_corpora"><span class="eyebrow">CODE DATA</span><strong>Datasets & executable corpora ↗</strong><span>3DCodeVerse · 3DCodeBench · PhySimCode</span></button>
@@ -72,9 +72,11 @@
       <div class="library-layout">
         <aside id="research-filters" class="filters" aria-label="Research filters">
           <div class="filter-heading"><h3>RESEARCH AREAS</h3><button id="clear" class="reset">Reset ↺</button></div>
+          <button id="all-research" class="category-button category-global" data-category="all" aria-pressed="true" aria-describedby="category-status"><span>All research</span><span id="research-total"></span></button>
+          <p id="category-status" class="category-status" aria-live="polite"></p>
           <div id="collection-filters"></div>
           <div id="categories"></div>
-          <div class="facet-group"><h3>COLLECTION SCOPE</h3><label><span class="sr-only">Collection scope</span><select id="scope"><option value="all">All scopes</option><option value="core">Core collection</option><option value="foundation">Earlier foundations</option><option value="adjacent">Related / enabling</option></select></label><label class="facet-label">Published month<select id="month"><option value="all">All dates</option></select></label></div>
+          <div class="facet-group"><h3>COLLECTION SCOPE</h3><label><span class="sr-only">Collection scope</span><select id="scope"><option value="all">All scopes</option><option value="core">Core collection</option><option value="foundation">Earlier foundations</option><option value="adjacent">Related / enabling</option></select></label></div>
           <details class="facet-group" open><summary>COMPARE MECHANISMS</summary><div id="dimension-filters"></div></details>
           <div class="sidebar-note"><span>CURATION NOTE</span><p>Primary sources checked. Categories are editorial judgments; reported results are not independent replications.</p><a href="research.html">Sources & boundaries ↗</a></div>
         </aside>
