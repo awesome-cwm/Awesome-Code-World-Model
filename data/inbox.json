@@ -2,6 +2,1488 @@
   "schema_version": 1,
   "candidates": [
     {
+      "id": "github-da6e37fd966b009f",
+      "arxiv": null,
+      "title": "Awesome Code World Models",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-28",
+      "abstract": "",
+      "url": "https://github.com/pinglmlcv/Awesome-Code-World-Models",
+      "source_type": "github",
+      "repository_created": "2026-10-18",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "code world"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-ada0237a1c313d0c",
+      "arxiv": null,
+      "title": "Awesome Code World Model",
+      "authors": [],
+      "published": null,
+      "updated": "2026-11-06",
+      "abstract": " A curated collection of Code World Model papers, benchmarks, datasets, and resources",
+      "url": "https://github.com/awesome-cwm/Awesome-Code-World-Model",
+      "source_type": "github",
+      "repository_created": "2026-10-22",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "code world"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-acd3859023a2495c",
+      "arxiv": null,
+      "title": "CCTVAPP",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-20",
+      "abstract": "CCTV Streaming Applicaiton",
+      "url": "https://github.com/VAE-Developer/CCTVAPP",
+      "source_type": "github",
+      "repository_created": "2026-10-20",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-9a05ecc4d5b6360b",
+      "arxiv": null,
+      "title": "prediction error reading",
+      "authors": [],
+      "published": null,
+      "updated": "2026-11-03",
+      "abstract": "Medical Findings Are Prediction Errors: code (world models of normal anatomy + VLM readers)",
+      "url": "https://github.com/hq0709/prediction-error-reading",
+      "source_type": "github",
+      "repository_created": "2026-10-20",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "github-056b9d98c85ae8a9",
+      "arxiv": null,
+      "title": "Code World Model Docs",
+      "authors": [],
+      "published": null,
+      "updated": "2026-10-28",
+      "abstract": "Code World Model Documents",
+      "url": "https://github.com/hhhjyz/Code-World-Model-Docs",
+      "source_type": "github",
+      "repository_created": "2026-10-25",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "code world"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.08321",
+      "arxiv": "2611.08321",
+      "title": "ControlAnything: Generative UI and On-Demand Device Integration for Mixed-Reality Hand Interaction by a Coding Agent",
+      "authors": [
+        "Bektur Ryskeldiev"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Connecting hand input in mixed reality (MR) to a nearby physical device typically requires an integration written in advance for that device, its transport and the mapping. ControlAnything defers this integration to the moment of use and assigns it to a coding agent. On a Meta Quest 3, the wearer selects an object outlined by SAM 3.1 and states what their hands should control. An agent built on Meta's Muse Spark model then writes a connector program on the wearer's laptop, tests it against the live device through hand-written MIDI, Bluetooth and key-press transports, and returns augmented-reality (AR) controls, a per-frame hand program, or both. These outputs are a form of generative UI, interfaces created by an AI model; here, the agent also generates and tests the code that binds the interface to a physical device. In a single-session technical evaluation with the author as the only wearer, nine of ten requests addressing five targets reached a ready state, and the wearer stopped one. The median time to ready was 32.5 s (range 24.9-57.8 s, excluding speech transcription); sequential model calls accounted for a median of 89.9% of this time, and 91.7% of input tokens came from the prompt cache. The system's evidence of success extends to transport acknowledgements but not to physical effects. These findings point to connector reuse and the observation of effects through the headset's own sensors as next steps for on-demand device integration in MR. A user study with first-time wearers is planned.",
+      "url": "https://arxiv.org/abs/2611.08321",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.08318",
+      "arxiv": "2611.08318",
+      "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
+      "authors": [
+        "Wenbo Huang",
+        "Jianxin Bi",
+        "Shunyu Yang",
+        "Ruiyang Si",
+        "Rui Ni",
+        "Qiang Wang",
+        "Shulong Jiang",
+        "Yintianrun Zhang",
+        "Feixiang Ruan",
+        "Kewei Zhang",
+        "Ye Huang",
+        "Shukai Gong",
+        "Daquan Zhou"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Self-improving embodied agents are increasingly being developed and compared on robot simulation benchmarks. Several recent works expose the benchmark's success criteria to the learning agent, a practice we call Criteria Exposure (CE). These criteria, originally written to verify policies trained by imitation learning, often demand more than the corresponding language instructions, so a score from such a verifier may not faithfully reflect whether the instructed task was completed, especially for robot-control programs written by an agent. As embodied coding agents report ever higher benchmark scores, a natural question arises: when a coding agent is exposed to the benchmark's criteria, does it generate code that better performs the instructed task, or code that simply overfits to the verification criteria? We conduct controlled experiments with a self-improving agent with and without CE, and find that with CE the agent quickly produces code with a higher success rate under the given criteria, but this advantage disappears when the criteria are changed slightly without departing from the original instructions. More importantly, the skills the agent develops under CE transfer poorly across tasks. We further propose instruction-faithful criteria and show that they better reflect the performance of agent-generated programs.",
+      "url": "https://arxiv.org/abs/2611.08318",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "simulation",
+          "verification"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.08127",
+      "arxiv": "2611.08127",
+      "title": "An Agent-Driven, Cross-Validated Inverse-Design Pipeline for Dielectric Metasurfaces",
+      "authors": [
+        "Giuseppe Emanuele Lio",
+        "Roberto Caputo",
+        "Alain J. Corso",
+        "Maria Guglielmina Pelizzo",
+        "Antonio Ferraro"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Inverse design of dielectric metasurfaces is powerful but labour-intensive: each new target requires choosing a parameterization and a figure of merit, managing compute resources, and critically assessing results that may be numerically unconverged, sensitive to fabrication errors or trapped in local optima. Here we present an open-source pipeline in which an artificial intelligence (AI) coding agent turns a plain-language specification into metasurface optimization runs, executes them, analyses every run with a fixed checklist and proposes the next iteration. Designs are optimized with differentiable three-dimensional rigorous coupled-wave analysis (RCWA), including robustness to fabrication tolerances, and every reported design is independently verified with finite-difference time-domain (FDTD) simulations. We demonstrate the workflow at 1550 nm on a freeform silicon metagrating, on a polarization-independent meta-atom library assembled into beam-deflecting supercells, and on metalenses built from the same library. In the metagrating case, the independent FDTD verification revealed a 5\\% overestimate of the efficiency by the optimization model that a conventional convergence test had not detected, and the robust design retained most of its efficiency under $\\pm$10~nm fabrication errors. In the other cases, instead, the obtained RCWA results are confirmed by full-wave simulations.",
+      "url": "https://arxiv.org/abs/2611.08127",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "inverse",
+          "simulation",
+          "verification"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.08099",
+      "arxiv": "2611.08099",
+      "title": "Towards Practical 20 kbps Generative Video Compression via Adaptive Tokenization and Entropy Modeling",
+      "authors": [
+        "Jiancheng Zhao",
+        "Jixiang Luo",
+        "Haibin Huang",
+        "Chi Zhang",
+        "Xuelong Li"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Video compression at ultra-low bitrates remains challenging due to the loss of perceptually important details under limited bit budgets. Recent generative video compression methods leverage pretrained video priors to improve perceptual quality and temporal coherence, but many follow a compress-then-generate paradigm, where generative priors are primarily exploited during reconstruction. Moreover, representations learned for generation and reconstruction are not inherently optimized for entropy coding. In this work, we propose \\method, which adapts pretrained video representations into compression-oriented representations while preserving their reconstruction capability. Specifically, we adapt the pretrained causal video VAE of MiniMax-H3 into a discrete video tokenizer and develop a small autoregressive entropy model that captures local and global token dependencies, with grouped prediction for parallel decoding. To further improve coding efficiency, we jointly optimize the tokenizer and entropy model using a differentiable rate surrogate, allowing rate gradients to adapt token assignments toward lower coding costs while preserving reconstruction quality. Experiments on UVG, MCL-JCV, and HEVC Class B demonstrate superior perceptual rate--distortion performance, achieving BD-LPIPS savings of 82.2\\%--87.5\\% and BD-DISTS savings of 78.3\\%--85.0\\% relative to GLC-Video.",
+      "url": "https://arxiv.org/abs/2611.08099",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "reconstruct"
+        ],
+        "relevance_score": 1,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.07867",
+      "arxiv": "2611.07867",
+      "title": "PlayGen2: Learning Real-Time Playable Worlds with Explicit 3D State",
+      "authors": [
+        "Jihai Zhang",
+        "Yuhan Zhou",
+        "Junyou Li",
+        "Deheng Ye",
+        "Qi Dou",
+        "Yu Cheng"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Building a playable world requires more than generating plausible video: it demands responsive control, persistent spatial structure, and coherent interactions with dynamic entities. Using generated frames as the sole recurrent world representation ties these requirements to view-dependent appearance synthesis, making it difficult to maintain long-term spatial and temporal consistency in generation and interaction. We present PlayGen2, a real-time interactive world model that separates learned 3D state evolution from neural rendering. PlayGen2 maintains a persistent world memory comprising static geometry represented by a volumetric occupancy grid and identity-indexed 3D states for the player and other entities. Within a fixed-size local region, its world-state model jointly learns action-conditioned entity dynamics, geometry completion, and entity discovery, committing updates to a persistent world memory. A separate neural renderer synthesizes first-person observations from depth and semantic projections of the world state, without feeding generated images back into state prediction. Using Doom as a testbed, we demonstrate that the model successfully learns world dynamics including geometry-aware player motion and player--NPC interactions. The framework is computationally efficient, enabling the complete simulation and rendering pipeline to achieve approximately 160ms backend latency on a MacBook Pro with an M4 Pro chip. Beyond single-player interaction, we demonstrate zero-shot deployment on unseen Doom maps, multiplayer interaction through the composition of single-player models, and programmable gameplay through rule-based state interventions. These capabilities demonstrate the transferability and extensibility of the learned game-world model. Code and pretrained model weights are publicly available.",
+      "url": "https://arxiv.org/abs/2611.07867",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "gameplay",
+          "persistent",
+          "playable",
+          "programmable",
+          "renderer",
+          "rendering",
+          "simulation"
+        ],
+        "relevance_score": 7,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.07464",
+      "arxiv": "2611.07464",
+      "title": "FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance",
+      "authors": [
+        "Yupeng Cao",
+        "Xueqing Peng",
+        "Lingfei Qian",
+        "Haohang Li",
+        "Yangyang Yu",
+        "Anke Xu",
+        "Wenbo Cao",
+        "Yan Wang",
+        "Yuechen Jiang",
+        "Yuyan Wang",
+        "Zhuohan Xie",
+        "Yankai Chen",
+        "Zehan Li",
+        "Jimin Huang",
+        "Xue Liu",
+        "Jian-Yun Nie",
+        "Sophia Ananiadou"
+      ],
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "abstract": "Language agents increasingly work for users on the open Web, and finance is where trusting them is hardest. The data must come from the Web, the strategy lives in the user's head, and correctness depends on time, so an agent can fail silently: a strategy the user never asked for, unverified data, or a backtest that uses the future yields a report as convincing as a correct one. Existing benchmarks close the world somewhere, fixing the task, the data, or the timeline, and thereby remove these failures instead of measuring them. We introduce FINCOSMOS, an open-world evaluation paradigm for agents doing financial work. A simulated user holds a hidden strategy sampled from a compositional grammar and reveals it only when asked. The agent receives no data, so it must acquire data from the Web, build its own backtest under a data cutoff, and deliver verifiable results. Grading needs no reference answer. Programs verify point-in-time correctness and recompute every reported metric, the delivered strategy is checked against the hidden specification, and a run is accepted only when the user is satisfied and none of 15 veto checks fails. Across four coding agents and a model without tools in 150 sessions, no session is accepted: every session that the simulated user signed off fails a program check, and agents raise only 54--64\\% of the details they were not told. Human experts attribute 88.33\\% of failures to the agents. With FINCOSMOS feedback, an agent with persistent memory learned all ten tasks.",
+      "url": "https://arxiv.org/abs/2611.07464",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "persistent"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.06881",
+      "arxiv": "2611.06881",
+      "title": "VABAR: A Variational Automation Benchmark for Agentic Robotics",
+      "authors": [
+        "Shuangyu Xie",
+        "Kaiyuan Chen",
+        "Uksang Yoo",
+        "Xinyue Zhu",
+        "Meadow Shen",
+        "Jaimyn Drake",
+        "Eugen Solowjow",
+        "Lionel Gulich",
+        "Alexander Millane",
+        "Rafael Cathomen",
+        "Tuur Stuyck",
+        "Sangeeta Subramanian",
+        "Yichao Pan",
+        "Bruce McGowan",
+        "Michael Benedict",
+        "Linxi Fan",
+        "Yuke Zhu",
+        "Spencer Huang",
+        "Ken Goldberg"
+      ],
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "abstract": "For robots to operate reliably in commercial and industrial applications, they must persistently perform specific tasks with known variations in object shape and pose. We call this Variational Automation (VA) to differentiate these settings from fixed automation. Inspired by recent papers on Agentic Robotics, where pretrained LLM and VLM coding agents combine interpretable robot programming with the open-world adaptability of model free policies, we propose a general set of agentic robotics benchmark design criteria that includes accessibility, repeatability, diversity, relevance to agentic robotics and practical applications, physical realizability, resistance to benchmark saturation, and computational efficiency. We instantiate these principles in six manipulation task classes spanning industrial, medical, and infrastructure applications: tool sorting, tool hanging, gear meshing, syringe packing, cable insertion, and cable routing. We introduce the Variational Automation Benchmark for Agentic Robotics (VABAR), an open, easily replicable, simulation-based manipulation benchmark to systematically evaluating agentic robotics systems. Built fully on open-source tools, VABAR features detailed implementations using the Newton physics engine, standardized task variations, difficulty tiers, success metrics, and a library of 33 generalizable skills with human-authored programmatic reference solutions. We provide initial baseline evaluations using an open agentic manipulation harness, Graph-as-Policy (GaP), and Isaac Lab Arena.",
+      "url": "https://arxiv.org/abs/2611.06881",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "persistent",
+          "physics engine",
+          "simulation"
+        ],
+        "relevance_score": 8,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.06829",
+      "arxiv": "2611.06829",
+      "title": "Enabling AWS Cloud FPGA Development Using High-Level Vitis HLS",
+      "authors": [
+        "David Rostcheck"
+      ],
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "abstract": "We present a toolchain for development of ML models on AWS EC2 F2 cloud FPGA infrastructure from high-level language, implementing a complete Vitis HLS to HDK bridge to AFI workflow that has been absent from the academic literature despite eight years of AWS FPGA availability. We introduce a four-level methodology (FP32 PyTorch, bit-accurate quantized Python, HLS C-simulation, physical FPGA) to aid in localizing errors, including FPGA-specific circuit errors. Together these tools allow coding agents to effectively implement FPGA designs from user directions, testing and debugging as needed. We document the deployment workflow, timing closure strategies, and practical HLS engineering decisions that proved crucial. We validate using TinyBERT fine-tuned for address Named Entity Recognition, implementing the embedding layer and the first of four encoder layers on the FPGA hardware. Our implementation streams weights from host DRAM, yielding poor performance compared to CPU/GPU implementations; we discuss forward paths.",
+      "url": "https://arxiv.org/abs/2611.06829",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.06768",
+      "arxiv": "2611.06768",
+      "title": "PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World",
+      "authors": [
+        "Qiang Wang",
+        "Jianxin Bi",
+        "Shulong Jiang",
+        "Ruiyang Si",
+        "Wenbo Huang",
+        "Kaiqi Chen",
+        "Jiaxin Li",
+        "Liyun Li",
+        "Xuanyi Li",
+        "Daquan Zhou"
+      ],
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "abstract": "Coding agents powered by models such as GPT-6-Astra connect spatial reasoning with executable robot behavior, raising the question of how such agents can produce lasting improvements in robot capabilities from physical interaction. In this work, we study embodied recursive self-improvement (RSI) through real-world exploration, code refinement, and deployment using PyRUA-REAL, a framework in which coding agents retain interaction experience as persistent memory and reusable executable skills that inform subsequent exploration and improvement. Our empirical study places physical manipulation at the center of the improvement process, examining how agents collaborate, what kinds of execution feedback support effective code refinement, and how task specifications and previously acquired skills influence robustness and task transfer. We further investigate the efficiency and capability of the resulting programs when deployed without involving an online agent for decision-making. Across eight real-world tasks, PyRUA-REAL achieves an average success rate of 91.1%. In complementary evaluation on 42 tasks from the RoboDojo benchmark, it achieves an average success rate of 84.4%. This study provides empirical guidance for turning physical exploration into reusable robot skills that support continued improvement and robust, efficient deployment.",
+      "url": "https://arxiv.org/abs/2611.06768",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "persistent"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.05739",
+      "arxiv": "2611.05739",
+      "title": "PersonaCodeBench: Evaluating Coding Agents in Persona-driven Human-Interactive Sessions",
+      "authors": [
+        "Haixin Wang",
+        "Jianheng Hou",
+        "Hongyu Shen",
+        "Wenzhe Fan",
+        "Wei-Chieh Huang",
+        "Qianyu Zhu",
+        "Weichen Li",
+        "Taoran Li",
+        "Yuhang Yao",
+        "Ruohan Wang",
+        "Zhejian Peng",
+        "Wanting Jiang",
+        "Yifan Chen",
+        "Shushu Liang",
+        "Haoming Li",
+        "Defu Cao",
+        "Xu Hu",
+        "Siyang Wu",
+        "Chen Yang",
+        "Haodi Hu",
+        "Haichao Zhang",
+        "Cong Wang",
+        "Zhiyuan Yu",
+        "Weizhi Zhang",
+        "Yifan Wang",
+        "Jintao Huang",
+        "Yizhou Sun",
+        "Yijun Wang",
+        "Yuexing Hao",
+        "Xiaomin Li"
+      ],
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "abstract": "Coding agents must deliver correct software while respecting users' expertise, preferences, and working conditions. Existing benchmarks increasingly incorporate interaction, yet personalized requirement fulfillment remains underexplored. We introduce PersonaCodeBench, which turns user characteristics into verifiable obligations in persona-driven multi-turn coding sessions. Our persona pool spans roles, technical abilities, interaction preferences, and practical constraints, yielding task-grounded evolved requirements for implementation, permissions, testing, explanation, and delivery. At runtime, a controller governs user simulator responses and requirement disclosure, using online requirement evaluation to provide feedback and advance the interaction. Requirements emerge progressively, with their content, disclosure conditions, and acceptance criteria fixed before evaluation. A completion verifier and a personalization verifier separately assess native correctness and persona fulfillment. Joint pass requires both adherence to the declared budget and compliance with validity conditions. We evaluate all major frontier agents, establish a comprehensive leaderboard, and conduct detailed experimental analyses to validate effectiveness. PersonaCodeBench supports reproducible evaluation of coding agents' ability to meet explicit, personalized user expectations alongside coding objectives.",
+      "url": "https://arxiv.org/abs/2611.05739",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "obligation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.05320",
+      "arxiv": "2611.05320",
+      "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
+      "authors": [
+        "Kewei Zhang",
+        "Juncheng Ma",
+        "Guodong Lv",
+        "Duomin Wang",
+        "Feixiang Ruan",
+        "Ruiyang Si",
+        "Chuanrui Zhang",
+        "Yuxuan Chen",
+        "Hao Chen",
+        "Yichen Liu",
+        "Yintianrun Zhang",
+        "Yufan Deng",
+        "Enze Xie",
+        "Daquan Zhou"
+      ],
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "abstract": "Teleoperation remains the default way to collect robot demonstrations, but every episode costs robot and operator time, and every new task starts from scratch. We ask whether a coding agent can take over the teleoperator's job. In our DataFarm, the agent receives a data request and one calibration episode of the robot in the target scene and rebuilds the task in simulation: it writes the scene, an expert controller, and a success judge. The simulator supplies exact actions, and a video model conditioned on real images renders each rollout as photographic video, generating all camera views together consistently. The output is real-ready data: synchronized camera views labelled with the robot's actions, on which a policy can be trained directly and deployed on the real robot. Independent judges certify the expert and every rendered episode before admission. On five real-robot tasks, policies trained only on farm data match policies trained on as many teleoperated episodes (93 vs. 84 successes in 100 trials), and under an unseen tablecloth and coloured light they keep 87 successes where the teleoperation-trained policies fall to 46. Adapting a task is fully automatic and costs \\$21 of API usage on average, paid once per task, plus \\$5 for a render contract; every further episode costs \\$0.80 on average for simulation, rendering, and review, with no robot or operator. One hour of three-view data for a task costs \\$107 on average, these costs included, slightly below a quote of \\$117 for teleoperation in China and below \\$290 in labour alone in North America.",
+      "url": "https://arxiv.org/abs/2611.05320",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "rendering",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.03551",
+      "arxiv": "2611.03551",
+      "title": "Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL",
+      "authors": [
+        "Marianne Menglin Liu",
+        "Rongguang Wang",
+        "Zheng Wang",
+        "Yewen Wang",
+        "Leonid Boytsov",
+        "Tao Sheng",
+        "Sujith Ravi",
+        "Dan Roth"
+      ],
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "abstract": "LLM coding agents can increasingly automate model post-training, but whether they can act as forward-deployed engineer (FDE) agents, discovering customer requirements and turning them into deployment decisions, remains unclear. We study this on a real enterprise text-to-SQL engagement: a simulated customer, grounded in the real use case's requirements, starts with an ambiguous request. An agent must discover acceptance criteria, data permissions, and hardware constraints in the discovery phase, then plan and execute a post-training recipe in the delivery phase. Across 15 models, the strongest discover over 80% of withheld requirements and open-weight models discover 40-50%; in the delivery phase, only 25% of runs across eight coding-agent configurations pass all acceptance criteria. We identify four bottlenecks in this engagement: (1) incomplete discovery, with 40% of withheld requirements missing or misrepresented; (2) unreliable execution; (3) underused compute budgets and a lack of systematic comparisons across base models and post-training methods; and (4) benchmark accuracy does not guarantee production readiness. We suggest human review of discovered requirements, monitoring of the agent's plan during execution, and an explicit experiment-environment specification covering hardware, budget scope, and production checks.",
+      "url": "https://arxiv.org/abs/2611.03551",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.02391",
+      "arxiv": "2611.02391",
+      "title": "Late Autumn: LLM Agents Specialize a General Multi-Robot Planner for One Warehouse",
+      "authors": [
+        "Yimin Tang",
+        "Han Zhang",
+        "Shao-Hung Chan",
+        "Erdem Bıyık",
+        "Sven Koenig",
+        "Jingkai Chen"
+      ],
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "abstract": "No algorithm is best on all problems, but a real warehouse is a narrow problem: its layout and processes rarely change. Operators still run one general multi-robot planner at many sites, because experts cannot tune it for each one. In this work, which we call Late Autumn, we explore whether LLM coding agents running autonomous research can specialize a general planner for one site, trading generality for throughput, much as post-training adapts a pretrained LLM to one task. We study six campaigns on a lifelong planner that combines task assignment with multi-agent path finding, on a floor modeled on an existing automated warehouse. We find that (1) the agents raise throughput by 22--60%, and the gains hold on unseen seeds; (2) they rediscover known MAPF mechanisms, such as corridor-exit priorities, local guidance, and rollouts, and independent campaigns find the same bottleneck; (3) the gains largely carry over to another layout, a larger fleet, and other service times, shrink with a smaller fleet, and mostly vanish under an outbound-heavy demand mix; and (4) each final patch (0.7k--2.4k lines) is a chain of scored commits with a median step of 27 lines, so experts can review it, and review finds problems that the score misses; some patches multiply planner compute by over 100x. LLM agents can therefore turn each site's bias into extra throughput at little engineering cost, with reviewable patches; we expect experts to shift toward designing insightful metrics and fast simulators that mirror the real problem.",
+      "url": "https://arxiv.org/abs/2611.02391",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2611.00859",
+      "arxiv": "2611.00859",
+      "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
+      "authors": [
+        "Yijie Jin",
+        "Yuxuan Liu",
+        "Jiajun Xu",
+        "Ye Huang",
+        "Chuzhi Wang",
+        "Jiayang Li",
+        "Ruiyang Chen",
+        "Chenling Hong",
+        "Xu Wang",
+        "Zhijie Deng"
+      ],
+      "published": "2026-10-31",
+      "updated": "2026-10-31",
+      "abstract": "Real-time long-video generation requires continuous output with consistent appearance and natural motion. Existing chunk-wise autoregressive methods face challenges in both generation efficiency and long-video quality: serialized denoising and history-cache refresh require two forward passes even with one-step denoising, and longer rollouts can degrade quality and cause camera drift. We propose Wave Forcing (WF), which co-designs generation, training, and execution for continuous video output with multi-step denoising. WF uses chunk-wise causal attention to access earlier, cleaner chunks before their denoising is complete, and distributes staggered denoising and cache-refresh stages across full-model replicas to achieve 1F1C: one output chunk per concurrent forward round after pipeline fill. To adapt the model to this continuous generation process, we develop a three-stage training procedure that successively introduces mixed-noise denoising, motion supervision, and causal adaptation using self-generated history. To execute this process efficiently, Wave Runtime (WaveRT) uses Wave Parallelism (WP) for early K/V delivery and communication-computation overlap, together with optimized kernels and pipelined VAE decoding. Experiments on Wan2.1-T2V-1.3B show that 5-step WF maintains overall quality comparable to Rolling Forcing while achieving higher Dynamic Degree on both short and long videos. Our system efficiency experiments show that 4-step WF achieves 147.6 DiT FPS and 134.8 end-to-end FPS on eight H200 GPUs, yielding 7.07x the single-GPU end-to-end throughput. In DiT-only tests with matched SageAttention+W8A8 backends, denoising steps, and GPU counts, WP delivers up to 2.53x the throughput of the faster of the Ulysses and Ring context-parallel baselines across six model scales (1.3B-14B).",
+      "url": "https://arxiv.org/abs/2611.00859",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [],
+        "relevance_score": 0,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.42108",
+      "arxiv": "2610.42108",
+      "title": "Quantum 3xplorer: AI-Native Engine for Next-Generation Quantum Materials Modeling",
+      "authors": [
+        "Vsevolod Biryukov",
+        "Sergey V. Barabash",
+        "Pranab Kumar Das",
+        "Jack Deslippe",
+        "Mauro Del Ben",
+        "Felipe H. da Jornada",
+        "Yuming Shi",
+        "Johannes Voss",
+        "Zhenglu Li",
+        "Piero Altoe",
+        "Kamal Choudhary",
+        "Ruth Pachter",
+        "Steven G. Louie",
+        "Marvin L. Cohen",
+        "Timur Bazhirov"
+      ],
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "abstract": "Quantum-mechanical approaches, such as density functional theory (DFT), underpin much of modern computational materials science and are the primary source of data for AI-driven discovery. Yet the established electronic-structure codes today represent decades-old software architectures, making new physical models slow and costly to implement, validate, and deploy on emerging hardware. We present Quantum 3xplorer (Q3, pronounced \"Quantum Explorer\"), an AI-native quantum simulation engine written from scratch by AI coding agents under the direction and supervision of domain scientists. As a first and demanding validation case, we implement plane-wave pseudopotential DFT end to end: norm-conserving, ultrasoft, and projector-augmented-wave formalisms, spin polarization, DFT+U, and dispersion corrections, together with forces, stresses, structural relaxation, and electronic-structure analysis. Q3 reproduces established reference implementations, runs faster on a single core in representative benchmarks, and scales across GPU-accelerated supercomputers. It was developed in weeks rather than years. Its layered, physics-first architecture separates abstract quantum-mechanical concepts from their numerical representations, making its framework extendable beyond plane waves to other basis sets and levels of theory. Its inputs and outputs follow structured, schema-validated data standards, making every result AI-ready. Q3 is open source under Apache 2.0 and built to be reused, extended, and improved by the research community. Q3 points to a paradigm shift in how computational quantum science is done. Scientists define the physics, formulate the models, and set the criteria for validation; AI agents write, test, and optimize the code. The decades-long path from a new theory to a trusted, high-performance implementation can thus collapse to days, significantly accelerating scientific discovery.",
+      "url": "https://arxiv.org/abs/2610.42108",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.41717",
+      "arxiv": "2610.41717",
+      "title": "Evaluating Instrument-Centered AI Agents for Table-Top Science Experiments",
+      "authors": [
+        "Jiaqi Cai",
+        "Siyu Cheng",
+        "William S. Huxter",
+        "Li-Qiao Xia",
+        "Shuwen Sun",
+        "Shuai Yuan",
+        "Yifan Zhao",
+        "Naiyuan Zhang",
+        "Weijie Li",
+        "Muxian Xu",
+        "Ilija Zeljkovic",
+        "Xiaodong Xu",
+        "Pablo Jarillo-Herrero"
+      ],
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "abstract": "Reliable evaluation of AI agents for table-top science experiments has remained elusive because live instruments are hard to reset and share at scale, while instrument statefulness and safety constraints complicate evaluation. We introduce instrMCP and q-devBench, an evaluation stack for instrument-centered AI agents in table-top experiments. instrMCP connects coding agents to scientific instruments through the Model Context Protocol, serving as the instrument-access harness. q-devBench reconstructs 37 real experimental tasks from condensed-matter physics as virtual QCoDeS instruments covering quantum electronic transport, scanning probe imaging, and calibration workflows. q-devBench exposes reproducible failure modes in laboratory-agent systems while preserving realistic instrument-control workflows. Across a range of commercial coding-agent configurations, current systems already show substantial operational competence, satisfying 70-83% of measurement-related rubric criteria. The main bottleneck is scientific analysis, where performance falls to 28-46%. In an analysis-only ablation in which agents receive clean reference datasets without running the virtual measurement session, analysis performance improves substantially, closing roughly two thirds of the difference between the measurement and analysis scores. This suggests that much of the deficit arises from the measurement-session context, including tool-use overhead, longer context, measurement-planning decisions, and possible acquisition errors, while a residual scientific-reasoning gap remains. Together, instrMCP and q-devBench provide a practical sandbox for benchmarking, diagnosing, and improving laboratory AI harnesses, and establish a route from controlled virtual evaluation to future live-hardware validation.",
+      "url": "https://arxiv.org/abs/2610.41717",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "planning",
+          "reconstruct"
+        ],
+        "relevance_score": 7,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.41313",
+      "arxiv": "2610.41313",
+      "title": "Migrating a Legacy Scientific Application with an AI Coding Agent: NICAM from Fortran to Kokkos",
+      "authors": [
+        "Xuanzhengbo Ren",
+        "Takashi Shimokawabe",
+        "Hisashi Yashiro"
+      ],
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "abstract": "Migrating from Fortran to C++/Kokkos broadens access to hardware accelerators through backends such as CUDA and HIP while offering greater flexibility in software design. However, legacy Fortran applications often have large codebases, making manual porting time-consuming and costly. Recent advances in large language models (LLMs) and AI coding agents have made large-scale code migration increasingly feasible. In this study, we ported NICAM (Nonhydrostatic ICosahedral Atmospheric Model), a legacy Fortran climate model accelerated with OpenACC, to C++/Kokkos with the assistance of Claude Code. The agent translated the code directly from Fortran to C++/Kokkos under human review. Approximately 140,000 lines of Fortran were analyzed and ported into 35,000 lines of C++/Kokkos, covering the dynamical core and seven physics packages. A 100-member ensemble comparison with the original Fortran model showed that the port is statistically consistent with the original. Performance was evaluated on Miyabi-G, an NVIDIA GH200 cluster, and Sirius, an AMD MI300A cluster. Compared with the Fortran/OpenACC baseline on GH200, the port achieved application speedups of $1.71\\times$ on GH200 and $1.54\\times$ on MI300A. The CUDA build achieved a GPU kernel-time speedup of $1.38\\times$ on GH200. After normalization by peak memory bandwidth, the HIP build on MI300A achieved $0.96\\times$ the kernel performance of the Fortran/OpenACC baseline.",
+      "url": "https://arxiv.org/abs/2610.41313",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.40754",
+      "arxiv": "2610.40754",
+      "title": "DyCraft: An Agentic System for Long-Horizon 4D Scene Generation",
+      "authors": [
+        "Jeff Tan",
+        "Hang Dai",
+        "Zeqian Long",
+        "Yanzhe Lyu",
+        "R. Kenny Jones",
+        "Shangzhe Wu",
+        "Chen Geng",
+        "Jiajun Wu"
+      ],
+      "published": "2026-10-29",
+      "updated": "2026-10-29",
+      "abstract": "While frontier coding agents can generate high-quality 3D scenes and articulated assets, they struggle to create coherent long-horizon animations. When equipped with general-purpose harnesses, they frequently produce physically implausible outputs, generating objects that interpenetrate, lack physical support, or move unnaturally. Such bare agents struggle to repair these errors because they default to scripting the full animation in one pass, making it difficult to verify their work and disentangle complex spatiotemporal constraints. Drawing on the practice of human animators, we introduce DyCraft, a system for animated 3D scene generation that breaks animation into steps that coding agents can more reliably solve. DyCraft first expands the user's prompt into a detailed plan and builds a static scene. It then creates a 3D storyboard of key animation poses, where each frame is a static 3D scene that the agent can build and debug in isolation. Storyboarding decomposes the problem into pairs of verified start and end states, allowing the agent to author local motion between them with a collection of motion authoring tools. We evaluate DyCraft on 24 long-horizon, multi-shot animation tasks covering humanoid robots, human and animal characters, and physical mechanisms. Compared with a native GPT-6 agent in Codex and prior agentic baselines, DyCraft substantially reduces physical violations and generates higher-quality animated 3D scenes that are more often preferred by human raters.",
+      "url": "https://arxiv.org/abs/2610.40754",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_scene",
+        "confidence": "low",
+        "matched_terms": [
+          "3d scene",
+          "asset",
+          "coding agent"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.40565",
+      "arxiv": "2610.40565",
+      "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+      "authors": [
+        "Pranjal Aggarwal",
+        "Sean Welleck"
+      ],
+      "published": "2026-10-29",
+      "updated": "2026-10-29",
+      "abstract": "Realistic, fast robotics simulations could enable large-scale training of embodied AI models that transfer to the real world. However, despite decades of progress, available simulations cover only a narrow range of real-world tasks and physical phenomena. The core bottleneck is that creating better simulations requires significant expert effort and therefore does not scale. To address this, we introduce Gym-Anything for Robotics, a framework in which coding agents create realistic robotics simulations. Our core insight is that simulation creation is a coding agent task, so improvements in coding agents translate directly into richer and more faithful simulations. We select simulations based on U.S. GDP data to cover economically valuable physical work, define what makes a good simulation and a good task, and develop an adversarial creation-audit loop that checks each simulation and task against these definitions. Using this pipeline, we build RoboWorld, a set of 25 simulations with 25 test and 175 training RL environments of varying difficulty. Even the best frontier models fail on every RoboWorld test task, achieving an average reward of only 0.06. Building on RoboWorld, we introduce several new ways for frontier models to improve, including in-context learning across repeated attempts, a privileged teacher that reads the simulator state and teaches a student in context, self-assisted learning from the model's own privileged experience, and code policies that generate demonstrations across varied scenes to train vision-language-action models (VLAs) such as $π_{0.5}$. Each of these substantially improves performance. We release our pipeline, RL environments, and benchmark to facilitate future research. Code and data are available at https://gym-anything.github.io/robotics",
+      "url": "https://arxiv.org/abs/2610.40565",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.38468",
+      "arxiv": "2610.38468",
+      "title": "Cinematize from Unreal: Agentic Choreography for Controllable World Simulation",
+      "authors": [
+        "Zifan Song",
+        "Caihua Shan",
+        "Kaitao Song",
+        "Yifan Yang",
+        "Dongsheng Li",
+        "Cairong Zhao"
+      ],
+      "published": "2026-10-28",
+      "updated": "2026-10-28",
+      "abstract": "Controllable world simulation requires more than visually plausible frames: scenes must retain persistent state, coordinated actions, and editable temporal structure. Generative world models offer flexible visual synthesis, but their outputs do not always expose the objects and transitions needed for precise revision. Graphics engines provide executable state and direct control, yet translating language into valid operations requires specialized knowledge of assets, geometry, and interdependent APIs. We present CineU (Cinematize from Unreal), an agentic system for language-driven world orchestration and cinematic choreography within Unreal Engine. From a code-based world modeling perspective, an Unreal project serves as a persistent, inspectable world representation, while agent-generated code specifies operations whose effects can be executed and verified. CineU combines hierarchical orchestration, cascaded asset retrieval and geometry-constrained placement, capability-aligned code synthesis, and multi-stage verification with localized repair. Shared scene and timeline context coordinates entities, actions, camera trajectories, and shot boundaries while supporting dependency-aware revisions. Experiments on scene construction, selective editing, multi-shot cinematography, and component ablations show how specialized execution knowledge and engine feedback improve task completion and targeted recovery. CineU illustrates how executable world state can complement learned visual generation to support controllable and revisable simulated worlds.",
+      "url": "https://arxiv.org/abs/2610.38468",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "asset",
+          "executable world",
+          "persistent",
+          "simulation",
+          "verification"
+        ],
+        "relevance_score": 7,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.38388",
+      "arxiv": "2610.38388",
+      "title": "ELEVATE: Agentic Controller Acquisition from Task Failure for Quadrupedal Manipulation",
+      "authors": [
+        "Shiqi Liu",
+        "Radu Corcodel",
+        "Ding Zhao"
+      ],
+      "published": "2026-10-28",
+      "updated": "2026-10-28",
+      "abstract": "Quadrupedal manipulators can extend their workspace through whole-body interaction, but task-planning agents' capabilities remain limited by their available controllers. We present ELEVATE, a framework that uses persistent failures during task-program refinement to identify and acquire missing whole-body control capabilities. When these failures suggest a missing physical capability, a coding agent formulates and iteratively refines a reinforcement-learning problem, specifying behavior-specific rewards, curricula, and termination conditions. Validated controllers are added to the capability library and composed with existing controllers to retry the task. Starting from a single pretrained loco-manipulation controller, ELEVATE autonomously acquires controllers for wall-supported elevation, supported manipulation, and wall descent across a sequence of seven simulation tasks. These controllers are reused in subsequent reaching and object-manipulation tasks. On the five tasks beyond the initial controller's workspace, ELEVATE achieves mean success rates of 98.4%-100% across five independent runs, while coding-agent baselines with a fixed controller library fail to complete these tasks. The synthesized task programs, together with the acquired controllers, also transfer to a physical quadrupedal manipulator without real-robot training or fine-tuning, achieving 18/20 successes in rack retrieval and 16/20 in floor-to-rack placement. Videos and demonstrations are available at https://agentic-quad-elevate.github.io/public/.",
+      "url": "https://arxiv.org/abs/2610.38388",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_planning",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "persistent",
+          "planning",
+          "simulation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.38027",
+      "arxiv": "2610.38027",
+      "title": "METATRON: A Promptable Whole-Body Execution Layer for Humanoids",
+      "authors": [
+        "Chen Tessler",
+        "Yifeng Jiang",
+        "Alec Otto",
+        "Yi Shi",
+        "Umar Iqbal",
+        "Gal Chechik",
+        "Xue Bin Peng"
+      ],
+      "published": "2026-10-27",
+      "updated": "2026-10-27",
+      "abstract": "Humanoid controllers often require task-specific training despite sharing the need for balance and whole-body coordination. We present Metatron, a promptable whole-body execution layer combining a generative base policy with a programmable skill layer. The base policy receives partial goals, collectively called a prompt, that can combine timed body-part targets, velocity commands, and style cues. It produces diverse whole-body motions consistent with these goals. Training combines motion capture, synthetic recovery trajectories, and retargeted scene-interaction motions. After training, the policy is frozen. Stateful programs called skills express task intent as prompts at each control step, drawing rough geometric sketches that the policy turns into coordinated movement. Skills are ordinary code, refined by coding agents that analyze motion data and fit compact rules without task-specific policy training. On the physical Unitree G1, one frozen checkpoint supports walking, recovery, teleoperated object pickup, and sitting on furniture. Comparative evaluations show higher reaching success and push robustness than the tested reference-tracking pipelines. The same recipe produces climbing and acrobatics on a simulated character. Metatron enables coding agents to turn learned motor capabilities into new skills through code, without further policy training.",
+      "url": "https://arxiv.org/abs/2610.38027",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation",
+          "programmable"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.37960",
+      "arxiv": "2610.37960",
+      "title": "Agentic AI for QCD perturbation theory or: how I learned to stop worrying and love the bot",
+      "authors": [
+        "Erik Lundstrum"
+      ],
+      "published": "2026-10-27",
+      "updated": "2026-10-27",
+      "abstract": "AI coding agents are extremely effective at performing calculations that can be broken down into modular steps, each with verifiable checks of correctness. Perturbative QCD calculations satisfy both of these properties and we find that they are well-suited to solution by agentic AI systems. We discuss our methods for instructing and verifying the work of agents in one- and two-loop perturbative calculations, with a focus on pre-empting common mistakes. We find that once an agent has successfully completed one perturbative calculation, its instructions transfer very well to other similar calculations which can then be completed and verified in a matter of hours with little effort from the user.",
+      "url": "https://arxiv.org/abs/2610.37960",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.37543",
+      "arxiv": "2610.37543",
+      "title": "Rendering-Free Event Frame Simulation for Fast Reinforcement Learning of Autonomous Robot Navigation",
+      "authors": [
+        "Dequan Ou",
+        "Austin Lopez",
+        "Quentin Missinne",
+        "Christophe De Wagter",
+        "Guido C. H. E. de Croon"
+      ],
+      "published": "2026-10-27",
+      "updated": "2026-10-27",
+      "abstract": "Event cameras offer low latency, high dynamic range, and milliwatt-level power consumption, making them ideal for agile robots such as tiny drones navigating through cluttered environments. However, existing simulators generally render photorealistic images before converting them into events, making large-scale reinforcement learning prohibitively slow. We propose an analytic event simulator that exploits what event cameras fundamentally measure - moving contrast edges - to synthesize event streams directly from scene geometry and ego-motion without visual rendering. Our simulator generates a 64x64 event observation in 17 microseconds on a single GPU - over 400x faster than a state-of-the-art rendering pipeline - enabling end-to-end reinforcement learning for goal-directed obstacle avoidance to converge in under 30 minutes - three orders of magnitude faster than training on rendered events. Policies transfer zero-shot to physically based event simulations (ray-traced Isaac Sim). Our policy reaches 83% success in cluttered courses unseen during training (mid-difficulty, traversability probability approx. 0.57), at 2.4 m/s average goal velocity, and retains 70% in a simulated texture-dense indoor hall. Furthermore, we quantized the policy to a 1.2 MB int8 network running fully onboard a 56-gram Crazyflie equipped with a Prophesee GenX320 event camera and an OpenMV N6 microcontroller board. Without any fine-tuning, external processing, or positioning, the policy achieves an average success rate of 82% (5/5, 5/6, 4/6 flights) across three real-world obstacle courses of increasing difficulty. Code: https://github.com/tudelft/rendering-free-event-nav",
+      "url": "https://arxiv.org/abs/2610.37543",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "rendering",
+          "simulation"
+        ],
+        "relevance_score": 2,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.37046",
+      "arxiv": "2610.37046",
+      "title": "Learning to Code the World: Harness Evolution for Compositional 3D Reconstruction",
+      "authors": [
+        "Haoyu Yao",
+        "Chenguo Lin",
+        "Ruize Du",
+        "Yadong Mu"
+      ],
+      "published": "2026-10-27",
+      "updated": "2026-10-27",
+      "abstract": "Reconstructing editable and compositional 3D scenes from a real image requires jointly reasoning about geometry, object structure, and spatial relationships. We introduce SceneEvolve, a framework that represents 3D scenes as executable code and improves reconstruction by evolving the harness around a small open-source agent. SceneEvolve combines SceneAct, a compositional semantic action interface built on parameterized primitives, hierarchical composition, and semantic spatial relations, with SceneHarness-RSI, which leverages a stronger teacher agent to iteratively evolve the harness using feedback from development-set reconstructions. Throughout harness evolution, the model parameters, action semantics, and execution backend remain fixed. The resulting harness provides a reusable reconstruction procedure that enables the small open-source model to reconstruct unseen scenes without parameter updates or teacher assistance. Across two in-domain datasets and one out-of-domain dataset, SceneEvolve with the comparatively compact Qwen3.8-27B model improves all four evaluated reconstruction metrics while reducing mean inference time by 47.0% relative to the base model. More notably, despite relying on a substantially smaller model, SceneEvolve achieves 32.3% higher reconstruction quality than the large proprietary GPT-5.6-Sol model, while reducing mean equivalent deployment cost by 59.8%. Furthermore, the harness evolved using Qwen3.8-27B also generalizes to Kimi-K3, achieving comparable reconstruction performance to GPT-6-Astra. The project page is https://haoyu-agent.github.io/SceneEvolve.",
+      "url": "https://arxiv.org/abs/2610.37046",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "3d scene",
+          "reconstruct"
+        ],
+        "relevance_score": 2,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.36371",
+      "arxiv": "2610.36371",
+      "title": "BoxWorld: Let World Engines Control and Video Generators Render",
+      "authors": [
+        "Zike Wu",
+        "Ahmed Hatem",
+        "Chintan Trivedi",
+        "Wallace Michel Pinto Lira",
+        "Xuebin Qin",
+        "Lele Wang",
+        "Renjie Liao"
+      ],
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "abstract": "We tackle the challenge of building real-time interactive video worlds with user-defined behaviors. Such worlds must track object states, apply interaction rules, and render the resulting consequences as users act. Yet existing end-to-end video world models typically learn interaction dynamics within the generator, making it difficult to specify object-level rules and reason about their consequences. In this work, we introduce BoxWorld, which separates interaction reasoning from generative rendering. Given user-specified rules, a coding agent creates a Box World Engine that determines interaction outcomes and exposes the resulting object states through a lightweight interface of layout boxes, persistent object attributes, and dynamic status variables, leaving appearance and physical effects to generative rendering. A Box-State Generative Renderer then renders this evolving state stream into video autoregressively, enabling online control over object motion, state switches, and conditional events. Rendering this state stream is non-trivial: the renderer must respond to object-level state updates in real time while remaining coherent with the generated history. To this end, we introduce a three-stage training strategy that learns object grounding from open-domain videos and state transitions from gameplay videos, both annotated automatically, and finally performs rollout distillation on self-generated histories. We further propose PairedStateBench, a paired benchmark for fine-grained interaction control. BoxWorld substantially outperforms end-to-end world models and remains competitive across multiple public benchmarks. Project page: https://boxworld-web.github.io.",
+      "url": "https://arxiv.org/abs/2610.36371",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "gameplay",
+          "generative render",
+          "persistent",
+          "renderer",
+          "rendering"
+        ],
+        "relevance_score": 11,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.35385",
+      "arxiv": "2610.35385",
+      "title": "EmbodiedLab: Benchmarking Embodied Agents That Act to Know",
+      "authors": [
+        "Hongcheng Gao",
+        "Zelin Zheng",
+        "Alex Zhou",
+        "Jay Zhu",
+        "Shijia Ge",
+        "Yazhe Wang",
+        "Xiping Li",
+        "Jianshu Zeng",
+        "Di Wu",
+        "Xuan Shangguan",
+        "Yexing Wan",
+        "Lingyu He",
+        "Yongli Wang",
+        "Xiaohan Yu",
+        "Zhiqi Jia",
+        "Yue Liu",
+        "Bryan Hooi",
+        "Yinpeng Dong",
+        "Wentao Zhang",
+        "Sihang Wu",
+        "Xiao He"
+      ],
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "abstract": "Embodied agents are expected to accomplish real-world goals by deciding for themselves how and when to interact with their surroundings. For many such goals, changing the physical state of the world is the means rather than the end: the agent changes the state of a system through interaction, observes the feedback, and explores until it either achieves the goal itself (e.g., discovering physical laws) or learns what the goal requires; it acts to know. Manipulation benchmarks stop at acting to change, with the target state given; scientific discovery benchmarks evaluate knowing but replace physical experimentation with symbolic actions or numerical queries. We introduce EmbodiedLab, a benchmark in which a robot must act to know. Quantitative science experiments make this setting controllable: the parameters of the system are resampled for every instance, so the result cannot be known in advance, yet it can be scored exactly. Across 30 experiments in five disciplines on 14 apparatus platforms, the agent receives an objective and the apparatus, chooses its own procedure, and operates a physics-based simulated laboratory, reading the instruments through its cameras. Evaluation checks what the agent came to know, grounded in readings recorded during the episode, as well as the physical state the task requires; every experiment is verified to be solvable. We evaluate six frontier models in their developers' coding agents with native observation and control, with added perception and motion planning, and with manipulation skills distilled from the strongest agents. With native control, even the strongest agent succeeds less than half the time; for every agent, most failures arise in interacting with the apparatus, and manipulation skills help weaker agents more than perception and planning. The benchmark and its evaluation code are available at https://github.com/HexaFuture/EmbodiedLab.",
+      "url": "https://arxiv.org/abs/2610.35385",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "planning"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.34921",
+      "arxiv": "2610.34921",
+      "title": "PhysEvolve: Verifier-grounded Self-evolution for Physical Reasoning with Executable Worlds",
+      "authors": [
+        "Jinyuan Hu",
+        "Yilei Jiang",
+        "Chen Tang",
+        "Minghong Cai",
+        "Xinran Liu",
+        "Xiangyu Yue"
+      ],
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "abstract": "Physical reasoning underpins how embodied systems understand and act in the physical world, yet vision-language models (VLMs) remain unreliable on questions about dynamics and physical causality. Progress is critically constrained by the scarcity of grounded counterfactual training data, as observational videos capture only the factual trajectory that occurred. The self-evolving paradigm offers a route beyond fixed datasets by enabling models to construct their own training problems. Extending this paradigm to physics, however, requires an external source of truth that can both validate model-proposed environments and verify alternative physical outcomes under intervention. We introduce \\physevolve{}, a verifier-grounded self-evolving framework that trains VLMs for causal physical reasoning from model-proposed executable worlds and simulation-authored tasks. At each round, a shared VLM proposes executable world programs and evidence schemas; a deterministic physics engine freezes each valid world, simulates matched baseline and body-elided counterfactual branches, and synthesizes discrete, answer-bound visual tasks. Exact verifier feedback from task solving updates both the shared policy via GRPO and an adaptive curriculum over physical intents. Starting from Qwen3-VL-8B-Instruct, \\physevolve{} achieves targeted gains across PhysBench, CausalPhys, and ContPhy without human intervention data, improving PhysBench Throwing by $8.8$ points and ContPhy Counterfactual Removal and Goal-Pit by $7.4$ and $24.4$ points. These gains concentrate on interaction-sensitive and altered-world questions, demonstrating zero-shot transfer of causal principles to unseen complex dynamics (cloth, fluid, soft bodies) and real-world video.",
+      "url": "https://arxiv.org/abs/2610.34921",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_reasoning",
+        "confidence": "low",
+        "matched_terms": [
+          "curriculum",
+          "executable world",
+          "physical reasoning",
+          "physical world",
+          "physics engine",
+          "simulation",
+          "world program"
+        ],
+        "relevance_score": 11,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.34763",
+      "arxiv": "2610.34763",
+      "title": "The Physical Cost of Context: Quality-Constrained Resource Accounting for Coding Agents",
+      "authors": [
+        "Zhongming Yu",
+        "Yitong Ma",
+        "Hengjia Yu",
+        "Boqin Yuan",
+        "Xiangye Lin",
+        "Hejia Zhang",
+        "Jishen Zhao"
+      ],
+      "published": "2026-10-26",
+      "updated": "2026-11-04",
+      "abstract": "Coding agents resend a growing context on every model call, and context policies are usually judged by the prompt tokens they save. Executed work also depends on call count and prefix reuse: a caching runtime prefills only the tokens after the longest cached prefix. A shorter prompt can therefore cost more if it rewrites cached history. Our quality-gated protocol splits executed prefill into logical prompt minus reused prefix and measures KV residency, time, and energy. On 450 localization cases derived from SWE-rebench V2, preloading ten retrieved blocks (Eager) and adding anchored history compaction (Compact) both pass a five-point non-inferiority gate. In a separate 900-cell study, Eager cuts model calls by 35.7% and the GPU-energy proxy by 33.2% against on-demand search (Grep); Compact saves nothing further. Enabling prefix caching leaves Eager's prompt volume similar (+8.3%; its 95% CI spans zero) but cuts its uncached prefill by 67.7%. Deleting history can turn a token saving into extra work. With mini-SWE-agent on 100 SWE-bench Verified instances, keeping only the last five observations (Mask-5) cuts Eager's prompt volume by 33.3% but loses 135.9k reusable tokens per task. Uncached prefill rises by 608.5%, the energy proxy by 125.6%, and the policy misses the quality gate. Policies thus save physical work by shortening the trajectory and can multiply it by editing reusable history.",
+      "url": "https://arxiv.org/abs/2610.34763",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.34745",
+      "arxiv": "2610.34745",
+      "title": "SceneAgent: An Agentic Pipeline from 3D and 4D Captures to Simulation Environments",
+      "authors": [
+        "Luke Hollis",
+        "Tianxing Fan",
+        "Heng Yang"
+      ],
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "abstract": "Visual captures provide detailed scene appearance, but converting them into interactive simulation environments requires object reconstruction, physical modeling, and correction of intermediate errors. We present SceneAgent, an agentic pipeline that coordinates these steps through simulator-based visual inspection and repair. The pipeline processes 3D Gaussian Splatting (3DGS), photogrammetry, LiDAR captures, AI-generated 3DGS scenes, and 4D videos of dynamic scenes, and combines object segmentation, physical parameter estimation, part decomposition, articulation, and deformable simulation. To support policy learning, SceneAgent generates diverse object variants (\"digital sisters\") and scripted demonstrations. On a cluttered bin scene from GraspClutter6D, SceneAgent raises F1 at 1 cm for every coding agent with scorable outputs both with and without its skills, and its reconstructions are better than SimFoundry: all agent configurations exceed SimFoundry's F1 score, with a best of 60.75% versus 6.9%. On three dynamic scenes from 4DCodeBench, SceneAgent raises the mean dynamic IoU of Gemini 4 Argon from 0.86% to 99.09%. We further demonstrate diverse simulated interactions and preliminary policy transfer to a real robot.",
+      "url": "https://arxiv.org/abs/2610.34745",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "reconstruct",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.33165",
+      "arxiv": "2610.33165",
+      "title": "Construction of holomorphic SCFTs with minimal index",
+      "authors": [
+        "Du Pei"
+      ],
+      "published": "2026-10-23",
+      "updated": "2026-10-23",
+      "abstract": "It has been an open question whether there exist holomorphic VOAs with N=1 supersymmetry and Witten index 1 for any positive central charge c. The existence of such a theory with c=288 is closely related to the 576-periodicity of the TMF spectrum via the Segal-Stolz-Teichner conjecture. Here we report the construction of thousands of such theories by extending the approach initiated by Gaiotto and Johnson-Freyd via ternary codes. In addition, for every positive integer k, we also construct holomorphic N=1 VOAs of central charge c=12k with index 24/gcd(24,k) -- conjectured to be the minimum -- in a computer-aided search carried out by AI coding agents. We overcome the exponential-time barrier by using chains of smaller cells to build ternary codes, whose indices can then be evaluated via a transfer-matrix technique, and we use a symmetric orbifold construction to reduce the problem of k=12 and 24 to that of k=6. Along the way, we also establish several results on ternary codes and their indices. Using an observation relating codes and Landau-Ginzburg orbifold models, we argue that the non-chiral doubles of the ternary code VOAs can always be gapped supersymmetrically.",
+      "url": "https://arxiv.org/abs/2610.33165",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": null,
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent"
+        ],
+        "relevance_score": 3,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.32230",
+      "arxiv": "2610.32230",
+      "title": "Towards Effective and Transferable Physical Camouflage against Multi-View BEV-based 3D Perception in Autonomous Driving",
+      "authors": [
+        "Linye Lyu",
+        "Jiawei Zhou",
+        "Daojing He",
+        "Yu Li"
+      ],
+      "published": "2026-10-23",
+      "updated": "2026-10-23",
+      "abstract": "Modern autonomous driving systems widely adopt multi-view Bird's-Eye-View (BEV) based 3D perception models due to their superior performance. Despite their success, the robustness of these models against adversarial camouflage attacks remains largely unexplored. Existing camouflage attacks primarily target single-view 2D detectors, limiting their effectiveness in multi-view 3D perception settings. To address this gap, we propose BEVCA, a novel adversarial camouflage generation framework tailored for multi-view BEV-based 3D perception. Our framework integrates a BEV-feature-based adversarial loss with a multi-view neural rendering module, enabling effective and transferable camouflage attacks across different models and tasks. Extensive experiments in both digital and physical settings demonstrate that BEVCA outperforms state-of-the-art baselines and exhibits strong robustness under real-world conditions. Our code is available at https://github.com/WAVE-AT-IDEA/BEVCA.",
+      "url": "https://arxiv.org/abs/2610.32230",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_rendering",
+        "confidence": "low",
+        "matched_terms": [
+          "rendering"
+        ],
+        "relevance_score": 1,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31841",
+      "arxiv": "2610.31841",
+      "title": "FORCA: A Force-Aware Coding Agent for Contact-Rich Robot Manipulation",
+      "authors": [
+        "Xiao Tan",
+        "Yixuan Wang",
+        "Zhexi Wang",
+        "Wenzhen Yuan"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Coding agents can translate language instructions into robot programs. For contact-rich manipulation, a key challenge is to generate and refine control logic that responds to physical interaction. We present FORCA, a coding agent that takes visual observations and wrist force/torque (F/T) measurements as input to write Python programs for contact probing and force-responsive motion. Between executions, the agent inspects force records alongside visual outcomes to diagnose failures and revise both motion and force-feedback control logic. FORCA requires no demonstrations, task-specific training, or simulation. Across five real-robot tasks, we demonstrate its effectiveness in three forms of contact-rich manipulation: improving manipulation accuracy, adapting to changes in object or surface properties, and regulating contact under surface variation and object motion. Compared with a vision-only variant of the same agent, FORCA improves grasp accuracy and task success and reduces contact loss in wiping and peeling.",
+      "url": "https://arxiv.org/abs/2610.31841",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "simulation"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31834",
+      "arxiv": "2610.31834",
+      "title": "WorldMirror: Agentic Real-to-Sim Generation of Interactive Worlds from In-the-Wild Robot Demonstrations",
+      "authors": [
+        "Tianling Xu",
+        "Weijie Wan",
+        "Honghao Su",
+        "Kailun Su",
+        "Junyuan Tang",
+        "Huichi Zhou",
+        "Haozheng Zhang",
+        "Qi Xiong",
+        "Ping Luo",
+        "Wenbo Ding",
+        "Tianxing Chen",
+        "Yue Chen"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Existing approaches for robot learning in simulation often require substantial manual effort to construct scenes and specify tasks, limiting training scalability and data diversity. Meanwhile, in-the-wild robot demonstrations naturally provide diverse and realistic observations of real-world interactions. Leveraging these demonstrations for simulation requires both high-fidelity visual reconstruction and physically consistent interactions. General-purpose agents offer flexible adaptation to diverse scenarios and strong reasoning about 3D spatial relationships, while specialized generative models provide high-fidelity reconstruction of scene appearance and geometry. We introduce WorldMirror, an agentic real-to-sim framework that constructs interactive digital twins from in-the-wild robot demonstrations. Our central idea is to formulate real-to-sim construction as the iterative refinement of an executable world program. A coding agent decomposes the observed scene, plans reconstruction steps, and orchestrates specialized image and 3D generation tools, refining the program through verification feedback. A camera-pose-anchored scene representation organizes the world into static visual context, support geometry, and editable interactive assets while preserving spatial relationships among the scene, objects, and robot. The agent uses this representation to diagnose and correct reconstruction errors, enabling physically consistent interaction and trajectory replay. Experiments on DROID demonstrate that WorldMirror can reconstruct visually faithful and geometrically consistent interactive worlds while preserving the physical validity of recorded robot trajectories.",
+      "url": "https://arxiv.org/abs/2610.31834",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "asset",
+          "coding agent",
+          "executable world",
+          "reconstruct",
+          "simulation",
+          "verification",
+          "world program"
+        ],
+        "relevance_score": 13,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31651",
+      "arxiv": "2610.31651",
+      "title": "BrickWright: Agentic Creation of Physically Feasible Brick Builds",
+      "authors": [
+        "Ava Pun",
+        "Kevin Dai",
+        "Sally Chen",
+        "Maxwell Jones",
+        "Ruixuan Liu",
+        "Kangle Deng",
+        "Changliu Liu",
+        "Maneesh Agrawala",
+        "Deva Ramanan",
+        "Jun-Yan Zhu"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the text-to-brick task. Code is available on our project page: https://avalovelace1.github.io/brickwright/",
+      "url": "https://arxiv.org/abs/2610.31651",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "g_simulation",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "physical world"
+        ],
+        "relevance_score": 4,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31466",
+      "arxiv": "2610.31466",
+      "title": "AnyGameRenderer: Entity-Consistent Generative Rendering Across Games and an Entity-Level Benchmark",
+      "authors": [
+        "Ruicong Liu",
+        "Liangyang Ouyang",
+        "Fengbo Lan",
+        "Zhixiang Wang",
+        "Kaipeng Zhang"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-28",
+      "abstract": "AI coding agents can now build small playable games in minutes, but the results usually look like programmer art: gray blockouts, colored geometric primitives, and flat semantic blobs. We present AnyGameRenderer, a video-to-video generative renderer that turns such footage into high-quality visuals with characters, motion detail, and effects. Throughout, it keeps the layout, camera, and every entity's position and timing intact. Our AnyGameRenderer generalizes across a wide range of genres that agents build, such as tower defense, auto-battlers, top-down survivors, turn-based battles, kart racing, and crowd runners. AnyGameRenderer takes plain video as its game-state input, with no complex representations such as engine G-buffers, per-object class labels, or low-poly proxies. Gray blockouts, colored primitives, semantic maps, and wireframes all work as input. It also preserves entity correspondence: group counts stay correct, and entities appear and disappear on the right frame. We implement AnyGameRenderer by LoRA fine-tuning MiniMax-H3 ref2va, a 33B reference-video-conditioned video generation model. Training uses ~10k paired clips from three sources: (i) multi-stream rendering data from 38 agent-made games; (ii) two-stream rendering data from Unreal Engine, with programmatically controlled crowds, count changes, and entity scales; and (iii) real gameplay recordings, with pairs reconstructed via 3D-box detection. To evaluate the entity correspondence, we propose an entity-level benchmark of 59 held-out cases with 753 entities, scored against ground-truth boxes. Compared with the base model, AnyGameRenderer better preserves entity correspondence: temporal match rises from 50.9% to 62.9%, missed count changes fall from 34.7% to 21.3%, and fewer entities are hallucinated or left unrendered. Project page: https://alaya-lab.github.io/AnyGameRenderer.",
+      "url": "https://arxiv.org/abs/2610.31466",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_inverse",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "gameplay",
+          "generative render",
+          "playable",
+          "reconstruct",
+          "renderer",
+          "rendering"
+        ],
+        "relevance_score": 12,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.31118",
+      "arxiv": "2610.31118",
+      "title": "ProductWebBench: Evaluating Website Continuity Beyond Task Completion",
+      "authors": [
+        "Jiajun Wu",
+        "Jian Yang",
+        "Yaxin Du",
+        "Shukai Liu",
+        "Linzheng Chai",
+        "Tuney Zheng",
+        "Wei Zhang",
+        "Haitao Yang",
+        "Yan Bai",
+        "Yihang Lou",
+        "Xianglong Liu",
+        "Bryan Dai"
+      ],
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "abstract": "Frontend coding agents are usually graded on one question: did the requested target get built. Real engineering changes carry a second obligation, because the rest of the site has to keep working. We call that second obligation website continuity, and introduce ProductWebBench, a benchmark that scores both on living frontend repositories: 320 Change tasks over existing code and 80 long-horizon Build tasks. Every task freezes a repository snapshot, staged requirements, browser evidence and deterministic checks before evaluation, and enters only once a reference passes every check and plausible-wrong ones fail. A simulated user reveals the requirements one stage at a time, and every check cleared earlier stays armed for the rest of the run. Across 8,737 runs from 13 models the two come apart: of the Change runs passing every requested-work check, 28.2% still fail a continuity check -- a blank route, horizontal overflow, console errors -- and 10.8% push a browser state they had already passed back to failing. Because the same checks also run on the untouched repository, each regression carries exact provenance, not a post-hoc label: on the 586 runs where both readings exist, 18.3% are caught breaking a verified state. Interaction is a further blind spot, failing in 29.5% of runs whose static DOM already passes. ProductWebBench therefore scores a patch against the living system it lands in, not the target alone.",
+      "url": "https://arxiv.org/abs/2610.31118",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "obligation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.30292",
+      "arxiv": "2610.30292",
+      "title": "GAV: A scientific experimentation environment for PDE agents",
+      "authors": [
+        "Muheng Li",
+        "Wenlong Mou"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "Reliable feedback is essential for coding agents to develop programs for partial differential equations (PDEs). Yet evaluating these programs on new PDE problems often requires expensive reference computations, while fixed datasets restrict the range of experiments. We introduce Generator-Agent-Verifier (GAV), a scientific experimentation environment that makes new PDE problems verifiable by construction. The Generator learns a distribution of continuous reference solutions using data from numerical simulations or experimental measurements to represent a target physical regime. Using the method of manufactured solutions, it works backward from the generated reference solutions to construct matching PDE problems without a separate numerical solve. The Agent designs experiments, investigates failures, and iteratively improves its program. The Verifier evaluates candidate programs against the reference solutions and provides numerical feedback on accuracy and computational cost. This feedback can also guide the generation of new problems that probe the current program's weaknesses. We provide a theoretical analysis of evaluation reliability and guided development. Experiments on Navier-Stokes and Vlasov-Poisson-type equations across different data sources and regimes demonstrate the effectiveness of GAV. In particular, on the numerical Navier-Stokes task, GAV reduces the mean test error of three existing PDE agents by more than an order of magnitude relative to their original setups. Code is available at https://github.com/PotatoJnny/PDE-GAV.",
+      "url": "https://arxiv.org/abs/2610.30292",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.30047",
+      "arxiv": "2610.30047",
+      "title": "SWE-DIVE: Multi-Turn Coding Agent Evaluation with Dynamic User Simulation",
+      "authors": [
+        "Lorenz Brehme",
+        "Benjamin Steenhoek",
+        "Ruth Breu"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "Coding agents are typically evaluated using one-shot, well-formulated prompts. Benchmarks such as SWE-bench use existing GitHub issues as input for a coding agent and evaluate whether the agent successfully solves the task. However, in real-world use cases, prompts are often not as well-formulated or structured as existing GitHub issues. Additionally, a coding agent session is not limited to a single prompt; it typically involves a multi-turn interaction in which the user iteratively adds new tasks and requirements that the agent must fulfill. To benchmark these abilities, we developed SWE-DIVE, a dynamic, interactive validation and evaluation framework for benchmarking coding agents in a multi-turn environment. To achieve this, we introduce a user simulator that can simulate different behavioral patterns and communicate with the coding agent. We also introduce a conversation validator that evaluates the user simulator's outputs to determine whether they fulfill the initial requirements and guide the agent toward successfully solving the task. The entire framework is embedded in a Harbor environment, which orchestrates the coding agent, user simulator, and conversation validator, and executes the test environment to determine whether the agent successfully solves the task. Our results and source code are available in our GitHub repository (https://github.com/lorenzbrehme/swe-dive_usersim).",
+      "url": "https://arxiv.org/abs/2610.30047",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation",
+          "simulation"
+        ],
+        "relevance_score": 6,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.29822",
+      "arxiv": "2610.29822",
+      "title": "UserSWE: Evaluating Coding Agents in Multi-Turn Conversations with Dynamic Users",
+      "authors": [
+        "Zhan-Yu Wu",
+        "Ji Luo",
+        "Alyssa Wu",
+        "Junjielong Xu",
+        "Richeng Xuan",
+        "Zhichao Hu",
+        "Chongming Gao",
+        "Xinting Hu"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "abstract": "As coding agents become more capable, developers increasingly use them to fix bugs through multi-turn interactions. Existing benchmarks do not adequately cover this scenario. Most present a complete issue report in a single turn without interaction. Their evaluation can produce both false positives and false negatives, accepting incorrect patches or rejecting correct ones. We introduce UserSWE for evaluating coding agents' ability to fix repository-level bugs through multi-turn interactions with dynamic users and execution-grounded verdicts at every turn. Its construction pipeline turns repository history and existing single-turn benchmarks into multi-turn tasks. At each turn, information pools constrain what the simulated user can reveal, while a persona chain sampled from a transition model calibrated on 20,859 development sessions governs how it speaks. Tests run after every turn, and a pair of agents from different model families writes and gates each verdict, using test results as primary evidence and model judgment only for aspects the tests cannot resolve. We evaluate eleven agents on 72 tasks from 42 repositories and find that agent rankings change with the interaction budget. Claude Fable 5.1 resolves the most tasks in one turn, GPT-6-Astra resolves the most by the eighth turn, and Claude Opus 5 leads at most intermediate budgets. These results indicate that single-turn performance is insufficient to characterize interactive coding ability.",
+      "url": "https://arxiv.org/abs/2610.29822",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
+      "id": "arxiv-2610.29014",
+      "arxiv": "2610.29014",
+      "title": "GenXR-Bench: Benchmarking Coding Agents for Interactive XR Development",
+      "authors": [
+        "William Huang",
+        "David Li",
+        "Xiang 'Anthony' Chen",
+        "Xun Qian",
+        "Nels Numan",
+        "Zhongyi Zhou",
+        "Hyunsung Cho",
+        "Salman Muin Kayser Chishti",
+        "Ding Xia",
+        "Xincheng Huang",
+        "Jiahao Ren",
+        "Faraz Faruqi",
+        "Tianyu Xu",
+        "Yang Zhang",
+        "David Kim",
+        "Ruofei Du"
+      ],
+      "published": "2026-10-21",
+      "updated": "2026-10-22",
+      "abstract": "Coding agents are rapidly advancing from single-file generation to long-horizon repository-scale engineering, yet the evaluation of their capabilities to author interactive extended reality (XR) applications remains an open challenge. Unlike traditional software, XR applications operate within dynamic 3D physical environments where runtime robustness depends jointly on continuous user motion, spatial input, and environmental sensing. We introduce GenXR-Bench, the first benchmark for the end-to-end evaluation of coding agents in XR software development. GenXR-Bench contains 112 expert-authored tasks spanning 24 feature implementations, 21 bug repairs, and 67 application generation tasks. Held-out tests combine scripted and adaptive interactions with programmatic and visual assertions to evaluate core functionality and runtime behavior. GenXR-Bench's testing suite achieves 96.5% accuracy against blinded expert judgments of 124 candidate applications executed on consumer XR hardware. Evaluating 10 models on GenXR-Bench, we find that the strongest configuration achieves only 50.9% overall Pass@1. Failure analysis identifies recurring misunderstandings in asynchronous sensor lifecycles, physical grounding, and embodied interaction semantics. GenXR-Bench establishes a reproducible testbed for evaluating coding agents in the interactive and physically situated conditions of spatial computing.",
+      "url": "https://arxiv.org/abs/2610.29014",
+      "source_type": "arxiv",
+      "status": "pending",
+      "discovered_at": "2026-11-07",
+      "suggestion": {
+        "category": "u_verification",
+        "confidence": "low",
+        "matched_terms": [
+          "benchmark",
+          "coding agent",
+          "evaluation"
+        ],
+        "relevance_score": 5,
+        "note": "规则只用于排序；主分类必须阅读来源后确认。生成代码不一定属于生成主线。"
+      }
+    },
+    {
       "id": "arxiv-2610.27797",
       "arxiv": "2610.27797",
       "title": "Toward Agentic AI for the 6G Physical Layer: From Algorithm Discovery to Verified Baseband Silicon",
@@ -43,7 +1525,7 @@
         "Bartolomeo Stellato"
       ],
       "published": "2026-10-19",
-      "updated": "2026-10-19",
+      "updated": "2026-10-29",
       "abstract": "We present FOMTools, an open-source Python package for developing, analyzing, and deploying first-order algorithms for parametric linear and convex quadratic optimization. The user specifies an iteration in Python, with syntax close to its mathematical description. The package represents the iteration as a computation graph of affine and piecewise affine operations. To analyze worst-case performance, FOMTools formulates a mixed-integer verification problem that maximizes a convergence residual over a specified set of problem instances and initial iterates. For probabilistic performance analysis, a batched GPU simulator collects algorithm trajectories and computes statistical bounds on the probability of exceeding a specified convergence tolerance. From the same algorithm description, FOMTools generates specialized solver code for embedded hardware, multicore CPUs, and GPUs. The package first generates the numerical data, factorizations, and matrix-vector routines without any agent. A coding agent then translates the iteration into C or CUDA code and iteratively optimizes the implementation. After each phase, the package runs the generated code on sampled inputs and compares it with a reference execution. FOMTools also serves as a CVXPYgen backend, generating and optimizing solvers for parametric CVXPY problems. We demonstrate FOMTools on sparse coding, network optimization, optimal control, and portfolio rebalancing. The verification bounds reveal worst-case behavior that sampling misses. The generated solvers run up to two orders of magnitude faster than NumPy implementations, and they outperform hand-written GPU code and the OSQP solvers generated by CVXPYgen.",
       "url": "https://arxiv.org/abs/2610.26743",
       "source_type": "arxiv",
